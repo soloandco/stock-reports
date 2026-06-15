@@ -15,6 +15,7 @@
 | 종목 | 기업명 | 시장 |
 |------|--------|------|
 | [**009150**](009150-삼성전기.md) | [삼성전기](009150-삼성전기.md) | KRX |
+| [**066570**](066570-LG전자.md) | [LG전자](066570-LG전자.md) | KRX |
 | [**329180**](329180-현대중공업.md) | [HD현대중공업](329180-현대중공업.md) | KRX |
 | [**APLD**](APLD-applied-digital.md) | [Applied Digital](APLD-applied-digital.md) | NASDAQ |
 | [**AVGO**](AVGO-broadcom.md) | [Broadcom](AVGO-broadcom.md) | NASDAQ |
