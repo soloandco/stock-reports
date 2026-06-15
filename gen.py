@@ -136,8 +136,12 @@ def _collect_watchlist() -> list[tuple[str, str, str, str]]:
 
 
 def _collect_snapshots() -> list[dict]:
-    """스냅샷 복사 + 메타 dict 리스트 반환."""
-    _reset_dir(OUT_SNAP)
+    """스냅샷 복사 + 메타 dict 리스트 반환.
+
+    _reset_dir 대신 증분 복사 — 이미 있는 파일은 유지하고 새/변경 파일만 덮어씀.
+    reset하면 auto-deploy 타이밍에 따라 일부 파일이 누락·삭제될 수 있음.
+    """
+    OUT_SNAP.mkdir(parents=True, exist_ok=True)
     snaps = []
     for md in sorted(SRC_SNAP.glob("*.md")):
         fm = _frontmatter(md.read_text(encoding="utf-8"))
