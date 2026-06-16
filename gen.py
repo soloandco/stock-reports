@@ -98,7 +98,8 @@ def _reset_dir(p: Path):
     p.mkdir(parents=True)
 
 
-_VERDICT_KIND = {"매수후보": "cand", "매수관찰": "watch", "매수불가": "nobuy"}
+_VERDICT_KIND  = {"매수후보": "cand", "매수관찰": "watch", "매수불가": "nobuy"}
+_VERDICT_ORDER = {"매수후보": 0, "매수관찰": 1, "매수불가": 2}
 
 
 def _verdict_cell(verdict: str, reason: str) -> str:
@@ -551,7 +552,8 @@ def _fear_index_page(latest=None, names=None) -> str:
             "| 종목 | 기업명 | 분석일 | 판정 | Stage | TT |",
             "|------|--------|--------|------|-------|----|",
         ]
-        for s in latest[:5]:
+        top5 = sorted(latest[:5], key=lambda s: _VERDICT_ORDER.get(s['verdict'], 9))
+        for s in top5:
             name = names.get(s['ticker'], '')
             rows.append(
                 f"| [**{s['ticker']}**](snapshots/{s['fname']}) | [{name}](snapshots/{s['fname']}) | {s['created']} | {_verdict_cell(s['verdict'], s['reason'])} "
