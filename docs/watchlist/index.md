@@ -23,7 +23,10 @@
 | [**CAT**](CAT-caterpillar.md) | [Caterpillar](CAT-caterpillar.md) | NYSE |
 | [**CIFR**](CIFR-cipher-mining.md) | [Cipher Mining](CIFR-cipher-mining.md) | NASDAQ |
 | [**CORZ**](CORZ-core-scientific.md) | [Core Scientific](CORZ-core-scientific.md) | NASDAQ |
+| [**GDXU**](GDXU-gold-miners-3x.md) | [GDXU](GDXU-gold-miners-3x.md) | NYSE |
 | [**GOOGL**](GOOGL-alphabet.md) | [Alphabet](GOOGL-alphabet.md) | NASDAQ |
 | [**IREN**](IREN-iren.md) | [IREN Limited](IREN-iren.md) | NASDAQ |
 | [**NVDA**](NVDA-nvidia.md) | [NVIDIA](NVDA-nvidia.md) | NASDAQ |
+| [**QPUX**](QPUX-quantum.md) | [QPUX](QPUX-quantum.md) | NASDAQ |
+| [**SOUN**](SOUN-soundhound.md) | [SOUN](SOUN-soundhound.md) | NASDAQ |
 | [**USD**](USD-proshares-ultra-semiconductors.md) | [ProShares Ultra Semiconductors (2x)](USD-proshares-ultra-semiconductors.md) | NASDAQ |
