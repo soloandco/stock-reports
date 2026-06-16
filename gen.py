@@ -379,8 +379,15 @@ def _rank_table(title: str, ranking: list, entity_label: str,
     if not ranking:
         return [f"### {title}", "", "_데이터 없음_", ""]
 
-    header = f"| 순위 | {entity_label} | RS | 신호 | 매집일 | 분산일 |"
-    divider = "|---|---|---|---|---|---|"
+    has_ticker = any(e.get("ticker") for e in ranking)
+
+    header = f"| 순위 | {entity_label} |"
+    divider = "|---|---|"
+    if has_ticker:
+        header += " ETF/바스켓 |"
+        divider += "---|"
+    header += " RS | 신호 | 매집일 | 분산일 |"
+    divider += "---|---|---|---|"
     if show_vol_share:
         header += " 거래대금 비중 |"
         divider += "---|"
@@ -393,7 +400,10 @@ def _rank_table(title: str, ranking: list, entity_label: str,
         accum = entry.get("accum", 0)
         dist  = entry.get("dist", 0)
         emoji = _SIGNAL_EMOJI.get(sig, "⚪")
-        row = f"| {i} | {name} | {rs:+.2f} | {emoji} {sig} | {accum} | {dist} |"
+        row   = f"| {i} | {name} |"
+        if has_ticker:
+            row += f" {entry.get('ticker') or '-'} |"
+        row += f" {rs:+.2f} | {emoji} {sig} | {accum} | {dist} |"
         if show_vol_share:
             row += f" {entry.get('vol_share', 0.0):.1f}% |"
         rows.append(row)
