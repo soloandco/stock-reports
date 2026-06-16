@@ -13,6 +13,9 @@
 .verdict-watch { background: #0277bd; }  /* 매수관찰 — 파랑(관망) */
 .verdict-nobuy { background: #607d8b; }  /* 매수불가 — 회색(중립) */
 
+/* Tablesort 정렬 키 — 화면에는 숨기고 textContent에만 우선순위 숫자 노출 */
+.verdict-sort { display: none; }
+
 /* 매수불가 사유 — 배지 옆 옅은 글씨 */
 .verdict-reason {
   font-size: 0.78rem;

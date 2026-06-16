@@ -105,11 +105,13 @@ _VERDICT_ORDER = {"매수후보": 0, "매수관찰": 1, "매수불가": 2}
 def _verdict_cell(verdict: str, reason: str) -> str:
     """판정을 색상 배지 HTML로 렌더 (사유는 옆에 옅은 글씨).
 
-    md_in_html 확장으로 표 셀 내 인라인 HTML이 렌더된다. 정렬(tablesort)은
-    셀 텍스트 기준이라 같은 판정끼리 묶인다.
+    md_in_html 확장으로 표 셀 내 인라인 HTML이 렌더된다. .verdict-sort span은
+    Tablesort가 textContent로 정렬할 때 우선순위 숫자(0/1/2)를 앞에 붙여
+    매수후보→매수관찰→매수불가 순서를 강제한다.
     """
     kind = _VERDICT_KIND.get(verdict, "nobuy")
-    badge = f'<span class="verdict verdict-{kind}">{verdict}</span>'
+    sort_key = _VERDICT_ORDER.get(verdict, 9)
+    badge = f'<span class="verdict-sort">{sort_key}</span><span class="verdict verdict-{kind}">{verdict}</span>'
     if reason:
         return f'{badge} <span class="verdict-reason">({reason})</span>'
     return badge
