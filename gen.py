@@ -125,16 +125,22 @@ def _company_name(title: str) -> str:
 # --- 소스 → 출력 복사 + 메타 수집 ---
 
 def _collect_watchlist() -> list[tuple[str, str, str, str]]:
-    """type=watchlist 만 복사하고 (ticker, market, name, fname) 리스트 반환."""
+    """type=watchlist 만 복사하고 (ticker, market, name, fname) 리스트 반환.
+
+    출력 파일명은 {ticker}.md (ASCII only) — 한글 파일명은 GitHub Pages에서
+    URL 인코딩 불일치로 404가 발생하므로 여기서 강제 변환한다.
+    """
     _reset_dir(OUT_WL)
     entries = []
     for md in sorted(SRC_WL.glob("*.md")):
         fm = _frontmatter(md.read_text(encoding="utf-8"))
         if fm.get("type") != "watchlist":
             continue
-        shutil.copy(md, OUT_WL / md.name)
-        entries.append((fm.get("ticker", md.stem), fm.get("market", ""),
-                        _company_name(fm.get("title", "")), md.name))
+        ticker = fm.get("ticker", md.stem)
+        out_name = f"{ticker}.md"   # ASCII-only: 한글 파일명 → 티커만
+        shutil.copy(md, OUT_WL / out_name)
+        entries.append((ticker, fm.get("market", ""),
+                        _company_name(fm.get("title", "")), out_name))
     return entries
 
 
