@@ -14,21 +14,21 @@
 
 | 종목 | 기업명 | 시장 |
 |------|--------|------|
-| [**009150**](009150-삼성전기.md) | [삼성전기](009150-삼성전기.md) | KRX |
-| [**066570**](066570-LG전자.md) | [LG전자](066570-LG전자.md) | KRX |
-| [**161890**](161890-한국콜마.md) | [한국콜마](161890-한국콜마.md) | KRX |
-| [**278470**](278470-에이피알.md) | [에이피알](278470-에이피알.md) | KOSDAQ |
-| [**329180**](329180-현대중공업.md) | [HD현대중공업](329180-현대중공업.md) | KRX |
-| [**APLD**](APLD-applied-digital.md) | [Applied Digital](APLD-applied-digital.md) | NASDAQ |
-| [**AVGO**](AVGO-broadcom.md) | [Broadcom](AVGO-broadcom.md) | NASDAQ |
-| [**BE**](BE-bloom-energy.md) | [Bloom Energy](BE-bloom-energy.md) | NYSE |
-| [**CAT**](CAT-caterpillar.md) | [Caterpillar](CAT-caterpillar.md) | NYSE |
-| [**CIFR**](CIFR-cipher-mining.md) | [Cipher Mining](CIFR-cipher-mining.md) | NASDAQ |
-| [**CORZ**](CORZ-core-scientific.md) | [Core Scientific](CORZ-core-scientific.md) | NASDAQ |
-| [**GDXU**](GDXU-gold-miners-3x.md) | [GDXU](GDXU-gold-miners-3x.md) | NYSE |
-| [**GOOGL**](GOOGL-alphabet.md) | [Alphabet](GOOGL-alphabet.md) | NASDAQ |
-| [**IREN**](IREN-iren.md) | [IREN Limited](IREN-iren.md) | NASDAQ |
-| [**NVDA**](NVDA-nvidia.md) | [NVIDIA](NVDA-nvidia.md) | NASDAQ |
-| [**QPUX**](QPUX-quantum.md) | [QPUX](QPUX-quantum.md) | NASDAQ |
-| [**SOUN**](SOUN-soundhound.md) | [SOUN](SOUN-soundhound.md) | NASDAQ |
-| [**USD**](USD-proshares-ultra-semiconductors.md) | [ProShares Ultra Semiconductors (2x)](USD-proshares-ultra-semiconductors.md) | NASDAQ |
+| [**009150**](009150.md) | [삼성전기](009150.md) | KRX |
+| [**066570**](066570.md) | [LG전자](066570.md) | KRX |
+| [**161890**](161890.md) | [한국콜마](161890.md) | KRX |
+| [**278470**](278470.md) | [에이피알](278470.md) | KOSDAQ |
+| [**329180**](329180.md) | [HD현대중공업](329180.md) | KRX |
+| [**APLD**](APLD.md) | [Applied Digital](APLD.md) | NASDAQ |
+| [**AVGO**](AVGO.md) | [Broadcom](AVGO.md) | NASDAQ |
+| [**BE**](BE.md) | [Bloom Energy](BE.md) | NYSE |
+| [**CAT**](CAT.md) | [Caterpillar](CAT.md) | NYSE |
+| [**CIFR**](CIFR.md) | [Cipher Mining](CIFR.md) | NASDAQ |
+| [**CORZ**](CORZ.md) | [Core Scientific](CORZ.md) | NASDAQ |
+| [**GDXU**](GDXU.md) | [GDXU](GDXU.md) | NYSE |
+| [**GOOGL**](GOOGL.md) | [Alphabet](GOOGL.md) | NASDAQ |
+| [**IREN**](IREN.md) | [IREN Limited](IREN.md) | NASDAQ |
+| [**NVDA**](NVDA.md) | [NVIDIA](NVDA.md) | NASDAQ |
+| [**QPUX**](QPUX.md) | [QPUX](QPUX.md) | NASDAQ |
+| [**SOUN**](SOUN.md) | [SOUN](SOUN.md) | NASDAQ |
+| [**USD**](USD.md) | [ProShares Ultra Semiconductors (2x)](USD.md) | NASDAQ |
