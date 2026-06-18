@@ -16,6 +16,8 @@
 |------|--------|------|
 | [**009150**](009150-삼성전기.md) | [삼성전기](009150-삼성전기.md) | KRX |
 | [**066570**](066570-LG전자.md) | [LG전자](066570-LG전자.md) | KRX |
+| [**161890**](161890-한국콜마.md) | [한국콜마](161890-한국콜마.md) | KRX |
+| [**278470**](278470-에이피알.md) | [에이피알](278470-에이피알.md) | KOSDAQ |
 | [**329180**](329180-현대중공업.md) | [HD현대중공업](329180-현대중공업.md) | KRX |
 | [**APLD**](APLD-applied-digital.md) | [Applied Digital](APLD-applied-digital.md) | NASDAQ |
 | [**AVGO**](AVGO-broadcom.md) | [Broadcom](AVGO-broadcom.md) | NASDAQ |

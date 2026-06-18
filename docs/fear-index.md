@@ -5,10 +5,10 @@
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
 | [**009150**](snapshots/009150-2026-06-18.md) | [삼성전기](snapshots/009150-2026-06-18.md) | 2026-06-18 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 8/8 |
+| [**161890**](snapshots/161890-2026-06-18.md) | [한국콜마](snapshots/161890-2026-06-18.md) | 2026-06-18 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 |
+| [**278470**](snapshots/278470-2026-06-18.md) | [에이피알](snapshots/278470-2026-06-18.md) | 2026-06-18 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 8/8 |
 | [**329180**](snapshots/329180-2026-06-18.md) | [HD현대중공업](snapshots/329180-2026-06-18.md) | 2026-06-18 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 7/8 |
 | [**APLD**](snapshots/APLD-2026-06-18.md) | [Applied Digital](snapshots/APLD-2026-06-18.md) | 2026-06-18 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
-| [**AVGO**](snapshots/AVGO-2026-06-18.md) | [Broadcom](snapshots/AVGO-2026-06-18.md) | 2026-06-18 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 6/8 |
-| [**BE**](snapshots/BE-2026-06-18.md) | [Bloom Energy](snapshots/BE-2026-06-18.md) | 2026-06-18 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
 
 [→ 전체 스냅샷](snapshots/index.md)
 
@@ -41,7 +41,7 @@
 
 ## 섹터 자금 흐름
 
-> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-06-18 00:01 UTC · `--scan` 시 갱신
+> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-06-18 01:23 UTC · `--scan` 시 갱신
 >
 > 한·미는 통화·데이터 소스가 달라 **별도 순위**입니다. 두 시장 점수를 직접 비교하지 마세요.
 
@@ -65,24 +65,24 @@
 
 | 순위 | 섹터 | RS | 신호 | 매집일 | 분산일 | 거래대금 비중 |
 |---|---|---|---|---|---|---|
-| 1 | 반도체 | +11.64 | 🟢 매집 | 5 | 4 | 70.8% |
-| 2 | 건설 | +3.24 | 🟢 매집 | 5 | 4 | 4.0% |
-| 3 | 자동차 | +2.84 | 🔴 분산 | 3 | 4 | 3.3% |
-| 4 | 증권 | +2.48 | 🔴 분산 | 3 | 6 | 6.4% |
-| 5 | 2차전지 | +1.57 | 🟢 매집 | 4 | 3 | 8.7% |
-| 6 | 에너지화학 | +1.35 | 🔴 분산 | 4 | 6 | 0.1% |
-| 7 | 은행 | +1.32 | 🟢 매집 | 4 | 2 | 2.7% |
-| 8 | 철강 | +0.63 | 🔴 분산 | 4 | 5 | 0.1% |
-| 9 | 운송 | +0.39 | 🔴 분산 | 4 | 7 | 0.1% |
-| 10 | 소프트웨어 | +0.30 | ⚪ 중립 | 2 | 2 | 0.6% |
-| 11 | 화장품 | -0.09 | 🔴 분산 | 5 | 6 | 1.0% |
-| 12 | 바이오 | -0.40 | 🟢 매집 | 6 | 3 | 1.9% |
-| 13 | IT | -0.55 | 🟢 매집 | 4 | 2 | 0.1% |
-| 14 | 미디어컨텐츠 | -1.70 | 🔴 분산 | 3 | 5 | 0.2% |
+| 1 | 반도체 | +11.40 | 🟢 매집 | 6 | 4 | 71.2% |
+| 2 | 건설 | +2.72 | 🟢 매집 | 5 | 2 | 4.5% |
+| 3 | 자동차 | +2.49 | 🔴 분산 | 3 | 4 | 3.2% |
+| 4 | 증권 | +2.23 | 🔴 분산 | 3 | 6 | 6.5% |
+| 5 | 2차전지 | +1.32 | 🟢 매집 | 4 | 3 | 7.4% |
+| 6 | 은행 | +1.11 | 🟢 매집 | 4 | 2 | 2.8% |
+| 7 | 에너지화학 | +0.98 | 🔴 분산 | 4 | 5 | 0.1% |
+| 8 | 철강 | +0.34 | ⚪ 중립 | 4 | 4 | 0.1% |
+| 9 | 운송 | +0.26 | 🔴 분산 | 4 | 6 | 0.1% |
+| 10 | 소프트웨어 | +0.08 | ⚪ 중립 | 2 | 2 | 0.6% |
+| 11 | 화장품 | -0.24 | ⚪ 중립 | 5 | 5 | 1.0% |
+| 12 | 바이오 | -0.65 | 🟢 매집 | 5 | 1 | 2.1% |
+| 13 | IT | -0.72 | 🟢 매집 | 4 | 2 | 0.1% |
+| 14 | 미디어컨텐츠 | -1.79 | 🔴 분산 | 3 | 5 | 0.2% |
 
 ## 테마별 자금 흐름 (로테이션)
 
-> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-06-18 00:01 UTC
+> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-06-18 01:23 UTC
 >
 > **US**: SMH(GPU/반도체)·IRBO(AI인프라)·BOTZ(피지컬AI) ETF + 전력/DataCenter 바스켓
 > **KR**: 전력(4종)·기판(5종)·피지컬AI(3종) 균등가중 바스켓
@@ -117,7 +117,7 @@
 
 ## CNN Fear & Greed Index
 
-> 수집: 2026-06-18 00:01 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
+> 수집: 2026-06-18 01:23 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
 
 | 점수 | 전일比 | 등급 |
 |------|--------|------|
@@ -137,7 +137,7 @@
 
 ## VIX
 
-> 수집: 2026-06-18 00:01 UTC · `python monitor.py --scan` 실행 시 갱신
+> 수집: 2026-06-18 01:23 UTC · `python monitor.py --scan` 실행 시 갱신
 
 | 지수 | 현재값 | 전일比 | 등급 | 시장 국면 | 신규 진입 |
 |------|--------|--------|------|---------|---------|
