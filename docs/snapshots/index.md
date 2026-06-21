@@ -22,15 +22,16 @@
 
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
-| [009150](009150-2026-06-21.md) | [삼성전기](009150-2026-06-21.md) | 2026-06-21 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 8/8 |
-| [329180](329180-2026-06-21.md) | [HD현대중공업](329180-2026-06-21.md) | 2026-06-21 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 7/8 |
-| [APLD](APLD-2026-06-21.md) | [Applied Digital](APLD-2026-06-21.md) | 2026-06-21 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
-| [AVGO](AVGO-2026-06-21.md) | [Broadcom](AVGO-2026-06-21.md) | 2026-06-21 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 6/8 |
-| [CAT](CAT-2026-06-21.md) | [Caterpillar](CAT-2026-06-21.md) | 2026-06-21 | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 |
-| [CORZ](CORZ-2026-06-21.md) | [Core Scientific](CORZ-2026-06-21.md) | 2026-06-21 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
-| [GOOGL](GOOGL-2026-06-21.md) | [Alphabet](GOOGL-2026-06-21.md) | 2026-06-21 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
-| [NVDA](NVDA-2026-06-21.md) | [NVIDIA](NVDA-2026-06-21.md) | 2026-06-21 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
-| [USD](USD-2026-06-21.md) | [ProShares Ultra Semiconductors (2x)](USD-2026-06-21.md) | 2026-06-21 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
+| [009150](009150-2026-06-22.md) | [삼성전기](009150-2026-06-22.md) | 2026-06-22 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 8/8 |
+| [329180](329180-2026-06-22.md) | [HD현대중공업](329180-2026-06-22.md) | 2026-06-22 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 7/8 |
+| [APLD](APLD-2026-06-22.md) | [Applied Digital](APLD-2026-06-22.md) | 2026-06-22 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
+| [AVGO](AVGO-2026-06-22.md) | [Broadcom](AVGO-2026-06-22.md) | 2026-06-22 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 6/8 |
+| [CAT](CAT-2026-06-22.md) | [Caterpillar](CAT-2026-06-22.md) | 2026-06-22 | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 |
+| [CIFR](CIFR-2026-06-22.md) | [Cipher Mining](CIFR-2026-06-22.md) | 2026-06-22 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(과열)</span> | 2 | 8/8 |
+| [CORZ](CORZ-2026-06-22.md) | [Core Scientific](CORZ-2026-06-22.md) | 2026-06-22 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
+| [GOOGL](GOOGL-2026-06-22.md) | [Alphabet](GOOGL-2026-06-22.md) | 2026-06-22 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
+| [NVDA](NVDA-2026-06-22.md) | [NVIDIA](NVDA-2026-06-22.md) | 2026-06-22 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
+| [USD](USD-2026-06-22.md) | [ProShares Ultra Semiconductors (2x)](USD-2026-06-22.md) | 2026-06-22 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
 | [IREN](IREN-2026-06-19.md) | [IREN Limited](IREN-2026-06-19.md) | 2026-06-19 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 7/8 |
 | [161890](161890-2026-06-18.md) | [한국콜마](161890-2026-06-18.md) | 2026-06-18 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 |
 | [278470](278470-2026-06-18.md) | [에이피알](278470-2026-06-18.md) | 2026-06-18 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 8/8 |
@@ -39,7 +40,6 @@
 | [GDXU](GDXU-2026-06-16.md) | [GDXU](GDXU-2026-06-16.md) | 2026-06-16 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 4/8 |
 | [QPUX](QPUX-2026-06-16.md) | [QPUX](QPUX-2026-06-16.md) | 2026-06-16 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 |
 | [SOUN](SOUN-2026-06-16.md) | [SOUN](SOUN-2026-06-16.md) | 2026-06-16 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 |
-| [CIFR](CIFR-2026-06-15.md) | [Cipher Mining](CIFR-2026-06-15.md) | 2026-06-15 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
 | [BMNR](BMNR-2026-06-11.md) | [](BMNR-2026-06-11.md) | 2026-06-11 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 |
 | [CRCL](CRCL-2026-06-11.md) | [](CRCL-2026-06-11.md) | 2026-06-11 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 |
 | [META](META-2026-06-11.md) | [](META-2026-06-11.md) | 2026-06-11 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 |
