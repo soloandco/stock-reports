@@ -22,9 +22,9 @@
 
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
-| [009150](009150-2026-06-23.md) | [삼성전기](009150-2026-06-23.md) | 2026-06-23 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 8/8 |
-| [066570](066570-2026-06-23.md) | [LG전자](066570-2026-06-23.md) | 2026-06-23 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 7/8 |
-| [329180](329180-2026-06-23.md) | [HD현대중공업](329180-2026-06-23.md) | 2026-06-23 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 7/8 |
+| [009150](009150-2026-06-23.md) | [삼성전기](009150-2026-06-23.md) | 2026-06-23 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(과열)</span> | 2 | 8/8 |
+| [066570](066570-2026-06-23.md) | [LG전자](066570-2026-06-23.md) | 2026-06-23 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 7/8 |
+| [329180](329180-2026-06-23.md) | [HD현대중공업](329180-2026-06-23.md) | 2026-06-23 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 6/8 |
 | [APLD](APLD-2026-06-23.md) | [Applied Digital](APLD-2026-06-23.md) | 2026-06-23 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
 | [AVGO](AVGO-2026-06-23.md) | [Broadcom](AVGO-2026-06-23.md) | 2026-06-23 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 6/8 |
 | [CAT](CAT-2026-06-23.md) | [Caterpillar](CAT-2026-06-23.md) | 2026-06-23 | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 |
