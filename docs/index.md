@@ -2,13 +2,6 @@
 
 Weinstein 스테이지 · Minervini Trend Template · Turtle ATR 3레이어 프레임워크 기반 종목 분석.
 
-## 바로 가기
-
-- 📋 **관찰 종목** 18개 — [목록 보기](watchlist/index.md)
-- 📊 **분석 스냅샷** 26건 — [최신순 보기](snapshots/index.md)
-- 🔔 **알림** 9건 — [타임라인 보기](alerts/index.md)
-- 📊 **시장 현황** — [VIX · Fear&Greed · 섹터 흐름](fear-index.md)
-
 ## 용어 설명
 
 ??? info "📘 Stage (Weinstein 스테이지)란?"
