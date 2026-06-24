@@ -33,6 +33,7 @@
 | [**IREN**](IREN.md) | [IREN Limited](IREN.md) | NASDAQ |
 | [**LLY**](LLY.md) | [Eli Lilly](LLY.md) | NYSE |
 | [**NVDA**](NVDA.md) | [NVIDIA](NVDA.md) | NASDAQ |
+| [**PCAR**](PCAR.md) | [Paccar](PCAR.md) | NASDAQ |
 | [**QPUX**](QPUX.md) | [QPUX](QPUX.md) | NASDAQ |
 | [**SKWD**](SKWD.md) | [Skyward Specialty Insurance](SKWD.md) | NASDAQ |
 | [**SOUN**](SOUN.md) | [SOUN](SOUN.md) | NASDAQ |

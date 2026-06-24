@@ -39,6 +39,7 @@
 | [GS](GS-2026-06-25.md) | [Goldman Sachs](GS-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 |
 | [LLY](LLY-2026-06-25.md) | [Eli Lilly](LLY-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 |
 | [NVDA](NVDA-2026-06-25.md) | [NVIDIA](NVDA-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
+| [PCAR](PCAR-2026-06-25.md) | [Paccar](PCAR-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
 | [SKWD](SKWD-2026-06-25.md) | [Skyward Specialty Insurance](SKWD-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/8 |
 | [SOXS](SOXS-2026-06-25.md) | [SOXS 반도체 베어 3X](SOXS-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 |
 | [USD](USD-2026-06-25.md) | [ProShares Ultra Semiconductors (2x)](USD-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
