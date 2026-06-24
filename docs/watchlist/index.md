@@ -25,10 +25,12 @@
 | [**CAT**](CAT.md) | [Caterpillar](CAT.md) | NYSE |
 | [**CIFR**](CIFR.md) | [Cipher Mining](CIFR.md) | NASDAQ |
 | [**CORZ**](CORZ.md) | [Core Scientific](CORZ.md) | NASDAQ |
+| [**DHI**](DHI.md) | [D.R. Horton](DHI.md) | NYSE |
 | [**GDXU**](GDXU.md) | [GDXU](GDXU.md) | NYSE |
 | [**GOOGL**](GOOGL.md) | [Alphabet](GOOGL.md) | NASDAQ |
 | [**IREN**](IREN.md) | [IREN Limited](IREN.md) | NASDAQ |
 | [**NVDA**](NVDA.md) | [NVIDIA](NVDA.md) | NASDAQ |
 | [**QPUX**](QPUX.md) | [QPUX](QPUX.md) | NASDAQ |
+| [**SKWD**](SKWD.md) | [Skyward Specialty Insurance](SKWD.md) | NASDAQ |
 | [**SOUN**](SOUN.md) | [SOUN](SOUN.md) | NASDAQ |
 | [**USD**](USD.md) | [ProShares Ultra Semiconductors (2x)](USD.md) | NASDAQ |
