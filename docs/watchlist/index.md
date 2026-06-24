@@ -19,6 +19,7 @@
 | [**161890**](161890.md) | [한국콜마](161890.md) | KRX |
 | [**278470**](278470.md) | [에이피알](278470.md) | KOSDAQ |
 | [**329180**](329180.md) | [HD현대중공업](329180.md) | KRX |
+| [**AMD**](AMD.md) | [Advanced Micro Devices](AMD.md) | NASDAQ |
 | [**APLD**](APLD.md) | [Applied Digital](APLD.md) | NASDAQ |
 | [**AVGO**](AVGO.md) | [Broadcom](AVGO.md) | NASDAQ |
 | [**BE**](BE.md) | [Bloom Energy](BE.md) | NYSE |
@@ -28,7 +29,9 @@
 | [**DHI**](DHI.md) | [D.R. Horton](DHI.md) | NYSE |
 | [**GDXU**](GDXU.md) | [GDXU](GDXU.md) | NYSE |
 | [**GOOGL**](GOOGL.md) | [Alphabet](GOOGL.md) | NASDAQ |
+| [**GS**](GS.md) | [Goldman Sachs](GS.md) | NYSE |
 | [**IREN**](IREN.md) | [IREN Limited](IREN.md) | NASDAQ |
+| [**LLY**](LLY.md) | [Eli Lilly](LLY.md) | NYSE |
 | [**NVDA**](NVDA.md) | [NVIDIA](NVDA.md) | NASDAQ |
 | [**QPUX**](QPUX.md) | [QPUX](QPUX.md) | NASDAQ |
 | [**SKWD**](SKWD.md) | [Skyward Specialty Insurance](SKWD.md) | NASDAQ |
