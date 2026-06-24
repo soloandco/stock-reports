@@ -22,17 +22,17 @@
 
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
-| [009150](009150-2026-06-24.md) | [삼성전기](009150-2026-06-24.md) | 2026-06-24 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 8/8 |
-| [329180](329180-2026-06-24.md) | [HD현대중공업](329180-2026-06-24.md) | 2026-06-24 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
+| [009150](009150-2026-06-24.md) | [삼성전기](009150-2026-06-24.md) | 2026-06-24 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(과열)</span> | 2 | 8/8 |
+| [066570](066570-2026-06-24.md) | [LG전자](066570-2026-06-24.md) | 2026-06-24 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 7/8 |
+| [329180](329180-2026-06-24.md) | [HD현대중공업](329180-2026-06-24.md) | 2026-06-24 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 6/8 |
 | [APLD](APLD-2026-06-24.md) | [Applied Digital](APLD-2026-06-24.md) | 2026-06-24 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
 | [AVGO](AVGO-2026-06-24.md) | [Broadcom](AVGO-2026-06-24.md) | 2026-06-24 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 6/8 |
 | [BE](BE-2026-06-24.md) | [Bloom Energy](BE-2026-06-24.md) | 2026-06-24 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
 | [CAT](CAT-2026-06-24.md) | [Caterpillar](CAT-2026-06-24.md) | 2026-06-24 | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 |
 | [CORZ](CORZ-2026-06-24.md) | [Core Scientific](CORZ-2026-06-24.md) | 2026-06-24 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
-| [GOOGL](GOOGL-2026-06-24.md) | [Alphabet](GOOGL-2026-06-24.md) | 2026-06-24 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
+| [GOOGL](GOOGL-2026-06-24.md) | [Alphabet](GOOGL-2026-06-24.md) | 2026-06-24 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
 | [NVDA](NVDA-2026-06-24.md) | [NVIDIA](NVDA-2026-06-24.md) | 2026-06-24 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
 | [USD](USD-2026-06-24.md) | [ProShares Ultra Semiconductors (2x)](USD-2026-06-24.md) | 2026-06-24 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
-| [066570](066570-2026-06-23.md) | [LG전자](066570-2026-06-23.md) | 2026-06-23 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 7/8 |
 | [GDXU](GDXU-2026-06-23.md) | [GDXU](GDXU-2026-06-23.md) | 2026-06-23 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/8 |
 | [QPUX](QPUX-2026-06-23.md) | [QPUX](QPUX-2026-06-23.md) | 2026-06-23 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 |
 | [SOUN](SOUN-2026-06-23.md) | [SOUN](SOUN-2026-06-23.md) | 2026-06-23 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 |
