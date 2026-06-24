@@ -36,4 +36,5 @@
 | [**QPUX**](QPUX.md) | [QPUX](QPUX.md) | NASDAQ |
 | [**SKWD**](SKWD.md) | [Skyward Specialty Insurance](SKWD.md) | NASDAQ |
 | [**SOUN**](SOUN.md) | [SOUN](SOUN.md) | NASDAQ |
+| [**SOXS**](SOXS.md) | [SOXS 반도체 베어 3X](SOXS.md) | NYSE |
 | [**USD**](USD.md) | [ProShares Ultra Semiconductors (2x)](USD.md) | NASDAQ |
