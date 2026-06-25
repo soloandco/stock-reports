@@ -21,6 +21,7 @@
 | [**329180**](329180.md) | [HD현대중공업](329180.md) | KRX |
 | [**AMD**](AMD.md) | [Advanced Micro Devices](AMD.md) | NASDAQ |
 | [**APLD**](APLD.md) | [Applied Digital](APLD.md) | NASDAQ |
+| [**ASTS**](ASTS.md) | [AST SpaceMobile](ASTS.md) | NASDAQ |
 | [**AVGO**](AVGO.md) | [Broadcom](AVGO.md) | NASDAQ |
 | [**BE**](BE.md) | [Bloom Energy](BE.md) | NYSE |
 | [**CAT**](CAT.md) | [Caterpillar](CAT.md) | NYSE |
@@ -32,10 +33,13 @@
 | [**GS**](GS.md) | [Goldman Sachs](GS.md) | NYSE |
 | [**IREN**](IREN.md) | [IREN Limited](IREN.md) | NASDAQ |
 | [**LLY**](LLY.md) | [Eli Lilly](LLY.md) | NYSE |
+| [**LUNR**](LUNR.md) | [Intuitive Machines](LUNR.md) | NASDAQ |
 | [**NVDA**](NVDA.md) | [NVIDIA](NVDA.md) | NASDAQ |
 | [**PCAR**](PCAR.md) | [Paccar](PCAR.md) | NASDAQ |
 | [**QPUX**](QPUX.md) | [QPUX](QPUX.md) | NASDAQ |
+| [**RKLB**](RKLB.md) | [Rocket Lab](RKLB.md) | NASDAQ |
 | [**SKWD**](SKWD.md) | [Skyward Specialty Insurance](SKWD.md) | NASDAQ |
 | [**SOUN**](SOUN.md) | [SOUN](SOUN.md) | NASDAQ |
 | [**SOXS**](SOXS.md) | [SOXS 반도체 베어 3X](SOXS.md) | NYSE |
+| [**SPCX**](SPCX.md) | [SpaceX 추적 종목](SPCX.md) | NASDAQ |
 | [**USD**](USD.md) | [ProShares Ultra Semiconductors (2x)](USD.md) | NASDAQ |
