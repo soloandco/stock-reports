@@ -22,11 +22,11 @@
 
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
-| [009150](009150-2026-06-25.md) | [삼성전기](009150-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(과열)</span> | 2 | 8/8 |
-| [066570](066570-2026-06-25.md) | [LG전자](066570-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 7/8 |
+| [009150](009150-2026-06-25.md) | [삼성전기](009150-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 8/8 |
+| [066570](066570-2026-06-25.md) | [LG전자](066570-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 7/8 |
 | [161890](161890-2026-06-25.md) | [한국콜마](161890-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 4/8 |
 | [278470](278470-2026-06-25.md) | [에이피알](278470-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 7/8 |
-| [329180](329180-2026-06-25.md) | [HD현대중공업](329180-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 6/8 |
+| [329180](329180-2026-06-25.md) | [HD현대중공업](329180-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
 | [AMD](AMD-2026-06-25.md) | [Advanced Micro Devices](AMD-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | 2 | 8/8 |
 | [APLD](APLD-2026-06-25.md) | [Applied Digital](APLD-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
 | [AVGO](AVGO-2026-06-25.md) | [Broadcom](AVGO-2026-06-25.md) | 2026-06-25 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 6/8 |
