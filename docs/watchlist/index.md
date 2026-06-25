@@ -23,8 +23,10 @@
 | [**APLD**](APLD.md) | [Applied Digital](APLD.md) | NASDAQ |
 | [**ASTS**](ASTS.md) | [AST SpaceMobile](ASTS.md) | NASDAQ |
 | [**AVGO**](AVGO.md) | [Broadcom](AVGO.md) | NASDAQ |
+| [**BA**](BA.md) | [Boeing](BA.md) | NYSE |
 | [**BE**](BE.md) | [Bloom Energy](BE.md) | NYSE |
 | [**CAT**](CAT.md) | [Caterpillar](CAT.md) | NYSE |
+| [**CDNS**](CDNS.md) | [Cadence Design Systems](CDNS.md) | NASDAQ |
 | [**CIFR**](CIFR.md) | [Cipher Mining](CIFR.md) | NASDAQ |
 | [**CORZ**](CORZ.md) | [Core Scientific](CORZ.md) | NASDAQ |
 | [**DHI**](DHI.md) | [D.R. Horton](DHI.md) | NYSE |
@@ -36,9 +38,11 @@
 | [**LUNR**](LUNR.md) | [Intuitive Machines](LUNR.md) | NASDAQ |
 | [**NVDA**](NVDA.md) | [NVIDIA](NVDA.md) | NASDAQ |
 | [**PCAR**](PCAR.md) | [Paccar](PCAR.md) | NASDAQ |
+| [**QCOM**](QCOM.md) | [Qualcomm](QCOM.md) | NASDAQ |
 | [**QPUX**](QPUX.md) | [QPUX](QPUX.md) | NASDAQ |
 | [**RKLB**](RKLB.md) | [Rocket Lab](RKLB.md) | NASDAQ |
 | [**SKWD**](SKWD.md) | [Skyward Specialty Insurance](SKWD.md) | NASDAQ |
+| [**SNPS**](SNPS.md) | [Synopsys](SNPS.md) | NASDAQ |
 | [**SOUN**](SOUN.md) | [SOUN](SOUN.md) | NASDAQ |
 | [**SOXS**](SOXS.md) | [SOXS 반도체 베어 3X](SOXS.md) | NYSE |
 | [**SPCX**](SPCX.md) | [SpaceX 추적 종목](SPCX.md) | NASDAQ |
