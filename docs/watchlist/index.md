@@ -19,6 +19,7 @@
 | [**161890**](161890.md) | [한국콜마](161890.md) | KRX |
 | [**278470**](278470.md) | [에이피알](278470.md) | KOSDAQ |
 | [**329180**](329180.md) | [HD현대중공업](329180.md) | KRX |
+| [**AAPL**](AAPL.md) | [Apple](AAPL.md) | NASDAQ |
 | [**AMD**](AMD.md) | [Advanced Micro Devices](AMD.md) | NASDAQ |
 | [**APLD**](APLD.md) | [Applied Digital](APLD.md) | NASDAQ |
 | [**ASTS**](ASTS.md) | [AST SpaceMobile](ASTS.md) | NASDAQ |
