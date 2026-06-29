@@ -39,6 +39,7 @@
 | [**LUNR**](LUNR.md) | [Intuitive Machines](LUNR.md) | NASDAQ |
 | [**NVDA**](NVDA.md) | [NVIDIA](NVDA.md) | NASDAQ |
 | [**PCAR**](PCAR.md) | [Paccar](PCAR.md) | NASDAQ |
+| [**PLTR**](PLTR.md) | [Palantir](PLTR.md) | NASDAQ |
 | [**QCOM**](QCOM.md) | [Qualcomm](QCOM.md) | NASDAQ |
 | [**QPUX**](QPUX.md) | [QPUX](QPUX.md) | NASDAQ |
 | [**RKLB**](RKLB.md) | [Rocket Lab](RKLB.md) | NASDAQ |

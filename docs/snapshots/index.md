@@ -34,6 +34,7 @@
 | [GOOGL](GOOGL-2026-06-29.md) | [Alphabet](GOOGL-2026-06-29.md) | 2026-06-29 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
 | [GS](GS-2026-06-29.md) | [Goldman Sachs](GS-2026-06-29.md) | 2026-06-29 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
 | [NVDA](NVDA-2026-06-29.md) | [NVIDIA](NVDA-2026-06-29.md) | 2026-06-29 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
+| [PLTR](PLTR-2026-06-29.md) | [Palantir](PLTR-2026-06-29.md) | 2026-06-29 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 |
 | [RKLB](RKLB-2026-06-29.md) | [Rocket Lab](RKLB-2026-06-29.md) | 2026-06-29 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 6/8 |
 | [USD](USD-2026-06-29.md) | [ProShares Ultra Semiconductors (2x)](USD-2026-06-29.md) | 2026-06-29 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
 | [IREN](IREN-2026-06-28.md) | [IREN Limited](IREN-2026-06-28.md) | 2026-06-28 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 |
@@ -61,5 +62,4 @@
 | [SOFI](SOFI-2026-06-11.md) | [](SOFI-2026-06-11.md) | 2026-06-11 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 |
 | [CEG](CEG-2026-06-08.md) | [](CEG-2026-06-08.md) | 2026-06-08 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 |
 | [CRWV](CRWV-2026-06-08.md) | [](CRWV-2026-06-08.md) | 2026-06-08 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 3/8 |
-| [PLTR](PLTR-2026-06-08.md) | [](PLTR-2026-06-08.md) | 2026-06-08 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 |
 | [VST](VST-2026-06-08.md) | [](VST-2026-06-08.md) | 2026-06-08 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 |
