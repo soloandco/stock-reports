@@ -6,7 +6,7 @@ Weinstein 스테이지 · Minervini Trend Template · Turtle ATR 3레이어 프�
 
 - 📋 **관찰 종목** 35개 — [목록 보기](watchlist/index.md)
 - 📊 **분석 스냅샷** 41건 — [최신순 보기](snapshots/index.md)
-- 🔔 **알림** 28건 — [타임라인 보기](alerts/index.md)
+- 🔔 **알림** 29건 — [타임라인 보기](alerts/index.md)
 - 📊 **시장 현황** — [VIX · Fear&Greed · 섹터 흐름](fear-index.md)
 
 ## 용어 설명
