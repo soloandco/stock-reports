@@ -35,6 +35,7 @@
 | [CIFR](CIFR-2026-06-30.md) | [Cipher Mining](CIFR-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
 | [CORZ](CORZ-2026-06-30.md) | [Core Scientific](CORZ-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
 | [GOOGL](GOOGL-2026-06-30.md) | [Alphabet](GOOGL-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
+| [GS](GS-2026-06-30.md) | [Goldman Sachs](GS-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 |
 | [NVDA](NVDA-2026-06-30.md) | [NVIDIA](NVDA-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
 | [RKLB](RKLB-2026-06-30.md) | [Rocket Lab](RKLB-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 6/8 |
 | [USD](USD-2026-06-30.md) | [ProShares Ultra Semiconductors (2x)](USD-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
@@ -44,7 +45,6 @@
 | [BA](BA-2026-06-29.md) | [Boeing](BA-2026-06-29.md) | 2026-06-29 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/8 |
 | [DHI](DHI-2026-06-29.md) | [D.R. Horton](DHI-2026-06-29.md) | 2026-06-29 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/8 |
 | [GDXU](GDXU-2026-06-29.md) | [GDXU](GDXU-2026-06-29.md) | 2026-06-29 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/8 |
-| [GS](GS-2026-06-29.md) | [Goldman Sachs](GS-2026-06-29.md) | 2026-06-29 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
 | [IREN](IREN-2026-06-29.md) | [IREN Limited](IREN-2026-06-29.md) | 2026-06-29 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 |
 | [LLY](LLY-2026-06-29.md) | [Eli Lilly](LLY-2026-06-29.md) | 2026-06-29 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | 2 | 8/8 |
 | [LUNR](LUNR-2026-06-29.md) | [Intuitive Machines](LUNR-2026-06-29.md) | 2026-06-29 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 5/8 |
