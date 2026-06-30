@@ -129,8 +129,12 @@ def _collect_watchlist() -> list[tuple[str, str, str, str]]:
 
     출력 파일명은 {ticker}.md (ASCII only) — 한글 파일명은 GitHub Pages에서
     URL 인코딩 불일치로 404가 발생하므로 여기서 강제 변환한다.
+
+    원자적 교체: 임시 디렉터리에 복사 완료 후 OUT_WL과 스왑 — 크래시 시
+    기존 OUT_WL을 손상시키지 않는다.
     """
-    _reset_dir(OUT_WL)
+    tmp = OUT_WL.parent / f"{OUT_WL.name}_tmp"
+    _reset_dir(tmp)
     entries = []
     for md in sorted(SRC_WL.glob("*.md")):
         fm = _frontmatter(md.read_text(encoding="utf-8"))
@@ -138,9 +142,13 @@ def _collect_watchlist() -> list[tuple[str, str, str, str]]:
             continue
         ticker = fm.get("ticker", md.stem)
         out_name = f"{ticker}.md"   # ASCII-only: 한글 파일명 → 티커만
-        shutil.copy(md, OUT_WL / out_name)
+        shutil.copy(md, tmp / out_name)
         entries.append((ticker, fm.get("market", ""),
                         _company_name(fm.get("title", "")), out_name))
+    # 모든 파일 복사 완료 후 원자적 교체
+    if OUT_WL.exists():
+        shutil.rmtree(OUT_WL)
+    tmp.rename(OUT_WL)
     return entries
 
 

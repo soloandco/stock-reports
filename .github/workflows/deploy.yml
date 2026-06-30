@@ -23,6 +23,23 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
+      - name: Validate site sources
+        run: |
+          python - <<'EOF'
+          from pathlib import Path
+          errors = []
+          for f in ["docs/index.md", "docs/watchlist/index.md", "docs/snapshots/index.md"]:
+              if not Path(f).exists():
+                  errors.append(f"Missing: {f}")
+          wl = [p for p in Path("docs/watchlist").glob("*.md") if p.name != "index.md"]
+          if len(wl) == 0:
+              errors.append("docs/watchlist/ has no ticker .md files (gen.py may have failed locally)")
+          if errors:
+              for e in errors:
+                  print(f"ERROR: {e}")
+              raise SystemExit(1)
+          print(f"OK: {len(wl)} watchlist files, index files present")
+          EOF
       - run: mkdocs build --site-dir _site
       - uses: actions/upload-pages-artifact@v3
         with:
