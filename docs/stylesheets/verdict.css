@@ -163,6 +163,38 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   display: table;
 }
 
+/* 홈 대시보드 — 스탯 카드 그리드 */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.stat-card {
+  padding: 0.85rem 0.75rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.5rem;
+  background: var(--md-code-bg-color);
+  text-align: center;
+}
+
+.stat-card__num {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--md-primary-fg-color);
+}
+
+.stat-card--cand .stat-card__num  { color: #2e7d32; }
+.stat-card--watch .stat-card__num { color: #0277bd; }
+
+.stat-card__label {
+  font-size: 0.73rem;
+  color: var(--md-default-fg-color--light);
+  margin-top: 0.3rem;
+}
+
 /* TradingView 히트맵: 콘텐츠 영역 전체 너비 사용 */
 .tradingview-widget-container {
   width: 100% !important;

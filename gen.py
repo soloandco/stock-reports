@@ -205,11 +205,40 @@ def _scan_alerts() -> list[dict]:
 
 # --- 페이지 빌더 ---
 
+def _stat_cards(entries, snaps, alerts) -> str:
+    n_watch  = len(entries)
+    n_cand   = sum(1 for s in snaps if s["verdict"] == "매수후보")
+    n_obs    = sum(1 for s in snaps if s["verdict"] == "매수관찰")
+    n_snaps  = len(snaps)
+    n_alerts = len(alerts)
+    return (
+        '<div class="stat-grid">'
+        f'<a class="stat-card" href="watchlist/index.md">'
+        f'<div class="stat-card__num">{n_watch}</div>'
+        f'<div class="stat-card__label">관찰 종목</div></a>'
+        f'<a class="stat-card stat-card--cand" href="snapshots/index.md">'
+        f'<div class="stat-card__num">{n_cand}</div>'
+        f'<div class="stat-card__label">매수후보</div></a>'
+        f'<a class="stat-card stat-card--watch" href="snapshots/index.md">'
+        f'<div class="stat-card__num">{n_obs}</div>'
+        f'<div class="stat-card__label">매수관찰</div></a>'
+        f'<a class="stat-card" href="snapshots/index.md">'
+        f'<div class="stat-card__num">{n_snaps}</div>'
+        f'<div class="stat-card__label">스냅샷</div></a>'
+        f'<a class="stat-card" href="alerts/index.md">'
+        f'<div class="stat-card__num">{n_alerts}</div>'
+        f'<div class="stat-card__label">알림</div></a>'
+        '</div>'
+    )
+
+
 def _dashboard(entries, snaps, alerts, names) -> str:
     lines = [
         "# 주식 분석 리포트",
         "",
         "Weinstein 스테이지 · Minervini Trend Template · Turtle ATR 3레이어 프레임워크 기반 종목 분석.",
+        "",
+        _stat_cards(entries, snaps, alerts),
         "",
         "## 바로 가기",
         "",
