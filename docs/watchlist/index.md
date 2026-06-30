@@ -31,15 +31,21 @@
 | [**CIFR**](CIFR.md) | [Cipher Mining](CIFR.md) | NASDAQ |
 | [**CORZ**](CORZ.md) | [Core Scientific](CORZ.md) | NASDAQ |
 | [**DHI**](DHI.md) | [D.R. Horton](DHI.md) | NYSE |
+| [**DLR**](DLR.md) | [Digital Realty](DLR.md) | NYSE |
 | [**GDXU**](GDXU.md) | [GDXU](GDXU.md) | NYSE |
+| [**GEV**](GEV.md) | [GE Vernova](GEV.md) | NYSE |
 | [**GOOGL**](GOOGL.md) | [Alphabet](GOOGL.md) | NASDAQ |
 | [**GS**](GS.md) | [Goldman Sachs](GS.md) | NYSE |
 | [**IREN**](IREN.md) | [IREN Limited](IREN.md) | NASDAQ |
+| [**KMI**](KMI.md) | [Kinder Morgan](KMI.md) | NYSE |
+| [**KO**](KO.md) | [Coca-Cola](KO.md) | NYSE |
 | [**LLY**](LLY.md) | [Eli Lilly](LLY.md) | NYSE |
 | [**LUNR**](LUNR.md) | [Intuitive Machines](LUNR.md) | NASDAQ |
+| [**MS**](MS.md) | [Morgan Stanley](MS.md) | NYSE |
 | [**NVDA**](NVDA.md) | [NVIDIA](NVDA.md) | NASDAQ |
 | [**PCAR**](PCAR.md) | [Paccar](PCAR.md) | NASDAQ |
 | [**PLTR**](PLTR.md) | [Palantir](PLTR.md) | NASDAQ |
+| [**PM**](PM.md) | [Philip Morris](PM.md) | NYSE |
 | [**QCOM**](QCOM.md) | [Qualcomm](QCOM.md) | NASDAQ |
 | [**QPUX**](QPUX.md) | [QPUX](QPUX.md) | NASDAQ |
 | [**RKLB**](RKLB.md) | [Rocket Lab](RKLB.md) | NASDAQ |
