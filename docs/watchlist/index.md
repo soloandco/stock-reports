@@ -48,6 +48,7 @@
 | [**PM**](PM.md) | [Philip Morris](PM.md) | NYSE |
 | [**QCOM**](QCOM.md) | [Qualcomm](QCOM.md) | NASDAQ |
 | [**QPUX**](QPUX.md) | [QPUX](QPUX.md) | NASDAQ |
+| [**RDW**](RDW.md) | [RedWire](RDW.md) | NYSE |
 | [**RKLB**](RKLB.md) | [Rocket Lab](RKLB.md) | NASDAQ |
 | [**SKWD**](SKWD.md) | [Skyward Specialty Insurance](SKWD.md) | NASDAQ |
 | [**SNPS**](SNPS.md) | [Synopsys](SNPS.md) | NASDAQ |

@@ -56,6 +56,7 @@
 | [PM](PM-2026-06-30.md) | [Philip Morris](PM-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
 | [QCOM](QCOM-2026-06-30.md) | [Qualcomm](QCOM-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 |
 | [QPUX](QPUX-2026-06-30.md) | [QPUX](QPUX-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 |
+| [RDW](RDW-2026-06-30.md) | [RedWire](RDW-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 |
 | [RKLB](RKLB-2026-06-30.md) | [Rocket Lab](RKLB-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
 | [SKWD](SKWD-2026-06-30.md) | [Skyward Specialty Insurance](SKWD-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(과열)</span> | 2 | 6/8 |
 | [SNPS](SNPS-2026-06-30.md) | [Synopsys](SNPS-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 2/8 |
