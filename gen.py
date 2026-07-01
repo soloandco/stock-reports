@@ -207,6 +207,35 @@ def _collect_notes() -> list[dict]:
     return notes
 
 
+def _monthly_stats(notes: list[dict]) -> list[dict]:
+    """청산된 노트를 exit_date의 YYYY-MM으로 그룹핑해 승률·평균R·합계R 계산.
+
+    합계 R은 단리 합산(동시 포지션 가능성 때문에 복리 계산은 부정확).
+    월 내림차순 정렬.
+    """
+    by_month: dict[str, list[dict]] = {}
+    for n in notes:
+        if n.get("status") != "closed" or not n.get("exit_date"):
+            continue
+        month = n["exit_date"][:7]
+        by_month.setdefault(month, []).append(n)
+
+    stats = []
+    for month, group in by_month.items():
+        count = len(group)
+        wins = sum(1 for n in group if n.get("outcome") == "win")
+        r_values = [float(n["r_multiple"]) for n in group if n.get("r_multiple")]
+        stats.append({
+            "month":    month,
+            "count":    count,
+            "win_rate": (wins / count * 100) if count else 0.0,
+            "avg_r":    (sum(r_values) / len(r_values)) if r_values else 0.0,
+            "sum_r":    sum(r_values),
+        })
+    stats.sort(key=lambda s: s["month"], reverse=True)
+    return stats
+
+
 def _latest_per_ticker(snaps: list[dict]) -> list[dict]:
     """종목당 최신 스냅샷 1건만 반환.
 

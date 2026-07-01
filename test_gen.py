@@ -50,3 +50,38 @@ def test_collect_notes_sorted_by_entry_date_desc(tmp_path, monkeypatch):
     notes = gen._collect_notes()
 
     assert [n["ticker"] for n in notes] == ["BBB", "AAA"]
+
+
+def test_monthly_stats_excludes_open_notes():
+    notes = [
+        {"status": "open", "exit_date": "", "r_multiple": "", "outcome": ""},
+        {"status": "closed", "exit_date": "2026-07-05", "r_multiple": "2.0", "outcome": "win"},
+    ]
+    stats = gen._monthly_stats(notes)
+    assert len(stats) == 1
+    assert stats[0]["month"] == "2026-07"
+    assert stats[0]["count"] == 1
+
+
+def test_monthly_stats_computes_win_rate_avg_and_sum():
+    notes = [
+        {"status": "closed", "exit_date": "2026-07-05", "r_multiple": "2.0", "outcome": "win"},
+        {"status": "closed", "exit_date": "2026-07-10", "r_multiple": "-1.0", "outcome": "loss"},
+        {"status": "closed", "exit_date": "2026-07-15", "r_multiple": "2.2", "outcome": "win"},
+    ]
+    stats = gen._monthly_stats(notes)
+    assert len(stats) == 1
+    s = stats[0]
+    assert s["count"] == 3
+    assert round(s["win_rate"], 1) == 66.7
+    assert round(s["avg_r"], 2) == 1.07
+    assert round(s["sum_r"], 2) == 3.2
+
+
+def test_monthly_stats_groups_by_month_desc():
+    notes = [
+        {"status": "closed", "exit_date": "2026-06-01", "r_multiple": "1.0", "outcome": "win"},
+        {"status": "closed", "exit_date": "2026-07-01", "r_multiple": "1.0", "outcome": "win"},
+    ]
+    stats = gen._monthly_stats(notes)
+    assert [s["month"] for s in stats] == ["2026-07", "2026-06"]
