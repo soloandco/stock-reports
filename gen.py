@@ -27,9 +27,11 @@ from pathlib import Path
 ROOT      = Path(__file__).parent
 SRC_WL    = ROOT.parent / "docs" / "watchlist"
 SRC_SNAP  = SRC_WL / "snapshots"
+SRC_NOTES = ROOT.parent / "docs" / "notes"
 OUT       = ROOT / "docs"
 OUT_WL    = OUT / "watchlist"
 OUT_SNAP  = OUT / "snapshots"
+OUT_NOTES = OUT / "notes"
 OUT_ALERT = OUT / "alerts"
 FEAR_INDEX_JSON = ROOT.parent / "data" / "fear_index.json"
 SECTOR_JSON = ROOT.parent / "data" / "sector_strength.json"
@@ -176,6 +178,33 @@ def _collect_snapshots() -> list[dict]:
     snaps.sort(key=lambda s: s["ticker"])
     snaps.sort(key=lambda s: s["created"], reverse=True)
     return snaps
+
+
+def _collect_notes() -> list[dict]:
+    """docs/notes/*.md 중 type=trade-note만 복사 + 메타 dict 리스트 반환.
+
+    entry_date 내림차순. 템플릿(type 없음)은 건너뛴다. 알림 디렉터리와 같은
+    이유로 reset 없이 증분 복사 — 청산 전 노트가 배포 타이밍에 유실되면 안 됨.
+    """
+    OUT_NOTES.mkdir(parents=True, exist_ok=True)
+    notes = []
+    for md in sorted(SRC_NOTES.glob("*.md")):
+        fm = _frontmatter(md.read_text(encoding="utf-8"))
+        if fm.get("type") != "trade-note":
+            continue
+        shutil.copy(md, OUT_NOTES / md.name)
+        notes.append({
+            "ticker":     fm.get("ticker", md.stem),
+            "name":       fm.get("name", ""),
+            "entry_date": fm.get("entry_date", ""),
+            "status":     fm.get("status", "open"),
+            "exit_date":  fm.get("exit_date", ""),
+            "r_multiple": fm.get("r_multiple", ""),
+            "outcome":    fm.get("outcome", ""),
+            "fname":      md.name,
+        })
+    notes.sort(key=lambda n: n["entry_date"], reverse=True)
+    return notes
 
 
 def _latest_per_ticker(snaps: list[dict]) -> list[dict]:
