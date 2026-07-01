@@ -23,6 +23,7 @@
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
 | [009150](009150-2026-07-01.md) | [삼성전기](009150-2026-07-01.md) | 2026-07-01 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(과열)</span> | 2 | 8/8 |
+| [161890](161890-2026-07-01.md) | [한국콜마](161890-2026-07-01.md) | 2026-07-01 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | 2 | 7/8 |
 | [329180](329180-2026-07-01.md) | [HD현대중공업](329180-2026-07-01.md) | 2026-07-01 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
 | [ASTS](ASTS-2026-07-01.md) | [AST SpaceMobile](ASTS-2026-07-01.md) | 2026-07-01 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
 | [AVGO](AVGO-2026-07-01.md) | [Broadcom](AVGO-2026-07-01.md) | 2026-07-01 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
@@ -39,7 +40,6 @@
 | [NVDA](NVDA-2026-07-01.md) | [NVIDIA](NVDA-2026-07-01.md) | 2026-07-01 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
 | [USD](USD-2026-07-01.md) | [ProShares Ultra Semiconductors (2x)](USD-2026-07-01.md) | 2026-07-01 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
 | [066570](066570-2026-06-30.md) | [LG전자](066570-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
-| [161890](161890-2026-06-30.md) | [한국콜마](161890-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
 | [278470](278470-2026-06-30.md) | [에이피알](278470-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 7/8 |
 | [AAPL](AAPL-2026-06-30.md) | [Apple](AAPL-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
 | [AMD](AMD-2026-06-30.md) | [Advanced Micro Devices](AMD-2026-06-30.md) | 2026-06-30 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | 2 | 8/8 |
