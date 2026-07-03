@@ -2,7 +2,7 @@
 
 Weinstein 스테이지 · Minervini Trend Template · Turtle ATR 3레이어 프레임워크 기반 종목 분석.
 
-<div class="stat-grid"><a class="stat-card" href="watchlist/index.md"><div class="stat-card__num">42</div><div class="stat-card__label">관찰 종목</div></a><a class="stat-card stat-card--cand" href="snapshots/index.md"><div class="stat-card__num">2</div><div class="stat-card__label">매수후보</div></a><a class="stat-card stat-card--watch" href="snapshots/index.md"><div class="stat-card__num">8</div><div class="stat-card__label">매수관찰</div></a><a class="stat-card" href="snapshots/index.md"><div class="stat-card__num">48</div><div class="stat-card__label">스냅샷</div></a><a class="stat-card" href="alerts/index.md"><div class="stat-card__num">48</div><div class="stat-card__label">알림</div></a></div>
+<div class="stat-grid"><a class="stat-card" href="watchlist/index.md"><div class="stat-card__num">42</div><div class="stat-card__label">관찰 종목</div></a><a class="stat-card stat-card--cand" href="snapshots/index.md"><div class="stat-card__num">2</div><div class="stat-card__label">매수후보</div></a><a class="stat-card stat-card--watch" href="snapshots/index.md"><div class="stat-card__num">7</div><div class="stat-card__label">매수관찰</div></a><a class="stat-card" href="snapshots/index.md"><div class="stat-card__num">48</div><div class="stat-card__label">스냅샷</div></a><a class="stat-card" href="alerts/index.md"><div class="stat-card__num">48</div><div class="stat-card__label">알림</div></a></div>
 
 ## 바로 가기
 
