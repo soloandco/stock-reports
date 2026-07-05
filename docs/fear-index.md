@@ -4,11 +4,11 @@
 
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
-| [**CAT**](snapshots/CAT-2026-07-04.md) | [Caterpillar](snapshots/CAT-2026-07-04.md) | 2026-07-04 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
-| [**009150**](snapshots/009150-2026-07-04.md) | [삼성전기](snapshots/009150-2026-07-04.md) | 2026-07-04 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 8/8 |
-| [**066570**](snapshots/066570-2026-07-04.md) | [LG전자](snapshots/066570-2026-07-04.md) | 2026-07-04 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
-| [**329180**](snapshots/329180-2026-07-04.md) | [HD현대중공업](snapshots/329180-2026-07-04.md) | 2026-07-04 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 5/8 |
-| [**AVGO**](snapshots/AVGO-2026-07-04.md) | [Broadcom](snapshots/AVGO-2026-07-04.md) | 2026-07-04 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 |
+| [**066570**](snapshots/066570-2026-07-05.md) | [LG전자](snapshots/066570-2026-07-05.md) | 2026-07-05 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
+| [**CAT**](snapshots/CAT-2026-07-05.md) | [Caterpillar](snapshots/CAT-2026-07-05.md) | 2026-07-05 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
+| [**009150**](snapshots/009150-2026-07-05.md) | [삼성전기](snapshots/009150-2026-07-05.md) | 2026-07-05 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(과열)</span> | 2 | 8/8 |
+| [**329180**](snapshots/329180-2026-07-05.md) | [HD현대중공업](snapshots/329180-2026-07-05.md) | 2026-07-05 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 5/8 |
+| [**AVGO**](snapshots/AVGO-2026-07-05.md) | [Broadcom](snapshots/AVGO-2026-07-05.md) | 2026-07-05 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 |
 
 [→ 전체 스냅샷](snapshots/index.md)
 
@@ -41,7 +41,7 @@
 
 ## 섹터 자금 흐름
 
-> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-07-03 23:11 UTC · `--scan` 시 갱신
+> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-07-05 08:00 UTC · `--scan` 시 갱신
 >
 > 한·미는 통화·데이터 소스가 달라 **별도 순위**입니다. 두 시장 점수를 직접 비교하지 마세요.
 
@@ -82,7 +82,7 @@
 
 ## 테마별 자금 흐름 (로테이션)
 
-> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-07-03 23:11 UTC
+> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-07-05 08:00 UTC
 >
 > **US**: SMH(GPU/반도체)·IRBO(AI인프라)·BOTZ(피지컬AI) ETF + 전력/DataCenter 바스켓
 > **KR**: 전력(4종)·기판(5종)·피지컬AI(3종) 균등가중 바스켓
@@ -117,7 +117,7 @@
 
 ## CNN Fear & Greed Index
 
-> 수집: 2026-07-03 23:10 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
+> 수집: 2026-07-05 08:00 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
 
 | 점수 | 전일比 | 등급 |
 |------|--------|------|
@@ -137,11 +137,11 @@
 
 ## VIX
 
-> 수집: 2026-07-03 23:10 UTC · `python monitor.py --scan` 실행 시 갱신
+> 수집: 2026-07-05 08:00 UTC · `python monitor.py --scan` 실행 시 갱신
 
 | 지수 | 현재값 | 전일比 | 등급 | 시장 국면 | 신규 진입 |
 |------|--------|--------|------|---------|---------|
-| VIX (미국 S&P500) | 15.81 | -0.34 | ⚪ 중립 | 강한 상승 | ✅ 신규 진입 허용 |
+| VIX (미국 S&P500) | 16.15 | -0.44 | ⚪ 중립 | 강한 상승 | ✅ 신규 진입 허용 |
 
 ??? info "📘 VIX 등급 기준"
     | 등급 | VIX | 의미 |
