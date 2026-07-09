@@ -278,20 +278,22 @@ def _stat_cards(entries, snaps, alerts) -> str:
     n_snaps  = len(snaps)
     n_alerts = len(alerts)
     return (
+        # 주의: 원시 HTML href는 MkDocs가 재작성하지 않으므로 .md가 아니라
+        # 디렉터리 URL(use_directory_urls)로 직접 링크한다. .md면 배포 시 404.
         '<div class="stat-grid">'
-        f'<a class="stat-card" href="watchlist/index.md">'
+        f'<a class="stat-card" href="watchlist/">'
         f'<div class="stat-card__num">{n_watch}</div>'
         f'<div class="stat-card__label">관찰 종목</div></a>'
-        f'<a class="stat-card stat-card--cand" href="snapshots/index.md">'
+        f'<a class="stat-card stat-card--cand" href="snapshots/">'
         f'<div class="stat-card__num">{n_cand}</div>'
         f'<div class="stat-card__label">매수후보</div></a>'
-        f'<a class="stat-card stat-card--watch" href="snapshots/index.md">'
+        f'<a class="stat-card stat-card--watch" href="snapshots/">'
         f'<div class="stat-card__num">{n_obs}</div>'
         f'<div class="stat-card__label">매수관찰</div></a>'
-        f'<a class="stat-card" href="snapshots/index.md">'
+        f'<a class="stat-card" href="snapshots/">'
         f'<div class="stat-card__num">{n_snaps}</div>'
         f'<div class="stat-card__label">스냅샷</div></a>'
-        f'<a class="stat-card" href="alerts/index.md">'
+        f'<a class="stat-card" href="alerts/">'
         f'<div class="stat-card__num">{n_alerts}</div>'
         f'<div class="stat-card__label">알림</div></a>'
         '</div>'

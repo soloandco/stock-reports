@@ -85,3 +85,13 @@ def test_monthly_stats_groups_by_month_desc():
     ]
     stats = gen._monthly_stats(notes)
     assert [s["month"] for s in stats] == ["2026-07", "2026-06"]
+
+
+def test_stat_cards_use_directory_urls_not_md():
+    # MkDocs는 원시 HTML의 href를 재작성하지 않는다 → .md 링크는 배포 시 404.
+    # 홈 상단 stat-card는 디렉터리 URL(use_directory_urls)로 링크해야 한다.
+    html = gen._stat_cards([], [], [])
+    assert "index.md" not in html
+    assert 'href="watchlist/"' in html
+    assert 'href="snapshots/"' in html
+    assert 'href="alerts/"' in html
