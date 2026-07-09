@@ -33,6 +33,7 @@ OUT_WL    = OUT / "watchlist"
 OUT_SNAP  = OUT / "snapshots"
 OUT_NOTES = OUT / "notes"
 OUT_ALERT = OUT / "alerts"
+OUT_POS   = OUT / "positions"
 FEAR_INDEX_JSON = ROOT.parent / "data" / "fear_index.json"
 SECTOR_JSON = ROOT.parent / "data" / "sector_strength.json"
 TRADE_REPORT_JSON = ROOT.parent / "data" / "trade_report.json"
@@ -251,6 +252,46 @@ def _latest_per_ticker(snaps: list[dict]) -> list[dict]:
     return result
 
 
+def _collect_positions() -> list[dict]:
+    """현재 열린 매수후보/관찰 포지션을 core.positions로 복원해 dict 리스트로 반환.
+
+    진입가 = 첫 매수전환 스냅샷가, 현재가 = 최신 스냅샷가(라이브 fetch 없음).
+    core 미탑재(스냅샷 없음 등)면 빈 리스트. 렌더러는 plain dict만 받아 테스트 가능.
+    """
+    import sys
+    if str(ROOT.parent) not in sys.path:
+        sys.path.insert(0, str(ROOT.parent))
+    try:
+        from core.outcome import load_snapshot_series
+        from core.positions import build_open_positions
+    except ImportError:
+        return []
+
+    snaps_by_ticker, market_by_ticker = load_snapshot_series(SRC_SNAP)
+    positions = build_open_positions(snaps_by_ticker, market_by_ticker)
+    return [{
+        "ticker":        p.ticker,
+        "market":        p.market,
+        "verdict":       p.verdict,
+        "entry_date":    p.entry_date.isoformat(),
+        "current_date":  p.current_date.isoformat(),
+        "entry_price":   p.entry_price,
+        "current_price": p.current_price,
+        "return_pct":    p.return_pct,
+        "r_multiple":    p.r_multiple,
+        "to_stop_pct":   p.to_stop_pct,
+        "to_target_pct": p.to_target_pct,
+        "days_held":     p.days_held,
+    } for p in positions]
+
+
+def _fmt_price(market: str, value: float) -> str:
+    """시장별 통화 표기 — KRX는 ₩ 정수, 그 외는 $ 소수 2자리."""
+    if market.upper() in ("KRX", "KOSPI", "KOSDAQ"):
+        return f"₩{value:,.0f}"
+    return f"${value:,.2f}"
+
+
 def _scan_alerts() -> list[dict]:
     """alerts/ 의 알림 페이지(uid.md) 메타를 최신순으로 반환. (삭제하지 않음)"""
     OUT_ALERT.mkdir(parents=True, exist_ok=True)
@@ -271,12 +312,13 @@ def _scan_alerts() -> list[dict]:
 
 # --- 페이지 빌더 ---
 
-def _stat_cards(entries, snaps, alerts) -> str:
+def _stat_cards(entries, snaps, alerts, positions=None) -> str:
     n_watch  = len(entries)
     n_cand   = sum(1 for s in snaps if s["verdict"] == "매수후보")
     n_obs    = sum(1 for s in snaps if s["verdict"] == "매수관찰")
     n_snaps  = len(snaps)
     n_alerts = len(alerts)
+    n_pos    = len(positions or [])
     return (
         # 주의: 원시 HTML href는 MkDocs가 재작성하지 않으므로 .md가 아니라
         # 디렉터리 URL(use_directory_urls)로 직접 링크한다. .md면 배포 시 404.
@@ -290,6 +332,9 @@ def _stat_cards(entries, snaps, alerts) -> str:
         f'<a class="stat-card stat-card--watch" href="snapshots/">'
         f'<div class="stat-card__num">{n_obs}</div>'
         f'<div class="stat-card__label">매수관찰</div></a>'
+        f'<a class="stat-card" href="positions/">'
+        f'<div class="stat-card__num">{n_pos}</div>'
+        f'<div class="stat-card__label">오픈 포지션</div></a>'
         f'<a class="stat-card" href="snapshots/">'
         f'<div class="stat-card__num">{n_snaps}</div>'
         f'<div class="stat-card__label">스냅샷</div></a>'
@@ -300,17 +345,18 @@ def _stat_cards(entries, snaps, alerts) -> str:
     )
 
 
-def _dashboard(entries, snaps, alerts, names) -> str:
+def _dashboard(entries, snaps, alerts, names, positions=None) -> str:
     lines = [
         "# 주식 분석 리포트",
         "",
         "Weinstein 스테이지 · Minervini Trend Template · Turtle ATR 3레이어 프레임워크 기반 종목 분석.",
         "",
-        _stat_cards(entries, snaps, alerts),
+        _stat_cards(entries, snaps, alerts, positions),
         "",
         "## 바로 가기",
         "",
         f"- 📋 **관찰 종목** {len(entries)}개 — [목록 보기](watchlist/index.md)",
+        f"- 💹 **오픈 포지션** {len(positions or [])}개 — [수익률·R 보기](positions/index.md)",
         f"- 📊 **분석 스냅샷** {len(snaps)}건 — [최신순 보기](snapshots/index.md)",
         f"- 🔔 **알림** {len(alerts)}건 — [타임라인 보기](alerts/index.md)" if alerts else "- 🔔 **알림** 없음",
         "- 📊 **시장 현황** — [VIX · Fear&Greed · 섹터 흐름](fear-index.md)",
@@ -417,6 +463,61 @@ def _alerts_index(alerts, names) -> str:
     lines += ["| 발생일 | 종목 | 기업명 | 유형 |", "|--------|------|--------|------|"]
     for a in alerts:
         lines.append(f"| {a['created']} | [{a['ticker']}]({a['fname']}) | [{names.get(a['ticker'], '')}]({a['fname']}) | {a['alert']} |")
+    return "\n".join(lines) + "\n"
+
+
+def _positions_index(positions: list[dict], names: dict) -> str:
+    """열린 매수 포지션의 진입가 대비 현재 수익률·R 표(진입 R-배수 내림차순)."""
+    lines = [
+        "# 오픈 포지션",
+        "",
+        "현재 **매수후보/매수관찰** 판정인 종목의 진입가 대비 현재 수익률·R-배수. "
+        "진입가 = 비매수→매수로 전환된 **첫 스냅샷 가격**, 현재가 = **최신 스냅샷 가격**입니다.",
+        "",
+        '!!! warning "가정된 진입 (실제 체결 아님)"',
+        "    진입가는 판정이 매수로 바뀐 시점의 분석용 스냅샷 가격이며, 실제 매매 체결가가 "
+        "아닙니다. R-배수·수익률은 그 가정 진입가 기준의 참고 수치입니다.",
+        "",
+    ]
+    if not positions:
+        lines += [
+            '!!! info "열린 포지션 없음"',
+            "    현재 매수후보/매수관찰 판정인 종목이 없습니다. "
+            "`python monitor.py --scan` 으로 스냅샷을 갱신하세요.",
+        ]
+        return "\n".join(lines) + "\n"
+
+    rows = sorted(positions, key=lambda p: p["r_multiple"], reverse=True)
+    lines += [
+        "| 종목 | 판정 | 진입일 | 진입가 | 현재가 | 수익률 | R | 손절까지 | 타겟까지 | 보유 |",
+        "|------|------|--------|--------|--------|--------|---|---------|---------|------|",
+    ]
+    for p in rows:
+        t = p["ticker"]
+        name = names.get(t, "")
+        link = f"../snapshots/{t}-{p['current_date']}.md"
+        dot = "🟢" if p["r_multiple"] > 0 else ("🔴" if p["r_multiple"] < 0 else "⚪")
+        lines.append(
+            f"| [**{t}**]({link}) {name} | {_verdict_cell(p['verdict'], '')} "
+            f"| {p['entry_date'][5:]} "
+            f"| {_fmt_price(p['market'], p['entry_price'])} "
+            f"| {_fmt_price(p['market'], p['current_price'])} "
+            f"| {dot} {p['return_pct']:+.1f}% "
+            f"| {p['r_multiple']:+.1f}R "
+            f"| {p['to_stop_pct']:+.1f}% "
+            f"| {p['to_target_pct']:+.1f}% "
+            f"| {p['days_held']}일 |"
+        )
+
+    n = len(rows)
+    avg_r = sum(p["r_multiple"] for p in rows) / n
+    wins = sum(1 for p in rows if p["r_multiple"] > 0)
+    lines += [
+        "",
+        f"**합계** {n}포지션 · 평균 {avg_r:+.1f}R · 양의 R {wins}/{n}",
+        "",
+        DISCLAIMER,
+    ]
     return "\n".join(lines) + "\n"
 
 
@@ -803,15 +904,19 @@ def main():
     snaps   = _collect_snapshots()          # 전체 히스토리 (파일 복사 완료)
     latest  = _latest_per_ticker(snaps)     # 인덱스·대시보드용: 종목당 최신 1건
     alerts  = _scan_alerts()
+    positions = _collect_positions()        # 현재 열린 매수후보/관찰 포지션
     names   = {ticker: name for ticker, _market, name, _fname in entries}
 
-    (OUT / "index.md").write_text(_dashboard(entries, latest, alerts, names), encoding="utf-8")
+    OUT_POS.mkdir(parents=True, exist_ok=True)
+    (OUT / "index.md").write_text(_dashboard(entries, latest, alerts, names, positions), encoding="utf-8")
     (OUT / "fear-index.md").write_text(_fear_index_page(latest, names), encoding="utf-8")
     (OUT_WL / "index.md").write_text(_watchlist_index(entries), encoding="utf-8")
     (OUT_SNAP / "index.md").write_text(_snapshots_index(latest, names), encoding="utf-8")
     (OUT_ALERT / "index.md").write_text(_alerts_index(alerts, names), encoding="utf-8")
+    (OUT_POS / "index.md").write_text(_positions_index(positions, names), encoding="utf-8")
 
-    print(f"생성 완료: 관찰 {len(entries)}개 · 스냅샷 {len(latest)}종목({len(snaps)}건) · 알림 {len(alerts)}건")
+    print(f"생성 완료: 관찰 {len(entries)}개 · 스냅샷 {len(latest)}종목({len(snaps)}건) "
+          f"· 알림 {len(alerts)}건 · 오픈 포지션 {len(positions)}개")
 
 
 if __name__ == "__main__":

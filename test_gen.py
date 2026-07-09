@@ -95,3 +95,51 @@ def test_stat_cards_use_directory_urls_not_md():
     assert 'href="watchlist/"' in html
     assert 'href="snapshots/"' in html
     assert 'href="alerts/"' in html
+    assert 'href="positions/"' in html
+
+
+# ── 오픈 포지션 페이지 ──────────────────────────────────────────────────────
+
+def _pos(ticker: str, r: float, **over) -> dict:
+    base = {
+        "ticker": ticker, "market": "NASDAQ", "verdict": "매수후보",
+        "entry_date": "2026-06-30", "current_date": "2026-07-09",
+        "entry_price": 100.0, "current_price": 100.0 + r * 10,
+        "return_pct": r * 10, "r_multiple": r,
+        "to_stop_pct": -10.0, "to_target_pct": 20.0, "days_held": 9,
+    }
+    base.update(over)
+    return base
+
+
+def test_positions_index_sorts_by_r_desc():
+    md = gen._positions_index([_pos("LOW", 0.5), _pos("HIGH", 2.5)], {})
+    assert md.index("HIGH") < md.index("LOW")
+
+
+def test_positions_index_empty_shows_notice():
+    md = gen._positions_index([], {})
+    assert "열린 포지션 없음" in md
+
+
+def test_positions_index_footer_aggregates():
+    md = gen._positions_index([_pos("A", 2.0), _pos("B", -1.0)], {})
+    assert "2포지션" in md
+    assert "양의 R 1/2" in md
+
+
+def test_positions_index_krw_currency():
+    md = gen._positions_index([_pos("005930", 1.0, market="KRX",
+                                     entry_price=70000, current_price=80000)], {})
+    assert "₩70,000" in md
+    assert "₩80,000" in md
+
+
+def test_positions_index_links_to_dated_snapshot():
+    md = gen._positions_index([_pos("NVDA", 1.0)], {})
+    assert "../snapshots/NVDA-2026-07-09.md" in md
+
+
+def test_fmt_price_us_vs_kr():
+    assert gen._fmt_price("NASDAQ", 181.05) == "$181.05"
+    assert gen._fmt_price("KRX", 70000) == "₩70,000"
