@@ -122,6 +122,14 @@ def test_positions_index_empty_shows_notice():
     assert "열린 포지션 없음" in md
 
 
+def test_positions_index_has_r_explainer():
+    # 공개 페이지에 R 개념 설명(접이식)이 항상 있어야 한다 — 초보 열람자 대상.
+    md = gen._positions_index([], {})
+    assert "R이 뭔가요" in md
+    assert "각오한" in md          # 손절폭 설명
+    assert "+1.5R" in md           # 규칙 트리거 표
+
+
 def test_positions_index_footer_aggregates():
     md = gen._positions_index([_pos("A", 2.0), _pos("B", -1.0)], {})
     assert "2포지션" in md
