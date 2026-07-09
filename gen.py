@@ -34,9 +34,11 @@ OUT_SNAP  = OUT / "snapshots"
 OUT_NOTES = OUT / "notes"
 OUT_ALERT = OUT / "alerts"
 OUT_POS   = OUT / "positions"
+OUT_PERF  = OUT / "performance"
 FEAR_INDEX_JSON = ROOT.parent / "data" / "fear_index.json"
 SECTOR_JSON = ROOT.parent / "data" / "sector_strength.json"
 TRADE_REPORT_JSON = ROOT.parent / "data" / "trade_report.json"
+COMPLETED_TRADES_JSON = ROOT.parent / "data" / "completed_trades.json"
 
 DISCLAIMER = """\
 !!! warning "투자 유의 / Disclaimer"
@@ -276,6 +278,7 @@ def _collect_positions() -> list[dict]:
         "entry_date":    p.entry_date.isoformat(),
         "current_date":  p.current_date.isoformat(),
         "entry_price":   p.entry_price,
+        "stop_price":    p.stop_price,
         "current_price": p.current_price,
         "return_pct":    p.return_pct,
         "r_multiple":    p.r_multiple,
@@ -283,6 +286,16 @@ def _collect_positions() -> list[dict]:
         "to_target_pct": p.to_target_pct,
         "days_held":     p.days_held,
     } for p in positions]
+
+
+def _collect_completed_trades() -> dict:
+    """data/completed_trades.json 로드 (--completed-trades 산출물). 없으면 {}."""
+    if not COMPLETED_TRADES_JSON.exists():
+        return {}
+    try:
+        return json.loads(COMPLETED_TRADES_JSON.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
 
 
 def _fmt_price(market: str, value: float) -> str:
@@ -335,6 +348,9 @@ def _stat_cards(entries, snaps, alerts, positions=None) -> str:
         f'<a class="stat-card" href="positions/">'
         f'<div class="stat-card__num">{n_pos}</div>'
         f'<div class="stat-card__label">오픈 포지션</div></a>'
+        f'<a class="stat-card" href="performance/">'
+        f'<div class="stat-card__num">📈</div>'
+        f'<div class="stat-card__label">전략 성과</div></a>'
         f'<a class="stat-card" href="snapshots/">'
         f'<div class="stat-card__num">{n_snaps}</div>'
         f'<div class="stat-card__label">스냅샷</div></a>'
@@ -356,7 +372,8 @@ def _dashboard(entries, snaps, alerts, names, positions=None) -> str:
         "## 바로 가기",
         "",
         f"- 📋 **관찰 종목** {len(entries)}개 — [목록 보기](watchlist/index.md)",
-        f"- 💹 **오픈 포지션** {len(positions or [])}개 — [수익률·R 보기](positions/index.md)",
+        f"- 💹 **오픈 포지션** {len(positions or [])}개 — [수익률·R·시드 계산 보기](positions/index.md)",
+        "- 📈 **전략 성과** — [손익비·기대값·승률 보기](performance/index.md)",
         f"- 📊 **분석 스냅샷** {len(snaps)}건 — [최신순 보기](snapshots/index.md)",
         f"- 🔔 **알림** {len(alerts)}건 — [타임라인 보기](alerts/index.md)" if alerts else "- 🔔 **알림** 없음",
         "- 📊 **시장 현황** — [VIX · Fear&Greed · 섹터 흐름](fear-index.md)",
@@ -466,6 +483,16 @@ def _alerts_index(alerts, names) -> str:
     return "\n".join(lines) + "\n"
 
 
+_SEED_PANEL = """\
+<div class="seed-panel">
+<label>시드 (원): <input type="number" id="seed-input" min="0" step="100000" placeholder="예: 10000000"></label>
+&nbsp;&nbsp;<label>트레이드당 리스크: <input type="number" id="risk-input" min="0.1" step="0.1" value="1" style="width:4.5em"> %</label>
+<p class="seed-hint">💡 시드를 입력하면 종목별 <b>주수·손익(원)</b>과 아래 <b>포트폴리오 요약</b>이 계산됩니다. 시드는 이 브라우저에만 저장되며 서버·공개 저장소에 올라가지 않습니다.</p>
+<div id="seed-summary"></div>
+</div>
+"""
+
+
 def _positions_index(positions: list[dict], names: dict) -> str:
     """열린 매수 포지션의 진입가 대비 현재 수익률·R 표(진입 R-배수 내림차순)."""
     lines = [
@@ -511,8 +538,10 @@ def _positions_index(positions: list[dict], names: dict) -> str:
 
     rows = sorted(positions, key=lambda p: p["r_multiple"], reverse=True)
     lines += [
-        "| 종목 | 판정 | 진입일 | 진입가 | 현재가 | 수익률 | R | 손절까지 | 타겟까지 | 보유 |",
-        "|------|------|--------|--------|--------|--------|---|---------|---------|------|",
+        _SEED_PANEL,
+        "",
+        "| 종목 | 판정 | 진입일 | 진입가 | 현재가 | 수익률 | R | 손절까지 | 타겟까지 | 보유 | 주수 | 손익(원) |",
+        "|------|------|--------|--------|--------|--------|---|---------|---------|------|------|---------|",
     ]
     for p in rows:
         t = p["ticker"]
@@ -528,15 +557,90 @@ def _positions_index(positions: list[dict], names: dict) -> str:
             f"| {p['r_multiple']:+.1f}R "
             f"| {p['to_stop_pct']:+.1f}% "
             f"| {p['to_target_pct']:+.1f}% "
-            f"| {p['days_held']}일 |"
+            f"| {p['days_held']}일 "
+            f'| <span class="js-shares" data-ticker="{t}">—</span> '
+            f'| <span class="js-pnl" data-ticker="{t}">—</span> |'
         )
 
     n = len(rows)
     avg_r = sum(p["r_multiple"] for p in rows) / n
     wins = sum(1 for p in rows if p["r_multiple"] > 0)
+    pos_data = [{"ticker": p["ticker"], "entry": p["entry_price"],
+                 "stop": p["stop_price"], "current": p["current_price"],
+                 "r": p["r_multiple"]} for p in rows]
     lines += [
         "",
         f"**합계** {n}포지션 · 평균 {avg_r:+.1f}R · 양의 R {wins}/{n}",
+        "",
+        '<script type="application/json" id="pos-data">',
+        json.dumps(pos_data, ensure_ascii=False),
+        "</script>",
+        "",
+        DISCLAIMER,
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def _performance_index(data: dict) -> str:
+    """완결 트레이드 기준 verdict별 손익비·기대값·승률(CI) 성과 페이지."""
+    generated = data.get("generated", "")
+    summary = data.get("summary", {})
+    n_trades = len(data.get("trades", []))
+
+    lines = [
+        "# 전략 성과",
+        "",
+        "**완결된 트레이드**(손절·목표달성·시간청산)를 판정(매수후보/매수관찰)별로 집계한 "
+        "승률·손익비·기대값입니다. 진입가·손절가는 분석 스냅샷 기준이며, 미청산 오픈 포지션은 "
+        "제외됩니다(청산돼야 집계).",
+        "",
+        '!!! warning "표본이 작습니다 — 우열 단정 금지"',
+        "    이 수치는 워치리스트의 실현 트레이드 기반이라 표본이 작고 생존편향이 있습니다. "
+        "**승률 옆 신뢰구간(CI)이 넓으면 통계적으로 의미 없는 노이즈**입니다. "
+        "전략 우열의 더 정직한 추정은 유니버스 PIT 백테스트(shadow-backfill)이며, 이 표는 "
+        "실제 관찰 종목의 사후 성과 기록으로만 읽으세요.",
+        "",
+    ]
+
+    if not summary:
+        lines += [
+            '!!! info "아직 완결된 트레이드가 없습니다"',
+            "    현재 진입 이벤트가 모두 **미청산**(손절·목표·60일 보유 미도달) 상태입니다. "
+            "포지션이 청산되면 이 표가 자동으로 채워집니다.",
+            "",
+            f"> 기준일: {generated or '—'}",
+            "",
+            DISCLAIMER,
+        ]
+        return "\n".join(lines) + "\n"
+
+    lines += [
+        "| 판정 | n | 승률 (95% CI) | 손익비 | 기대값 | 손절 | 목표 | 시간청산 | 독립진입일 |",
+        "|------|---|--------------|--------|--------|------|------|---------|-----------|",
+    ]
+    for verdict in sorted(summary, key=lambda v: _VERDICT_ORDER.get(v, 9)):
+        s = summary[verdict]
+        payoff = s.get("payoff_ratio")
+        payoff_str = f"{payoff:.2f}" if payoff is not None else "n/a"
+        ci_lo = s.get("win_rate_ci_low", 0.0) * 100
+        ci_hi = s.get("win_rate_ci_high", 0.0) * 100
+        lines.append(
+            f"| {_verdict_cell(verdict, '')} | {s['n']} "
+            f"| {s['win_rate']*100:.0f}% ({ci_lo:.0f}–{ci_hi:.0f}%) "
+            f"| {payoff_str} | {s['expectancy']:+.2f}R "
+            f"| {s['stop_rate']*100:.0f}% | {s['target_rate']*100:.0f}% "
+            f"| {s['time_exit_rate']*100:.0f}% | {s.get('distinct_entry_days','—')} |"
+        )
+    lines += [
+        "",
+        f"> 완결 트레이드 {n_trades}건 · 기준일: {generated} · "
+        "`python monitor.py --completed-trades` 로 갱신",
+        "",
+        '??? info "📘 손익비·기대값이 뭔가요?"',
+        "    - **손익비** = 평균 이익(R) ÷ 평균 손실(R). 2.0이면 이길 때 질 때의 2배를 번다는 뜻.",
+        "    - **기대값** = 승률×평균이익 − 패률×평균손실. **한 번 매매당 기대 R**. 양수면 장기적으로 우위.",
+        "    - **독립진입일** = 서로 다른 날 진입한 건수. n보다 훨씬 작으면 같은 날 몰린 상관 표본이라 "
+        "실제 정보량은 적습니다.",
         "",
         DISCLAIMER,
     ]
@@ -927,18 +1031,22 @@ def main():
     latest  = _latest_per_ticker(snaps)     # 인덱스·대시보드용: 종목당 최신 1건
     alerts  = _scan_alerts()
     positions = _collect_positions()        # 현재 열린 매수후보/관찰 포지션
+    perf    = _collect_completed_trades()   # 완결 트레이드 손익비 성과
     names   = {ticker: name for ticker, _market, name, _fname in entries}
 
     OUT_POS.mkdir(parents=True, exist_ok=True)
+    OUT_PERF.mkdir(parents=True, exist_ok=True)
     (OUT / "index.md").write_text(_dashboard(entries, latest, alerts, names, positions), encoding="utf-8")
     (OUT / "fear-index.md").write_text(_fear_index_page(latest, names), encoding="utf-8")
     (OUT_WL / "index.md").write_text(_watchlist_index(entries), encoding="utf-8")
     (OUT_SNAP / "index.md").write_text(_snapshots_index(latest, names), encoding="utf-8")
     (OUT_ALERT / "index.md").write_text(_alerts_index(alerts, names), encoding="utf-8")
     (OUT_POS / "index.md").write_text(_positions_index(positions, names), encoding="utf-8")
+    (OUT_PERF / "index.md").write_text(_performance_index(perf), encoding="utf-8")
 
     print(f"생성 완료: 관찰 {len(entries)}개 · 스냅샷 {len(latest)}종목({len(snaps)}건) "
-          f"· 알림 {len(alerts)}건 · 오픈 포지션 {len(positions)}개")
+          f"· 알림 {len(alerts)}건 · 오픈 포지션 {len(positions)}개 "
+          f"· 완결 트레이드 {len(perf.get('trades', []))}건")
 
 
 if __name__ == "__main__":

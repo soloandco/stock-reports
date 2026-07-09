@@ -104,7 +104,7 @@ def _pos(ticker: str, r: float, **over) -> dict:
     base = {
         "ticker": ticker, "market": "NASDAQ", "verdict": "매수후보",
         "entry_date": "2026-06-30", "current_date": "2026-07-09",
-        "entry_price": 100.0, "current_price": 100.0 + r * 10,
+        "entry_price": 100.0, "stop_price": 90.0, "current_price": 100.0 + r * 10,
         "return_pct": r * 10, "r_multiple": r,
         "to_stop_pct": -10.0, "to_target_pct": 20.0, "days_held": 9,
     }
@@ -151,3 +151,67 @@ def test_positions_index_links_to_dated_snapshot():
 def test_fmt_price_us_vs_kr():
     assert gen._fmt_price("NASDAQ", 181.05) == "$181.05"
     assert gen._fmt_price("KRX", 70000) == "₩70,000"
+
+
+def test_positions_index_embeds_sizing_data():
+    # JS 사이징 계산에 필요한 stop/current/r 이 pos-data JSON에 실려야 한다.
+    import json as _json
+    md = gen._positions_index([_pos("NVDA", 1.0, stop_price=90.0)], {})
+    assert 'id="pos-data"' in md
+    assert 'id="seed-input"' in md           # 시드 입력창
+    assert 'class="js-shares"' in md          # 주수 placeholder
+    assert 'class="js-pnl"' in md             # 손익(원) placeholder
+    payload = md.split('id="pos-data">')[1].split("</script>")[0]
+    data = _json.loads(payload)
+    assert data[0]["stop"] == 90.0
+    assert data[0]["current"] == 110.0        # entry 100 + r*10
+    assert data[0]["r"] == 1.0
+
+
+# ── 전략 성과 페이지 ────────────────────────────────────────────────────────
+
+def _summary(**over):
+    base = {
+        "n": 10, "win_rate": 0.6, "win_rate_ci_low": 0.31, "win_rate_ci_high": 0.83,
+        "avg_win_r": 2.0, "avg_loss_r": 1.0, "payoff_ratio": 2.0, "expectancy": 0.8,
+        "stop_rate": 0.4, "target_rate": 0.5, "time_exit_rate": 0.1, "data_end_rate": 0.0,
+        "distinct_tickers": 8, "distinct_entry_days": 6,
+    }
+    base.update(over)
+    return base
+
+
+def test_performance_index_empty_shows_reason():
+    md = gen._performance_index({"generated": "2026-07-09", "trades": [], "summary": {}})
+    assert "아직 완결된 트레이드" in md
+    assert "미청산" in md
+
+
+def test_performance_index_renders_payoff_and_ci():
+    md = gen._performance_index({
+        "generated": "2026-07-09", "trades": [{}] * 10,
+        "summary": {"매수후보": _summary()},
+    })
+    assert "손익비" in md
+    assert "2.00" in md                        # payoff_ratio
+    assert "31–83%" in md                      # Wilson CI
+    assert "+0.80R" in md                      # expectancy
+    assert "표본이 작습니다" in md              # 소표본 경고
+
+
+def test_performance_index_payoff_none_shows_na():
+    md = gen._performance_index({
+        "generated": "2026-07-09", "trades": [{}] * 3,
+        "summary": {"매수관찰": _summary(payoff_ratio=None)},
+    })
+    assert "n/a" in md
+
+
+def test_collect_completed_trades_missing_returns_empty(tmp_path, monkeypatch):
+    monkeypatch.setattr(gen, "COMPLETED_TRADES_JSON", tmp_path / "nope.json")
+    assert gen._collect_completed_trades() == {}
+
+
+def test_stat_cards_include_performance_link():
+    html = gen._stat_cards([], [], [])
+    assert 'href="performance/"' in html

@@ -205,3 +205,35 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   width: 100% !important;
   min-width: 0;
 }
+
+/* 시드 사이징 패널 (오픈 포지션 페이지) */
+.seed-panel {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.4rem;
+  padding: 0.9rem 1rem;
+  margin: 0.6rem 0 1rem;
+  background: var(--md-code-bg-color);
+}
+.seed-panel input {
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.4rem;
+  font-size: 0.85rem;
+  width: 11em;
+}
+.seed-panel .seed-hint {
+  font-size: 0.72rem;
+  opacity: 0.7;
+  margin: 0.5rem 0 0;
+}
+.seed-summary-table {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+}
+.seed-summary-table th {
+  text-align: left;
+  font-weight: 500;
+  opacity: 0.8;
+  padding-right: 1.2rem;
+}
+.seed-summary-table td { text-align: right; font-variant-numeric: tabular-nums; }
