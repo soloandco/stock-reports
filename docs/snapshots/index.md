@@ -22,15 +22,16 @@
 
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
-| [009150](009150-2026-07-09.md) | [삼성전기](009150-2026-07-09.md) | 2026-07-09 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
-| [329180](329180-2026-07-09.md) | [HD현대중공업](329180-2026-07-09.md) | 2026-07-09 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 |
-| [AVGO](AVGO-2026-07-09.md) | [Broadcom](AVGO-2026-07-09.md) | 2026-07-09 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
-| [CAT](CAT-2026-07-09.md) | [Caterpillar](CAT-2026-07-09.md) | 2026-07-09 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
+| [009150](009150-2026-07-10.md) | [삼성전기](009150-2026-07-10.md) | 2026-07-10 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
+| [329180](329180-2026-07-10.md) | [HD현대중공업](329180-2026-07-10.md) | 2026-07-10 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 |
+| [AVGO](AVGO-2026-07-10.md) | [Broadcom](AVGO-2026-07-10.md) | 2026-07-10 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
+| [BA](BA-2026-07-10.md) | [Boeing](BA-2026-07-10.md) | 2026-07-10 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 |
+| [CAT](CAT-2026-07-10.md) | [Caterpillar](CAT-2026-07-10.md) | 2026-07-10 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
+| [GOOGL](GOOGL-2026-07-10.md) | [Alphabet](GOOGL-2026-07-10.md) | 2026-07-10 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
+| [NVDA](NVDA-2026-07-10.md) | [NVIDIA](NVDA-2026-07-10.md) | 2026-07-10 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
 | [DHI](DHI-2026-07-09.md) | [D.R. Horton](DHI-2026-07-09.md) | 2026-07-09 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 1/8 |
 | [DLR](DLR-2026-07-09.md) | [Digital Realty](DLR-2026-07-09.md) | 2026-07-09 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 |
-| [GOOGL](GOOGL-2026-07-09.md) | [Alphabet](GOOGL-2026-07-09.md) | 2026-07-09 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
 | [LLY](LLY-2026-07-09.md) | [Eli Lilly](LLY-2026-07-09.md) | 2026-07-09 | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 |
-| [NVDA](NVDA-2026-07-09.md) | [NVIDIA](NVDA-2026-07-09.md) | 2026-07-09 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
 | [RDW](RDW-2026-07-08.md) | [RedWire](RDW-2026-07-08.md) | 2026-07-08 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 |
 | [RKLB](RKLB-2026-07-08.md) | [Rocket Lab](RKLB-2026-07-08.md) | 2026-07-08 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 5/8 |
 | [066570](066570-2026-07-07.md) | [LG전자](066570-2026-07-07.md) | 2026-07-07 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
@@ -40,7 +41,6 @@
 | [AMD](AMD-2026-07-07.md) | [Advanced Micro Devices](AMD-2026-07-07.md) | 2026-07-07 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 8/8 |
 | [APLD](APLD-2026-07-07.md) | [Applied Digital](APLD-2026-07-07.md) | 2026-07-07 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 5/8 |
 | [ASTS](ASTS-2026-07-07.md) | [AST SpaceMobile](ASTS-2026-07-07.md) | 2026-07-07 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 |
-| [BA](BA-2026-07-07.md) | [Boeing](BA-2026-07-07.md) | 2026-07-07 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
 | [BE](BE-2026-07-07.md) | [Bloom Energy](BE-2026-07-07.md) | 2026-07-07 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
 | [CDNS](CDNS-2026-07-07.md) | [Cadence Design Systems](CDNS-2026-07-07.md) | 2026-07-07 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
 | [CIFR](CIFR-2026-07-07.md) | [Cipher Mining](CIFR-2026-07-07.md) | 2026-07-07 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
