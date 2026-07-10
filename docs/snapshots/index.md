@@ -22,7 +22,7 @@
 
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
-| [009150](009150-2026-07-10.md) | [삼성전기](009150-2026-07-10.md) | 2026-07-10 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
+| [009150](009150-2026-07-10.md) | [삼성전기](009150-2026-07-10.md) | 2026-07-10 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 7/8 |
 | [329180](329180-2026-07-10.md) | [HD현대중공업](329180-2026-07-10.md) | 2026-07-10 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 |
 | [AVGO](AVGO-2026-07-10.md) | [Broadcom](AVGO-2026-07-10.md) | 2026-07-10 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(시장국면)</span> | 2 | 6/8 |
 | [BA](BA-2026-07-10.md) | [Boeing](BA-2026-07-10.md) | 2026-07-10 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 |
