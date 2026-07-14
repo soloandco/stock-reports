@@ -22,8 +22,9 @@
 
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
+| [DHI](DHI-2026-07-15.md) | [D.R. Horton](DHI-2026-07-15.md) | 2026-07-15 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 2/8 |
+| [DLR](DLR-2026-07-15.md) | [Digital Realty](DLR-2026-07-15.md) | 2026-07-15 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 |
 | [161890](161890-2026-07-14.md) | [한국콜마](161890-2026-07-14.md) | 2026-07-14 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
-| [DHI](DHI-2026-07-14.md) | [D.R. Horton](DHI-2026-07-14.md) | 2026-07-14 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 1/8 |
 | [009150](009150-2026-07-13.md) | [삼성전기](009150-2026-07-13.md) | 2026-07-13 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
 | [066570](066570-2026-07-13.md) | [LG전자](066570-2026-07-13.md) | 2026-07-13 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
 | [278470](278470-2026-07-13.md) | [에이피알](278470-2026-07-13.md) | 2026-07-13 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
@@ -39,7 +40,6 @@
 | [CDNS](CDNS-2026-07-13.md) | [Cadence Design Systems](CDNS-2026-07-13.md) | 2026-07-13 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
 | [CIFR](CIFR-2026-07-13.md) | [Cipher Mining](CIFR-2026-07-13.md) | 2026-07-13 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
 | [CORZ](CORZ-2026-07-13.md) | [Core Scientific](CORZ-2026-07-13.md) | 2026-07-13 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
-| [DLR](DLR-2026-07-13.md) | [Digital Realty](DLR-2026-07-13.md) | 2026-07-13 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 |
 | [GDXU](GDXU-2026-07-13.md) | [GDXU](GDXU-2026-07-13.md) | 2026-07-13 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 |
 | [GEV](GEV-2026-07-13.md) | [GE Vernova](GEV-2026-07-13.md) | 2026-07-13 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
 | [GOOGL](GOOGL-2026-07-13.md) | [Alphabet](GOOGL-2026-07-13.md) | 2026-07-13 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
