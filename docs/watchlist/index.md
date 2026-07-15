@@ -47,6 +47,7 @@
 | [**PCAR**](PCAR.md) | [Paccar](PCAR.md) | NASDAQ |
 | [**PLTR**](PLTR.md) | [Palantir](PLTR.md) | NASDAQ |
 | [**PM**](PM.md) | [Philip Morris](PM.md) | NYSE |
+| [**PYPL**](PYPL.md) | [PayPal](PYPL.md) | NASDAQ |
 | [**QCOM**](QCOM.md) | [Qualcomm](QCOM.md) | NASDAQ |
 | [**QPUX**](QPUX.md) | [QPUX](QPUX.md) | NASDAQ |
 | [**RDW**](RDW.md) | [RedWire](RDW.md) | NYSE |
