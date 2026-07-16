@@ -15,6 +15,45 @@ def _write_note(path: Path, **fm) -> None:
     path.write_text("\n".join(lines), encoding="utf-8")
 
 
+def test_collect_watchlist_strips_private_fields_and_blocks(tmp_path, monkeypatch):
+    # 실계좌 프론트매터 필드(held/buy_price 등)와 <!-- private --> 본문 블록은
+    # 공개 복사본에서 제거돼야 한다 — "리포트만 공개" 정책 (2026-07-16)
+    src = tmp_path / "src"
+    out = tmp_path / "out"
+    src.mkdir()
+    monkeypatch.setattr(gen, "SRC_WL", src)
+    monkeypatch.setattr(gen, "OUT_WL", out)
+
+    (src / "MSFT-x.md").write_text(
+        "---\n"
+        "type: watchlist\n"
+        "ticker: MSFT\n"
+        "market: NASDAQ\n"
+        "title: Microsoft 관찰 종목\n"
+        "held: true\n"
+        "buy_price: 371.86\n"
+        "alert_above: 12.52\n"
+        "---\n"
+        "# 메모\n"
+        "\n"
+        "<!-- private -->\n"
+        "실제 매수가 $371.86로 보유 중 등록.\n"
+        "<!-- /private -->\n"
+        "공개 분석 문단.\n",
+        encoding="utf-8")
+
+    entries = gen._collect_watchlist()
+    assert [e[0] for e in entries] == ["MSFT"]
+
+    pub = (out / "MSFT.md").read_text(encoding="utf-8")
+    assert "held" not in pub
+    assert "buy_price" not in pub
+    assert "alert_above" not in pub
+    assert "371.86" not in pub
+    assert "공개 분석 문단." in pub
+    assert "ticker: MSFT" in pub
+
+
 def test_collect_notes_returns_trade_notes_only(tmp_path, monkeypatch):
     src = tmp_path / "src"
     out = tmp_path / "out"

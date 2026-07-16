@@ -129,6 +129,28 @@ def _company_name(title: str) -> str:
 
 # --- 소스 → 출력 복사 + 메타 수집 ---
 
+# 실계좌 정보 프론트매터 키 — 공개 복사본에서 제거 ("리포트만 공개" 정책)
+_PRIVATE_FM_KEYS = {"held", "buy_price", "buy_stop", "entry_price",
+                    "entry_stop", "trail_stop", "alert_above", "shares"}
+_PRIVATE_BLOCK_RE = re.compile(
+    r"<!--\s*private\s*-->.*?<!--\s*/private\s*-->\n?", re.DOTALL)
+
+
+def _sanitize_public_md(text: str) -> str:
+    """공개 복사 전 실계좌 흔적 제거.
+
+    - 프론트매터: _PRIVATE_FM_KEYS 최상위 스칼라 줄 삭제
+    - 본문: <!-- private --> ... <!-- /private --> 블록 삭제
+    """
+    m = re.match(r"^---\n(.*?\n)---", text, re.DOTALL)
+    if m:
+        kept = [ln for ln in m.group(1).splitlines(keepends=True)
+                if not (":" in ln and not ln.startswith((" ", "-"))
+                        and ln.partition(":")[0].strip() in _PRIVATE_FM_KEYS)]
+        text = f"---\n{''.join(kept)}---" + text[m.end():]
+    return _PRIVATE_BLOCK_RE.sub("", text)
+
+
 def _collect_watchlist() -> list[tuple[str, str, str, str]]:
     """type=watchlist 만 복사하고 (ticker, market, name, fname) 리스트 반환.
 
@@ -142,12 +164,14 @@ def _collect_watchlist() -> list[tuple[str, str, str, str]]:
     _reset_dir(tmp)
     entries = []
     for md in sorted(SRC_WL.glob("*.md")):
-        fm = _frontmatter(md.read_text(encoding="utf-8"))
+        text = md.read_text(encoding="utf-8")
+        fm = _frontmatter(text)
         if fm.get("type") != "watchlist":
             continue
         ticker = fm.get("ticker", md.stem)
         out_name = f"{ticker}.md"   # ASCII-only: 한글 파일명 → 티커만
-        shutil.copy(md, tmp / out_name)
+        # 실계좌 필드·private 블록 제거 후 복사 — 원본(비공개)은 그대로 유지
+        (tmp / out_name).write_text(_sanitize_public_md(text), encoding="utf-8")
         entries.append((ticker, fm.get("market", ""),
                         _company_name(fm.get("title", "")), out_name))
     # 모든 파일 복사 완료 후 원자적 교체
