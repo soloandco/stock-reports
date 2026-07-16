@@ -14,7 +14,7 @@ tags:
   - ai
 status: watching
 comments: true
-held: true
+held: false
 buy_price: 371.86
 related:
   - "[[analysis-template]]"

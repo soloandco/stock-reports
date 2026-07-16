@@ -14,7 +14,7 @@ tags:
   - data-analytics
 status: watching
 comments: true
-held: true
+held: false
 buy_price: 116.88
 related:
   - "[[analysis-template]]"
