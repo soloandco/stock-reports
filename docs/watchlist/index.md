@@ -56,5 +56,6 @@
 | [**SNPS**](SNPS.md) | [Synopsys](SNPS.md) | NASDAQ |
 | [**SOUN**](SOUN.md) | [SOUN](SOUN.md) | NASDAQ |
 | [**SOXS**](SOXS.md) | [SOXS 반도체 베어 3X](SOXS.md) | NYSE |
+| [**SOXX**](SOXX.md) | [SOXX 반도체 ETF](SOXX.md) | NASDAQ |
 | [**SPCX**](SPCX.md) | [SpaceX 추적 종목](SPCX.md) | NASDAQ |
 | [**USD**](USD.md) | [ProShares Ultra Semiconductors (2x)](USD.md) | NASDAQ |
