@@ -73,8 +73,16 @@ WL_FILTERS = """\
 <select class="sf-select" id="sf-market" data-f="market">
 <option value="">전체</option>
 <option value="KRX">KRX</option>
+<option value="KOSDAQ">KOSDAQ</option>
 <option value="NASDAQ">NASDAQ</option>
 <option value="NYSE">NYSE</option>
+</select>
+<label class="sf-label" for="sf-verdict">판정</label>
+<select class="sf-select" id="sf-verdict" data-f="verdict">
+<option value="">전체</option>
+<option value="cand">매수후보</option>
+<option value="watch">매수관찰</option>
+<option value="nobuy">매수불가</option>
 </select>
 </div>
 """
@@ -125,6 +133,14 @@ def _verdict_cell(verdict: str, reason: str) -> str:
 def _company_name(title: str) -> str:
     """워치리스트 title('NVIDIA 관찰 종목')에서 기업명만 추출."""
     return re.sub(r"\s*관찰\s*종목\s*$", "", title).strip()
+
+
+def _fmt_price_str(price: str, market: str) -> str:
+    """스냅샷 price 프론트매터(문자열) → 통화 표기. 값 없음/파싱 실패 시 ""."""
+    try:
+        return _fmt_price(market, float(price))
+    except (TypeError, ValueError):
+        return ""
 
 
 # --- 소스 → 출력 복사 + 메타 수집 ---
@@ -199,6 +215,8 @@ def _collect_snapshots() -> list[dict]:
             "reason":  fm.get("verdict-reason", ""),
             "stage":   fm.get("stage", ""),
             "tt":      fm.get("trend-template-score", ""),
+            "price":   fm.get("price", ""),
+            "market":  fm.get("market", ""),
             "fname":   md.name,
         })
     # 분석일 내림차순(동일 날짜는 종목 오름차순 — 안정 정렬)
@@ -451,18 +469,33 @@ def _dashboard(entries, snaps, alerts, names, positions=None) -> str:
     return "\n".join(lines) + "\n"
 
 
-def _watchlist_index(entries) -> str:
+def _watchlist_index(entries, latest_by_ticker=None) -> str:
+    """관찰 종목 목록 — 최신 스냅샷의 판정·Stage·TT·현재가를 병기.
+
+    컬럼 순서 주의: 판정=4번째(cells[3])·Stage=5번째(cells[4])는
+    tablesort.js의 필터 인덱스와 맞춰져 있다 (스냅샷 인덱스와 동일 규약).
+    """
+    latest_by_ticker = latest_by_ticker or {}
     lines = [
         "# 관찰 종목",
         "",
-        "모니터링 대상 종목. 30분 폴링으로 상태 변화 시 [알림](../alerts/index.md)이 발송됩니다.",
+        "모니터링 대상 종목. 30분 폴링으로 상태 변화 시 [알림](../alerts/index.md)이 발송됩니다. "
+        "판정·Stage·TT·현재가는 각 종목의 **최신 분석 스냅샷** 기준입니다.",
         "",
         WL_FILTERS,
-        "| 종목 | 기업명 | 시장 |",
-        "|------|--------|------|",
+        "| 종목 | 기업명 | 시장 | 판정 | Stage | TT | 현재가 |",
+        "|------|--------|------|------|-------|----|-------:|",
     ]
     for ticker, market, name, fname in sorted(entries):
-        lines.append(f"| [**{ticker}**]({fname}) | [{name}]({fname}) | {market} |")
+        s = latest_by_ticker.get(ticker)
+        if s:
+            verdict = _verdict_cell(s["verdict"], s["reason"])
+            stage, tt = s["stage"], f"{s['tt']}/8" if s["tt"] else ""
+            price = _fmt_price_str(s["price"], market)
+        else:
+            verdict = stage = tt = price = ""
+        lines.append(f"| [**{ticker}**]({fname}) | [{name}]({fname}) | {market} "
+                     f"| {verdict} | {stage} | {tt} | {price} |")
     return "\n".join(lines) + "\n"
 
 
@@ -1062,7 +1095,8 @@ def main():
     OUT_PERF.mkdir(parents=True, exist_ok=True)
     (OUT / "index.md").write_text(_dashboard(entries, latest, alerts, names, positions), encoding="utf-8")
     (OUT / "fear-index.md").write_text(_fear_index_page(latest, names), encoding="utf-8")
-    (OUT_WL / "index.md").write_text(_watchlist_index(entries), encoding="utf-8")
+    latest_map = {s["ticker"]: s for s in latest}
+    (OUT_WL / "index.md").write_text(_watchlist_index(entries, latest_map), encoding="utf-8")
     (OUT_SNAP / "index.md").write_text(_snapshots_index(latest, names), encoding="utf-8")
     (OUT_ALERT / "index.md").write_text(_alerts_index(alerts, names), encoding="utf-8")
     (OUT_POS / "index.md").write_text(_positions_index(positions, names), encoding="utf-8")

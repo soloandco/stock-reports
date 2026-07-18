@@ -30,7 +30,8 @@ document$.subscribe(function () {
       stageOk = cells[4].textContent.trim() === filterState.stage;
     }
     var marketOk = true;
-    if (filterState.market && cells.length === 3) {
+    // 시장 필터는 시장 select가 있는 페이지(관찰 종목)에서만 filterState에 값이 들어온다
+    if (filterState.market && cells.length > 2) {
       marketOk = cells[2].textContent.trim() === filterState.market;
     }
     return verdictOk && stageOk && marketOk;
