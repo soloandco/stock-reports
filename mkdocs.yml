@@ -4,6 +4,9 @@ theme:
   name: material
   custom_dir: overrides
   language: ko
+  font:
+    text: Noto Sans KR
+    code: JetBrains Mono
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -19,9 +22,8 @@ theme:
         name: 라이트 모드
   features:
     - navigation.instant
+    - navigation.tabs
     - navigation.top
-    - navigation.expand
-    - toc.integrate
     - search.highlight
     - content.code.copy
 

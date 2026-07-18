@@ -146,19 +146,21 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   user-select: none;
 }
 
-/* 테이블 래퍼까지 포함해서 콘텐츠 너비 꽉 채우기 */
+/* 표 기본 = 내용 폭(Material 기본) — 상세 페이지의 '항목|값' 2열 표가
+   전폭으로 늘어져 라벨과 값이 화면 양끝으로 벌어지는 문제 해소 (2026-07-19).
+   인덱스 목록(필터 바 뒤의 표)만 아래 스코프 규칙으로 전폭을 유지한다. */
 .md-typeset__scrollwrap {
   width: 100%;
   margin: 1em 0;
 }
 
-.md-typeset__table {
+.snap-filters ~ .md-typeset__scrollwrap .md-typeset__table {
   display: block;
   width: 100%;
   margin: 0;
 }
 
-.md-typeset table {
+.snap-filters ~ .md-typeset__scrollwrap table {
   width: 100%;
   display: table;
 }
