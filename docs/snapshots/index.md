@@ -54,7 +54,7 @@
 | [NVDA](NVDA-2026-07-18.md) | [NVIDIA](NVDA-2026-07-18.md) | 2026-07-18 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 |
 | [PCAR](PCAR-2026-07-18.md) | [Paccar](PCAR-2026-07-18.md) | 2026-07-18 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
 | [PLTR](PLTR-2026-07-18.md) | [Palantir](PLTR-2026-07-18.md) | 2026-07-18 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 |
-| [PM](PM-2026-07-18.md) | [Philip Morris](PM-2026-07-18.md) | 2026-07-18 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
+| [PM](PM-2026-07-18.md) | [Philip Morris](PM-2026-07-18.md) | 2026-07-18 | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 |
 | [PYPL](PYPL-2026-07-18.md) | [PayPal](PYPL-2026-07-18.md) | 2026-07-18 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 3/8 |
 | [QCOM](QCOM-2026-07-18.md) | [Qualcomm](QCOM-2026-07-18.md) | 2026-07-18 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 |
 | [QPUX](QPUX-2026-07-18.md) | [QPUX](QPUX-2026-07-18.md) | 2026-07-18 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 |
