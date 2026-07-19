@@ -155,6 +155,9 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
    4 진입가 · 8 손절까지 · 9 타겟까지 · 10 보유 · 11 주수 · 12 손익.
    .pos-all(토글)이면 전부 표시하고, .pos-seed(시드 입력됨)면 주수·손익만 추가
    노출한다 — 시드가 없으면 두 열은 "—"라 자리만 차지하기 때문. */
+/* PC(≥76.25em)는 컬럼이 1,220px까지 들어가므로 축소하지 않는다 —
+   축소는 폰 폭 전용이다. 아래 규칙 전체를 좁은 화면으로 한정한다. */
+@media screen and (max-width: 76.2344em) {
 .pos-table:not(.pos-all) th:nth-child(2),
 .pos-table:not(.pos-all) td:nth-child(2),
 .pos-table:not(.pos-all) th:nth-child(3),
@@ -177,6 +180,7 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
 .pos-table:not(.pos-all):not(.pos-seed) td:nth-child(12) {
   display: none;
 }
+}   /* /max-width 76.2344em — 컬럼 축소는 폰 전용 */
 
 .pos-cols-toggle {
   display: inline-block;
@@ -193,6 +197,13 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
 .pos-cols-toggle:hover {
   border-color: var(--md-primary-fg-color);
   color: var(--md-primary-fg-color);
+}
+
+/* PC에서는 전체 컬럼이 기본으로 보이므로 토글 버튼이 필요 없다 */
+@media screen and (min-width: 76.25em) {
+  .pos-cols-toggle {
+    display: none;
+  }
 }
 
 /* ── 드로어 안 테마 전환 (헤더에서 이동, 2026-07-19) ──────────────────────
@@ -305,24 +316,29 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
    실제 기기 동작 검증은 브라우저 기기 모드(F12)를 쓴다.
    76.25em 미만은 이미 실제 모바일이므로 Material 기본 동작에 맡긴다. */
 @media screen and (min-width: 76.25em) {
-  /* 헤더·탭·본문의 내부 컨테이너를 한 번에 폰 폭으로 (Material 기본 61rem) */
+  /* 컬럼 폭 = 가장 넓은 표가 들어가는 크기 (2026-07-19 재조정).
+     처음엔 21rem(420px) 폰 폭으로 고정했으나 PC에서 표 정보량이 잘려
+     가로 스크롤이 생겼다. 실측 자연 폭: 오픈 포지션 전체 12열 1,132px,
+     관찰 종목 717px, 스냅샷 목록 651px → 61rem(1,220px)이면 전부 수용된다.
+     가운데 정렬 + 양옆 배경(카드 느낌)은 그대로 유지한다. */
   .md-grid {
-    max-width: 21rem;                 /* = 420px (Material 루트 폰트 20px 기준) */
+    max-width: 61rem;                 /* = 1,220px (Material 루트 폰트 20px 기준) */
   }
 
   /* 헤더 바 자체도 같은 폭으로 묶어 하나의 '폰 화면'처럼 보이게.
      width를 명시하는 이유: 헤더는 body(flex)의 아이템이라 max-width만 주면
      내용 크기(≈366px)로 줄어들어 본문과 어긋난다. */
   .md-header {
-    width: 21rem;
-    max-width: 21rem;
+    width: min(61rem, 96vw);
+    max-width: 61rem;
     margin-left: auto;
     margin-right: auto;
   }
 
   /* 본문 컬럼 — 바깥 배경과 구분되도록 카드처럼 */
   .md-main {
-    max-width: 21rem;
+    width: min(61rem, 96vw);
+    max-width: 61rem;
     margin-left: auto;
     margin-right: auto;
     background-color: var(--md-default-bg-color);
