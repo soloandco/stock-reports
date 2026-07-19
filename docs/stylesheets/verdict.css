@@ -161,11 +161,10 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
     max-width: 21rem;                 /* = 420px (Material 루트 폰트 20px 기준) */
   }
 
-  /* 헤더·탭 바 자체도 같은 폭으로 묶어 하나의 '폰 화면'처럼 보이게.
+  /* 헤더 바 자체도 같은 폭으로 묶어 하나의 '폰 화면'처럼 보이게.
      width를 명시하는 이유: 헤더는 body(flex)의 아이템이라 max-width만 주면
      내용 크기(≈366px)로 줄어들어 본문과 어긋난다. */
-  .md-header,
-  .md-tabs {
+  .md-header {
     width: 21rem;
     max-width: 21rem;
     margin-left: auto;
@@ -186,14 +185,60 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
     background-color: var(--md-default-fg-color--lightest);
   }
 
-  /* 좌측 사이드바(상단 탭과 항목 중복)·우측 목차 모두 숨김 —
-     폰과 동일한 단일 컬럼을 유지한다. 이 폭 미만에서는 같은 요소가
-     햄버거 드로어이므로 절대 숨기면 안 된다.
-     secondary는 Material이 `:not([hidden])`(우선순위 0,2,0)로 표시하므로
-     같은 선택자로 받아야 이긴다 — 단순 클래스 선택자로는 밀린다. */
-  .md-sidebar--primary,
+  /* 우측 목차 숨김 — 폰과 동일한 단일 컬럼 유지.
+     Material이 `:not([hidden])`(우선순위 0,2,0)로 표시하므로 같은 선택자로
+     받아야 이긴다 — 단순 클래스 선택자로는 밀린다. */
   .md-sidebar--secondary:not([hidden]) {
     display: none;
+  }
+
+  /* ── 내비게이션도 모바일과 통일: 햄버거 드로어 사용 ────────────────────
+     Material은 이 폭에서 드로어를 끄고 사이드바를 고정 표시하므로,
+     모바일 구간(max-width:76.234375em)의 드로어 규칙을 그대로 복제한다.
+     값(12.1rem·transform·오버레이)은 Material 원본과 동일.
+     ⚠ 상단 탭(navigation.tabs)은 mkdocs.yml에서 기능 자체를 껐다 —
+     CSS로만 가리면 Material이 사이드바 nav에 md-nav--lifted를 붙여
+     최상위 항목을 숨기기 때문에 드로어가 빈 채로 열린다. */
+  .md-header__button[for="__drawer"] {
+    display: block;                   /* Material이 이 폭에서 숨긴 것을 되돌림 */
+  }
+
+  .md-sidebar--primary {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -12.1rem;                   /* 닫힌 상태 — 화면 밖 */
+    width: 12.1rem;
+    height: 100%;
+    z-index: 5;
+    background-color: var(--md-default-bg-color);
+    transform: translateX(0);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s;
+  }
+
+  [data-md-toggle="drawer"]:checked ~ .md-container .md-sidebar--primary {
+    box-shadow: var(--md-shadow-z3);
+    transform: translateX(12.1rem);   /* 열림 — 화면 안으로 */
+  }
+
+  /* 드로어 뒤 어두운 오버레이 (클릭하면 닫힘 — label[for=__drawer]) */
+  .md-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    z-index: 5;
+    background-color: #0000008a;
+    transition: width 0ms 0.25s, height 0ms 0.25s, opacity 0.25s;
+  }
+
+  [data-md-toggle="drawer"]:checked ~ .md-overlay {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: width 0ms, height 0ms, opacity 0.25s;
   }
 }
 
