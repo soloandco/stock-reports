@@ -96,6 +96,8 @@ document$.subscribe(function () {
     btn.addEventListener("click", function () {
       posTable.classList.toggle("pos-all");
       setLabel();
+      // 컬럼이 늘면 그때부터 가로 스크롤이 생기므로 힌트를 다시 계산
+      if (window.saMarkScrollable) window.saMarkScrollable();
     });
     var wrap = posTable.closest(".md-typeset__scrollwrap") || posTable;
     wrap.parentNode.insertBefore(btn, wrap);
@@ -104,6 +106,7 @@ document$.subscribe(function () {
   function syncSeedCols() {
     if (!posTable) return;
     posTable.classList.toggle("pos-seed", (parseFloat(seedEl.value) || 0) > 0);
+    if (window.saMarkScrollable) window.saMarkScrollable();   // 주수·손익 노출로 폭 변경
   }
 
   // ── 초기값 복원 + 이벤트 ─────────────────────────────────────────────

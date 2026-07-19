@@ -5,6 +5,22 @@ document$.subscribe(function () {
     new Tablesort(table);
   });
 
+  // ── 가로 스크롤 가능한 표 표시 ────────────────────────────────────────
+  // 폰 폭에서 표가 잘려 있어도 알 방법이 없어 오른쪽 끝에 그림자 힌트를 준다.
+  // 실제로 넘치는 표에만 붙인다 — 안 넘치는 표에 그림자가 있으면 오해를 준다.
+  function markScrollable() {
+    document.querySelectorAll('.md-typeset__scrollwrap').forEach(function (w) {
+      w.classList.toggle('is-scrollable', w.scrollWidth > w.clientWidth + 1);
+    });
+  }
+  markScrollable();
+  // 컬럼 토글 등으로 표 폭이 바뀌면 다른 스크립트가 이걸 불러 갱신한다
+  window.saMarkScrollable = markScrollable;
+  if (!window.__saScrollHintBound) {          // instant navigation 시 중복 바인딩 방지
+    window.addEventListener('resize', markScrollable);
+    window.__saScrollHintBound = true;
+  }
+
   // 페이지네이션은 .snap-filters가 있는 페이지(관찰 종목·스냅샷 인덱스)에만 적용
   var filterBar = document.querySelector('.snap-filters');
   if (!filterBar) return;
