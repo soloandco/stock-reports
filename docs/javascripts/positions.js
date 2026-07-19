@@ -75,13 +75,45 @@ document$.subscribe(function () {
       '</tbody></table>';
   }
 
+  // ── 컬럼 축소 (폰 폭 12열 → 4열) ─────────────────────────────────────
+  // 420px 화면에서 12열(1,214px)은 가로 스크롤이 화면의 3배라 읽기 어렵다.
+  // 기본은 종목·현재가·수익률·R만 보이고, 나머지는 토글로 펼친다(데이터 유실 없음).
+  // 시드를 넣으면 주수·손익은 자동으로 드러난다 — 그때부터 의미가 생기는 값이라.
+  // 표 특정은 .js-shares(포지션 행에만 있는 셀) 기준 — 본문 첫 표를 잡으면
+  // 앞쪽 'R 값' 설명 표에 클래스가 붙는다(실제로 겪은 오류).
+  var shareCell = document.querySelector(".js-shares");
+  var posTable = shareCell ? shareCell.closest("table") : null;
+  if (posTable && !posTable.classList.contains("pos-table")) {
+    posTable.classList.add("pos-table");
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "pos-cols-toggle";
+    var setLabel = function () {
+      btn.textContent = posTable.classList.contains("pos-all")
+        ? "간단히 보기" : "전체 컬럼 보기";
+    };
+    setLabel();
+    btn.addEventListener("click", function () {
+      posTable.classList.toggle("pos-all");
+      setLabel();
+    });
+    var wrap = posTable.closest(".md-typeset__scrollwrap") || posTable;
+    wrap.parentNode.insertBefore(btn, wrap);
+  }
+
+  function syncSeedCols() {
+    if (!posTable) return;
+    posTable.classList.toggle("pos-seed", (parseFloat(seedEl.value) || 0) > 0);
+  }
+
   // ── 초기값 복원 + 이벤트 ─────────────────────────────────────────────
   var savedSeed = localStorage.getItem("sa_seed");
   var savedRisk = localStorage.getItem("sa_risk");
   if (savedSeed !== null) seedEl.value = savedSeed;
   if (savedRisk !== null && savedRisk !== "") riskEl.value = savedRisk;
 
-  seedEl.addEventListener("input", render);
+  seedEl.addEventListener("input", function () { render(); syncSeedCols(); });
   riskEl.addEventListener("input", render);
   render();
+  syncSeedCols();
 });

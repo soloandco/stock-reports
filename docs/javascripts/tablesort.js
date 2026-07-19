@@ -16,23 +16,37 @@ document$.subscribe(function () {
   var filterState = { verdict: '', stage: '', market: '' };
   var pageState   = { current: 1, perPage: 10 };
 
+  // ── 컬럼 위치는 헤더 이름으로 찾는다 ──────────────────────────────────
+  // 예전엔 인덱스를 고정(판정=3·Stage=4)해 뒀는데, 컬럼 순서를 바꾸면 필터가
+  // 조용히 엉뚱한 열을 보게 된다. 헤더 텍스트로 찾으면 순서 변경에 안전하다.
+  var colIndex = (function () {
+    var map = {};
+    var heads = table.querySelectorAll('thead th');
+    for (var i = 0; i < heads.length; i++) {
+      var name = heads[i].textContent.trim();
+      if (name === '판정') map.verdict = i;
+      else if (name === 'Stage') map.stage = i;
+      else if (name === '시장') map.market = i;
+    }
+    return map;
+  })();
+
   // ── 필터 판정 ─────────────────────────────────────────────────────────
   function rowVisible(row) {
     var cells = row.querySelectorAll('td');
 
     var verdictOk = true;
-    if (filterState.verdict && cells.length > 3) {
-      var span = cells[3].querySelector('.verdict');
+    if (filterState.verdict && colIndex.verdict !== undefined && cells[colIndex.verdict]) {
+      var span = cells[colIndex.verdict].querySelector('.verdict');
       verdictOk = !!span && span.classList.contains('verdict-' + filterState.verdict);
     }
     var stageOk = true;
-    if (filterState.stage && cells.length > 4) {
-      stageOk = cells[4].textContent.trim() === filterState.stage;
+    if (filterState.stage && colIndex.stage !== undefined && cells[colIndex.stage]) {
+      stageOk = cells[colIndex.stage].textContent.trim() === filterState.stage;
     }
     var marketOk = true;
-    // 시장 필터는 시장 select가 있는 페이지(관찰 종목)에서만 filterState에 값이 들어온다
-    if (filterState.market && cells.length > 2) {
-      marketOk = cells[2].textContent.trim() === filterState.market;
+    if (filterState.market && colIndex.market !== undefined && cells[colIndex.market]) {
+      marketOk = cells[colIndex.market].textContent.trim() === filterState.market;
     }
     return verdictOk && stageOk && marketOk;
   }

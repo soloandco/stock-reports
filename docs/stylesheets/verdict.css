@@ -148,6 +148,71 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   user-select: none;
 }
 
+/* ── 오픈 포지션 컬럼 축소 (2026-07-19) ───────────────────────────────────
+   12열 표는 폰 폭에서 1,214px(화면의 약 3배)라 가로 스크롤만으로는 읽기 어렵다.
+   기본 노출: 1 종목 · 5 현재가 · 6 수익률 · 7 R (판단에 필요한 최소 집합).
+   숨김: 2 판정(이 페이지는 전부 매수후보/관찰이라 변별력 낮음) · 3 진입일 ·
+   4 진입가 · 8 손절까지 · 9 타겟까지 · 10 보유 · 11 주수 · 12 손익.
+   .pos-all(토글)이면 전부 표시하고, .pos-seed(시드 입력됨)면 주수·손익만 추가
+   노출한다 — 시드가 없으면 두 열은 "—"라 자리만 차지하기 때문. */
+.pos-table:not(.pos-all) th:nth-child(2),
+.pos-table:not(.pos-all) td:nth-child(2),
+.pos-table:not(.pos-all) th:nth-child(3),
+.pos-table:not(.pos-all) td:nth-child(3),
+.pos-table:not(.pos-all) th:nth-child(4),
+.pos-table:not(.pos-all) td:nth-child(4),
+.pos-table:not(.pos-all) th:nth-child(8),
+.pos-table:not(.pos-all) td:nth-child(8),
+.pos-table:not(.pos-all) th:nth-child(9),
+.pos-table:not(.pos-all) td:nth-child(9),
+.pos-table:not(.pos-all) th:nth-child(10),
+.pos-table:not(.pos-all) td:nth-child(10) {
+  display: none;
+}
+
+/* 주수·손익 — 시드 입력 전에는 숨김(값이 "—") */
+.pos-table:not(.pos-all):not(.pos-seed) th:nth-child(11),
+.pos-table:not(.pos-all):not(.pos-seed) td:nth-child(11),
+.pos-table:not(.pos-all):not(.pos-seed) th:nth-child(12),
+.pos-table:not(.pos-all):not(.pos-seed) td:nth-child(12) {
+  display: none;
+}
+
+.pos-cols-toggle {
+  display: inline-block;
+  margin: 0 0 0.4rem;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.3rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.pos-cols-toggle:hover {
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+}
+
+/* ── 넓은 표: 첫 열(종목) 고정 ─────────────────────────────────────────────
+   가로 스크롤 시 종목명이 화면 밖으로 나가면 어느 행인지 알 수 없다.
+   스크롤 컨테이너(.md-typeset__scrollwrap) 기준 sticky로 첫 열을 붙인다. */
+.md-typeset__scrollwrap table:not([class]) th:first-child,
+.md-typeset__scrollwrap table:not([class]) td:first-child,
+.md-typeset__scrollwrap table.pos-table th:first-child,
+.md-typeset__scrollwrap table.pos-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background-color: var(--md-default-bg-color);
+  box-shadow: 1px 0 0 var(--md-default-fg-color--lightest);
+}
+
+.md-typeset__scrollwrap table th:first-child {
+  z-index: 2;
+}
+
 /* ── 폰 폭 밀도 최적화 (2026-07-19) ────────────────────────────────────────
    사용자가 주로 모바일로 보고 PC도 같은 420px 컬럼이라, 좁은 폭 기준으로
    여백을 조인다. 아래 값은 전부 실측으로 고른 것이다:
@@ -159,6 +224,10 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
 .md-typeset table:not([class]) td,
 .md-typeset table:not([class]) th {
   padding: 0.55em 0.6em;
+  /* Material 기본 min-width는 100px라 Stage·TT처럼 짧은 열도 100px를 먹는다.
+     관찰 종목 표 기준 702px → 487px(−31%). 0으로 두면 숫자 열이 과하게
+     찌그러져 하한은 남긴다. */
+  min-width: 2.2rem;
 }
 
 .md-typeset h1 {

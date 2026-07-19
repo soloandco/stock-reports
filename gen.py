@@ -483,8 +483,11 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
         "판정·Stage·TT·현재가는 각 종목의 **최신 분석 스냅샷** 기준입니다.",
         "",
         WL_FILTERS,
-        "| 종목 | 기업명 | 시장 | 판정 | Stage | TT | 현재가 |",
-        "|------|--------|------|------|-------|----|-------:|",
+        # 컬럼 순서 = 폰 폭 우선순위 (2026-07-19): 종목·기업명·판정·현재가가
+        # 앞 4열(≈324px)이라 스크롤 없이 보이고, 보조 지표는 오른쪽으로 밀린다.
+        # 필터는 헤더 이름으로 열을 찾으므로(tablesort.js) 순서를 바꿔도 안전하다.
+        "| 종목 | 기업명 | 판정 | 현재가 | Stage | TT | 시장 |",
+        "|------|--------|------|-------:|-------|----|------|",
     ]
     for ticker, market, name, fname in sorted(entries):
         s = latest_by_ticker.get(ticker)
@@ -494,8 +497,8 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
             price = _fmt_price_str(s["price"], market)
         else:
             verdict = stage = tt = price = ""
-        lines.append(f"| [**{ticker}**]({fname}) | [{name}]({fname}) | {market} "
-                     f"| {verdict} | {stage} | {tt} | {price} |")
+        lines.append(f"| [**{ticker}**]({fname}) | [{name}]({fname}) "
+                     f"| {verdict} | {price} | {stage} | {tt} | {market} |")
     return "\n".join(lines) + "\n"
 
 
@@ -508,14 +511,16 @@ def _snapshots_index(snaps, names) -> str:
         "**매수불가**(사유: 과열·시장국면·변동성과대·하락국면·천장권·기준미달).",
         "",
         SNAP_FILTERS,
-        "| 종목 | 기업명 | 분석일 | 판정 | Stage | TT |",
-        "|------|--------|--------|------|-------|----|",
+        # 관찰 종목과 같은 원칙 — 판정을 앞으로, 분석일은 뒤로 (2026-07-19)
+        "| 종목 | 기업명 | 판정 | Stage | TT | 분석일 |",
+        "|------|--------|------|-------|----|--------|",
     ]
     for s in snaps:
         name = names.get(s['ticker'], '')
         lines.append(
-            f"| [{s['ticker']}]({s['fname']}) | [{name}]({s['fname']}) | {s['created']} | {_verdict_cell(s['verdict'], s['reason'])} "
-            f"| {s['stage']} | {s['tt']}/8 |"
+            f"| [{s['ticker']}]({s['fname']}) | [{name}]({s['fname']}) "
+            f"| {_verdict_cell(s['verdict'], s['reason'])} "
+            f"| {s['stage']} | {s['tt']}/8 | {s['created']} |"
         )
     return "\n".join(lines) + "\n"
 
