@@ -28,31 +28,33 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   cursor: pointer;
 }
 
-/* 스냅샷·워치리스트 필터 바 */
+/* 스냅샷·워치리스트 필터 바
+   여백 축소(2026-07-19): 폰 폭에서 4줄 127px를 차지해 목록이 밀렸다 →
+   3줄 73px. 컨트롤 총 폭이 ~400px라 2줄은 물리적으로 불가능(실측). */
 .snap-filters {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.35rem 0.75rem;
-  padding: 0.5rem 0.8rem;
-  margin-bottom: 0.75rem;
+  gap: 0.2rem 0.4rem;
+  padding: 0.3rem 0.45rem;
+  margin-bottom: 0.5rem;
   background: var(--md-code-bg-color);
   border-radius: 0.4rem;
 }
 
 .sf-label {
-  font-size: 0.76rem;
+  font-size: 0.68rem;
   font-weight: 600;
   color: var(--md-default-fg-color--light);
 }
 
 .sf-select {
-  padding: 0.2rem 0.5rem;
+  padding: 0.1rem 0.3rem;
   border: 1px solid var(--md-default-fg-color--lighter);
   border-radius: 0.3rem;
   background: var(--md-default-bg-color);
   color: var(--md-default-fg-color);
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   cursor: pointer;
   outline: none;
   transition: border-color 0.15s;
@@ -71,12 +73,12 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
 }
 
 .pg-per {
-  padding: 0.18rem 0.5rem;
+  padding: 0.08rem 0.3rem;
   border: 1px solid var(--md-default-fg-color--lighter);
   border-radius: 0.3rem;
   background: var(--md-default-bg-color);
   color: var(--md-default-fg-color);
-  font-size: 0.82rem;
+  font-size: 0.68rem;
   cursor: pointer;
   transition: all 0.15s;
 }
@@ -88,18 +90,18 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   border-color: var(--md-primary-fg-color);
 }
 
-/* 페이지네이션 컨트롤 바 */
+/* 페이지네이션 컨트롤 바 (여백 축소 2026-07-19) */
 .pg-ctrl {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  padding: 0.5rem 0 0.75rem;
+  gap: 0.25rem;
+  padding: 0.35rem 0 0.5rem;
 }
 
 .pg-info {
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   color: var(--md-default-fg-color--light);
 }
 
@@ -144,6 +146,36 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   color: var(--md-default-fg-color--light);
   font-size: 0.85rem;
   user-select: none;
+}
+
+/* ── 폰 폭 밀도 최적화 (2026-07-19) ────────────────────────────────────────
+   사용자가 주로 모바일로 보고 PC도 같은 420px 컬럼이라, 좁은 폭 기준으로
+   여백을 조인다. 아래 값은 전부 실측으로 고른 것이다:
+   · 셀 여백 0.55em 0.6em → 행 52px→42px, 표 높이 −20%대.
+     더 줄이면(0.35em) 37px까지 가지만 탭 영역이 좁아져 여기서 멈춘다.
+   · 제목·구분선 여백 축소 → 스냅샷 상세 페이지 높이 −6%.
+   word-break: keep-all(한국어 어절 단위 줄바꿈)은 실측 결과 줄 수가 줄지
+   않고 오히려 페이지가 길어져 채택하지 않았다. */
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) th {
+  padding: 0.55em 0.6em;
+}
+
+.md-typeset h1 {
+  margin-bottom: 0.5rem;
+}
+
+.md-typeset h2 {
+  margin-top: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.md-typeset h3 {
+  margin-top: 0.9rem;
+}
+
+.md-typeset hr {
+  margin: 0.8rem 0;
 }
 
 /* PC에서도 모바일 폭 고정 — m.naver.com 방식 (2026-07-19 사용자 요청).
