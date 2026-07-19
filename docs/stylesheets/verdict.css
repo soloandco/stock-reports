@@ -158,26 +158,26 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
 /* PC(≥76.25em)는 컬럼이 1,220px까지 들어가므로 축소하지 않는다 —
    축소는 폰 폭 전용이다. 아래 규칙 전체를 좁은 화면으로 한정한다. */
 @media screen and (max-width: 76.2344em) {
-.pos-table:not(.pos-all) th:nth-child(2),
-.pos-table:not(.pos-all) td:nth-child(2),
-.pos-table:not(.pos-all) th:nth-child(3),
-.pos-table:not(.pos-all) td:nth-child(3),
-.pos-table:not(.pos-all) th:nth-child(4),
-.pos-table:not(.pos-all) td:nth-child(4),
-.pos-table:not(.pos-all) th:nth-child(8),
-.pos-table:not(.pos-all) td:nth-child(8),
-.pos-table:not(.pos-all) th:nth-child(9),
-.pos-table:not(.pos-all) td:nth-child(9),
-.pos-table:not(.pos-all) th:nth-child(10),
-.pos-table:not(.pos-all) td:nth-child(10) {
+.pos-wrap:not(.pos-all) th:nth-child(2),
+.pos-wrap:not(.pos-all) td:nth-child(2),
+.pos-wrap:not(.pos-all) th:nth-child(3),
+.pos-wrap:not(.pos-all) td:nth-child(3),
+.pos-wrap:not(.pos-all) th:nth-child(4),
+.pos-wrap:not(.pos-all) td:nth-child(4),
+.pos-wrap:not(.pos-all) th:nth-child(8),
+.pos-wrap:not(.pos-all) td:nth-child(8),
+.pos-wrap:not(.pos-all) th:nth-child(9),
+.pos-wrap:not(.pos-all) td:nth-child(9),
+.pos-wrap:not(.pos-all) th:nth-child(10),
+.pos-wrap:not(.pos-all) td:nth-child(10) {
   display: none;
 }
 
 /* 주수·손익 — 시드 입력 전에는 숨김(값이 "—") */
-.pos-table:not(.pos-all):not(.pos-seed) th:nth-child(11),
-.pos-table:not(.pos-all):not(.pos-seed) td:nth-child(11),
-.pos-table:not(.pos-all):not(.pos-seed) th:nth-child(12),
-.pos-table:not(.pos-all):not(.pos-seed) td:nth-child(12) {
+.pos-wrap:not(.pos-all):not(.pos-seed) th:nth-child(11),
+.pos-wrap:not(.pos-all):not(.pos-seed) td:nth-child(11),
+.pos-wrap:not(.pos-all):not(.pos-seed) th:nth-child(12),
+.pos-wrap:not(.pos-all):not(.pos-seed) td:nth-child(12) {
   display: none;
 }
 }   /* /max-width 76.2344em — 컬럼 축소는 폰 전용 */
@@ -258,9 +258,7 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
    가로 스크롤 시 종목명이 화면 밖으로 나가면 어느 행인지 알 수 없다.
    스크롤 컨테이너(.md-typeset__scrollwrap) 기준 sticky로 첫 열을 붙인다. */
 .md-typeset__scrollwrap table:not([class]) th:first-child,
-.md-typeset__scrollwrap table:not([class]) td:first-child,
-.md-typeset__scrollwrap table.pos-table th:first-child,
-.md-typeset__scrollwrap table.pos-table td:first-child {
+.md-typeset__scrollwrap table:not([class]) td:first-child {
   position: sticky;
   left: 0;
   z-index: 1;

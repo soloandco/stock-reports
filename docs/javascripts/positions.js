@@ -83,18 +83,25 @@ document$.subscribe(function () {
   // 앞쪽 'R 값' 설명 표에 클래스가 붙는다(실제로 겪은 오류).
   var shareCell = document.querySelector(".js-shares");
   var posTable = shareCell ? shareCell.closest("table") : null;
-  if (posTable && !posTable.classList.contains("pos-table")) {
-    posTable.classList.add("pos-table");
+  // ⚠ 클래스는 <table>이 아니라 바깥 래퍼에 붙인다.
+  // Material은 표를 `.md-typeset table:not([class])`로 스타일링하므로 table에
+  // 클래스를 하나라도 붙이면 테두리·헤더·셀 여백·폰트 크기가 전부 사라진다
+  // (2026-07-19 실제로 깨뜨렸던 지점).
+  var posWrap = posTable
+    ? posTable.closest(".md-typeset__table") || posTable.parentElement
+    : null;
+  if (posWrap && !posWrap.classList.contains("pos-wrap")) {
+    posWrap.classList.add("pos-wrap");
     var btn = document.createElement("button");
     btn.type = "button";
     btn.className = "pos-cols-toggle";
     var setLabel = function () {
-      btn.textContent = posTable.classList.contains("pos-all")
+      btn.textContent = posWrap.classList.contains("pos-all")
         ? "간단히 보기" : "전체 컬럼 보기";
     };
     setLabel();
     btn.addEventListener("click", function () {
-      posTable.classList.toggle("pos-all");
+      posWrap.classList.toggle("pos-all");
       setLabel();
       // 컬럼이 늘면 그때부터 가로 스크롤이 생기므로 힌트를 다시 계산
       if (window.saMarkScrollable) window.saMarkScrollable();
@@ -104,8 +111,8 @@ document$.subscribe(function () {
   }
 
   function syncSeedCols() {
-    if (!posTable) return;
-    posTable.classList.toggle("pos-seed", (parseFloat(seedEl.value) || 0) > 0);
+    if (!posWrap) return;
+    posWrap.classList.toggle("pos-seed", (parseFloat(seedEl.value) || 0) > 0);
     if (window.saMarkScrollable) window.saMarkScrollable();   // 주수·손익 노출로 폭 변경
   }
 
