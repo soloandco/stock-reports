@@ -48,6 +48,7 @@ extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js   # 표 헤더 클릭 정렬
   - javascripts/tablesort.js
   - javascripts/positions.js       # 시드 입력 → 주수·손익(원) 실시간 계산
+  - javascripts/theme-in-drawer.js # 테마 전환을 헤더 → 햄버거 드로어로 이동
 
 nav:
   - 홈: index.md

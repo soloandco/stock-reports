@@ -195,6 +195,41 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   color: var(--md-primary-fg-color);
 }
 
+/* ── 드로어 안 테마 전환 (헤더에서 이동, 2026-07-19) ──────────────────────
+   헤더는 로고·검색·햄버거만 두고 테마 토글은 햄버거 메뉴로 내렸다.
+   .md-header__button은 헤더(진한 배경) 기준이라 글자색이 흰색 →
+   드로어의 밝은 배경에서 아이콘이 보이지 않으므로 색을 다시 지정한다. */
+.sa-theme-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+  padding: 0.4rem 0.6rem 0.2rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.sa-theme-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
+}
+
+.sa-theme-item .md-header__option {
+  display: flex;
+  align-items: center;
+}
+
+.sa-theme-item .md-header__button {
+  margin: 0;
+  padding: 0.2rem;
+  color: var(--md-default-fg-color);   /* 헤더용 흰색 → 드로어 배경에 맞춤 */
+  opacity: 1;
+}
+
+.sa-theme-item .md-header__button:hover {
+  color: var(--md-primary-fg-color);
+}
+
 /* ── 가로 스크롤 가능한 표: 오른쪽 끝 그림자 힌트 ─────────────────────────
    표가 잘려 있다는 신호. is-scrollable은 실제로 넘치는 표에만 tablesort.js가
    붙인다. 덮개(local)는 내용과 함께 스크롤돼 끝에 닿으면 그림자를 가리므로,
