@@ -22,11 +22,11 @@
 
 | 종목 | 기업명 | 판정 | 현재가 | Stage | TT | 시장 |
 |------|--------|------|-------:|-------|----|------|
-| [**009150**](009150.md) | [삼성전기](009150.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩1,275,000 | 2 | 6/8 | KRX |
-| [**066570**](066570.md) | [LG전자](066570.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩167,200 | 2 | 6/8 | KRX |
-| [**161890**](161890.md) | [한국콜마](161890.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩99,500 | 2 | 7/8 | KRX |
+| [**009150**](009150.md) | [삼성전기](009150.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩1,310,000 | 2 | 6/8 | KRX |
+| [**066570**](066570.md) | [LG전자](066570.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩173,200 | 2 | 6/8 | KRX |
+| [**161890**](161890.md) | [한국콜마](161890.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩101,700 | 2 | 7/8 | KRX |
 | [**278470**](278470.md) | [에이피알](278470.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩368,000 | 2 | 7/8 | KOSDAQ |
-| [**329180**](329180.md) | [HD현대중공업](329180.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | ₩448,500 | 3 | 3/8 | KRX |
+| [**329180**](329180.md) | [HD현대중공업](329180.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | ₩451,500 | 3 | 3/8 | KRX |
 | [**AAPL**](AAPL.md) | [Apple](AAPL.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | $326.59 | 2 | 8/8 | NASDAQ |
 | [**AMD**](AMD.md) | [Advanced Micro Devices](AMD.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | $503.57 | 2 | 8/8 | NASDAQ |
 | [**APLD**](APLD.md) | [Applied Digital](APLD.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $27.85 | 3 | 4/8 | NASDAQ |
