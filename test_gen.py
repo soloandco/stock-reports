@@ -254,3 +254,22 @@ def test_collect_completed_trades_missing_returns_empty(tmp_path, monkeypatch):
 def test_stat_cards_include_performance_link():
     html = gen._stat_cards([], [], [])
     assert 'href="performance/"' in html
+
+
+def test_candidate_days_cell():
+    """경과 컬럼 셀 — 후보만 D+N, D+10 초과는 ⚠, 구형/비후보는 빈칸 (2026-07-24)."""
+    from gen import _candidate_days_cell
+    assert _candidate_days_cell("4") == "D+4"
+    assert _candidate_days_cell(18) == "D+18⚠"
+    assert _candidate_days_cell("") == ""
+    assert _candidate_days_cell(None) == ""
+
+
+def test_watchlist_index_has_days_column():
+    from gen import _watchlist_index
+    entries = [("GS", "NYSE", "골드만삭스", "GS.md")]
+    latest = {"GS": {"verdict": "매수후보", "reason": "", "stage": "2",
+                     "tt": "8", "price": "1074.51", "days": "18"}}
+    md = _watchlist_index(entries, latest)
+    assert "| 경과 |" in md
+    assert "D+18⚠" in md

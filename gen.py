@@ -130,6 +130,18 @@ def _verdict_cell(verdict: str, reason: str) -> str:
     return badge
 
 
+def _candidate_days_cell(days: str) -> str:
+    """candidate-days 프론트매터 → 'D+N' 셀 (D+10 초과는 ⚠ — 진입 지연 감쇠 구간).
+
+    매수후보가 아니거나 구형 스냅샷이면 빈 문자열.
+    """
+    try:
+        n = int(days)
+    except (TypeError, ValueError):
+        return ""
+    return f"D+{n}⚠" if n > 10 else f"D+{n}"
+
+
 def _company_name(title: str) -> str:
     """워치리스트 title('NVIDIA 관찰 종목')에서 기업명만 추출."""
     return re.sub(r"\s*관찰\s*종목\s*$", "", title).strip()
@@ -217,6 +229,8 @@ def _collect_snapshots() -> list[dict]:
             "tt":      fm.get("trend-template-score", ""),
             "price":   fm.get("price", ""),
             "market":  fm.get("market", ""),
+            "days":    fm.get("candidate-days", ""),   # 매수후보 경과 거래일 (구형 스냅샷은 "")
+            "gap":     fm.get("sma50-gap-pct", ""),    # SMA50 이격 %
             "fname":   md.name,
         })
     # 분석일 내림차순(동일 날짜는 종목 오름차순 — 안정 정렬)
@@ -480,14 +494,18 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
         "# 관찰 종목",
         "",
         "모니터링 대상 종목. 30분 폴링으로 상태 변화 시 [알림](../alerts/index.md)이 발송됩니다. "
-        "판정·Stage·TT·현재가는 각 종목의 **최신 분석 스냅샷** 기준입니다.",
+        "판정·Stage·TT·현재가는 각 종목의 **최신 분석 스냅샷** 기준입니다. "
+        "**경과**는 매수후보 연속 경과 거래일(D+N) — 전환일이 D+0이며, "
+        "백테스트상 후보는 **D+5 이내 진입이 우선**이고 D+10을 넘기면 기대값이 감쇠합니다(⚠ 표시). "
+        "이격·실질 손익비 등 진입 타이밍 상세는 각 종목 스냅샷의 '진입 · 손절 · 타겟' 표에 있습니다.",
         "",
         WL_FILTERS,
         # 컬럼 순서 = 폰 폭 우선순위 (2026-07-19): 종목·기업명·판정·현재가가
         # 앞 4열(≈324px)이라 스크롤 없이 보이고, 보조 지표는 오른쪽으로 밀린다.
         # 필터는 헤더 이름으로 열을 찾으므로(tablesort.js) 순서를 바꿔도 안전하다.
-        "| 종목 | 기업명 | 판정 | 현재가 | Stage | TT | 시장 |",
-        "|------|--------|------|-------:|-------|----|------|",
+        # 경과 = 매수후보 연속 경과 거래일 D+N (2026-07-24, 후보만 표시·D+10↑ ⚠)
+        "| 종목 | 기업명 | 판정 | 현재가 | 경과 | Stage | TT | 시장 |",
+        "|------|--------|------|-------:|------|-------|----|------|",
     ]
     for ticker, market, name, fname in sorted(entries):
         s = latest_by_ticker.get(ticker)
@@ -495,10 +513,11 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
             verdict = _verdict_cell(s["verdict"], s["reason"])
             stage, tt = s["stage"], f"{s['tt']}/8" if s["tt"] else ""
             price = _fmt_price_str(s["price"], market)
+            days = _candidate_days_cell(s.get("days", ""))
         else:
-            verdict = stage = tt = price = ""
+            verdict = stage = tt = price = days = ""
         lines.append(f"| [**{ticker}**]({fname}) | [{name}]({fname}) "
-                     f"| {verdict} | {price} | {stage} | {tt} | {market} |")
+                     f"| {verdict} | {price} | {days} | {stage} | {tt} | {market} |")
     return "\n".join(lines) + "\n"
 
 

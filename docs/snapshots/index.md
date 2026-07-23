@@ -26,7 +26,7 @@
 | [066570](066570-2026-07-24.md) | [LG전자](066570-2026-07-24.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-07-24 |
 | [161890](161890-2026-07-24.md) | [한국콜마](161890-2026-07-24.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-07-24 |
 | [278470](278470-2026-07-24.md) | [에이피알](278470-2026-07-24.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-07-24 |
-| [329180](329180-2026-07-24.md) | [HD현대중공업](329180-2026-07-24.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/8 | 2026-07-24 |
+| [329180](329180-2026-07-24.md) | [HD현대중공업](329180-2026-07-24.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 | 2026-07-24 |
 | [AAPL](AAPL-2026-07-24.md) | [Apple](AAPL-2026-07-24.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 | 2026-07-24 |
 | [AMD](AMD-2026-07-24.md) | [Advanced Micro Devices](AMD-2026-07-24.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 | 2026-07-24 |
 | [APLD](APLD-2026-07-24.md) | [Applied Digital](APLD-2026-07-24.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 | 2026-07-24 |
@@ -38,7 +38,7 @@
 | [CDNS](CDNS-2026-07-24.md) | [Cadence Design Systems](CDNS-2026-07-24.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-07-24 |
 | [CIFR](CIFR-2026-07-24.md) | [Cipher Mining](CIFR-2026-07-24.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 | 2026-07-24 |
 | [CORZ](CORZ-2026-07-24.md) | [Core Scientific](CORZ-2026-07-24.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-07-24 |
-| [DHI](DHI-2026-07-24.md) | [D.R. Horton](DHI-2026-07-24.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 1/8 | 2026-07-24 |
+| [DHI](DHI-2026-07-24.md) | [D.R. Horton](DHI-2026-07-24.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 2/8 | 2026-07-24 |
 | [DLR](DLR-2026-07-24.md) | [Digital Realty](DLR-2026-07-24.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 | 2026-07-24 |
 | [GDXU](GDXU-2026-07-24.md) | [GDXU](GDXU-2026-07-24.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-07-24 |
 | [GEV](GEV-2026-07-24.md) | [GE Vernova](GEV-2026-07-24.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-07-24 |
