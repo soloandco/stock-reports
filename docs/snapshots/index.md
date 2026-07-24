@@ -26,7 +26,7 @@
 | [066570](066570-2026-07-24.md) | [LG전자](066570-2026-07-24.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-07-24 |
 | [161890](161890-2026-07-24.md) | [한국콜마](161890-2026-07-24.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-07-24 |
 | [278470](278470-2026-07-24.md) | [에이피알](278470-2026-07-24.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-07-24 |
-| [329180](329180-2026-07-24.md) | [HD현대중공업](329180-2026-07-24.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 | 2026-07-24 |
+| [329180](329180-2026-07-24.md) | [HD현대중공업](329180-2026-07-24.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 4/8 | 2026-07-24 |
 | [AAPL](AAPL-2026-07-24.md) | [Apple](AAPL-2026-07-24.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 | 2026-07-24 |
 | [AMD](AMD-2026-07-24.md) | [Advanced Micro Devices](AMD-2026-07-24.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 | 2026-07-24 |
 | [APLD](APLD-2026-07-24.md) | [Applied Digital](APLD-2026-07-24.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 | 2026-07-24 |
