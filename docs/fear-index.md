@@ -4,11 +4,11 @@
 
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
-| [**009150**](snapshots/009150-2026-07-25.md) | [삼성전기](snapshots/009150-2026-07-25.md) | 2026-07-25 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
-| [**066570**](snapshots/066570-2026-07-25.md) | [LG전자](snapshots/066570-2026-07-25.md) | 2026-07-25 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
-| [**161890**](snapshots/161890-2026-07-25.md) | [한국콜마](snapshots/161890-2026-07-25.md) | 2026-07-25 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
-| [**278470**](snapshots/278470-2026-07-25.md) | [에이피알](snapshots/278470-2026-07-25.md) | 2026-07-25 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
-| [**329180**](snapshots/329180-2026-07-25.md) | [HD현대중공업](snapshots/329180-2026-07-25.md) | 2026-07-25 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 4/8 |
+| [**009150**](snapshots/009150-2026-07-26.md) | [삼성전기](snapshots/009150-2026-07-26.md) | 2026-07-26 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
+| [**161890**](snapshots/161890-2026-07-26.md) | [한국콜마](snapshots/161890-2026-07-26.md) | 2026-07-26 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
+| [**278470**](snapshots/278470-2026-07-26.md) | [에이피알](snapshots/278470-2026-07-26.md) | 2026-07-26 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
+| [**066570**](snapshots/066570-2026-07-26.md) | [LG전자](snapshots/066570-2026-07-26.md) | 2026-07-26 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 |
+| [**329180**](snapshots/329180-2026-07-26.md) | [HD현대중공업](snapshots/329180-2026-07-26.md) | 2026-07-26 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 4/8 |
 
 [→ 전체 스냅샷](snapshots/index.md)
 
@@ -41,7 +41,7 @@
 
 ## 섹터 자금 흐름
 
-> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-07-24 23:02 UTC · `--scan` 시 갱신
+> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-07-26 07:42 UTC · `--scan` 시 갱신
 >
 > 한·미는 통화·데이터 소스가 달라 **별도 순위**입니다. 두 시장 점수를 직접 비교하지 마세요.
 
@@ -51,14 +51,14 @@
 |---|---|---|---|---|---|---|
 | 1 | Energy | +1.14 | 🟢 매집 | 7 | 2 | 16.5% |
 | 2 | Technology | +1.00 | 🔴 분산 | 3 | 5 | 12.0% |
-| 3 | Health Care | +0.65 | 🟢 매집 | 5 | 3 | 10.1% |
-| 4 | Industrials | +0.65 | 🔴 분산 | 2 | 6 | 10.1% |
+| 3 | Health Care | +0.65 | 🟢 매집 | 5 | 3 | 10.0% |
+| 4 | Industrials | +0.65 | 🔴 분산 | 2 | 6 | 10.0% |
 | 5 | Real Estate | +0.47 | ⚪ 중립 | 3 | 3 | 1.7% |
-| 6 | Financials | +0.43 | 🟢 매집 | 4 | 3 | 15.4% |
+| 6 | Financials | +0.43 | 🟢 매집 | 4 | 3 | 15.6% |
 | 7 | Materials | +0.34 | 🔴 분산 | 3 | 6 | 5.1% |
 | 8 | Utilities | +0.29 | 🔴 분산 | 3 | 5 | 7.1% |
 | 9 | Consumer Staples | +0.20 | ⚪ 중립 | 5 | 5 | 6.8% |
-| 10 | Communication | -0.32 | 🟢 매집 | 4 | 3 | 6.3% |
+| 10 | Communication | -0.32 | 🟢 매집 | 4 | 3 | 6.2% |
 | 11 | Consumer Discretionary | -0.34 | ⚪ 중립 | 5 | 5 | 9.0% |
 
 ### 한국 (KODEX/TIGER 섹터 ETF)
@@ -82,7 +82,7 @@
 
 ## 테마별 자금 흐름 (로테이션)
 
-> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-07-24 23:02 UTC
+> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-07-26 07:42 UTC
 >
 > **US**: SMH(GPU/반도체)·IRBO(AI인프라)·BOTZ(피지컬AI) ETF + 전력/DataCenter 바스켓
 > **KR**: 전력(4종)·기판(5종)·피지컬AI(3종) 균등가중 바스켓
@@ -117,7 +117,7 @@
 
 ## CNN Fear & Greed Index
 
-> 수집: 2026-07-24 23:02 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
+> 수집: 2026-07-26 07:41 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
 
 | 점수 | 전일比 | 등급 |
 |------|--------|------|
@@ -137,7 +137,7 @@
 
 ## VIX
 
-> 수집: 2026-07-24 23:02 UTC · `python monitor.py --scan` 실행 시 갱신
+> 수집: 2026-07-26 07:41 UTC · `python monitor.py --scan` 실행 시 갱신
 
 | 지수 | 현재값 | 전일比 | 등급 | 시장 국면 | 신규 진입 |
 |------|--------|--------|------|---------|---------|
