@@ -23,7 +23,7 @@
 | 종목 | 기업명 | 판정 | Stage | TT | 분석일 |
 |------|--------|------|-------|----|--------|
 | [009150](009150-2026-07-29.md) | [삼성전기](009150-2026-07-29.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-07-29 |
-| [066570](066570-2026-07-29.md) | [LG전자](066570-2026-07-29.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 | 2026-07-29 |
+| [066570](066570-2026-07-29.md) | [LG전자](066570-2026-07-29.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 5/8 | 2026-07-29 |
 | [161890](161890-2026-07-29.md) | [한국콜마](161890-2026-07-29.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-07-29 |
 | [278470](278470-2026-07-29.md) | [에이피알](278470-2026-07-29.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 5/8 | 2026-07-29 |
 | [329180](329180-2026-07-29.md) | [HD현대중공업](329180-2026-07-29.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 4/8 | 2026-07-29 |
