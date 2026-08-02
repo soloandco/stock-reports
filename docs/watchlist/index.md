@@ -23,7 +23,7 @@
 | 종목 | 기업명 | 판정 | 현재가 | 경과 | Stage | TT | 시장 |
 |------|--------|------|-------:|------|-------|----|------|
 | [**009150**](009150.md) | [삼성전기](009150.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩1,142,000 |  | 2 | 6/8 | KRX |
-| [**066570**](066570.md) | [LG전자](066570.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩162,100 |  | 2 | 6/8 | KRX |
+| [**066570**](066570.md) | [LG전자](066570.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | ₩162,100 |  | 2 | 5/8 | KRX |
 | [**161890**](161890.md) | [한국콜마](161890.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩95,200 |  | 2 | 7/8 | KRX |
 | [**278470**](278470.md) | [에이피알](278470.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | ₩320,000 |  | 3 | 5/8 | KOSDAQ |
 | [**329180**](329180.md) | [HD현대중공업](329180.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | ₩481,000 |  | 4 | 2/8 | KRX |
