@@ -25,14 +25,14 @@
 | [**009150**](009150.md) | [삼성전기](009150.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩1,142,000 |  | 2 | 6/8 | KRX |
 | [**066570**](066570.md) | [LG전자](066570.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | ₩162,100 |  | 2 | 5/8 | KRX |
 | [**161890**](161890.md) | [한국콜마](161890.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩95,200 |  | 2 | 7/8 | KRX |
-| [**278470**](278470.md) | [에이피알](278470.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | ₩320,000 |  | 3 | 5/8 | KOSDAQ |
+| [**278470**](278470.md) | [에이피알](278470.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩338,000 |  | 2 | 6/8 | KOSDAQ |
 | [**329180**](329180.md) | [HD현대중공업](329180.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | ₩481,000 |  | 4 | 2/8 | KRX |
 | [**AAPL**](AAPL.md) | [Apple](AAPL.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $303.42 |  | 2 | 7/8 | NASDAQ |
 | [**AMD**](AMD.md) | [Advanced Micro Devices](AMD.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $484.64 |  | 2 | 7/8 | NASDAQ |
 | [**APLD**](APLD.md) | [Applied Digital](APLD.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $29.49 |  | 3 | 5/8 | NASDAQ |
 | [**ASTS**](ASTS.md) | [AST SpaceMobile](ASTS.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $63.52 |  | 4 | 3/8 | NASDAQ |
-| [**AVGO**](AVGO.md) | [Broadcom](AVGO.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $392.23 |  | 2 | 6/8 | NASDAQ |
-| [**BA**](BA.md) | [Boeing](BA.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $233.45 |  | 2 | 6/8 | NYSE |
+| [**AVGO**](AVGO.md) | [Broadcom](AVGO.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $389.28 |  | 1 | 6/8 | NASDAQ |
+| [**BA**](BA.md) | [Boeing](BA.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $216.14 |  | 3 | 3/8 | NYSE |
 | [**BE**](BE.md) | [Bloom Energy](BE.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $218.25 |  | 2 | 6/8 | NYSE |
 | [**CAT**](CAT.md) | [Caterpillar](CAT.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $830.88 |  | 2 | 7/8 | NYSE |
 | [**CDNS**](CDNS.md) | [Cadence Design Systems](CDNS.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $336.15 |  | 2 | 6/8 | NASDAQ |
@@ -42,16 +42,16 @@
 | [**DLR**](DLR.md) | [Digital Realty](DLR.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $191.19 |  | 2 | 7/8 | NYSE |
 | [**GDXU**](GDXU.md) | [GDXU](GDXU.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $81.25 |  | 4 | 2/8 | NYSE |
 | [**GEV**](GEV.md) | [GE Vernova](GEV.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $1,007.47 |  | 2 | 7/8 | NYSE |
-| [**GOOGL**](GOOGL.md) | [Alphabet](GOOGL.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | $373.51 | D+0 | 2 | 8/8 | NASDAQ |
+| [**GOOGL**](GOOGL.md) | [Alphabet](GOOGL.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $356.13 |  | 2 | 7/8 | NASDAQ |
 | [**GS**](GS.md) | [Goldman Sachs](GS.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $1,027.29 |  | 2 | 7/8 | NYSE |
 | [**IREN**](IREN.md) | [IREN Limited](IREN.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $39.75 |  | 4 | 3/8 | NASDAQ |
-| [**KMI**](KMI.md) | [Kinder Morgan](KMI.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $31.39 |  | 3 | 5/8 | NYSE |
+| [**KMI**](KMI.md) | [Kinder Morgan](KMI.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $32.18 |  | 2 | 7/8 | NYSE |
 | [**KO**](KO.md) | [Coca-Cola](KO.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $86.87 |  | 2 | 7/8 | NYSE |
-| [**LLY**](LLY.md) | [Eli Lilly](LLY.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $1,121.26 |  | 2 | 7/8 | NYSE |
+| [**LLY**](LLY.md) | [Eli Lilly](LLY.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | $1,148.84 | D+0 | 2 | 8/8 | NYSE |
 | [**LUNR**](LUNR.md) | [Intuitive Machines](LUNR.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $13.10 |  | 3 | 4/8 | NASDAQ |
 | [**MS**](MS.md) | [Morgan Stanley](MS.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $211.22 |  | 2 | 7/8 | NYSE |
 | [**MSFT**](MSFT.md) | [Microsoft](MSFT.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $487.65 |  | 1 | 4/8 | NASDAQ |
-| [**NVDA**](NVDA.md) | [NVIDIA](NVDA.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $206.64 |  | 2 | 7/8 | NASDAQ |
+| [**NVDA**](NVDA.md) | [NVIDIA](NVDA.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $200.75 |  | 2 | 5/8 | NASDAQ |
 | [**PCAR**](PCAR.md) | [Paccar](PCAR.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $132.06 |  | 2 | 7/8 | NASDAQ |
 | [**PLTR**](PLTR.md) | [Palantir](PLTR.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $125.65 |  | 4 | 0/8 | NASDAQ |
 | [**PM**](PM.md) | [Philip Morris](PM.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $187.41 |  | 2 | 7/8 | NYSE |
