@@ -131,15 +131,17 @@ def _verdict_cell(verdict: str, reason: str) -> str:
 
 
 def _candidate_days_cell(days: str) -> str:
-    """candidate-days 프론트매터 → 'D+N' 셀 (D+10 초과는 ⚠ — 진입 지연 감쇠 구간).
+    """candidate-days 프론트매터 → 'D+N' 셀 (D+5 초과는 '만료' — 재전환 대기).
 
     매수후보가 아니거나 구형 스냅샷이면 빈 문자열.
+    임계 5는 core.notifier.CANDIDATE_FRESH_MAX_DAYS와 같아야 한다
+    (이 스크립트는 core를 import하지 않아 하드코딩 — 2026-08-07).
     """
     try:
         n = int(days)
     except (TypeError, ValueError):
         return ""
-    return f"D+{n}⚠" if n > 10 else f"D+{n}"
+    return f"D+{n} 만료" if n > 5 else f"D+{n}"
 
 
 def _company_name(title: str) -> str:
@@ -496,7 +498,9 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
         "모니터링 대상 종목. 30분 폴링으로 상태 변화 시 [알림](../alerts/index.md)이 발송됩니다. "
         "판정·Stage·TT·현재가는 각 종목의 **최신 분석 스냅샷** 기준입니다. "
         "**경과**는 매수후보 연속 경과 거래일(D+N) — 전환일이 D+0이며, "
-        "백테스트상 후보는 **D+5 이내 진입이 우선**이고 D+10을 넘기면 기대값이 감쇠합니다(⚠ 표시). "
+        "매수 추천은 **D+5까지만 유효**합니다. D+5를 넘기면 '만료'로 표시되고 "
+        "푸시 알림도 나가지 않습니다(백테스트상 지연 진입은 기대값 감쇠 — 비매수로 "
+        "내려갔다 재전환하면 D+0 새 추천으로 부활). "
         "이격·실질 손익비 등 진입 타이밍 상세는 각 종목 스냅샷의 '진입 · 손절 · 타겟' 표에 있습니다.",
         "",
         WL_FILTERS,
