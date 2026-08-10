@@ -12,12 +12,6 @@ tags:
   - semiconductor
   - ai
 status: watching
-lines:
-  - kind: trend
-    from: [2026-05-19, 393.36]
-    to: [2026-07-29, 424.03]
-    direction: below
-    note: 상승 지지선
 comments: true
 related:
   - "[[analysis-template]]"

@@ -11,12 +11,6 @@ tags:
   - QCOM
   - golden-cross-pullback
 status: watching
-lines:
-  - kind: trend
-    from: [2026-04-07, 121.54]
-    to: [2026-08-03, 142.89]
-    direction: below
-    note: 상승 지지선
 comments: true
 ---
 

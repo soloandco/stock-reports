@@ -12,12 +12,6 @@ tags:
   - energy
   - pipeline
 status: watching
-lines:
-  - kind: trend
-    from: [2026-03-27, 34.09]
-    to: [2026-07-23, 32.95]
-    direction: above
-    note: 하락 저항선
 ---
 
 # Kinder Morgan (KMI) — 관찰 종목

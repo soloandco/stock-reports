@@ -13,12 +13,6 @@ tags:
   - specialty-pc
 status: watching
 comments: true
-lines:
-  - kind: trend
-    from: [2026-07-15, 56.13]
-    to: [2026-07-23, 56.77]
-    direction: below
-    note: 상승 지지선
 related:
   - "[[analysis-template]]"
 ---

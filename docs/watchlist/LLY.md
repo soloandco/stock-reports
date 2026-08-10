@@ -14,12 +14,6 @@ tags:
   - pharma
 status: watching
 comments: true
-lines:
-  - kind: trend
-    from: [2026-06-23, 1079.22]
-    to: [2026-08-03, 1109.15]
-    direction: below
-    note: 상승 지지선
 related:
   - "[[analysis-template]]"
 ---

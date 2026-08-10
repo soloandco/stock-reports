@@ -11,12 +11,6 @@ tags:
   - BA
   - golden-cross-pullback
 status: watching
-lines:
-  - kind: trend
-    from: [2026-03-30, 187.72]
-    to: [2026-07-21, 203.9]
-    direction: below
-    note: 상승 지지선
 comments: true
 ---
 

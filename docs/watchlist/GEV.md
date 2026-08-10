@@ -12,12 +12,6 @@ tags:
   - energy
   - infrastructure
 status: watching
-lines:
-  - kind: trend
-    from: [2026-06-10, 855.57]
-    to: [2026-07-29, 897.68]
-    direction: below
-    note: 상승 지지선
 ---
 
 # GE Vernova (GEV) — 관찰 종목

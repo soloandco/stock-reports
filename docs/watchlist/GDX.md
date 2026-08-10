@@ -18,11 +18,6 @@ lines:
     period: 150
     direction: above
     note: SMA150 탈환 (GDXU 실행 트리거)
-  - kind: trend
-    from: [2026-07-17, 69.74]
-    to: [2026-07-29, 72.18]
-    direction: below
-    note: 상승 지지선
 related:
   - "[[GDXU-gold-miners-3x]]"
 ---

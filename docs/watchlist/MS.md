@@ -12,12 +12,6 @@ tags:
   - financials
   - investment-bank
 status: watching
-lines:
-  - kind: trend
-    from: [2026-06-10, 204.70]
-    to: [2026-07-17, 206.26]
-    direction: below
-    note: 상승 지지선
 ---
 
 # Morgan Stanley (MS) — 관찰 종목

@@ -12,12 +12,6 @@ tags:
   - reit
   - data-center
 status: watching
-lines:
-  - kind: trend
-    from: [2026-01-23, 155.05]
-    to: [2026-07-02, 172.01]
-    direction: below
-    note: 상승 지지선
 ---
 
 # Digital Realty Trust (DLR) — 관찰 종목
