@@ -40,6 +40,7 @@
 | [CORZ](CORZ-2026-08-10.md) | [Core Scientific](CORZ-2026-08-10.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 | 2026-08-10 |
 | [DHI](DHI-2026-08-10.md) | [D.R. Horton](DHI-2026-08-10.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 5/8 | 2026-08-10 |
 | [DLR](DLR-2026-08-10.md) | [Digital Realty](DLR-2026-08-10.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-10 |
+| [GDX](GDX-2026-08-10.md) | [GDX 금광주 ETF](GDX-2026-08-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 5/8 | 2026-08-10 |
 | [GDXU](GDXU-2026-08-10.md) | [GDXU](GDXU-2026-08-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/8 | 2026-08-10 |
 | [GEV](GEV-2026-08-10.md) | [GE Vernova](GEV-2026-08-10.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-10 |
 | [GOOGL](GOOGL-2026-08-10.md) | [Alphabet](GOOGL-2026-08-10.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-08-10 |

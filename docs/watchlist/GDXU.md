@@ -15,11 +15,17 @@ status: watching
 comments: true
 related:
   - "[[analysis-template]]"
+  - "[[GDX-gold-miners-etf]]"
 ---
 
 # MicroSectors Gold Miners 3X Leveraged ETN (GDXU) — 관찰 종목
 
 > ⚠️ **3x 일별 레버리지 ETN** — 장기 보유 시 레버리지 감소(decay) 발생. TT 프레임워크는 참고용.
+
+> **국면 판정은 기초자산 [[GDX-gold-miners-etf]]에서 읽는다** (2026-08-10 등록).
+> 3배 복리 경로 왜곡 탓에 이 종목의 Stage·매물대·주봉 저항은 늦거나 부정확하다.
+> 실제로 2026-08-01~08-10 사이 가격이 75.01 → 130.43(+74%) 오르는 동안 판정은
+> 계속 `매도관찰 / Stage 4`였다. 실행·손절폭은 이 종목 스냅샷 기준을 그대로 쓴다.
 
 ---
 
