@@ -257,10 +257,15 @@ def test_stat_cards_include_performance_link():
 
 
 def test_candidate_days_cell():
-    """경과 컬럼 셀 — 후보만 D+N, D+10 초과는 ⚠, 구형/비후보는 빈칸 (2026-07-24)."""
+    """경과 컬럼 셀 — 후보만 D+N, D+5 초과는 '만료', 구형/비후보는 빈칸 (2026-08-07).
+
+    임계 5는 core.notifier.CANDIDATE_FRESH_MAX_DAYS와 같아야 한다.
+    """
     from gen import _candidate_days_cell
     assert _candidate_days_cell("4") == "D+4"
-    assert _candidate_days_cell(18) == "D+18⚠"
+    assert _candidate_days_cell(5) == "D+5"
+    assert _candidate_days_cell(6) == "D+6 만료"
+    assert _candidate_days_cell(18) == "D+18 만료"
     assert _candidate_days_cell("") == ""
     assert _candidate_days_cell(None) == ""
 
@@ -272,4 +277,4 @@ def test_watchlist_index_has_days_column():
                      "tt": "8", "price": "1074.51", "days": "18"}}
     md = _watchlist_index(entries, latest)
     assert "| 경과 |" in md
-    assert "D+18⚠" in md
+    assert "D+18 만료" in md
