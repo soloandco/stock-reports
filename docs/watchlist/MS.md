@@ -4,7 +4,7 @@ ticker: MS
 market: NYSE
 title: Morgan Stanley 관찰 종목
 created: 2026-06-30
-updated: 2026-07-24
+updated: 2026-08-10
 tags:
   - stock-agent
   - watchlist
