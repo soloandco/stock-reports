@@ -11,6 +11,12 @@ tags:
   - CAT
   - industrial
 status: watching
+lines:
+  - kind: trend
+    from: [2026-04-16, 751.62]
+    to: [2026-07-29, 776.0]
+    direction: below
+    note: 상승 지지선
 comments: true
 related:
   - "[[analysis-template]]"

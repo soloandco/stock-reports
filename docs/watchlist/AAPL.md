@@ -12,6 +12,12 @@ tags:
   - tech
   - services
 status: watching
+lines:
+  - kind: trend
+    from: [2026-04-27, 264.83]
+    to: [2026-06-25, 273.75]
+    direction: below
+    note: 상승 지지선
 comments: true
 related:
   - "[[analysis-template]]"

@@ -12,6 +12,12 @@ tags:
   - vcp
   - squeeze
 status: watching
+lines:
+  - kind: trend
+    from: [2026-06-16, 376.0]
+    to: [2026-07-16, 375.27]
+    direction: above
+    note: 하락 저항선
 comments: true
 related:
   - "[[GOOGL-2026-05-30]]"

@@ -5,6 +5,11 @@ market: NYSE
 title: RedWire 관찰 종목
 created: 2026-06-30
 updated: 2026-06-30
+lines:
+  - kind: level
+    price: 12.52
+    direction: above
+    note: $12.52 저항
 tags:
   - stock-agent
   - watchlist

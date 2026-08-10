@@ -13,6 +13,12 @@ tags:
   - trucking
 status: watching
 comments: true
+lines:
+  - kind: trend
+    from: [2026-05-21, 107.78]
+    to: [2026-06-24, 116.32]
+    direction: below
+    note: 상승 지지선
 related:
   - "[[analysis-template]]"
 ---
