@@ -53,7 +53,7 @@
 | [MS](MS-2026-08-11.md) | [Morgan Stanley](MS-2026-08-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 | 2026-08-11 |
 | [MSFT](MSFT-2026-08-11.md) | [Microsoft](MSFT-2026-08-11.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/8 | 2026-08-11 |
 | [NVDA](NVDA-2026-08-11.md) | [NVIDIA](NVDA-2026-08-11.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-11 |
-| [PCAR](PCAR-2026-08-11.md) | [Paccar](PCAR-2026-08-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 | 2026-08-11 |
+| [PCAR](PCAR-2026-08-11.md) | [Paccar](PCAR-2026-08-11.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-11 |
 | [PLTR](PLTR-2026-08-11.md) | [Palantir](PLTR-2026-08-11.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/8 | 2026-08-11 |
 | [PM](PM-2026-08-11.md) | [Philip Morris](PM-2026-08-11.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-11 |
 | [PYPL](PYPL-2026-08-11.md) | [PayPal](PYPL-2026-08-11.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/8 | 2026-08-11 |
