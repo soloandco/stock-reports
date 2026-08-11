@@ -40,6 +40,12 @@ SECTOR_JSON = ROOT.parent / "data" / "sector_strength.json"
 TRADE_REPORT_JSON = ROOT.parent / "data" / "trade_report.json"
 COMPLETED_TRADES_JSON = ROOT.parent / "data" / "completed_trades.json"
 
+# 매수후보 추천 유효기간(거래일). 이 값을 넘긴 후보는 '만료'로 표시된다.
+# core.notifier.CANDIDATE_FRESH_MAX_DAYS와 같아야 한다 — 이 스크립트는 공개 저장소에
+# 있어 core를 런타임 의존하지 않으므로 값을 복제하고, 일치 여부는 테스트로 강제한다
+# (test_gen.py::test_expiry_threshold_matches_core, 2026-08-11).
+CANDIDATE_FRESH_MAX_DAYS = 5
+
 DISCLAIMER = """\
 !!! warning "투자 유의 / Disclaimer"
     이 사이트는 기술적 분석 프레임워크(Weinstein·Minervini·Turtle)의 **판정 결과를 기록**한 것으로,
@@ -131,17 +137,16 @@ def _verdict_cell(verdict: str, reason: str) -> str:
 
 
 def _candidate_days_cell(days: str) -> str:
-    """candidate-days 프론트매터 → 'D+N' 셀 (D+5 초과는 '만료' — 재전환 대기).
+    """candidate-days 프론트매터 → 'D+N' 셀 (임계 초과는 '만료' — 재전환 대기).
 
     매수후보가 아니거나 구형 스냅샷이면 빈 문자열.
-    임계 5는 core.notifier.CANDIDATE_FRESH_MAX_DAYS와 같아야 한다
-    (이 스크립트는 core를 import하지 않아 하드코딩 — 2026-08-07).
+    임계는 CANDIDATE_FRESH_MAX_DAYS (모듈 상단, core와 동기화 대상).
     """
     try:
         n = int(days)
     except (TypeError, ValueError):
         return ""
-    return f"D+{n} 만료" if n > 5 else f"D+{n}"
+    return f"D+{n} 만료" if n > CANDIDATE_FRESH_MAX_DAYS else f"D+{n}"
 
 
 def _company_name(title: str) -> str:
@@ -498,7 +503,8 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
         "모니터링 대상 종목. 30분 폴링으로 상태 변화 시 [알림](../alerts/index.md)이 발송됩니다. "
         "판정·Stage·TT·현재가는 각 종목의 **최신 분석 스냅샷** 기준입니다. "
         "**경과**는 매수후보 연속 경과 거래일(D+N) — 전환일이 D+0이며, "
-        "매수 추천은 **D+5까지만 유효**합니다. D+5를 넘기면 '만료'로 표시되고 "
+        f"매수 추천은 **D+{CANDIDATE_FRESH_MAX_DAYS}까지만 유효**합니다. "
+        "이를 넘기면 '만료'로 표시되고 "
         "푸시 알림도 나가지 않습니다(백테스트상 지연 진입은 기대값 감쇠 — 비매수로 "
         "내려갔다 재전환하면 D+0 새 추천으로 부활). "
         "이격·실질 손익비 등 진입 타이밍 상세는 각 종목 스냅샷의 '진입 · 손절 · 타겟' 표에 있습니다.",
@@ -507,7 +513,7 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
         # 컬럼 순서 = 폰 폭 우선순위 (2026-07-19): 종목·기업명·판정·현재가가
         # 앞 4열(≈324px)이라 스크롤 없이 보이고, 보조 지표는 오른쪽으로 밀린다.
         # 필터는 헤더 이름으로 열을 찾으므로(tablesort.js) 순서를 바꿔도 안전하다.
-        # 경과 = 매수후보 연속 경과 거래일 D+N (2026-07-24, 후보만 표시·D+10↑ ⚠)
+        # 경과 = 매수후보 연속 경과 거래일 D+N (후보만 표시, 임계 초과는 '만료')
         "| 종목 | 기업명 | 판정 | 현재가 | 경과 | Stage | TT | 시장 |",
         "|------|--------|------|-------:|------|-------|----|------|",
     ]
