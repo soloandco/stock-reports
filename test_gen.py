@@ -2,6 +2,8 @@
 import sys
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).parent))
 import gen
 
@@ -268,6 +270,24 @@ def test_candidate_days_cell():
     assert _candidate_days_cell(18) == "D+18 만료"
     assert _candidate_days_cell("") == ""
     assert _candidate_days_cell(None) == ""
+
+
+def test_expiry_threshold_matches_core():
+    """만료 임계가 core.notifier.CANDIDATE_FRESH_MAX_DAYS와 갈라지지 않는지 (2026-08-11).
+
+    gen.py는 공개 저장소(stock-reports)에 있어 core를 런타임 의존하지 않고 임계를
+    하드코딩한다(폴백 상수를 두면 환경마다 다른 사이트가 나온다). 두 값이 조용히
+    어긋나는 것만 여기서 막는다. core가 없는 공개 클론에서는 skip.
+    """
+    parent = str(Path(__file__).resolve().parent.parent)
+    if parent not in sys.path:
+        sys.path.insert(0, parent)
+    notifier = pytest.importorskip("core.notifier")
+    n = notifier.CANDIDATE_FRESH_MAX_DAYS
+
+    from gen import _candidate_days_cell
+    assert _candidate_days_cell(n) == f"D+{n}"
+    assert _candidate_days_cell(n + 1) == f"D+{n + 1} 만료"
 
 
 def test_watchlist_index_has_days_column():
