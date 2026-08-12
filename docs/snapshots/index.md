@@ -24,7 +24,7 @@
 |------|--------|------|-------|----|--------|
 | [009150](009150-2026-08-13.md) | [삼성전기](009150-2026-08-13.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-08-13 |
 | [066570](066570-2026-08-13.md) | [LG전자](066570-2026-08-13.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-08-13 |
-| [161890](161890-2026-08-13.md) | [한국콜마](161890-2026-08-13.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 | 2026-08-13 |
+| [161890](161890-2026-08-13.md) | [한국콜마](161890-2026-08-13.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(과열)</span> | 2 | 8/8 | 2026-08-13 |
 | [278470](278470-2026-08-13.md) | [에이피알](278470-2026-08-13.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 | 2026-08-13 |
 | [329180](329180-2026-08-13.md) | [HD현대중공업](329180-2026-08-13.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-08-13 |
 | [AAPL](AAPL-2026-08-13.md) | [Apple](AAPL-2026-08-13.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-08-13 |
