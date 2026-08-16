@@ -4,11 +4,11 @@
 
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
-| [**009150**](snapshots/009150-2026-08-15.md) | [삼성전기](snapshots/009150-2026-08-15.md) | 2026-08-15 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
-| [**066570**](snapshots/066570-2026-08-15.md) | [LG전자](snapshots/066570-2026-08-15.md) | 2026-08-15 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
-| [**278470**](snapshots/278470-2026-08-15.md) | [에이피알](snapshots/278470-2026-08-15.md) | 2026-08-15 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
-| [**161890**](snapshots/161890-2026-08-15.md) | [한국콜마](snapshots/161890-2026-08-15.md) | 2026-08-15 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(과열)</span> | 2 | 8/8 |
-| [**329180**](snapshots/329180-2026-08-15.md) | [HD현대중공업](snapshots/329180-2026-08-15.md) | 2026-08-15 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 |
+| [**009150**](snapshots/009150-2026-08-16.md) | [삼성전기](snapshots/009150-2026-08-16.md) | 2026-08-16 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 |
+| [**066570**](snapshots/066570-2026-08-16.md) | [LG전자](snapshots/066570-2026-08-16.md) | 2026-08-16 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 |
+| [**278470**](snapshots/278470-2026-08-16.md) | [에이피알](snapshots/278470-2026-08-16.md) | 2026-08-16 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
+| [**161890**](snapshots/161890-2026-08-16.md) | [한국콜마](snapshots/161890-2026-08-16.md) | 2026-08-16 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(과열)</span> | 2 | 8/8 |
+| [**329180**](snapshots/329180-2026-08-16.md) | [HD현대중공업](snapshots/329180-2026-08-16.md) | 2026-08-16 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 |
 
 [→ 전체 스냅샷](snapshots/index.md)
 
@@ -41,7 +41,7 @@
 
 ## 섹터 자금 흐름
 
-> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-08-14 23:03 UTC · `--scan` 시 갱신
+> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-08-16 00:01 UTC · `--scan` 시 갱신
 >
 > 한·미는 통화·데이터 소스가 달라 **별도 순위**입니다. 두 시장 점수를 직접 비교하지 마세요.
 
@@ -50,10 +50,10 @@
 | 순위 | 섹터 | RS | 신호 | 매집일 | 분산일 | 거래대금 비중 |
 |---|---|---|---|---|---|---|
 | 1 | Technology | +1.25 | ⚪ 중립 | 3 | 3 | 11.2% |
-| 2 | Energy | +1.15 | 🟢 매집 | 5 | 3 | 16.7% |
+| 2 | Energy | +1.15 | 🟢 매집 | 5 | 3 | 16.6% |
 | 3 | Health Care | +0.77 | 🔴 분산 | 3 | 5 | 12.2% |
 | 4 | Industrials | +0.73 | 🟢 매집 | 5 | 1 | 8.7% |
-| 5 | Financials | +0.63 | 🟢 매집 | 6 | 3 | 14.9% |
+| 5 | Financials | +0.63 | 🟢 매집 | 6 | 3 | 15.0% |
 | 6 | Materials | +0.49 | 🟢 매집 | 7 | 2 | 6.0% |
 | 7 | Real Estate | +0.43 | 🔴 분산 | 4 | 6 | 2.6% |
 | 8 | Consumer Staples | +0.24 | 🟢 매집 | 4 | 3 | 7.3% |
@@ -82,7 +82,7 @@
 
 ## 테마별 자금 흐름 (로테이션)
 
-> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-08-14 23:03 UTC
+> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-08-16 00:01 UTC
 >
 > **US**: SMH(GPU/반도체)·IRBO(AI인프라)·BOTZ(피지컬AI) ETF + 전력/DataCenter 바스켓
 > **KR**: 전력(4종)·기판(5종)·피지컬AI(3종) 균등가중 바스켓
@@ -92,7 +92,7 @@
 | 순위 | 테마 | ETF/바스켓 | RS | 신호 | 매집일 | 분산일 |
 |---|---|---|---|---|---|---|
 | 1 | GPU/반도체 | SOXX | +2.74 | 🔴 분산 | 3 | 4 |
-| 2 | AI인프라 | ARTY | +2.26 | 🟢 매집 | 5 | 3 |
+| 2 | AI인프라 | ARTY | +2.26 | 🟢 매집 | 5 | 4 |
 | 3 | 전력/DataCenter | VST·CEG·GEV·VRT·ETN | +0.82 | ⚪ 중립 | 4 | 4 |
 | 4 | 피지컬AI(로보틱스) | BOTZ | +0.03 | ⚪ 중립 | 4 | 4 |
 
@@ -117,7 +117,7 @@
 
 ## CNN Fear & Greed Index
 
-> 수집: 2026-08-14 23:02 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
+> 수집: 2026-08-16 00:01 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
 
 | 점수 | 전일比 | 등급 |
 |------|--------|------|
@@ -137,7 +137,7 @@
 
 ## VIX
 
-> 수집: 2026-08-14 23:02 UTC · `python monitor.py --scan` 실행 시 갱신
+> 수집: 2026-08-16 00:01 UTC · `python monitor.py --scan` 실행 시 갱신
 
 | 지수 | 현재값 | 전일比 | 등급 | 시장 국면 | 신규 진입 |
 |------|--------|--------|------|---------|---------|
