@@ -32,7 +32,7 @@
 | [APLD](APLD-2026-08-18.md) | [Applied Digital](APLD-2026-08-18.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 2/8 | 2026-08-18 |
 | [ASTS](ASTS-2026-08-18.md) | [AST SpaceMobile](ASTS-2026-08-18.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 | 2026-08-18 |
 | [AVGO](AVGO-2026-08-18.md) | [Broadcom](AVGO-2026-08-18.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-18 |
-| [BA](BA-2026-08-18.md) | [Boeing](BA-2026-08-18.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 6/8 | 2026-08-18 |
+| [BA](BA-2026-08-18.md) | [Boeing](BA-2026-08-18.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-08-18 |
 | [BE](BE-2026-08-18.md) | [Bloom Energy](BE-2026-08-18.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-08-18 |
 | [CAT](CAT-2026-08-18.md) | [Caterpillar](CAT-2026-08-18.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-18 |
 | [CDNS](CDNS-2026-08-18.md) | [Cadence Design Systems](CDNS-2026-08-18.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/8 | 2026-08-18 |
@@ -40,12 +40,12 @@
 | [CORZ](CORZ-2026-08-18.md) | [Core Scientific](CORZ-2026-08-18.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 | 2026-08-18 |
 | [DHI](DHI-2026-08-18.md) | [D.R. Horton](DHI-2026-08-18.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/8 | 2026-08-18 |
 | [DLR](DLR-2026-08-18.md) | [Digital Realty](DLR-2026-08-18.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-18 |
-| [GDX](GDX-2026-08-18.md) | [GDX 금광주 ETF](GDX-2026-08-18.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 6/8 | 2026-08-18 |
+| [GDX](GDX-2026-08-18.md) | [GDX 금광주 ETF](GDX-2026-08-18.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 5/8 | 2026-08-18 |
 | [GDXU](GDXU-2026-08-18.md) | [GDXU](GDXU-2026-08-18.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 | 2026-08-18 |
 | [GEV](GEV-2026-08-18.md) | [GE Vernova](GEV-2026-08-18.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 | 2026-08-18 |
 | [GOOGL](GOOGL-2026-08-18.md) | [Alphabet](GOOGL-2026-08-18.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-08-18 |
 | [GS](GS-2026-08-18.md) | [Goldman Sachs](GS-2026-08-18.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-18 |
-| [IREN](IREN-2026-08-18.md) | [IREN Limited](IREN-2026-08-18.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 2/8 | 2026-08-18 |
+| [IREN](IREN-2026-08-18.md) | [IREN Limited](IREN-2026-08-18.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-08-18 |
 | [KMI](KMI-2026-08-18.md) | [Kinder Morgan](KMI-2026-08-18.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-18 |
 | [KO](KO-2026-08-18.md) | [Coca-Cola](KO-2026-08-18.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-18 |
 | [LLY](LLY-2026-08-18.md) | [Eli Lilly](LLY-2026-08-18.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 | 2026-08-18 |
@@ -61,7 +61,7 @@
 | [QPUX](QPUX-2026-08-18.md) | [QPUX](QPUX-2026-08-18.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-08-18 |
 | [RDW](RDW-2026-08-18.md) | [RedWire](RDW-2026-08-18.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-18 |
 | [RKLB](RKLB-2026-08-18.md) | [Rocket Lab](RKLB-2026-08-18.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/8 | 2026-08-18 |
-| [SKWD](SKWD-2026-08-18.md) | [Skyward Specialty Insurance](SKWD-2026-08-18.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 | 2026-08-18 |
+| [SKWD](SKWD-2026-08-18.md) | [Skyward Specialty Insurance](SKWD-2026-08-18.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-18 |
 | [SNPS](SNPS-2026-08-18.md) | [Synopsys](SNPS-2026-08-18.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-08-18 |
 | [SOUN](SOUN-2026-08-18.md) | [SOUN](SOUN-2026-08-18.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-08-18 |
 | [SOXS](SOXS-2026-08-18.md) | [SOXS 반도체 베어 3X](SOXS-2026-08-18.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 | 2026-08-18 |
