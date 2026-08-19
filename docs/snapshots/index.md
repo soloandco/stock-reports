@@ -47,7 +47,7 @@
 | [GS](GS-2026-08-20.md) | [Goldman Sachs](GS-2026-08-20.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-20 |
 | [IREN](IREN-2026-08-20.md) | [IREN Limited](IREN-2026-08-20.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-08-20 |
 | [KMI](KMI-2026-08-20.md) | [Kinder Morgan](KMI-2026-08-20.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-20 |
-| [KO](KO-2026-08-20.md) | [Coca-Cola](KO-2026-08-20.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-20 |
+| [KO](KO-2026-08-20.md) | [Coca-Cola](KO-2026-08-20.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 | 2026-08-20 |
 | [LLY](LLY-2026-08-20.md) | [Eli Lilly](LLY-2026-08-20.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 | 2026-08-20 |
 | [LUNR](LUNR-2026-08-20.md) | [Intuitive Machines](LUNR-2026-08-20.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 5/8 | 2026-08-20 |
 | [MS](MS-2026-08-20.md) | [Morgan Stanley](MS-2026-08-20.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-20 |
