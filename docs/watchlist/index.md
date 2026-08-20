@@ -22,49 +22,49 @@
 
 | 종목 | 기업명 | 판정 | 현재가 | 경과 | Stage | TT | 시장 |
 |------|--------|------|-------:|------|-------|----|------|
-| [**009150**](009150.md) | [삼성전기](009150.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩1,440,000 |  | 2 | 6/8 | KRX |
-| [**066570**](066570.md) | [LG전자](066570.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩208,000 |  | 2 | 7/8 | KRX |
-| [**161890**](161890.md) | [한국콜마](161890.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(과열)</span> | ₩129,700 |  | 2 | 8/8 | KRX |
-| [**278470**](278470.md) | [에이피알](278470.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | ₩396,500 |  | 2 | 8/8 | KOSDAQ |
-| [**329180**](329180.md) | [HD현대중공업](329180.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | ₩489,500 |  | 4 | 1/8 | KRX |
-| [**AAPL**](AAPL.md) | [Apple](AAPL.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $316.83 |  | 2 | 7/8 | NASDAQ |
-| [**AMD**](AMD.md) | [Advanced Micro Devices](AMD.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $466.42 |  | 2 | 7/8 | NASDAQ |
-| [**APLD**](APLD.md) | [Applied Digital](APLD.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $28.23 |  | 3 | 2/8 | NASDAQ |
-| [**ASTS**](ASTS.md) | [AST SpaceMobile](ASTS.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $66.43 |  | 4 | 2/8 | NASDAQ |
-| [**AVGO**](AVGO.md) | [Broadcom](AVGO.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $362.48 |  | 3 | 4/8 | NASDAQ |
-| [**BA**](BA.md) | [Boeing](BA.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $222.23 |  | 3 | 5/8 | NYSE |
-| [**BE**](BE.md) | [Bloom Energy](BE.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $206.33 |  | 3 | 5/8 | NYSE |
-| [**CAT**](CAT.md) | [Caterpillar](CAT.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $816.02 |  | 2 | 7/8 | NYSE |
-| [**CDNS**](CDNS.md) | [Cadence Design Systems](CDNS.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $314.98 |  | 3 | 3/8 | NASDAQ |
-| [**CIFR**](CIFR.md) | [Cipher Mining](CIFR.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $15.89 |  | 3 | 5/8 | NASDAQ |
-| [**CORZ**](CORZ.md) | [Core Scientific](CORZ.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $18.72 |  | 3 | 4/8 | NASDAQ |
-| [**DHI**](DHI.md) | [D.R. Horton](DHI.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $151.85 |  | 1 | 5/8 | NYSE |
-| [**DLR**](DLR.md) | [Digital Realty](DLR.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $192.39 |  | 2 | 7/8 | NYSE |
-| [**GDX**](GDX.md) | [GDX 금광주 ETF](GDX.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $97.31 |  | 1 | 6/8 | NYSE |
-| [**GDXU**](GDXU.md) | [GDXU](GDXU.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $158.32 |  | 4 | 2/8 | NYSE |
-| [**GEV**](GEV.md) | [GE Vernova](GEV.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $986.89 |  | 2 | 7/8 | NYSE |
-| [**GOOGL**](GOOGL.md) | [Alphabet](GOOGL.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $344.72 |  | 2 | 6/8 | NASDAQ |
-| [**GS**](GS.md) | [Goldman Sachs](GS.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $1,021.90 |  | 2 | 7/8 | NYSE |
-| [**IREN**](IREN.md) | [IREN Limited](IREN.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $42.84 |  | 4 | 1/8 | NASDAQ |
-| [**KMI**](KMI.md) | [Kinder Morgan](KMI.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $32.08 |  | 2 | 7/8 | NYSE |
-| [**KO**](KO.md) | [Coca-Cola](KO.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | $90.35 | D+0 | 2 | 8/8 | NYSE |
-| [**LLY**](LLY.md) | [Eli Lilly](LLY.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | $1,280.79 | D+10 만료 | 2 | 8/8 | NYSE |
-| [**LUNR**](LUNR.md) | [Intuitive Machines](LUNR.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $18.52 |  | 3 | 5/8 | NASDAQ |
-| [**MS**](MS.md) | [Morgan Stanley](MS.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $214.24 |  | 2 | 7/8 | NYSE |
-| [**MSFT**](MSFT.md) | [Microsoft](MSFT.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $484.31 |  | 1 | 4/8 | NASDAQ |
-| [**NVDA**](NVDA.md) | [NVIDIA](NVDA.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $217.56 |  | 2 | 7/8 | NASDAQ |
-| [**PCAR**](PCAR.md) | [Paccar](PCAR.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $127.47 |  | 2 | 7/8 | NASDAQ |
-| [**PLTR**](PLTR.md) | [Palantir](PLTR.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $175.19 |  | 1 | 4/8 | NASDAQ |
-| [**PM**](PM.md) | [Philip Morris](PM.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $190.00 |  | 2 | 7/8 | NYSE |
-| [**PYPL**](PYPL.md) | [PayPal](PYPL.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $61.25 |  | 1 | 4/8 | NASDAQ |
-| [**QCOM**](QCOM.md) | [Qualcomm](QCOM.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $161.91 |  | 4 | 2/8 | NASDAQ |
-| [**QPUX**](QPUX.md) | [QPUX](QPUX.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $17.65 |  | 4 | 1/8 | NASDAQ |
-| [**RDW**](RDW.md) | [RedWire](RDW.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $12.40 |  | 2 | 7/8 | NYSE |
-| [**RKLB**](RKLB.md) | [Rocket Lab](RKLB.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $75.84 |  | 3 | 3/8 | NASDAQ |
-| [**SKWD**](SKWD.md) | [Skyward Specialty Insurance](SKWD.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $56.40 |  | 2 | 6/8 | NASDAQ |
-| [**SNPS**](SNPS.md) | [Synopsys](SNPS.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $401.24 |  | 4 | 0/8 | NASDAQ |
-| [**SOUN**](SOUN.md) | [SOUN](SOUN.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $7.16 |  | 4 | 2/8 | NASDAQ |
-| [**SOXS**](SOXS.md) | [SOXS 반도체 베어 3X](SOXS.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $47.03 |  | 4 | 2/8 | NYSE |
-| [**SOXX**](SOXX.md) | [SOXX 반도체 ETF](SOXX.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $519.67 |  | 2 | 7/8 | NASDAQ |
+| [**009150**](009150.md) | [삼성전기](009150.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩1,387,000 |  | 2 | 6/8 | KRX |
+| [**066570**](066570.md) | [LG전자](066570.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩201,500 |  | 2 | 7/8 | KRX |
+| [**161890**](161890.md) | [한국콜마](161890.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(과열)</span> | ₩127,800 |  | 2 | 8/8 | KRX |
+| [**278470**](278470.md) | [에이피알](278470.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | ₩383,500 |  | 2 | 8/8 | KOSDAQ |
+| [**329180**](329180.md) | [HD현대중공업](329180.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | ₩474,000 |  | 4 | 1/8 | KRX |
+| [**AAPL**](AAPL.md) | [Apple](AAPL.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $311.30 |  | 2 | 7/8 | NASDAQ |
+| [**AMD**](AMD.md) | [Advanced Micro Devices](AMD.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $469.45 |  | 2 | 7/8 | NASDAQ |
+| [**APLD**](APLD.md) | [Applied Digital](APLD.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $28.65 |  | 3 | 2/8 | NASDAQ |
+| [**ASTS**](ASTS.md) | [AST SpaceMobile](ASTS.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $65.06 |  | 4 | 2/8 | NASDAQ |
+| [**AVGO**](AVGO.md) | [Broadcom](AVGO.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $364.03 |  | 3 | 4/8 | NASDAQ |
+| [**BA**](BA.md) | [Boeing](BA.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $215.10 |  | 3 | 3/8 | NYSE |
+| [**BE**](BE.md) | [Bloom Energy](BE.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $202.31 |  | 3 | 5/8 | NYSE |
+| [**CAT**](CAT.md) | [Caterpillar](CAT.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $815.46 |  | 3 | 6/8 | NYSE |
+| [**CDNS**](CDNS.md) | [Cadence Design Systems](CDNS.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $313.59 |  | 3 | 3/8 | NASDAQ |
+| [**CIFR**](CIFR.md) | [Cipher Mining](CIFR.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $17.21 |  | 3 | 5/8 | NASDAQ |
+| [**CORZ**](CORZ.md) | [Core Scientific](CORZ.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $18.39 |  | 3 | 4/8 | NASDAQ |
+| [**DHI**](DHI.md) | [D.R. Horton](DHI.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $147.30 |  | 3 | 3/8 | NYSE |
+| [**DLR**](DLR.md) | [Digital Realty](DLR.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $194.22 |  | 2 | 7/8 | NYSE |
+| [**GDX**](GDX.md) | [GDX 금광주 ETF](GDX.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $99.83 |  | 1 | 7/8 | NYSE |
+| [**GDXU**](GDXU.md) | [GDXU](GDXU.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $170.50 |  | 4 | 2/8 | NYSE |
+| [**GEV**](GEV.md) | [GE Vernova](GEV.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $966.56 |  | 2 | 7/8 | NYSE |
+| [**GOOGL**](GOOGL.md) | [Alphabet](GOOGL.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $340.67 |  | 3 | 5/8 | NASDAQ |
+| [**GS**](GS.md) | [Goldman Sachs](GS.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $1,002.28 |  | 2 | 7/8 | NYSE |
+| [**IREN**](IREN.md) | [IREN Limited](IREN.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $42.60 |  | 4 | 1/8 | NASDAQ |
+| [**KMI**](KMI.md) | [Kinder Morgan](KMI.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $31.62 |  | 3 | 5/8 | NYSE |
+| [**KO**](KO.md) | [Coca-Cola](KO.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | $90.54 | D+1 | 2 | 8/8 | NYSE |
+| [**LLY**](LLY.md) | [Eli Lilly](LLY.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | $1,245.69 | D+11 만료 | 2 | 8/8 | NYSE |
+| [**LUNR**](LUNR.md) | [Intuitive Machines](LUNR.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $17.93 |  | 4 | 5/8 | NASDAQ |
+| [**MS**](MS.md) | [Morgan Stanley](MS.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $207.49 |  | 2 | 7/8 | NYSE |
+| [**MSFT**](MSFT.md) | [Microsoft](MSFT.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $481.15 |  | 1 | 4/8 | NASDAQ |
+| [**NVDA**](NVDA.md) | [NVIDIA](NVDA.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $216.85 |  | 2 | 7/8 | NASDAQ |
+| [**PCAR**](PCAR.md) | [Paccar](PCAR.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $128.94 |  | 2 | 7/8 | NASDAQ |
+| [**PLTR**](PLTR.md) | [Palantir](PLTR.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $173.96 |  | 1 | 4/8 | NASDAQ |
+| [**PM**](PM.md) | [Philip Morris](PM.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $191.52 |  | 2 | 7/8 | NYSE |
+| [**PYPL**](PYPL.md) | [PayPal](PYPL.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $62.30 |  | 1 | 5/8 | NASDAQ |
+| [**QCOM**](QCOM.md) | [Qualcomm](QCOM.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $160.74 |  | 4 | 2/8 | NASDAQ |
+| [**QPUX**](QPUX.md) | [QPUX](QPUX.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $16.36 |  | 4 | 1/8 | NASDAQ |
+| [**RDW**](RDW.md) | [RedWire](RDW.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $11.76 |  | 2 | 7/8 | NYSE |
+| [**RKLB**](RKLB.md) | [Rocket Lab](RKLB.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $72.95 |  | 3 | 3/8 | NASDAQ |
+| [**SKWD**](SKWD.md) | [Skyward Specialty Insurance](SKWD.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $55.86 |  | 2 | 6/8 | NASDAQ |
+| [**SNPS**](SNPS.md) | [Synopsys](SNPS.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $397.92 |  | 4 | 0/8 | NASDAQ |
+| [**SOUN**](SOUN.md) | [SOUN](SOUN.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $6.97 |  | 4 | 1/8 | NASDAQ |
+| [**SOXS**](SOXS.md) | [SOXS 반도체 베어 3X](SOXS.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $46.31 |  | 4 | 2/8 | NYSE |
+| [**SOXX**](SOXX.md) | [SOXX 반도체 ETF](SOXX.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $522.35 |  | 2 | 7/8 | NASDAQ |
 | [**SPCX**](SPCX.md) | [SpaceX 추적 종목](SPCX.md) |  |  |  |  |  | NASDAQ |
-| [**USD**](USD.md) | [ProShares Ultra Semiconductors (2x)](USD.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $84.70 |  | 2 | 6/8 | NASDAQ |
+| [**USD**](USD.md) | [ProShares Ultra Semiconductors (2x)](USD.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $85.34 |  | 2 | 6/8 | NASDAQ |
