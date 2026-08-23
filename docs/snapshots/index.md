@@ -46,6 +46,7 @@
 | [GEV](GEV-2026-08-23.md) | [GE Vernova](GEV-2026-08-23.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-23 |
 | [GOOGL](GOOGL-2026-08-23.md) | [Alphabet](GOOGL-2026-08-23.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-08-23 |
 | [GS](GS-2026-08-23.md) | [Goldman Sachs](GS-2026-08-23.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-23 |
+| [IBIT](IBIT-2026-08-23.md) | [IBIT 비트코인 현물 ETF](IBIT-2026-08-23.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 3/8 | 2026-08-23 |
 | [IREN](IREN-2026-08-23.md) | [IREN Limited](IREN-2026-08-23.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-08-23 |
 | [KMI](KMI-2026-08-23.md) | [Kinder Morgan](KMI-2026-08-23.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 5/8 | 2026-08-23 |
 | [KO](KO-2026-08-23.md) | [Coca-Cola](KO-2026-08-23.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 | 2026-08-23 |
