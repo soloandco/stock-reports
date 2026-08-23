@@ -34,6 +34,7 @@
 | [AVGO](AVGO-2026-08-23.md) | [Broadcom](AVGO-2026-08-23.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 | 2026-08-23 |
 | [BA](BA-2026-08-23.md) | [Boeing](BA-2026-08-23.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/8 | 2026-08-23 |
 | [BE](BE-2026-08-23.md) | [Bloom Energy](BE-2026-08-23.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 5/8 | 2026-08-23 |
+| [BITX](BITX-2026-08-23.md) | [2x Bitcoin Strategy ETF](BITX-2026-08-23.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 2/8 | 2026-08-23 |
 | [CAT](CAT-2026-08-23.md) | [Caterpillar](CAT-2026-08-23.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-23 |
 | [CDNS](CDNS-2026-08-23.md) | [Cadence Design Systems](CDNS-2026-08-23.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/8 | 2026-08-23 |
 | [CIFR](CIFR-2026-08-23.md) | [Cipher Mining](CIFR-2026-08-23.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/8 | 2026-08-23 |

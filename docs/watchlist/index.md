@@ -34,6 +34,7 @@
 | [**AVGO**](AVGO.md) | [Broadcom](AVGO.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $368.45 |  | 3 | 4/8 | NASDAQ |
 | [**BA**](BA.md) | [Boeing](BA.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $214.20 |  | 3 | 3/8 | NYSE |
 | [**BE**](BE.md) | [Bloom Energy](BE.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $201.45 |  | 3 | 5/8 | NYSE |
+| [**BITX**](BITX.md) | [2x Bitcoin Strategy ETF](BITX.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $17.18 |  | 1 | 2/8 | NYSE |
 | [**CAT**](CAT.md) | [Caterpillar](CAT.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $827.90 |  | 2 | 7/8 | NYSE |
 | [**CDNS**](CDNS.md) | [Cadence Design Systems](CDNS.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $319.02 |  | 3 | 3/8 | NASDAQ |
 | [**CIFR**](CIFR.md) | [Cipher Mining](CIFR.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $15.77 |  | 3 | 3/8 | NASDAQ |
