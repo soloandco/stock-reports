@@ -7,10 +7,10 @@
 
 | 판정 | n | 승률 (95% CI) | 손익비 | 기대값 | 손절 | 목표 | 시간청산 | 독립진입일 |
 |------|---|--------------|--------|--------|------|------|---------|-----------|
-| <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 1 | 0% (0–79%) | 0.00 | -1.09R | 100% | 0% | 0% | 1 |
-| <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 50% (9–91%) | 1.16 | +0.09R | 50% | 0% | 50% | 1 |
+| <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 3 | 33% (6–79%) | 1.93 | -0.02R | 67% | 0% | 33% | 2 |
+| <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 3 | 67% (21–94%) | 1.93 | +1.06R | 33% | 33% | 33% | 2 |
 
-> 완결 트레이드 3건 · 기준일: 2026-08-23 · `python monitor.py --completed-trades` 로 갱신
+> 완결 트레이드 6건 · 기준일: 2026-08-24 · `python monitor.py --completed-trades` 로 갱신
 
 ??? info "📘 손익비·기대값이 뭔가요?"
     - **손익비** = 평균 이익(R) ÷ 평균 손실(R). 2.0이면 이길 때 질 때의 2배를 번다는 뜻.
