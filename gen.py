@@ -1124,6 +1124,12 @@ def main():
     positions = _collect_positions()        # 현재 열린 매수후보/관찰 포지션
     perf    = _collect_completed_trades()   # 완결 트레이드 손익비 성과
     names   = {ticker: name for ticker, _market, name, _fname in entries}
+    # 워치리스트에서 뺀 종목의 옛 스냅샷은 목록·대시보드에서 제외한다 (2026-08-23).
+    # 파일은 그대로 복사되므로 히스토리 URL과 백테스트 원자료는 보존된다.
+    # 계기: 6월에 정리한 7종목(BMNR·CEG 등)이 최신 목록 사이에 6월 날짜로 남아
+    # "스냅샷 갱신이 멈췄다"는 오해를 불렀다.
+    retired = [s["ticker"] for s in latest if s["ticker"] not in names]
+    latest  = [s for s in latest if s["ticker"] in names]
 
     OUT_POS.mkdir(parents=True, exist_ok=True)
     OUT_PERF.mkdir(parents=True, exist_ok=True)
@@ -1136,7 +1142,8 @@ def main():
     (OUT_POS / "index.md").write_text(_positions_index(positions, names), encoding="utf-8")
     (OUT_PERF / "index.md").write_text(_performance_index(perf), encoding="utf-8")
 
-    print(f"생성 완료: 관찰 {len(entries)}개 · 스냅샷 {len(latest)}종목({len(snaps)}건) "
+    print(f"생성 완료: 관찰 {len(entries)}개 · 스냅샷 {len(latest)}종목({len(snaps)}건, "
+          f"목록 제외 {len(retired)}종목) "
           f"· 알림 {len(alerts)}건 · 오픈 포지션 {len(positions)}개 "
           f"· 완결 트레이드 {len(perf.get('trades', []))}건")
 

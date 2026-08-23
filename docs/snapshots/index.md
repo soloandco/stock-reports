@@ -69,10 +69,3 @@
 | [SOXS](SOXS-2026-08-23.md) | [SOXS 반도체 베어 3X](SOXS-2026-08-23.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 | 2026-08-23 |
 | [SOXX](SOXX-2026-08-23.md) | [SOXX 반도체 ETF](SOXX-2026-08-23.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-23 |
 | [USD](USD-2026-08-23.md) | [ProShares Ultra Semiconductors (2x)](USD-2026-08-23.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-08-23 |
-| [BMNR](BMNR-2026-06-11.md) | [](BMNR-2026-06-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-06-11 |
-| [CRCL](CRCL-2026-06-11.md) | [](CRCL-2026-06-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 | 2026-06-11 |
-| [META](META-2026-06-11.md) | [](META-2026-06-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 | 2026-06-11 |
-| [SOFI](SOFI-2026-06-11.md) | [](SOFI-2026-06-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 | 2026-06-11 |
-| [CEG](CEG-2026-06-08.md) | [](CEG-2026-06-08.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 | 2026-06-08 |
-| [CRWV](CRWV-2026-06-08.md) | [](CRWV-2026-06-08.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 3/8 | 2026-06-08 |
-| [VST](VST-2026-06-08.md) | [](VST-2026-06-08.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 | 2026-06-08 |
