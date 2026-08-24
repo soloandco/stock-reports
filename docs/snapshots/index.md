@@ -61,7 +61,7 @@
 | [PYPL](PYPL-2026-08-25.md) | [PayPal](PYPL-2026-08-25.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 5/8 | 2026-08-25 |
 | [QCOM](QCOM-2026-08-25.md) | [Qualcomm](QCOM-2026-08-25.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 | 2026-08-25 |
 | [QPUX](QPUX-2026-08-25.md) | [QPUX](QPUX-2026-08-25.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-08-25 |
-| [RDW](RDW-2026-08-25.md) | [RedWire](RDW-2026-08-25.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-08-25 |
+| [RDW](RDW-2026-08-25.md) | [RedWire](RDW-2026-08-25.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 | 2026-08-25 |
 | [RKLB](RKLB-2026-08-25.md) | [Rocket Lab](RKLB-2026-08-25.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/8 | 2026-08-25 |
 | [SKWD](SKWD-2026-08-25.md) | [Skyward Specialty Insurance](SKWD-2026-08-25.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-08-25 |
 | [SNPS](SNPS-2026-08-25.md) | [Synopsys](SNPS-2026-08-25.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 | 2026-08-25 |

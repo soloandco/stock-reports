@@ -7,7 +7,7 @@
 
 | 판정 | n | 승률 (95% CI) | 손익비 | 기대값 | 손절 | 목표 | 시간청산 | 독립진입일 |
 |------|---|--------------|--------|--------|------|------|---------|-----------|
-| <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 3 | 33% (6–79%) | 1.82 | -0.06R | 67% | 0% | 33% | 2 |
+| <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 3 | 33% (6–79%) | 1.81 | -0.06R | 67% | 0% | 33% | 2 |
 | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 5 | 60% (23–88%) | 2.15 | +1.00R | 40% | 40% | 20% | 3 |
 
 > 완결 트레이드 8건 · 기준일: 2026-08-25 · `python monitor.py --completed-trades` 로 갱신
