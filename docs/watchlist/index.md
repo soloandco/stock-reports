@@ -25,7 +25,7 @@
 | [**009150**](009150.md) | [삼성전기](009150.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩1,318,000 |  | 2 | 6/8 | KRX |
 | [**066570**](066570.md) | [LG전자](066570.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | ₩199,800 |  | 2 | 7/8 | KRX |
 | [**161890**](161890.md) | [한국콜마](161890.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(과열)</span> | ₩143,300 |  | 2 | 8/8 | KRX |
-| [**278470**](278470.md) | [에이피알](278470.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> <span class="verdict-reason">(변동성과대)</span> | ₩409,500 |  | 2 | 8/8 | KOSDAQ |
+| [**278470**](278470.md) | [에이피알](278470.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | ₩440,500 |  | 2 | 8/8 | KOSDAQ |
 | [**329180**](329180.md) | [HD현대중공업](329180.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | ₩455,500 |  | 4 | 1/8 | KRX |
 | [**AAPL**](AAPL.md) | [Apple](AAPL.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $309.90 |  | 2 | 6/8 | NASDAQ |
 | [**AMD**](AMD.md) | [Advanced Micro Devices](AMD.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $479.18 |  | 2 | 7/8 | NASDAQ |
