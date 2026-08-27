@@ -58,7 +58,7 @@
 | [PCAR](PCAR-2026-08-28.md) | [Paccar](PCAR-2026-08-28.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-08-28 |
 | [PLTR](PLTR-2026-08-28.md) | [Palantir](PLTR-2026-08-28.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/8 | 2026-08-28 |
 | [PM](PM-2026-08-28.md) | [Philip Morris](PM-2026-08-28.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-08-28 |
-| [PYPL](PYPL-2026-08-28.md) | [PayPal](PYPL-2026-08-28.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-08-28 |
+| [PYPL](PYPL-2026-08-28.md) | [PayPal](PYPL-2026-08-28.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 | 2026-08-28 |
 | [QCOM](QCOM-2026-08-28.md) | [Qualcomm](QCOM-2026-08-28.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 | 2026-08-28 |
 | [QPUX](QPUX-2026-08-28.md) | [QPUX](QPUX-2026-08-28.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-08-28 |
 | [RDW](RDW-2026-08-28.md) | [RedWire](RDW-2026-08-28.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 | 2026-08-28 |

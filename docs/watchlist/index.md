@@ -58,7 +58,7 @@
 | [**PCAR**](PCAR.md) | [Paccar](PCAR.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $126.54 |  | 2 | 6/8 | NASDAQ |
 | [**PLTR**](PLTR.md) | [Palantir](PLTR.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $185.93 |  | 1 | 4/8 | NASDAQ |
 | [**PM**](PM.md) | [Philip Morris](PM.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $190.53 |  | 2 | 7/8 | NYSE |
-| [**PYPL**](PYPL.md) | [PayPal](PYPL.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | $61.47 |  | 2 | 6/8 | NASDAQ |
+| [**PYPL**](PYPL.md) | [PayPal](PYPL.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $61.47 |  | 2 | 5/8 | NASDAQ |
 | [**QCOM**](QCOM.md) | [Qualcomm](QCOM.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $164.78 |  | 4 | 2/8 | NASDAQ |
 | [**QPUX**](QPUX.md) | [QPUX](QPUX.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $16.29 |  | 4 | 1/8 | NASDAQ |
 | [**RDW**](RDW.md) | [RedWire](RDW.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $11.27 |  | 3 | 4/8 | NYSE |
