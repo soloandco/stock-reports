@@ -186,6 +186,74 @@ def _sanitize_public_md(text: str) -> str:
     return _PRIVATE_BLOCK_RE.sub("", text)
 
 
+# ── 관찰 페이지 캔들차트 ──────────────────────────────────────────────────
+# 그림(PNG)이 아니라 숫자만 올리고 브라우저가 그린다. 관찰 페이지는 48종목이고
+# 매일 갱신돼서 이미지로 커밋하면 한 번에 1.8MB씩 공개 저장소에 쌓인다
+# (2026-08-29 실측: 종목당 37KB). 숫자는 종목당 약 6KB다.
+OUT_WL_CHARTS = OUT_WL / "charts"
+
+# 차트 자리. JS(stock-chart.js)가 data-src를 읽어 채운다. 데이터를 못 받으면
+# 이 요소는 스스로 사라져 빈 상자가 남지 않는다.
+_CHART_BLOCK = """
+## 차트
+
+<div class="stock-chart" data-src="../charts/{ticker}.json"></div>
+
+<p class="stock-chart-note">추세선·매물벽(저항)·지지대·주봉 저항을 함께 표시합니다. 손가락으로 확대·이동할 수 있습니다.</p>
+"""
+
+
+def _write_chart_data(entries) -> int:
+    """종목별 차트 데이터(JSON)를 쓰고 성공 건수를 반환한다.
+
+    실패한 종목은 건너뛴다 — 차트는 페이지의 부속물이고, 한 종목의 시세 조회
+    실패가 사이트 생성 전체를 막으면 안 된다.
+    """
+    import sys
+    sys.path.insert(0, str(ROOT.parent))
+    try:
+        from core.chart_data import build_chart_payload
+        from core.chart_lines import parse_lines
+    except Exception as exc:      # 분석 코드가 없는 환경(CI 등)에서는 조용히 생략
+        print(f"  차트 데이터 생략 — {exc}")
+        return 0
+
+    auto = {}
+    auto_path = ROOT.parent / "data" / "auto_lines.json"
+    if auto_path.exists():
+        try:
+            auto = json.loads(auto_path.read_text(encoding="utf-8"))
+        except Exception:
+            auto = {}
+
+    OUT_WL_CHARTS.mkdir(parents=True, exist_ok=True)
+    ok = 0
+    for ticker, market, _name, _fname in entries:
+        lines, _errs = parse_lines(auto.get(ticker) or [])
+        payload = build_chart_payload(ticker, market, lines=lines)
+        if not payload:
+            continue
+        # 구분자를 붙이지 않아 파일을 작게 유지한다 (48종목이 매일 갱신된다)
+        (OUT_WL_CHARTS / f"{ticker}.json").write_text(
+            json.dumps(payload, ensure_ascii=False, separators=(",", ":")),
+            encoding="utf-8")
+        ok += 1
+    return ok
+
+
+def _insert_chart_block(text: str, ticker: str) -> str:
+    """본문 첫 H2 앞에 차트 절을 끼운다 — 종목을 열면 그림이 먼저 보이게.
+
+    H2가 없으면(형식이 다른 파일) 끝에 붙인다.
+    """
+    block = _CHART_BLOCK.format(ticker=ticker)
+    marker = "\n## "
+    idx = text.find(marker)
+    if idx == -1:
+        return text.rstrip() + "\n" + block
+    return text[:idx] + "\n" + block + text[idx:]
+
+
 def _collect_watchlist() -> list[tuple[str, str, str, str]]:
     """type=watchlist 만 복사하고 (ticker, market, name, fname) 리스트 반환.
 
@@ -206,7 +274,8 @@ def _collect_watchlist() -> list[tuple[str, str, str, str]]:
         ticker = fm.get("ticker", md.stem)
         out_name = f"{ticker}.md"   # ASCII-only: 한글 파일명 → 티커만
         # 실계좌 필드·private 블록 제거 후 복사 — 원본(비공개)은 그대로 유지
-        (tmp / out_name).write_text(_sanitize_public_md(text), encoding="utf-8")
+        (tmp / out_name).write_text(
+            _insert_chart_block(_sanitize_public_md(text), ticker), encoding="utf-8")
         entries.append((ticker, fm.get("market", ""),
                         _company_name(fm.get("title", "")), out_name))
     # 모든 파일 복사 완료 후 원자적 교체
@@ -1168,6 +1237,8 @@ def main():
     (OUT / "fear-index.md").write_text(_fear_index_page(latest, names), encoding="utf-8")
     latest_map = {s["ticker"]: s for s in latest}
     (OUT_WL / "index.md").write_text(_watchlist_index(entries, latest_map), encoding="utf-8")
+    # _collect_watchlist가 OUT_WL을 통째로 교체하므로 반드시 그 뒤에 쓴다
+    charted = _write_chart_data(entries)
     (OUT_SNAP / "index.md").write_text(_snapshots_index(latest, names), encoding="utf-8")
     (OUT_ALERT / "index.md").write_text(_alerts_index(alerts, names), encoding="utf-8")
     (OUT_POS / "index.md").write_text(_positions_index(positions, names), encoding="utf-8")
@@ -1176,7 +1247,8 @@ def main():
     print(f"생성 완료: 관찰 {len(entries)}개 · 스냅샷 {len(latest)}종목({len(snaps)}건, "
           f"목록 제외 {len(retired)}종목) "
           f"· 알림 {len(alerts)}건 · 오픈 포지션 {len(positions)}개 "
-          f"· 완결 트레이드 {len(perf.get('trades', []))}건")
+          f"· 완결 트레이드 {len(perf.get('trades', []))}건"
+          f" · 차트 {charted}/{len(entries)}종목")
 
 
 if __name__ == "__main__":

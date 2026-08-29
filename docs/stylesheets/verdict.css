@@ -505,3 +505,59 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   padding-right: 1.2rem;
 }
 .seed-summary-table td { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ── 관찰 종목 캔들차트 (2026-08-29) ─────────────────────────────────────
+   그림을 커밋하지 않고 브라우저가 그린다(stock-chart.js). 이 사이트는 폰
+   기준이라 높이를 폰에서 읽히는 값으로 잡았다. 데스크톱도 같은 420px 컨테이너
+   안이라 값 하나로 충분하다. */
+.stock-chart {
+  width: 100%;
+  height: 320px;          /* 폰(본문 폭 343px)에서 캔들이 뭉개지지 않는 최소치 */
+  margin: 0.6rem 0 0.2rem;
+  /* 캔버스가 어떤 이유로든 컨테이너보다 커져도 페이지로 새지 않게 막는다.
+     실제로 autoSize가 44px 넓게 그린 적이 있다 (2026-08-29). */
+  overflow: hidden;
+}
+.stock-chart[data-loading] {
+  background: linear-gradient(90deg, rgba(128,128,128,.06), rgba(128,128,128,.12), rgba(128,128,128,.06));
+  border-radius: 4px;
+}
+.stock-chart--failed {
+  height: auto;
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+.md-typeset .stock-chart-note {
+  font-size: 0.62rem;
+  opacity: 0.72;
+  margin-top: 0.1rem;
+}
+
+/* Lightweight Charts 내부 표는 JS가 클래스(lwc-internal)를 붙여 Material의
+   본문 표 스타일(.md-typeset table:not([class]))에서 빠져나간다 — stock-chart.js 참고.
+   여기서 CSS로 되돌리려 했더니 셀 폭까지 0으로 눌려 가격축이 사라졌다(2026-08-29). */
+
+/* 차트 선 범례 — 축 라벨은 폰에서 잘려 이름을 담지 못한다(가격축 약 50px).
+   이름·구간은 여기 글자로 둔다. 확대·복사도 되고 줄바꿈도 된다. */
+.md-typeset .stock-chart-legend {
+  list-style: none;
+  margin: 0.15rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.6rem;
+  font-size: 0.62rem;
+}
+.md-typeset .stock-chart-legend li {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.stock-chart-dot {
+  width: 0.5rem;
+  height: 0.14rem;
+  border-radius: 1px;
+  margin-right: 0.22rem;
+  flex: none;
+}

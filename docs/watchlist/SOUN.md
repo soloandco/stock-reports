@@ -21,6 +21,13 @@ related:
 
 ---
 
+
+## 차트
+
+<div class="stock-chart" data-src="../charts/SOUN.json"></div>
+
+<p class="stock-chart-note">추세선·매물벽(저항)·지지대·주봉 저항을 함께 표시합니다. 손가락으로 확대·이동할 수 있습니다.</p>
+
 ## 분석 메모 (2026-06-16)
 
 **약세 논거**

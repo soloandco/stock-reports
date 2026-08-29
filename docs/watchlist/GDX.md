@@ -29,6 +29,13 @@ related:
 > **판정·Stage·매물대·주봉 저항은 이 종목에서 읽는다** (2026-08-10).
 > 판정의 SSOT는 스냅샷(`snapshots/GDX-YYYY-MM-DD.md`)이다.
 
+
+## 차트
+
+<div class="stock-chart" data-src="../charts/GDX.json"></div>
+
+<p class="stock-chart-note">추세선·매물벽(저항)·지지대·주봉 저항을 함께 표시합니다. 손가락으로 확대·이동할 수 있습니다.</p>
+
 ## 왜 3배 ETN이 아니라 기초자산을 보는가
 
 GDXU는 **일일 리밸런싱 3배 ETN**이라 가격 경로가 복리 누적의 산물이다. 이 때문에

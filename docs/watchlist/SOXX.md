@@ -24,6 +24,13 @@ related:
 > 용도로 등록됐다 (`core/inverse.py`, 2026-07-18).
 > 판정·Stage·손절가의 SSOT는 스냅샷(`snapshots/SOXX-YYYY-MM-DD.md`)이다.
 
+
+## 차트
+
+<div class="stock-chart" data-src="../charts/SOXX.json"></div>
+
+<p class="stock-chart-note">추세선·매물벽(저항)·지지대·주봉 저항을 함께 표시합니다. 손가락으로 확대·이동할 수 있습니다.</p>
+
 ## 인버스 페어 백테스트 근거 (2026-07-18)
 
 `data/inverse_pairs_backtest.json` — 기초 Stage 4 확정 전환 → SOXS 종가 매수,

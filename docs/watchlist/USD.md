@@ -22,6 +22,13 @@ related:
 
 2x 레버리지 반도체 ETF. Dow Jones US Semiconductors Index 일별 2배 추종.
 
+
+## 차트
+
+<div class="stock-chart" data-src="../charts/USD.json"></div>
+
+<p class="stock-chart-note">추세선·매물벽(저항)·지지대·주봉 저항을 함께 표시합니다. 손가락으로 확대·이동할 수 있습니다.</p>
+
 ## 주요 구성 종목
 NVDA, AVGO, AMD, INTC, TXN 등 반도체 대형주.
 

@@ -33,6 +33,13 @@ related:
 > BITX(2x)로 하되 **판정·Stage·매물대·주봉 저항은 이 종목에서 읽는다.**
 > 판정의 SSOT는 스냅샷(`snapshots/IBIT-YYYY-MM-DD.md`)이다.
 
+
+## 차트
+
+<div class="stock-chart" data-src="../charts/IBIT.json"></div>
+
+<p class="stock-chart-note">추세선·매물벽(저항)·지지대·주봉 저항을 함께 표시합니다. 손가락으로 확대·이동할 수 있습니다.</p>
+
 ## 왜 2배 ETF가 아니라 기초자산을 보는가
 
 BITX는 **일일 리밸런싱 2배 선물 ETF**라 가격 경로가 복리 누적과 롤 비용의 산물이다.

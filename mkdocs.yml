@@ -49,6 +49,8 @@ extra_javascript:
   - javascripts/tablesort.js
   - javascripts/positions.js       # 시드 입력 → 주수·손익(원) 실시간 계산
   - javascripts/theme-in-drawer.js # 테마 전환을 헤더 → 햄버거 드로어로 이동
+  - javascripts/lightweight-charts.js  # TradingView Lightweight Charts (Apache-2.0, 동봉)
+  - javascripts/stock-chart.js         # 관찰 종목 캔들차트 (그림 대신 숫자로 그린다)
 
 nav:
   - 홈: index.md
