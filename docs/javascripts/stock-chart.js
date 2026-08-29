@@ -19,6 +19,18 @@
     trend: "#8a63d2"
   };
 
+  /* 이동평균 50·150·200 = 이 시스템의 Trend Template 판정 근거. 신호선
+     (매물벽 주황·지지대 초록·추세선 보라)과 경쟁하지 않게 무채색 계열로 둔다.
+     기간이 길수록 진하게 — 장기선이 눈에 먼저 들어와야 국면이 읽힌다. */
+  var MA_PERIODS = ["50", "150", "200"];
+  var MA_LABEL = { "50": "50일선(단기)", "150": "150일선(중기)", "200": "200일선(장기)" };
+
+  function maColors() {
+    return isDark()
+      ? { "50": "#5f666e", "150": "#98a1aa", "200": "#dfe4e8" }
+      : { "50": "#b6bcc2", "150": "#767d85", "200": "#2b3138" };
+  }
+
   function isDark() {
     var s = document.body.getAttribute("data-md-color-scheme");
     return s === "slate";
@@ -90,6 +102,29 @@
       return { time: b[0], open: b[1], high: b[2], low: b[3], close: b[4] };
     }));
 
+    // 이동평균 — 캔들 뒤에 깔리도록 먼저 그린다
+    var maSeries = {};
+    var mc = maColors();
+    if (data.mas) {
+      MA_PERIODS.forEach(function (period) {
+        var vals = data.mas[period];
+        if (!vals) return;
+        var pts = [];
+        for (var i = 0; i < vals.length; i++) {
+          if (vals[i] === null || vals[i] === undefined) continue;
+          pts.push({ time: data.bars[i][0], value: vals[i] });
+        }
+        if (pts.length < 2) return;          // 값이 없으면 선을 만들지 않는다
+        var s2 = chart.addLineSeries({
+          color: mc[period], lineWidth: 1,
+          lastValueVisible: false, priceLineVisible: false,
+          crosshairMarkerVisible: false
+        });
+        s2.setData(pts);
+        maSeries[period] = s2;
+      });
+    }
+
     var first = data.bars[0][0], last = data.bars[data.bars.length - 1][0];
     (data.lines || []).forEach(function (line) {
       var color = COLORS[line.side] || COLORS.resistance;
@@ -119,25 +154,31 @@
     // 남아 가격축이 0px로 눌린다. 강제로 다시 재게 한다.
     chart.resize(host.clientWidth, host.clientHeight, true);
     host.removeAttribute("data-loading");
-    buildLegend(host, data.lines || []);
-    return chart;
+    buildLegend(host, data.lines || [], Object.keys(maSeries));
+    return { chart: chart, maSeries: maSeries };
   }
 
   /* 선 이름은 차트 밖 글자로 둔다 — 캔버스 안 라벨은 폰에서 잘리고 확대도 안 된다.
      여기서는 구간 표기("매물벽 70.65~75.38")를 그대로 보여줄 수 있다. */
-  function buildLegend(host, lines) {
-    if (!lines.length) return;
+  function buildLegend(host, lines, maKeys) {
+    if (!lines.length && !(maKeys || []).length) return;
     var ul = document.createElement("ul");
     ul.className = "stock-chart-legend";
-    lines.forEach(function (line) {
+    var add = function (color, text) {
       var li = document.createElement("li");
       var dot = document.createElement("span");
       dot.className = "stock-chart-dot";
-      dot.style.background = COLORS[line.side] || COLORS.resistance;
-      if (line.kind === "trend") dot.style.background = COLORS.trend;
+      dot.style.background = color;
       li.appendChild(dot);
-      li.appendChild(document.createTextNode(line.label || ""));
+      li.appendChild(document.createTextNode(text));
       ul.appendChild(li);
+    };
+    var mc = maColors();
+    (maKeys || []).forEach(function (p) { add(mc[p], MA_LABEL[p] || (p + "일선")); });
+    lines.forEach(function (line) {
+      add(line.kind === "trend" ? COLORS.trend
+                                : (COLORS[line.side] || COLORS.resistance),
+          line.label || "");
     });
     host.parentNode.insertBefore(ul, host.nextSibling);
   }
@@ -163,15 +204,25 @@
           host.remove();
           return;
         }
-        var chart = render(host, data);
-        // 테마 전환(라이트↔다크)에 색을 따라가게 한다.
-        if (chart && window.MutationObserver) {
+        var made = render(host, data);
+        // 테마 전환(라이트↔다크)에 색을 따라가게 한다. 이평선은 무채색이라
+        // 테마가 바뀌면 배경에 묻히므로 함께 갈아끼운다.
+        if (made && made.chart && window.MutationObserver) {
           new MutationObserver(function () {
-            var t = theme();
-            chart.applyOptions({
+            var t = theme(), mc = maColors();
+            made.chart.applyOptions({
               layout: { background: { color: t.bg }, textColor: t.text },
               grid: { vertLines: { color: t.grid }, horzLines: { color: t.grid } }
             });
+            Object.keys(made.maSeries).forEach(function (p) {
+              made.maSeries[p].applyOptions({ color: mc[p] });
+            });
+            host.parentNode.querySelectorAll(".stock-chart-legend .stock-chart-dot")
+              .forEach(function (dot, i) {
+                if (i < Object.keys(made.maSeries).length) {
+                  dot.style.background = mc[Object.keys(made.maSeries)[i]];
+                }
+              });
           }).observe(document.body, { attributes: true,
                                       attributeFilter: ["data-md-color-scheme"] });
         }
