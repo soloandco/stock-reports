@@ -722,6 +722,37 @@ def _performance_index(data: dict) -> str:
             f"| {s['stop_rate']*100:.0f}% | {s['target_rate']*100:.0f}% "
             f"| {s['time_exit_rate']*100:.0f}% | {s.get('distinct_entry_days','—')} |"
         )
+    # ── 손절폭 계층 (2026-08-28) — "변동성과대 → 관찰 강등" 정책 상시 계측 ──
+    # 근거: 실전 +30일 진단에서 손절폭 ≥12% 코호트 23건 전원 손절(-1R). 이
+    # 종목들 대부분이 PIT 백테스트 유니버스에 없어, 기존 기대값(+0.229R)이
+    # 보증한 적 없는 모집단이다. 게이트 도입·임계는 스윕 검증 후 결정.
+    by_width = data.get("summary_by_width", {})
+    if by_width:
+        lines += [
+            "",
+            "## 손절폭별 성과",
+            "",
+            "손절폭 = (진입가−손절가)/진입가. 8% 초과는 변동성과대로 매수후보에서 "
+            "매수관찰로 강등되는 구간이며, 12% 이상 광폭 구간은 실전 관찰에서 "
+            "손절률이 가장 높았습니다. 이 표는 그 정책을 계속 계측하기 위한 것입니다.",
+            "",
+            "| 손절폭 | n | 승률 (95% CI) | 기대값 | 손절 | 목표 | 시간청산 |",
+            "|--------|---|--------------|--------|------|------|---------|",
+        ]
+        _band_order = ("≤8%", "8~12%", "≥12%")
+        for band in _band_order:
+            s = by_width.get(band)
+            if not s:
+                continue
+            ci_lo = s.get("win_rate_ci_low", 0.0) * 100
+            ci_hi = s.get("win_rate_ci_high", 0.0) * 100
+            lines.append(
+                f"| {band} | {s['n']} "
+                f"| {s['win_rate']*100:.0f}% ({ci_lo:.0f}–{ci_hi:.0f}%) "
+                f"| {s['expectancy']:+.2f}R | {s['stop_rate']*100:.0f}% "
+                f"| {s['target_rate']*100:.0f}% | {s['time_exit_rate']*100:.0f}% |"
+            )
+
     lines += [
         "",
         f"> 완결 트레이드 {n_trades}건 · 기준일: {generated} · "
