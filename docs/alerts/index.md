@@ -4,6 +4,7 @@
 
 | 발생일 | 종목 | 기업명 | 유형 |
 |--------|------|--------|------|
+| 2026-08-30 | [AAPL](20260830-aapl-support_retest.md) | [Apple](20260830-aapl-support_retest.md) | 🔍 지지선 리테스트 |
 | 2026-08-28 | [ASTS](20260828-asts-line_break.md) | [AST SpaceMobile](20260828-asts-line_break.md) | 📐 라인 돌파 |
 | 2026-08-28 | [CDNS](20260828-cdns-line_break.md) | [Cadence Design Systems](20260828-cdns-line_break.md) | 📐 라인 돌파 |
 | 2026-08-27 | [329180](20260827-329180-line_break.md) | [HD현대중공업](20260827-329180-line_break.md) | 📐 라인 돌파 |

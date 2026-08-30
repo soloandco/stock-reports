@@ -539,7 +539,10 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
 
 /* 차트 선 범례 — 축 라벨은 폰에서 잘려 이름을 담지 못한다(가격축 약 50px).
    이름·구간은 여기 글자로 둔다. 확대·복사도 되고 줄바꿈도 된다. */
-.md-typeset .stock-chart-legend {
+/* ⚠ 선택자에 ul 을 붙여야 한다. Material 의 `.md-typeset ul { display: flow-root }`
+   가 이겨서 flex 가 먹지 않고 항목이 한 줄씩 쌓였다(2026-08-30 실측: 6항목 119px).
+   차트 내부 <table> 이 Material 표 스타일에 걸린 것과 같은 뿌리의 함정이다. */
+.md-typeset ul.stock-chart-legend {
   list-style: none;
   margin: 0.15rem 0 0;
   padding: 0;
@@ -548,7 +551,7 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   gap: 0.15rem 0.6rem;
   font-size: 0.62rem;
 }
-.md-typeset .stock-chart-legend li {
+.md-typeset ul.stock-chart-legend li {
   margin: 0;
   display: flex;
   align-items: center;
