@@ -2,7 +2,7 @@
 
 Weinstein 스테이지 · Minervini Trend Template · Turtle ATR 3레이어 프레임워크 기반 종목 분석.
 
-<div class="stat-grid"><a class="stat-card" href="watchlist/"><div class="stat-card__num">49</div><div class="stat-card__label">관찰 종목</div></a><a class="stat-card stat-card--cand" href="snapshots/"><div class="stat-card__num">1</div><div class="stat-card__label">매수후보</div></a><a class="stat-card stat-card--watch" href="snapshots/"><div class="stat-card__num">16</div><div class="stat-card__label">매수관찰</div></a><a class="stat-card" href="positions/"><div class="stat-card__num">17</div><div class="stat-card__label">오픈 포지션</div></a><a class="stat-card" href="performance/"><div class="stat-card__num">📈</div><div class="stat-card__label">전략 성과</div></a><a class="stat-card" href="snapshots/"><div class="stat-card__num">48</div><div class="stat-card__label">스냅샷</div></a><a class="stat-card" href="alerts/"><div class="stat-card__num">167</div><div class="stat-card__label">알림</div></a></div>
+<div class="stat-grid"><a class="stat-card" href="watchlist/"><div class="stat-card__num">49</div><div class="stat-card__label">관찰 종목</div></a><a class="stat-card stat-card--cand" href="snapshots/"><div class="stat-card__num">1</div><div class="stat-card__label">매수후보</div></a><a class="stat-card stat-card--watch" href="snapshots/"><div class="stat-card__num">16</div><div class="stat-card__label">매수관찰</div></a><a class="stat-card" href="positions/"><div class="stat-card__num">17</div><div class="stat-card__label">오픈 포지션</div></a><a class="stat-card" href="performance/"><div class="stat-card__num">📈</div><div class="stat-card__label">전략 성과</div></a><a class="stat-card" href="snapshots/"><div class="stat-card__num">48</div><div class="stat-card__label">스냅샷</div></a><a class="stat-card" href="alerts/"><div class="stat-card__num">168</div><div class="stat-card__label">알림</div></a></div>
 
 ## 바로 가기
 
@@ -10,7 +10,7 @@ Weinstein 스테이지 · Minervini Trend Template · Turtle ATR 3레이어 프�
 - 💹 **오픈 포지션** 17개 — [수익률·R·시드 계산 보기](positions/index.md)
 - 📈 **전략 성과** — [손익비·기대값·승률 보기](performance/index.md)
 - 📊 **분석 스냅샷** 48건 — [최신순 보기](snapshots/index.md)
-- 🔔 **알림** 167건 — [타임라인 보기](alerts/index.md)
+- 🔔 **알림** 168건 — [타임라인 보기](alerts/index.md)
 - 📊 **시장 현황** — [VIX · Fear&Greed · 섹터 흐름](fear-index.md)
 
 ## 용어 설명
