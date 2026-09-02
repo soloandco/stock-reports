@@ -4,6 +4,7 @@
 
 | 날짜 | 종목 | 알림 |
 |------|------|------|
+| 2026-09-02 | [GOOGL](20260902-googl-trailing_stop/) | 📉 트레일링 청산 |
 | 2026-09-02 | [MSFT](20260902-msft-target_hit/) | 🎯 수익 실현 |
 | 2026-09-02 | [MSFT](20260902-msft-breakeven/) | 🔒 본전 스톱 |
 | 2026-08-31 | [AVGO](20260831-avgo-bear_rsi_reversal/) | 🐻 약세장 RSI 반등 |
