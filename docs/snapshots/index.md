@@ -55,7 +55,7 @@
 | [LUNR](LUNR-2026-09-04.md) | [Intuitive Machines](LUNR-2026-09-04.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/8 | 2026-09-04 |
 | [MS](MS-2026-09-04.md) | [Morgan Stanley](MS-2026-09-04.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 | 2026-09-04 |
 | [MSFT](MSFT-2026-09-04.md) | [Microsoft](MSFT-2026-09-04.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 | 2026-09-04 |
-| [NVDA](NVDA-2026-09-04.md) | [NVIDIA](NVDA-2026-09-04.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 7/8 | 2026-09-04 |
+| [NVDA](NVDA-2026-09-04.md) | [NVIDIA](NVDA-2026-09-04.md) | <span class="verdict-sort">0</span><span class="verdict verdict-cand">매수후보</span> | 2 | 8/8 | 2026-09-04 |
 | [PCAR](PCAR-2026-09-04.md) | [Paccar](PCAR-2026-09-04.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-09-04 |
 | [PLTR](PLTR-2026-09-04.md) | [Palantir](PLTR-2026-09-04.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/8 | 2026-09-04 |
 | [PM](PM-2026-09-04.md) | [Philip Morris](PM-2026-09-04.md) | <span class="verdict-sort">1</span><span class="verdict verdict-watch">매수관찰</span> | 2 | 6/8 | 2026-09-04 |
