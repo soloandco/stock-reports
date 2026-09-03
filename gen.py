@@ -307,6 +307,11 @@ def _collect_snapshots() -> list[dict]:
             "market":  fm.get("market", ""),
             "days":    fm.get("candidate-days", ""),   # 매수후보 경과 거래일 (구형 스냅샷은 "")
             "gap":     fm.get("sma50-gap-pct", ""),    # SMA50 이격 %
+            # 홈 「오늘의 결론」 카드용 (2026-09-03) — 값이 없는 구형 스냅샷은 ""
+            "stop":       fm.get("stop-price", ""),
+            "weekly_pos": fm.get("weekly-position", ""),
+            "weekly_pct": fm.get("weekly-overhead-pct", ""),
+            "rr":         fm.get("real-rr", ""),
             "fname":   md.name,
         })
     # 분석일 내림차순(동일 날짜는 종목 오름차순 — 안정 정렬)
@@ -457,6 +462,107 @@ def _scan_alerts() -> list[dict]:
 
 # --- 페이지 빌더 ---
 
+# ── 홈 「오늘의 결론」 카드 (2026-09-03, 핀보드 방식) ──────────────────────
+# 숫자 카드(관찰 49·후보 1…)보다 먼저 "어느 종목을 왜"를 한 문장으로 보여준다.
+# 새 계산·새 점수 없이 최신 스냅샷 frontmatter 값만 문장으로 조립한다.
+# 카드 순서는 알림 슬롯 배분(monitor._entry_priority)과 같다: 주봉 신고가영역
+# 우선, 동률이면 저항 손익비 높은 순. 만료 후보(D+5 초과)는 맨 뒤로.
+_BUY_STATES = ("매수후보", "매수관찰")
+_PICK_WEEKLY_RANK = {"신고가영역": 0, "저항대아래": 1}          # monitor._WEEKLY_RANK 와 동일
+_PICK_WEEKLY_BADGE = {"신고가영역": "good", "돌파후되돌림": "tip",
+                      "저항대재진입": "warn", "저항대아래": "warn"}
+PICK_MAX_CARDS = 5
+
+
+def _num(v) -> "float | None":
+    try:
+        f = float(v)
+    except (TypeError, ValueError):
+        return None
+    return None if f != f else f
+
+
+def _is_expired(snap: dict) -> bool:
+    d = _num(snap.get("days"))
+    return d is not None and d > CANDIDATE_FRESH_MAX_DAYS
+
+
+def _headline(snap: dict) -> str:
+    """결론 한 문장 (HTML). 핵심 숫자만 <b>로 강조한다."""
+    bits = []
+    price, stop = _num(snap.get("price")), _num(snap.get("stop"))
+    if price and stop is not None:
+        bits.append(f'손절까지 <b class="pick-num pick-num--risk">{(stop - price) / price * 100:+.1f}%</b>')
+    pos, wpct = snap.get("weekly_pos") or "", _num(snap.get("weekly_pct"))
+    if pos == "신고가영역":
+        bits.append("머리 위 저항 없음(신고가 영역)")
+    elif wpct is not None:
+        bits.append(f'주봉 저항까지 <b class="pick-num pick-num--up">+{wpct:.1f}%</b>')
+    head = f"Stage {snap.get('stage', '?')} · TT {snap.get('tt', '?')}/8."
+    return head + (" " + ", ".join(bits) + "." if bits else "")
+
+
+def _pick_priority(snap: dict) -> tuple:
+    rr = _num(snap.get("rr")) or 0.0
+    return (_is_expired(snap), snap["verdict"] != "매수후보",
+            _PICK_WEEKLY_RANK.get(snap.get("weekly_pos") or "", 2), -rr, snap["ticker"])
+
+
+def _pick_card(snap: dict, name: str, entry_date: str) -> str:
+    kind = _VERDICT_KIND.get(snap["verdict"], "watch")
+    expired = _is_expired(snap)
+    pos = snap.get("weekly_pos") or ""
+    rr = _num(snap.get("rr"))
+    foot = []
+    if entry_date:
+        foot.append(f"전환 {entry_date}")
+    if expired:
+        foot.append(f"신호 {int(_num(snap['days']))}일 경과 · 추격 비추천")
+    foot.append("머리 위 저항 없음" if pos == "신고가영역"
+                else (f"손익비 {rr:.1f}:1" if rr is not None else "손익비 미산출"))
+    foot.append("스냅샷 보기 ›")
+    cls = f"pick-card pick-card--{kind}" + (" pick-card--expired" if expired else "")
+    stem = snap["fname"][:-3] if snap["fname"].endswith(".md") else snap["fname"]
+    name_html = f'<span class="pick-card__name">{name}</span>' if name else ""
+    return (
+        f'<a class="{cls}" href="snapshots/{stem}/">'
+        f'<div class="pick-card__head"><span class="pick-card__ticker">{snap["ticker"]}</span>'
+        f'{name_html}<span class="verdict verdict-{kind}">{snap["verdict"]}</span></div>'
+        f'<p class="pick-card__lead">{_headline(snap)}</p>'
+        f'<div class="pick-card__badges">'
+        f'<span class="pick-badge">추세 <b>Stage {snap.get("stage", "?")}</b></span>'
+        f'<span class="pick-badge">구조 <b>TT {snap.get("tt", "?")}/8</b></span>'
+        f'<span class="pick-badge pick-badge--{_PICK_WEEKLY_BADGE.get(pos, "none")}">자리 <b>{pos or "주봉 미확인"}</b></span>'
+        f'</div>'
+        f'<div class="pick-card__foot">{" · ".join(foot)}</div>'
+        f'</a>'
+    )
+
+
+def _conclusion_section(snaps: list[dict], names: dict, positions: "list[dict] | None",
+                        max_cards: int = PICK_MAX_CARDS) -> str:
+    """홈 최상단 「오늘의 결론」 블록 (Markdown + HTML)."""
+    basis = max((s.get("created", "") for s in snaps), default="")
+    buys = sorted((s for s in snaps if s["verdict"] in _BUY_STATES), key=_pick_priority)
+    n_cand = sum(1 for s in buys if s["verdict"] == "매수후보")
+    n_watch = len(buys) - n_cand
+    basis_txt = f" (기준일 {basis})" if basis else ""
+    lines = ["## 오늘의 결론", ""]
+    if not buys:
+        lines.append(f'<p class="pick-lead">오늘 매수 결론 없음 — 매수후보·매수관찰 종목이 없습니다.{basis_txt}</p>')
+        return "\n".join(lines) + "\n"
+    entry_by = {p["ticker"]: p.get("entry_date", "") for p in (positions or [])}
+    lines.append(
+        f'<p class="pick-lead">매수후보 <b>{n_cand}</b> · 매수관찰 <b>{n_watch}</b>{basis_txt}. '
+        f'우선순위 상위 {min(max_cards, len(buys))}종목이며 순서는 알림 슬롯 배분과 같습니다'
+        f'(주봉 신고가영역 우선, 그다음 저항 손익비).</p>')
+    cards = "".join(_pick_card(s, names.get(s["ticker"], ""), entry_by.get(s["ticker"], ""))
+                    for s in buys[:max_cards])
+    lines.append(f'<div class="pick-grid">{cards}</div>')
+    lines.append(f'<p class="pick-more"><a href="watchlist/">매수 상태 {len(buys)}종목 전체 보기</a></p>')
+    return "\n".join(lines) + "\n"
+
+
 def _stat_cards(entries, snaps, alerts, positions=None) -> str:
     n_watch  = len(entries)
     n_cand   = sum(1 for s in snaps if s["verdict"] == "매수후보")
@@ -499,6 +605,7 @@ def _dashboard(entries, snaps, alerts, names, positions=None) -> str:
         "",
         "Weinstein 스테이지 · Minervini Trend Template · Turtle ATR 3레이어 프레임워크 기반 종목 분석.",
         "",
+        _conclusion_section(snaps, names, positions),
         _stat_cards(entries, snaps, alerts, positions),
         "",
         "## 바로 가기",

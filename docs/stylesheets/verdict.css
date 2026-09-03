@@ -564,3 +564,32 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   margin-right: 0.22rem;
   flex: none;
 }
+
+/* 홈 — 「오늘의 결론」 카드 (2026-09-03). 폰(420px) 기준 1열 */
+.md-typeset .pick-lead,
+.md-typeset .pick-more { font-size: 0.78rem; color: var(--md-default-fg-color--light); margin: 0.2rem 0 0.7rem; }
+.pick-grid { display: grid; grid-template-columns: 1fr; gap: 0.7rem; margin: 0 0 0.7rem; }
+.md-typeset a.pick-card {
+  display: block; padding: 0.75rem 0.85rem; color: inherit;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-left: 4px solid #0277bd; border-radius: 0.5rem;
+  background: var(--md-code-bg-color);
+}
+.md-typeset a.pick-card:hover { border-color: var(--md-primary-fg-color); }
+.md-typeset a.pick-card--cand { border-left-color: #2e7d32; }
+.md-typeset a.pick-card--expired { border-left-color: #607d8b; opacity: 0.65; }
+.pick-card__head { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+.pick-card__ticker { font-weight: 700; font-size: 0.95rem; }
+.pick-card__name { font-size: 0.78rem; color: var(--md-default-fg-color--light); }
+.md-typeset .pick-card__lead { margin: 0.4rem 0; font-size: 0.88rem; line-height: 1.45; font-weight: 600; }
+.pick-num--risk { color: #c62828; }
+.pick-num--up   { color: #2e7d32; }
+.pick-card__badges { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.pick-badge {
+  font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 1rem;
+  background: var(--md-default-fg-color--lightest); color: var(--md-default-fg-color);
+}
+.pick-badge--good { background: rgba(46,125,50,.15);  color: #2e7d32; }
+.pick-badge--tip  { background: rgba(2,119,189,.15);  color: #0277bd; }
+.pick-badge--warn { background: rgba(230,81,0,.15);   color: #e65100; }
+.pick-card__foot { margin-top: 0.4rem; font-size: 0.7rem; color: var(--md-default-fg-color--light); }
