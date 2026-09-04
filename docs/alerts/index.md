@@ -6,7 +6,7 @@
 |--------|------|--------|------|
 | 2026-09-04 | [009150](20260904-009150-buy_watch.md) | [삼성전기](20260904-009150-buy_watch.md) | 👀 매수 근접 |
 | 2026-09-04 | [066570](20260904-066570-buy_watch.md) | [LG전자](20260904-066570-buy_watch.md) | 👀 매수 근접 |
-| 2026-09-04 | [278470](20260904-278470-pullback_reentry.md) | [에이피알](20260904-278470-pullback_reentry.md) | 🔁 눌림 재진입 |
+| 2026-09-04 | [278470](20260904-278470-pullback_reentry.md) | [](20260904-278470-pullback_reentry.md) | 🔁 눌림 재진입 |
 | 2026-09-04 | [DLR](20260904-dlr-buy_watch.md) | [Digital Realty](20260904-dlr-buy_watch.md) | 👀 매수 근접 |
 | 2026-09-04 | [DLR](20260904-dlr-sell.md) | [Digital Realty](20260904-dlr-sell.md) | 📉 매도 신호 |
 | 2026-09-04 | [GOOGL](20260904-googl-buy_watch.md) | [Alphabet](20260904-googl-buy_watch.md) | 👀 매수 근접 |

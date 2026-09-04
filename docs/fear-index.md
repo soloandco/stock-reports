@@ -6,7 +6,7 @@
 |------|--------|--------|------|-------|----|
 | [**009150**](snapshots/009150-2026-09-04.md) | [삼성전기](snapshots/009150-2026-09-04.md) | 2026-09-04 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/8 |
 | [**066570**](snapshots/066570-2026-09-04.md) | [LG전자](snapshots/066570-2026-09-04.md) | 2026-09-04 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/8 |
-| [**278470**](snapshots/278470-2026-09-04.md) | [에이피알](snapshots/278470-2026-09-04.md) | 2026-09-04 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 |
+| [**AAPL**](snapshots/AAPL-2026-09-04.md) | [Apple](snapshots/AAPL-2026-09-04.md) | 2026-09-04 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/8 |
 | [**161890**](snapshots/161890-2026-09-04.md) | [한국콜마](snapshots/161890-2026-09-04.md) | 2026-09-04 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | 2 | 8/8 |
 | [**329180**](snapshots/329180-2026-09-04.md) | [HD현대중공업](snapshots/329180-2026-09-04.md) | 2026-09-04 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 |
 
@@ -117,7 +117,7 @@
 
 ## CNN Fear & Greed Index
 
-> 수집: 2026-09-04 09:10 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
+> 수집: 2026-09-04 09:22 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
 
 | 점수 | 전일比 | 등급 |
 |------|--------|------|
@@ -137,7 +137,7 @@
 
 ## VIX
 
-> 수집: 2026-09-04 09:10 UTC · `python monitor.py --scan` 실행 시 갱신
+> 수집: 2026-09-04 09:22 UTC · `python monitor.py --scan` 실행 시 갱신
 
 | 지수 | 현재값 | 전일比 | 등급 | 시장 국면 | 신규 진입 |
 |------|--------|--------|------|---------|---------|
