@@ -9,8 +9,12 @@
   white-space: nowrap;
   color: #fff;
 }
-.verdict-cand  { background: #2e7d32; }  /* 매수후보 — 초록(강력) */
-.verdict-watch { background: #0277bd; }  /* 매수관찰 — 파랑(관망) */
+/* 매수 — 초록. 매수후보·매수관찰을 하나로 합쳤다 (2026-09-04). 등급을 나눌
+   근거가 측정에 없다 (충족 조건 8개 +0.148R < 6개 +0.208R, n=13,187). */
+.verdict-buy   { background: #2e7d32; }
+/* 아래 둘은 재생성 전 옛 페이지가 아직 쓴다 — 색이 빠지지 않게 남겨 둔다 */
+.verdict-cand  { background: #2e7d32; }
+.verdict-watch { background: #0277bd; }
 .verdict-nobuy { background: #607d8b; }  /* 매수불가 — 회색(중립) */
 
 /* Tablesort 정렬 키 — 화면에는 숨기고 textContent에만 우선순위 숫자 노출 */
@@ -454,8 +458,9 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   color: var(--md-primary-fg-color);
 }
 
-.stat-card--cand .stat-card__num  { color: #2e7d32; }
-.stat-card--watch .stat-card__num { color: #0277bd; }
+.stat-card--buy .stat-card__num   { color: #2e7d32; }
+.stat-card--cand .stat-card__num  { color: #2e7d32; }   /* 옛 페이지 호환 */
+.stat-card--watch .stat-card__num { color: #0277bd; }   /* 옛 페이지 호환 */
 
 .stat-card__label {
   font-size: 0.73rem;

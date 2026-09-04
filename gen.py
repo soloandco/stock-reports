@@ -40,7 +40,8 @@ SECTOR_JSON = ROOT.parent / "data" / "sector_strength.json"
 TRADE_REPORT_JSON = ROOT.parent / "data" / "trade_report.json"
 COMPLETED_TRADES_JSON = ROOT.parent / "data" / "completed_trades.json"
 
-# 매수후보 추천 유효기간(거래일). 이 값을 넘긴 후보는 '만료'로 표시된다.
+# 매수 추천 유효기간(거래일). 이 값을 넘긴 신호는 '만료'로 표시된다.
+# 2026-09-04부터 매수 두 등급 모두에 적용된다 (옛 구현은 매수후보에만 걸었다).
 # core.notifier.CANDIDATE_FRESH_MAX_DAYS와 같아야 한다 — 이 스크립트는 공개 저장소에
 # 있어 core를 런타임 의존하지 않으므로 값을 복제하고, 일치 여부는 테스트로 강제한다
 # (test_gen.py::test_expiry_threshold_matches_core, 2026-08-11).
@@ -58,8 +59,7 @@ SNAP_FILTERS = """\
 <label class="sf-label" for="sf-verdict">판정</label>
 <select class="sf-select" id="sf-verdict" data-f="verdict">
 <option value="">전체</option>
-<option value="cand">매수후보</option>
-<option value="watch">매수관찰</option>
+<option value="buy">매수</option>
 <option value="nobuy">매수불가</option>
 </select>
 <label class="sf-label" for="sf-stage">Stage</label>
@@ -86,8 +86,7 @@ WL_FILTERS = """\
 <label class="sf-label" for="sf-verdict">판정</label>
 <select class="sf-select" id="sf-verdict" data-f="verdict">
 <option value="">전체</option>
-<option value="cand">매수후보</option>
-<option value="watch">매수관찰</option>
+<option value="buy">매수</option>
 <option value="nobuy">매수불가</option>
 </select>
 </div>
@@ -117,8 +116,25 @@ def _reset_dir(p: Path):
     p.mkdir(parents=True)
 
 
-_VERDICT_KIND  = {"매수후보": "cand", "매수관찰": "watch", "매수불가": "nobuy"}
-_VERDICT_ORDER = {"매수후보": 0, "매수관찰": 1, "매수불가": 2}
+# 매수후보·매수관찰은 **같은 칸**이다 (2026-09-04 사용자 결정). 두 등급을 나눌
+# 근거가 측정에 없다 — 충족 조건 8개 +0.148R < 7개 +0.189R < 6개 +0.208R
+# (n=13,187). 저장 값(frontmatter verdict)은 그대로 두고 표시·필터·정렬만 합친다.
+# 클래스 이름이 곧 필터 값이다 (tablesort.js 가 `verdict-<값>` 으로 건다).
+_BUY_STATES    = ("매수후보", "매수관찰")   # 저장 값. 연구 파이프라인이 이걸로 층화한다
+_VERDICT_KIND  = {"매수후보": "buy", "매수관찰": "buy", "매수불가": "nobuy"}
+_VERDICT_ORDER = {"매수후보": 0, "매수관찰": 0, "매수불가": 2}
+
+
+_BUY_DISPLAY = "매수"
+
+
+def _display_verdict(verdict: str) -> str:
+    """저장 라벨 → 화면 이름. 매수 두 등급만 합친다 (core.verdict.display_label 와 동일 규칙).
+
+    gen.py 는 report-site 에서 단독 실행되므로 core 를 import 하지 않는다.
+    규칙을 바꿀 때 양쪽을 함께 고칠 것 (test_verdict_unified.py 가 이쪽을 고정).
+    """
+    return _BUY_DISPLAY if verdict in _BUY_STATES else verdict
 
 
 def _verdict_cell(verdict: str, reason: str) -> str:
@@ -126,11 +142,12 @@ def _verdict_cell(verdict: str, reason: str) -> str:
 
     md_in_html 확장으로 표 셀 내 인라인 HTML이 렌더된다. .verdict-sort span은
     Tablesort가 textContent로 정렬할 때 우선순위 숫자(0/1/2)를 앞에 붙여
-    매수후보→매수관찰→매수불가 순서를 강제한다.
+    매수→매수불가 순서를 강제한다.
     """
     kind = _VERDICT_KIND.get(verdict, "nobuy")
     sort_key = _VERDICT_ORDER.get(verdict, 9)
-    badge = f'<span class="verdict-sort">{sort_key}</span><span class="verdict verdict-{kind}">{verdict}</span>'
+    shown = _display_verdict(verdict)
+    badge = f'<span class="verdict-sort">{sort_key}</span><span class="verdict verdict-{kind}">{shown}</span>'
     if reason:
         return f'{badge} <span class="verdict-reason">({reason})</span>'
     return badge
@@ -139,7 +156,7 @@ def _verdict_cell(verdict: str, reason: str) -> str:
 def _candidate_days_cell(days: str) -> str:
     """candidate-days 프론트매터 → 'D+N' 셀 (임계 초과는 '만료' — 재전환 대기).
 
-    매수후보가 아니거나 구형 스냅샷이면 빈 문자열.
+    매수 상태가 아니거나 구형 스냅샷이면 빈 문자열.
     임계는 CANDIDATE_FRESH_MAX_DAYS (모듈 상단, core와 동기화 대상).
     """
     try:
@@ -305,7 +322,7 @@ def _collect_snapshots() -> list[dict]:
             "tt":      fm.get("trend-template-score", ""),
             "price":   fm.get("price", ""),
             "market":  fm.get("market", ""),
-            "days":    fm.get("candidate-days", ""),   # 매수후보 경과 거래일 (구형 스냅샷은 "")
+            "days":    fm.get("candidate-days", ""),   # 매수 상태 경과 거래일 (구형 스냅샷은 "")
             "gap":     fm.get("sma50-gap-pct", ""),    # SMA50 이격 %
             # 홈 「오늘의 결론」 카드용 (2026-09-03) — 값이 없는 구형 스냅샷은 ""
             "stop":       fm.get("stop-price", ""),
@@ -392,7 +409,7 @@ def _latest_per_ticker(snaps: list[dict]) -> list[dict]:
 
 
 def _collect_positions() -> list[dict]:
-    """현재 열린 매수후보/관찰 포지션을 core.positions로 복원해 dict 리스트로 반환.
+    """현재 열린 매수 포지션을 core.positions로 복원해 dict 리스트로 반환.
 
     진입가 = 첫 매수전환 스냅샷가, 현재가 = 최신 스냅샷가(라이브 fetch 없음).
     core 미탑재(스냅샷 없음 등)면 빈 리스트. 렌더러는 plain dict만 받아 테스트 가능.
@@ -467,7 +484,6 @@ def _scan_alerts() -> list[dict]:
 # 새 계산·새 점수 없이 최신 스냅샷 frontmatter 값만 문장으로 조립한다.
 # 카드 순서는 알림 슬롯 배분(monitor._entry_priority)과 같다: 주봉 신고가영역
 # 우선, 동률이면 저항 손익비 높은 순. 만료 후보(D+5 초과)는 맨 뒤로.
-_BUY_STATES = ("매수후보", "매수관찰")
 _PICK_WEEKLY_RANK = {"신고가영역": 0, "저항대아래": 1}          # monitor._WEEKLY_RANK 와 동일
 _PICK_WEEKLY_BADGE = {"신고가영역": "good", "돌파후되돌림": "tip",
                       "저항대재진입": "warn", "저항대아래": "warn"}
@@ -503,8 +519,15 @@ def _headline(snap: dict) -> str:
 
 
 def _pick_priority(snap: dict) -> tuple:
+    """카드 순서. 만료는 뒤로, 주봉 신고가영역 우선, 그다음 저항 손익비.
+
+    ⚠ 2026-09-04 에 **등급(매수후보 우선) 항을 뺐다.** 8/8 이 더 낫다는 근거가
+    없다 (충족 조건 8개 +0.148R < 7개 +0.189R < 6개 +0.208R, n=13,187).
+    알림 슬롯 배분(monitor._entry_priority)도 등급을 쓰지 않는다. 두 순서를
+    같게 유지할 것.
+    """
     rr = _num(snap.get("rr")) or 0.0
-    return (_is_expired(snap), snap["verdict"] != "매수후보",
+    return (_is_expired(snap),
             _PICK_WEEKLY_RANK.get(snap.get("weekly_pos") or "", 2), -rr, snap["ticker"])
 
 
@@ -527,7 +550,7 @@ def _pick_card(snap: dict, name: str, entry_date: str) -> str:
     return (
         f'<a class="{cls}" href="snapshots/{stem}/">'
         f'<div class="pick-card__head"><span class="pick-card__ticker">{snap["ticker"]}</span>'
-        f'{name_html}<span class="verdict verdict-{kind}">{snap["verdict"]}</span></div>'
+        f'{name_html}<span class="verdict verdict-{kind}">{_display_verdict(snap["verdict"])}</span></div>'
         f'<p class="pick-card__lead">{_headline(snap)}</p>'
         f'<div class="pick-card__badges">'
         f'<span class="pick-badge">추세 <b>Stage {snap.get("stage", "?")}</b></span>'
@@ -544,16 +567,14 @@ def _conclusion_section(snaps: list[dict], names: dict, positions: "list[dict] |
     """홈 최상단 「오늘의 결론」 블록 (Markdown + HTML)."""
     basis = max((s.get("created", "") for s in snaps), default="")
     buys = sorted((s for s in snaps if s["verdict"] in _BUY_STATES), key=_pick_priority)
-    n_cand = sum(1 for s in buys if s["verdict"] == "매수후보")
-    n_watch = len(buys) - n_cand
     basis_txt = f" (기준일 {basis})" if basis else ""
     lines = ["## 오늘의 결론", ""]
     if not buys:
-        lines.append(f'<p class="pick-lead">오늘 매수 결론 없음 — 매수후보·매수관찰 종목이 없습니다.{basis_txt}</p>')
+        lines.append(f'<p class="pick-lead">오늘 매수 결론 없음. 매수 상태 종목이 없습니다.{basis_txt}</p>')
         return "\n".join(lines) + "\n"
     entry_by = {p["ticker"]: p.get("entry_date", "") for p in (positions or [])}
     lines.append(
-        f'<p class="pick-lead">매수후보 <b>{n_cand}</b> · 매수관찰 <b>{n_watch}</b>{basis_txt}. '
+        f'<p class="pick-lead">매수 <b>{len(buys)}</b>종목{basis_txt}. '
         f'우선순위 상위 {min(max_cards, len(buys))}종목이며 순서는 알림 슬롯 배분과 같습니다'
         f'(주봉 신고가영역 우선, 그다음 저항 손익비).</p>')
     cards = "".join(_pick_card(s, names.get(s["ticker"], ""), entry_by.get(s["ticker"], ""))
@@ -565,8 +586,7 @@ def _conclusion_section(snaps: list[dict], names: dict, positions: "list[dict] |
 
 def _stat_cards(entries, snaps, alerts, positions=None) -> str:
     n_watch  = len(entries)
-    n_cand   = sum(1 for s in snaps if s["verdict"] == "매수후보")
-    n_obs    = sum(1 for s in snaps if s["verdict"] == "매수관찰")
+    n_buy    = sum(1 for s in snaps if s["verdict"] in _BUY_STATES)
     n_snaps  = len(snaps)
     n_alerts = len(alerts)
     n_pos    = len(positions or [])
@@ -577,12 +597,9 @@ def _stat_cards(entries, snaps, alerts, positions=None) -> str:
         f'<a class="stat-card" href="watchlist/">'
         f'<div class="stat-card__num">{n_watch}</div>'
         f'<div class="stat-card__label">관찰 종목</div></a>'
-        f'<a class="stat-card stat-card--cand" href="snapshots/">'
-        f'<div class="stat-card__num">{n_cand}</div>'
-        f'<div class="stat-card__label">매수후보</div></a>'
-        f'<a class="stat-card stat-card--watch" href="snapshots/">'
-        f'<div class="stat-card__num">{n_obs}</div>'
-        f'<div class="stat-card__label">매수관찰</div></a>'
+        f'<a class="stat-card stat-card--buy" href="snapshots/">'
+        f'<div class="stat-card__num">{n_buy}</div>'
+        f'<div class="stat-card__label">매수</div></a>'
         f'<a class="stat-card" href="positions/">'
         f'<div class="stat-card__num">{n_pos}</div>'
         f'<div class="stat-card__label">오픈 포지션</div></a>'
@@ -647,10 +664,12 @@ def _dashboard(entries, snaps, alerts, names, positions=None) -> str:
         "    | 7 | 현재가 ≥ 52주 고점 × 0.75 (-25% 이내) |",
         "    | 8 | RS Rating(상대강도 등급) ≥ 70 |",
         "",
-        "    **8/8**: 매수후보 조건 충족 · **6~7/8**: 매수관찰 · **5/8 이하**: 기준미달",
+        "    **6/8 이상**: 매수 · **5/8 이하**: 기준미달. "
+        "조건 개수는 등급이 아닙니다 — 11년 13,187건에서 8/8(+0.148R)이 "
+        "6/8(+0.208R)보다 나았다는 근거가 없습니다.",
         "",
         '??? info "📘 진입 게이팅 — 점수가 만점이어도 매수불가가 되는 4가지"',
-        "    Stage·TT 점수와 별개로, 아래 조건에 걸리면 매수후보에서 제외됩니다 (2026-06-11 도입).",
+        "    Stage·TT 점수와 별개로, 아래 조건에 걸리면 매수에서 제외됩니다 (2026-06-11 도입).",
         "",
         "    | 게이트 | 조건 | 사유 표기 |",
         "    |--------|------|----------|",
@@ -678,7 +697,7 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
         "",
         "모니터링 대상 종목. 30분 폴링으로 상태 변화 시 [알림](../alerts/index.md)이 발송됩니다. "
         "판정·Stage·TT·현재가는 각 종목의 **최신 분석 스냅샷** 기준입니다. "
-        "**경과**는 매수후보 연속 경과 거래일(D+N) — 전환일이 D+0이며, "
+        "**경과**는 매수 상태 연속 경과 거래일(D+N) · 전환일이 D+0이며, "
         f"매수 추천은 **D+{CANDIDATE_FRESH_MAX_DAYS}까지만 유효**합니다. "
         "이를 넘기면 '만료'로 표시되고 "
         "푸시 알림도 나가지 않습니다(백테스트상 지연 진입은 기대값 감쇠 — 비매수로 "
@@ -689,7 +708,7 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
         # 컬럼 순서 = 폰 폭 우선순위 (2026-07-19): 종목·기업명·판정·현재가가
         # 앞 4열(≈324px)이라 스크롤 없이 보이고, 보조 지표는 오른쪽으로 밀린다.
         # 필터는 헤더 이름으로 열을 찾으므로(tablesort.js) 순서를 바꿔도 안전하다.
-        # 경과 = 매수후보 연속 경과 거래일 D+N (후보만 표시, 임계 초과는 '만료')
+        # 경과 = 매수 상태 연속 경과 거래일 D+N (임계 초과는 '만료')
         "| 종목 | 기업명 | 판정 | 현재가 | 경과 | Stage | TT | 시장 |",
         "|------|--------|------|-------:|------|-------|----|------|",
     ]
@@ -712,7 +731,7 @@ def _snapshots_index(snaps, names) -> str:
         "# 분석 스냅샷",
         "",
         "특정 시점의 **판정 기록**(최신순). 판정 어휘 — "
-        "**매수후보**(Stage 2 + TT 8/8) · **매수관찰**(Stage 2 + TT 6~7) · "
+        "**매수**(Stage 2 + TT 6/8 이상) · "
         "**매수불가**(사유: 과열·시장국면·변동성과대·하락국면·천장권·기준미달).",
         "",
         SNAP_FILTERS,
@@ -765,7 +784,7 @@ def _positions_index(positions: list[dict], names: dict) -> str:
     lines = [
         "# 오픈 포지션",
         "",
-        "현재 **매수후보/매수관찰** 판정인 종목의 진입가 대비 현재 수익률·R-배수. "
+        "현재 **매수** 판정인 종목의 진입가 대비 현재 수익률·R-배수. "
         "진입가 = 비매수→매수로 전환된 **첫 스냅샷 가격**, 현재가 = **최신 스냅샷 가격**입니다.",
         "",
         '!!! warning "가정된 진입 (실제 체결 아님)"',
@@ -798,7 +817,7 @@ def _positions_index(positions: list[dict], names: dict) -> str:
     if not positions:
         lines += [
             '!!! info "열린 포지션 없음"',
-            "    현재 매수후보/매수관찰 판정인 종목이 없습니다. "
+            "    현재 매수 판정인 종목이 없습니다. "
             "`python monitor.py --scan` 으로 스냅샷을 갱신하세요.",
         ]
         return "\n".join(lines) + "\n"
@@ -857,7 +876,7 @@ def _performance_index(data: dict) -> str:
     lines = [
         "# 전략 성과",
         "",
-        "**완결된 트레이드**(손절·목표달성·시간청산)를 판정(매수후보/매수관찰)별로 집계한 "
+        "**완결된 트레이드**(손절·목표달성·시간청산)를 판정(매수 상태)별로 집계한 "
         "승률·손익비·기대값입니다. 진입가·손절가는 분석 스냅샷 기준이며, 미청산 오픈 포지션은 "
         "제외됩니다(청산돼야 집계).",
         "",
@@ -908,8 +927,7 @@ def _performance_index(data: dict) -> str:
             "",
             "## 손절폭별 성과",
             "",
-            "손절폭 = (진입가−손절가)/진입가. 8% 초과는 변동성과대로 매수후보에서 "
-            "매수관찰로 강등되는 구간이며, 12% 이상 광폭 구간은 실전 관찰에서 "
+            "손절폭 = (진입가−손절가)/진입가. 12% 이상 광폭 구간은 실전 관찰에서 "
             "손절률이 가장 높았습니다. 이 표는 그 정책을 계속 계측하기 위한 것입니다.",
             "",
             "| 손절폭 | n | 승률 (95% CI) | 기대값 | 손절 | 목표 | 시간청산 |",
@@ -1328,7 +1346,7 @@ def main():
     snaps   = _collect_snapshots()          # 전체 히스토리 (파일 복사 완료)
     latest  = _latest_per_ticker(snaps)     # 인덱스·대시보드용: 종목당 최신 1건
     alerts  = _scan_alerts()
-    positions = _collect_positions()        # 현재 열린 매수후보/관찰 포지션
+    positions = _collect_positions()        # 현재 열린 매수 포지션
     perf    = _collect_completed_trades()   # 완결 트레이드 손익비 성과
     names   = {ticker: name for ticker, _market, name, _fname in entries}
     # 워치리스트에서 뺀 종목의 옛 스냅샷은 목록·대시보드에서 제외한다 (2026-08-23).
