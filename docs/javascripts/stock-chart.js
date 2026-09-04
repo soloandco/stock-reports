@@ -33,8 +33,8 @@
   var CVD_MAIN_H = 300;
   var CVD_PANE_H = 100;
 
-  /* 값이 없는 종목이 있다(60분봉 미제공·해상도 부족). 그럴 땐 아무것도
-     그리지 않고 차트 높이도 지금 그대로 둔다. */
+  /* 값이 없는 종목이 있다(거래량 미제공 등). 그럴 땐 아무것도 그리지 않고
+     차트 높이도 지금 그대로 둔다. */
   function cvdPoints(data) {
     var raw = data.cvd;
     if (!raw || raw.length !== data.bars.length) return null;
@@ -298,8 +298,8 @@
           line.label || "");
     });
     // 이름을 "CVD"로 적지 않는다 — 진짜 CVD는 체결 단위로 세는 것이고
-    // 이건 60분봉으로 만든 근사다. 무엇으로 만들었는지 화면에 밝힌다.
-    if (hasCvd) add(cvdColor(), "수급 누적(60분봉 추정)", "stock-chart-dot--cvd");
+    // 이건 봉의 종가 위치로 만든 근사다. 무엇으로 만들었는지 화면에 밝힌다.
+    if (hasCvd) add(cvdColor(), "수급 누적(종가 위치 추정)", "stock-chart-dot--cvd");
     anchor.parentNode.insertBefore(ul, anchor.nextSibling);
   }
 
