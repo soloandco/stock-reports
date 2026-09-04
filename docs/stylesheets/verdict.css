@@ -518,6 +518,15 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
      실제로 autoSize가 44px 넓게 그린 적이 있다 (2026-08-29). */
   overflow: hidden;
 }
+/* 수급 누적 칸 (2026-09-04) — 가격 차트 아래에 쌓는 별도 차트.
+   높이는 JS가 인라인으로 준다(수급선이 있는 종목에만 붙는다). 여기서는
+   붙어 보이도록 위 여백만 지운다 — 두 그림이 한 덩어리로 읽혀야 한다. */
+.stock-chart-cvd {
+  width: 100%;
+  margin: 0 0 0.2rem;
+  overflow: hidden;
+}
+
 .stock-chart[data-loading] {
   background: linear-gradient(90deg, rgba(128,128,128,.06), rgba(128,128,128,.12), rgba(128,128,128,.06));
   border-radius: 4px;

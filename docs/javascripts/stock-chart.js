@@ -19,6 +19,33 @@
     trend: "#8a63d2"
   };
 
+  /* 수급 누적선은 신호가 아니라 배경 정보다. 매물벽(주황)·지지대(초록)·
+     추세선(보라)과 겹치지 않는 청록으로 두고, 아래 별도 칸에만 그린다. */
+  function cvdColor() { return isDark() ? "#3fc9c5" : "#0f8f8c"; }
+
+  /* 수급선은 **차트를 하나 더 쌓아서** 그린다. 같은 칸에 넣고 가격축 여백만
+     비우면 그 빈 칸까지 가격축이 눈금을 이어 붙여 없는 가격이 찍힌다
+     (2026-09-04 실측: 삼성전기 차트에 0·−400·−800원). 축을 나누면 사라진다.
+
+     높이는 가격 300 + 수급 100 = 400px. 시간축(날짜)이 아래 칸으로 내려가
+     가격 그림 영역은 지금(320px에서 시간축을 뺀 약 298px)과 거의 같다.
+     캔들을 눌러 넣지 않는다 — 폰에서 값이 안 읽힌다(2026-08-29 매물대 사고). */
+  var CVD_MAIN_H = 300;
+  var CVD_PANE_H = 100;
+
+  /* 값이 없는 종목이 있다(60분봉 미제공·해상도 부족). 그럴 땐 아무것도
+     그리지 않고 차트 높이도 지금 그대로 둔다. */
+  function cvdPoints(data) {
+    var raw = data.cvd;
+    if (!raw || raw.length !== data.bars.length) return null;
+    var pts = [];
+    for (var i = 0; i < raw.length; i++) {
+      if (raw[i] === null || raw[i] === undefined) continue;
+      pts.push({ time: data.bars[i][0], value: raw[i] });
+    }
+    return pts.length >= 2 ? pts : null;
+  }
+
   /* 이동평균 50·150·200 = 이 시스템의 Trend Template 판정 근거. 신호선
      (매물벽 주황·지지대 초록·추세선 보라)과 경쟁하지 않게 무채색 계열로 둔다.
      기간이 길수록 진하게 — 장기선이 눈에 먼저 들어와야 국면이 읽힌다. */
@@ -68,11 +95,16 @@
   function render(host, data) {
     if (!window.LightweightCharts) return fail(host, "차트 라이브러리를 불러오지 못했습니다.");
     var t = theme();
+    var cvd = cvdPoints(data);
+    // 수급선이 있을 때만 손댄다 — 없는 종목의 차트는 지금과 똑같이 남는다.
+    if (cvd) host.style.height = CVD_MAIN_H + "px";
     var chart = LightweightCharts.createChart(host, {
       layout: { background: { color: t.bg }, textColor: t.text, fontSize: 11 },
       grid: { vertLines: { color: t.grid }, horzLines: { color: t.grid } },
       rightPriceScale: { borderVisible: false, scaleMargins: { top: 0.12, bottom: 0.12 } },
-      timeScale: { borderVisible: false, fixLeftEdge: true, fixRightEdge: true },
+      // 수급 칸이 붙으면 날짜는 맨 아래(수급 칸)에서 한 번만 보여 준다.
+      timeScale: { borderVisible: false, fixLeftEdge: true, fixRightEdge: true,
+                   visible: !cvd },
       crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
       handleScale: { axisPressedMouseMove: false },
       localization: {
@@ -162,20 +194,97 @@
     // 남아 가격축이 0px로 눌린다. 강제로 다시 재게 한다.
     chart.resize(host.clientWidth, host.clientHeight, true);
     host.removeAttribute("data-loading");
-    buildLegend(host, data.lines || [], Object.keys(maSeries));
-    return { chart: chart, maSeries: maSeries };
+    var pane = cvd ? buildCvdPane(host, chart, cvd) : null;
+    buildLegend(host, pane ? pane.host : host,
+                data.lines || [], Object.keys(maSeries), !!cvd);
+    return { chart: chart, maSeries: maSeries,
+             cvdChart: pane && pane.chart, cvdSeries: pane && pane.series };
+  }
+
+
+  /* 수급 누적 칸 — 가격 차트 아래에 별도 차트를 쌓고 시간축을 묶는다.
+     v4에는 한 차트 안에 칸을 나누는 기능이 없다(v5부터). 축을 공유하면
+     가격축이 빈 칸까지 눈금을 이어 붙여 없는 가격을 찍는다. */
+  function buildCvdPane(host, mainChart, points) {
+    var t = theme();
+    var el = document.createElement("div");
+    el.className = "stock-chart-cvd";
+    el.style.height = CVD_PANE_H + "px";
+    el.style.width = "100%";
+    host.parentNode.insertBefore(el, host.nextSibling);
+
+    /* 위 차트의 **그림 영역**과 같은 폭으로 그린다. 위 차트는 오른쪽
+       가격축(라벨 길이에 따라 50~90px)만큼 그림이 좁다. 그 폭을 빼지 않으면
+       같은 날짜가 두 칸에서 다른 x에 찍힌다 (2026-09-04 실측: 위 282px,
+       아래 342px). 폭을 못 재면 전체 폭으로 두고 그림은 그대로 낸다. */
+    var plotWidth = function () {
+      var full = el.clientWidth;
+      try {
+        var axis = mainChart.priceScale("right").width();
+        return axis > 0 && axis < full ? full - axis : full;
+      } catch (e) {
+        return full;
+      }
+    };
+
+    var sub = LightweightCharts.createChart(el, {
+      // 라이브러리 로고는 위 차트에 이미 하나 있다 — 같은 그림에 둘은 군더더기.
+      layout: { background: { color: t.bg }, textColor: t.text, fontSize: 11,
+                attributionLogo: false },
+      grid: { vertLines: { color: t.grid }, horzLines: { color: "transparent" } },
+      // 축 자체를 없앤다. 0~1로 눌러 놓은 값이라 숫자에 뜻이 없다.
+      // 대신 아래에서 캔버스 폭을 위 차트의 그림 영역에 맞춘다.
+      rightPriceScale: { visible: false },
+      timeScale: { borderVisible: false, fixLeftEdge: true, fixRightEdge: true },
+      crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+      handleScale: { axisPressedMouseMove: false },
+      localization: { locale: "ko-KR" },
+      width: plotWidth(), height: el.clientHeight
+    });
+    el.querySelectorAll("table").forEach(function (x) {
+      x.classList.add("lwc-internal");     // 위 차트와 같은 이유(Material 표 규칙)
+    });
+
+    var series = sub.addLineSeries({
+      color: cvdColor(), lineWidth: 2,
+      lastValueVisible: false, priceLineVisible: false,
+      crosshairMarkerVisible: false
+    });
+    series.setData(points);
+    sub.timeScale().fitContent();
+
+    var syncWidth = function () {
+      sub.applyOptions({ width: plotWidth(), height: el.clientHeight });
+    };
+
+    // 확대·이동을 함께 움직인다. 서로를 다시 부르지 않게 잠금 하나를 공유한다.
+    var lock = false;
+    var link = function (from, to) {
+      from.timeScale().subscribeVisibleLogicalRangeChange(function (range) {
+        if (lock || !range) return;
+        lock = true;
+        try { to.timeScale().setVisibleLogicalRange(range); } finally { lock = false; }
+      });
+    };
+    link(mainChart, sub);
+    link(sub, mainChart);
+
+    if (window.ResizeObserver) {
+      new ResizeObserver(syncWidth).observe(el);
+    }
+    return { host: el, chart: sub, series: series };
   }
 
   /* 선 이름은 차트 밖 글자로 둔다 — 캔버스 안 라벨은 폰에서 잘리고 확대도 안 된다.
      여기서는 구간 표기("매물벽 70.65~75.38")를 그대로 보여줄 수 있다. */
-  function buildLegend(host, lines, maKeys) {
-    if (!lines.length && !(maKeys || []).length) return;
+  function buildLegend(host, anchor, lines, maKeys, hasCvd) {
+    if (!lines.length && !(maKeys || []).length && !hasCvd) return;
     var ul = document.createElement("ul");
     ul.className = "stock-chart-legend";
-    var add = function (color, text) {
+    var add = function (color, text, extraClass) {
       var li = document.createElement("li");
       var dot = document.createElement("span");
-      dot.className = "stock-chart-dot";
+      dot.className = "stock-chart-dot" + (extraClass ? " " + extraClass : "");
       dot.style.background = color;
       li.appendChild(dot);
       li.appendChild(document.createTextNode(text));
@@ -188,7 +297,10 @@
                                 : (COLORS[line.side] || COLORS.resistance),
           line.label || "");
     });
-    host.parentNode.insertBefore(ul, host.nextSibling);
+    // 이름을 "CVD"로 적지 않는다 — 진짜 CVD는 체결 단위로 세는 것이고
+    // 이건 60분봉으로 만든 근사다. 무엇으로 만들었는지 화면에 밝힌다.
+    if (hasCvd) add(cvdColor(), "수급 누적(60분봉 추정)", "stock-chart-dot--cvd");
+    anchor.parentNode.insertBefore(ul, anchor.nextSibling);
   }
 
   function fail(host, msg) {
@@ -225,6 +337,18 @@
             Object.keys(made.maSeries).forEach(function (p) {
               made.maSeries[p].applyOptions({ color: mc[p] });
             });
+            if (made.cvdSeries) {
+              made.cvdSeries.applyOptions({ color: cvdColor() });
+              if (made.cvdChart) {
+                made.cvdChart.applyOptions({
+                  layout: { background: { color: t.bg }, textColor: t.text },
+                  grid: { vertLines: { color: t.grid },
+                          horzLines: { color: "transparent" } }
+                });
+              }
+              var cdot = host.parentNode.querySelector(".stock-chart-dot--cvd");
+              if (cdot) cdot.style.background = cvdColor();
+            }
             host.parentNode.querySelectorAll(".stock-chart-legend .stock-chart-dot")
               .forEach(function (dot, i) {
                 if (i < Object.keys(made.maSeries).length) {
