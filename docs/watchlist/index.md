@@ -21,10 +21,6 @@
 
 | 종목 | 기업명 | 판정 | 현재가 | 경과 | Stage | TT | 시장 |
 |------|--------|------|-------:|------|-------|----|------|
-| [**009150**](009150.md) | [삼성전기](009150.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | ₩1,401,000 | D+40 만료 | 2 | 6/8 | KRX |
-| [**066570**](066570.md) | [LG전자](066570.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | ₩201,500 | D+23 만료 | 2 | 7/8 | KRX |
-| [**161890**](161890.md) | [한국콜마](161890.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | ₩145,800 |  | 2 | 8/8 | KRX |
-| [**329180**](329180.md) | [HD현대중공업](329180.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | ₩436,500 |  | 4 | 1/8 | KRX |
 | [**AAPL**](AAPL.md) | [Apple](AAPL.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $328.21 | D+40 만료 | 2 | 7/8 | NASDAQ |
 | [**AMD**](AMD.md) | [Advanced Micro Devices](AMD.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $456.16 | D+40 만료 | 2 | 7/8 | NASDAQ |
 | [**APLD**](APLD.md) | [Applied Digital](APLD.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $25.91 |  | 4 | 2/8 | NASDAQ |
@@ -42,7 +38,7 @@
 | [**GDX**](GDX.md) | [GDX 금광주 ETF](GDX.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $101.49 |  | 1 | 7/8 | NYSE |
 | [**GDXU**](GDXU.md) | [GDXU](GDXU.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $173.82 |  | 4 | 3/8 | NYSE |
 | [**GEV**](GEV.md) | [GE Vernova](GEV.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $941.84 |  | 3 | 6/8 | NYSE |
-| [**GOOGL**](GOOGL.md) | [Alphabet](GOOGL.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $342.48 | D+1 | 2 | 6/8 | NASDAQ |
+| [**GOOGL**](GOOGL.md) | [Alphabet](GOOGL.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $338.46 |  | 3 | 5/8 | NASDAQ |
 | [**GS**](GS.md) | [Goldman Sachs](GS.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $1,037.93 | D+52 만료 | 2 | 7/8 | NYSE |
 | [**IBIT**](IBIT.md) | [IBIT 비트코인 현물 ETF](IBIT.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $46.35 |  | 1 | 3/8 | NASDAQ |
 | [**IONQ**](IONQ.md) | [IonQ](IONQ.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $39.02 |  | 4 | 1/8 | NYSE |

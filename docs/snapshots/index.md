@@ -21,10 +21,6 @@
 
 | 종목 | 기업명 | 판정 | Stage | TT | 분석일 |
 |------|--------|------|-------|----|--------|
-| [009150](009150-2026-09-05.md) | [삼성전기](009150-2026-09-05.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/8 | 2026-09-05 |
-| [066570](066570-2026-09-05.md) | [LG전자](066570-2026-09-05.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/8 | 2026-09-05 |
-| [161890](161890-2026-09-05.md) | [한국콜마](161890-2026-09-05.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | 2 | 8/8 | 2026-09-05 |
-| [329180](329180-2026-09-05.md) | [HD현대중공업](329180-2026-09-05.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-09-05 |
 | [AAPL](AAPL-2026-09-05.md) | [Apple](AAPL-2026-09-05.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/8 | 2026-09-05 |
 | [AMD](AMD-2026-09-05.md) | [Advanced Micro Devices](AMD-2026-09-05.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/8 | 2026-09-05 |
 | [APLD](APLD-2026-09-05.md) | [Applied Digital](APLD-2026-09-05.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 | 2026-09-05 |
@@ -42,7 +38,7 @@
 | [GDX](GDX-2026-09-05.md) | [GDX 금광주 ETF](GDX-2026-09-05.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 7/8 | 2026-09-05 |
 | [GDXU](GDXU-2026-09-05.md) | [GDXU](GDXU-2026-09-05.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/8 | 2026-09-05 |
 | [GEV](GEV-2026-09-05.md) | [GE Vernova](GEV-2026-09-05.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 6/8 | 2026-09-05 |
-| [GOOGL](GOOGL-2026-09-05.md) | [Alphabet](GOOGL-2026-09-05.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/8 | 2026-09-05 |
+| [GOOGL](GOOGL-2026-09-05.md) | [Alphabet](GOOGL-2026-09-05.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 5/8 | 2026-09-05 |
 | [GS](GS-2026-09-05.md) | [Goldman Sachs](GS-2026-09-05.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/8 | 2026-09-05 |
 | [IBIT](IBIT-2026-09-05.md) | [IBIT 비트코인 현물 ETF](IBIT-2026-09-05.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 3/8 | 2026-09-05 |
 | [IONQ](IONQ-2026-09-05.md) | [IonQ](IONQ-2026-09-05.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-09-05 |

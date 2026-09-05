@@ -4,11 +4,11 @@
 
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
-| [**009150**](snapshots/009150-2026-09-05.md) | [삼성전기](snapshots/009150-2026-09-05.md) | 2026-09-05 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/8 |
-| [**066570**](snapshots/066570-2026-09-05.md) | [LG전자](snapshots/066570-2026-09-05.md) | 2026-09-05 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/8 |
 | [**AAPL**](snapshots/AAPL-2026-09-05.md) | [Apple](snapshots/AAPL-2026-09-05.md) | 2026-09-05 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/8 |
-| [**161890**](snapshots/161890-2026-09-05.md) | [한국콜마](snapshots/161890-2026-09-05.md) | 2026-09-05 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | 2 | 8/8 |
-| [**329180**](snapshots/329180-2026-09-05.md) | [HD현대중공업](snapshots/329180-2026-09-05.md) | 2026-09-05 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 |
+| [**AMD**](snapshots/AMD-2026-09-05.md) | [Advanced Micro Devices](snapshots/AMD-2026-09-05.md) | 2026-09-05 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/8 |
+| [**APLD**](snapshots/APLD-2026-09-05.md) | [Applied Digital](snapshots/APLD-2026-09-05.md) | 2026-09-05 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 |
+| [**ASTS**](snapshots/ASTS-2026-09-05.md) | [AST SpaceMobile](snapshots/ASTS-2026-09-05.md) | 2026-09-05 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 |
+| [**AVGO**](snapshots/AVGO-2026-09-05.md) | [Broadcom](snapshots/AVGO-2026-09-05.md) | 2026-09-05 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/8 |
 
 [→ 전체 스냅샷](snapshots/index.md)
 
@@ -41,7 +41,7 @@
 
 ## 섹터 자금 흐름
 
-> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-09-05 01:37 UTC · `--scan` 시 갱신
+> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-09-05 10:38 UTC · `--scan` 시 갱신
 >
 > 한·미는 통화·데이터 소스가 달라 **별도 순위**입니다. 두 시장 점수를 직접 비교하지 마세요.
 
@@ -49,17 +49,17 @@
 
 | 순위 | 섹터 | RS | 신호 | 매집일 | 분산일 | 거래대금 비중 |
 |---|---|---|---|---|---|---|
-| 1 | Energy | +1.35 | 🟢 매집 | 5 | 4 | 15.3% |
-| 2 | Technology | +1.13 | 🔴 분산 | 4 | 6 | 10.2% |
-| 3 | Health Care | +0.83 | 🟢 매집 | 5 | 1 | 10.4% |
-| 4 | Financials | +0.62 | 🔴 분산 | 4 | 5 | 15.2% |
-| 5 | Materials | +0.52 | 🟢 매집 | 7 | 4 | 6.5% |
-| 6 | Industrials | +0.35 | 🔴 분산 | 3 | 6 | 13.8% |
-| 7 | Consumer Staples | +0.25 | 🟢 매집 | 6 | 3 | 6.4% |
-| 8 | Real Estate | +0.25 | 🔴 분산 | 1 | 7 | 2.4% |
-| 9 | Consumer Discretionary | +0.03 | 🔴 분산 | 4 | 5 | 5.2% |
-| 10 | Communication | +0.01 | 🟢 매집 | 5 | 3 | 4.2% |
-| 11 | Utilities | -0.05 | 🔴 분산 | 3 | 4 | 10.4% |
+| 1 | Energy | +1.30 | ⚪ 중립 | 5 | 5 | 16.0% |
+| 2 | Technology | +1.10 | 🔴 분산 | 3 | 6 | 9.8% |
+| 3 | Health Care | +0.77 | 🟢 매집 | 5 | 1 | 10.8% |
+| 4 | Financials | +0.62 | 🔴 분산 | 3 | 5 | 15.4% |
+| 5 | Materials | +0.53 | 🟢 매집 | 5 | 4 | 6.2% |
+| 6 | Industrials | +0.37 | 🔴 분산 | 3 | 6 | 13.0% |
+| 7 | Real Estate | +0.23 | 🔴 분산 | 1 | 7 | 2.4% |
+| 8 | Consumer Staples | +0.22 | 🟢 매집 | 6 | 4 | 6.9% |
+| 9 | Utilities | -0.01 | 🔴 분산 | 3 | 4 | 10.2% |
+| 10 | Consumer Discretionary | -0.04 | 🔴 분산 | 3 | 6 | 5.4% |
+| 11 | Communication | -0.05 | 🟢 매집 | 5 | 3 | 4.0% |
 
 ### 한국 (KODEX/TIGER 섹터 ETF)
 
@@ -82,7 +82,7 @@
 
 ## 테마별 자금 흐름 (로테이션)
 
-> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-09-05 01:37 UTC
+> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-09-05 10:38 UTC
 >
 > **US**: SMH(GPU/반도체)·IRBO(AI인프라)·BOTZ(피지컬AI) ETF + 전력/DataCenter 바스켓
 > **KR**: 전력(4종)·기판(5종)·피지컬AI(3종) 균등가중 바스켓
@@ -91,10 +91,10 @@
 
 | 순위 | 테마 | ETF/바스켓 | RS | 신호 | 매집일 | 분산일 |
 |---|---|---|---|---|---|---|
-| 1 | GPU/반도체 | SOXX | +2.11 | 🔴 분산 | 3 | 6 |
-| 2 | AI인프라 | ARTY | +1.93 | 🟢 매집 | 5 | 3 |
-| 3 | 전력/DataCenter | VST·CEG·GEV·VRT·ETN | +0.62 | 🔴 분산 | 1 | 6 |
-| 4 | 피지컬AI(로보틱스) | BOTZ | -0.03 | ⚪ 중립 | 5 | 5 |
+| 1 | GPU/반도체 | SOXX | +2.18 | 🔴 분산 | 4 | 6 |
+| 2 | AI인프라 | ARTY | +1.94 | 🟢 매집 | 6 | 3 |
+| 3 | 전력/DataCenter | VST·CEG·GEV·VRT·ETN | +0.72 | 🔴 분산 | 1 | 5 |
+| 4 | 피지컬AI(로보틱스) | BOTZ | -0.07 | 🟢 매집 | 6 | 5 |
 
 ### 한국 테마
 
@@ -117,7 +117,7 @@
 
 ## CNN Fear & Greed Index
 
-> 수집: 2026-09-05 01:37 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
+> 수집: 2026-09-05 10:37 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
 
 | 점수 | 전일比 | 등급 |
 |------|--------|------|
@@ -137,7 +137,7 @@
 
 ## VIX
 
-> 수집: 2026-09-05 01:37 UTC · `python monitor.py --scan` 실행 시 갱신
+> 수집: 2026-09-05 10:37 UTC · `python monitor.py --scan` 실행 시 갱신
 
 | 지수 | 현재값 | 전일比 | 등급 | 시장 국면 | 신규 진입 |
 |------|--------|--------|------|---------|---------|
