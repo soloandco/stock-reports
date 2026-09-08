@@ -47,6 +47,10 @@ COMPLETED_TRADES_JSON = ROOT.parent / "data" / "completed_trades.json"
 # (test_gen.py::test_expiry_threshold_matches_core, 2026-08-11).
 CANDIDATE_FRESH_MAX_DAYS = 5
 
+# 공개 사이트 표시값. core의 청산 상수와 일치하는지 test_gen.py에서 검사한다.
+REWARD_RATIO = 5.0
+MAX_HOLD_DAYS = 90
+
 DISCLAIMER = """\
 !!! warning "투자 유의 / Disclaimer"
     이 사이트는 기술적 분석 프레임워크(Weinstein·Minervini·Turtle)의 **판정 결과를 기록**한 것으로,
@@ -183,7 +187,7 @@ def _fmt_price_str(price: str, market: str) -> str:
 
 # 실계좌 정보 프론트매터 키 — 공개 복사본에서 제거 ("리포트만 공개" 정책)
 _PRIVATE_FM_KEYS = {"held", "buy_price", "buy_stop", "entry_price",
-                    "entry_stop", "trail_stop", "alert_above", "shares"}
+                    "entry_stop", "entry_date", "trail_stop", "alert_above", "shares"}
 _PRIVATE_BLOCK_RE = re.compile(
     r"<!--\s*private\s*-->.*?<!--\s*/private\s*-->\n?", re.DOTALL)
 
@@ -420,6 +424,7 @@ def _collect_positions() -> list[dict]:
     try:
         from core.outcome import load_snapshot_series
         from core.positions import build_open_positions
+        from core.scanner import _latest_snapshot_path
     except ImportError:
         return []
 
@@ -431,6 +436,7 @@ def _collect_positions() -> list[dict]:
         "verdict":       p.verdict,
         "entry_date":    p.entry_date.isoformat(),
         "current_date":  p.current_date.isoformat(),
+        "snapshot_file": _latest_snapshot_path(p.ticker, SRC_SNAP).name,
         "entry_price":   p.entry_price,
         "stop_price":    p.stop_price,
         "current_price": p.current_price,
@@ -439,6 +445,7 @@ def _collect_positions() -> list[dict]:
         "to_stop_pct":   p.to_stop_pct,
         "to_target_pct": p.to_target_pct,
         "days_held":     p.days_held,
+        "days_held_basis": p.days_held_basis,
     } for p in positions]
 
 
@@ -807,7 +814,7 @@ def _positions_index(positions: list[dict], names: dict) -> str:
         "",
         "    | R 값 | 의미 |",
         "    |------|------|",
-        "    | **+3R** | 목표 도달 (3:1 리워드) |",
+        f"    | **+{REWARD_RATIO:g}R** | 목표 도달 ({REWARD_RATIO:g}:1 리워드) |",
         "    | **+1.5R** | 손절선을 본전으로 올릴 때 |",
         "    | **+1R** | 각오한 위험만큼 벌었다 |",
         "    | **0R** | 본전 |",
@@ -832,8 +839,12 @@ def _positions_index(positions: list[dict], names: dict) -> str:
     for p in rows:
         t = p["ticker"]
         name = names.get(t, "")
-        link = f"../snapshots/{t}-{p['current_date']}.md"
+        snapshot_file = p.get("snapshot_file") or f"{t}-{p['current_date']}.md"
+        link = f"../snapshots/{snapshot_file}"
         dot = "🟢" if p["r_multiple"] > 0 else ("🔴" if p["r_multiple"] < 0 else "⚪")
+        duration = f"{p['days_held']}일"
+        if p.get("days_held_basis") == "observation":
+            duration = f"관측 {duration}"
         lines.append(
             f"| [**{t}**]({link}) {name} | {_verdict_cell(p['verdict'], '')} "
             f"| {p['entry_date'][5:]} "
@@ -843,7 +854,7 @@ def _positions_index(positions: list[dict], names: dict) -> str:
             f"| {p['r_multiple']:+.1f}R "
             f"| {p['to_stop_pct']:+.1f}% "
             f"| {p['to_target_pct']:+.1f}% "
-            f"| {p['days_held']}일 "
+            f"| {duration} "
             f'| <span class="js-shares" data-ticker="{t}">—</span> '
             f'| <span class="js-pnl" data-ticker="{t}">—</span> |'
         )
@@ -877,8 +888,8 @@ def _performance_index(data: dict) -> str:
         "# 전략 성과",
         "",
         "**완결된 트레이드**(손절·목표달성·시간청산)를 판정(매수 상태)별로 집계한 "
-        "승률·손익비·기대값입니다. 진입가·손절가는 분석 스냅샷 기준이며, 미청산 오픈 포지션은 "
-        "제외됩니다(청산돼야 집계).",
+        "승률·손익비·기대값입니다. 진입가·손절가는 분석 스냅샷 기준입니다. "
+        f"{MAX_HOLD_DAYS}일 만기까지 관측한 진입 표본에 손절·목표·시간청산 규칙을 적용합니다.",
         "",
         '!!! warning "표본이 작습니다 — 우열 단정 금지"',
         "    이 수치는 워치리스트의 실현 트레이드 기반이라 표본이 작고 생존편향이 있습니다. "
@@ -888,11 +899,16 @@ def _performance_index(data: dict) -> str:
         "",
     ]
 
+    unverified = sum(t.get("date_basis") != "market_session" for t in data.get("trades", []))
+    if unverified:
+        lines += [f"날짜 미확인 {unverified}건이 포함되어 있습니다. "
+                  "시장 봉 날짜가 확인되지 않은 과거 기록은 월간 규칙 개선 판단에서 제외합니다.", ""]
+
     if not summary:
         lines += [
             '!!! info "아직 완결된 트레이드가 없습니다"',
-            "    현재 진입 이벤트가 모두 **미청산**(손절·목표·60일 보유 미도달) 상태입니다. "
-            "포지션이 청산되면 이 표가 자동으로 채워집니다.",
+            f"    아직 {MAX_HOLD_DAYS}일 만기까지 관측한 진입 표본의 완결 결과가 없습니다. "
+            "만기 이전에 손절·목표에 도달했더라도 관측 기간이 차면 이 표에 집계됩니다.",
             "",
             f"> 기준일: {generated or '—'}",
             "",

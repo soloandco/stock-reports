@@ -225,7 +225,50 @@ def _summary(**over):
 def test_performance_index_empty_shows_reason():
     md = gen._performance_index({"generated": "2026-07-09", "trades": [], "summary": {}})
     assert "아직 완결된 트레이드" in md
-    assert "미청산" in md
+    assert "90일" in md and "만기까지 관측" in md
+    assert "60일" not in md
+
+
+def test_positions_explanation_matches_current_exit_rule():
+    from core.outcome import MAX_HOLD_DAYS, REWARD_RATIO
+    assert gen.REWARD_RATIO == REWARD_RATIO and gen.MAX_HOLD_DAYS == MAX_HOLD_DAYS
+    md = gen._positions_index([], {})
+    assert "+5R" in md and "5:1" in md
+    assert "+3R" not in md
+
+
+def test_position_link_uses_snapshot_filename_instead_of_market_bar_date(tmp_path, monkeypatch):
+    monkeypatch.setattr(gen, "SRC_SNAP", tmp_path)
+    (tmp_path / "TEST-2026-09-05.md").write_text(
+        "---\nticker: TEST\nmarket: NASDAQ\ncreated: 2026-09-05\n"
+        "verdict: 매수관찰\nprice: 110\nstop-price: 90\n---\n", encoding="utf-8")
+    (tmp_path / "TEST-2026-09-08.md").write_text(
+        "---\nticker: TEST\nmarket: NASDAQ\ncreated: 2026-09-08\n"
+        "bar-date: 2026-09-04\nverdict: 매수관찰\nprice: 100\nstop-price: 90\n---\n",
+        encoding="utf-8")
+    positions = gen._collect_positions()
+    assert positions[0]["current_date"] == "2026-09-04"
+    assert positions[0]["current_price"] == 100
+    assert positions[0]["days_held"] == 3
+    assert positions[0]["days_held_basis"] == "observation"
+    md = gen._positions_index(positions, {})
+    assert "관측 3일" in md
+    assert "../snapshots/TEST-2026-09-08.md" in md
+    assert "../snapshots/TEST-2026-09-04.md" not in md
+
+
+def test_actual_trade_date_is_removed_from_public_frontmatter():
+    text = "---\nticker: TEST\nentry_date: 2026-09-01\ncreated: 2026-09-02\n---\nbody\n"
+    public = gen._sanitize_public_md(text)
+    assert "entry_date" not in public
+    assert "created: 2026-09-02" in public
+
+
+def test_performance_explains_unverified_legacy_dates():
+    md = gen._performance_index({"generated": "2026-09-08",
+                                 "trades": [{"date_basis": "created_legacy"}],
+                                 "summary": {"매수후보": _summary(n=1)}})
+    assert "날짜 미확인 1건" in md and "개선 판단에서 제외" in md
 
 
 def test_performance_index_renders_payoff_and_ci():
