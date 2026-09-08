@@ -230,14 +230,16 @@ def test_performance_index_empty_shows_reason():
 
 
 def test_positions_explanation_matches_current_exit_rule():
-    from core.outcome import MAX_HOLD_DAYS, REWARD_RATIO
-    assert gen.REWARD_RATIO == REWARD_RATIO and gen.MAX_HOLD_DAYS == MAX_HOLD_DAYS
+    outcome = pytest.importorskip("core.outcome")
+    assert gen.REWARD_RATIO == outcome.REWARD_RATIO
+    assert gen.MAX_HOLD_DAYS == outcome.MAX_HOLD_DAYS
     md = gen._positions_index([], {})
     assert "+5R" in md and "5:1" in md
     assert "+3R" not in md
 
 
 def test_position_link_uses_snapshot_filename_instead_of_market_bar_date(tmp_path, monkeypatch):
+    pytest.importorskip("core.positions")  # 비공개 분석 코드가 있는 로컬 통합 테스트
     monkeypatch.setattr(gen, "SRC_SNAP", tmp_path)
     (tmp_path / "TEST-2026-09-05.md").write_text(
         "---\nticker: TEST\nmarket: NASDAQ\ncreated: 2026-09-05\n"
