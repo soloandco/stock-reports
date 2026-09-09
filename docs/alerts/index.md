@@ -4,6 +4,7 @@
 
 | 날짜 | 종목 | 알림 |
 |------|------|------|
+| 2026-09-10 | [CDNS](20260910-cdns-bear_rsi_reversal/) | 🔄 RSI 반등 |
 | 2026-09-09 | [CDNS](20260909-cdns-bear_rsi_reversal/) | 🔄 RSI 반등 |
 | 2026-09-09 | [KMI](20260909-kmi-buy_watch/) | 📈 매수 신호 |
 | 2026-09-09 | [GEV](20260909-gev-buy_watch/) | 📈 매수 신호 |
