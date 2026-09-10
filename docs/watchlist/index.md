@@ -21,7 +21,7 @@
 
 | 종목 | 기업명 | 판정 | 현재가 | 경과 | Stage | TT | 시장 |
 |------|--------|------|-------:|------|-------|----|------|
-| [**AAPL**](AAPL.md) | [Apple](AAPL.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $326.57 | D+44 만료 | 2 | 6/7 | NASDAQ |
+| [**AAPL**](AAPL.md) | [Apple](AAPL.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $326.57 | D+44 만료 | 2 | 7/7 | NASDAQ |
 | [**AMD**](AMD.md) | [Advanced Micro Devices](AMD.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> <span class="verdict-reason">(변동성과대)</span> | $503.60 | D+44 만료 | 2 | 7/7 | NASDAQ |
 | [**APLD**](APLD.md) | [Applied Digital](APLD.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $25.78 |  | 4 | 2/7 | NASDAQ |
 | [**ASTS**](ASTS.md) | [AST SpaceMobile](ASTS.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $59.91 |  | 4 | 1/7 | NASDAQ |
@@ -34,7 +34,7 @@
 | [**CIFR**](CIFR.md) | [Cipher Mining](CIFR.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $15.94 |  | 4 | 2/7 | NASDAQ |
 | [**CORZ**](CORZ.md) | [Core Scientific](CORZ.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $17.37 |  | 3 | 2/7 | NASDAQ |
 | [**DHI**](DHI.md) | [D.R. Horton](DHI.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $135.55 |  | 4 | 2/7 | NYSE |
-| [**DLR**](DLR.md) | [Digital Realty](DLR.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $185.43 | D+5 | 2 | 5/7 | NYSE |
+| [**DLR**](DLR.md) | [Digital Realty](DLR.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $185.37 |  | 3 | 4/7 | NYSE |
 | [**GDX**](GDX.md) | [GDX 금광주 ETF](GDX.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $96.04 |  | 1 | 6/7 | NYSE |
 | [**GDXU**](GDXU.md) | [GDXU](GDXU.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $145.20 |  | 4 | 3/7 | NYSE |
 | [**GEV**](GEV.md) | [GE Vernova](GEV.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $923.39 |  | 3 | 5/7 | NYSE |
@@ -49,7 +49,7 @@
 | [**LUNR**](LUNR.md) | [Intuitive Machines](LUNR.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $14.62 |  | 4 | 3/7 | NASDAQ |
 | [**MS**](MS.md) | [Morgan Stanley](MS.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $212.71 | D+53 만료 | 2 | 6/7 | NYSE |
 | [**MSFT**](MSFT.md) | [Microsoft](MSFT.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $492.44 |  | 2 | 4/7 | NASDAQ |
-| [**NVDA**](NVDA.md) | [NVIDIA](NVDA.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $218.36 | D+28 만료 | 2 | 7/7 | NASDAQ |
+| [**NVDA**](NVDA.md) | [NVIDIA](NVDA.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $218.36 | D+28 만료 | 2 | 6/7 | NASDAQ |
 | [**PCAR**](PCAR.md) | [Paccar](PCAR.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $122.57 | D+31 만료 | 2 | 5/7 | NASDAQ |
 | [**PLTR**](PLTR.md) | [Palantir](PLTR.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $165.86 |  | 2 | 4/7 | NASDAQ |
 | [**PM**](PM.md) | [Philip Morris](PM.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $189.73 | D+53 만료 | 2 | 6/7 | NYSE |
