@@ -1,6 +1,6 @@
 # 분석 스냅샷
 
-특정 시점의 **판정 기록**(최신순). 판정 어휘 — **매수**(Stage 2 + TT 6/8 이상) · **매수불가**(사유: 과열·시장국면·변동성과대·하락국면·천장권·기준미달).
+특정 시점의 **판정 기록**(최신순). 판정 어휘 — **매수**(Stage 2 + TT 5/7 이상) · **매수불가**(사유: 과열·시장국면·변동성과대·하락국면·천장권·기준미달).
 
 <div class="snap-filters">
 <label class="sf-label" for="sf-verdict">판정</label>
@@ -21,46 +21,46 @@
 
 | 종목 | 기업명 | 판정 | Stage | TT | 분석일 |
 |------|--------|------|-------|----|--------|
-| [AAPL](AAPL-2026-09-10.md) | [Apple](AAPL-2026-09-10.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/8 | 2026-09-10 |
-| [AMD](AMD-2026-09-10.md) | [Advanced Micro Devices](AMD-2026-09-10.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 | 2026-09-10 |
-| [APLD](APLD-2026-09-10.md) | [Applied Digital](APLD-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 | 2026-09-10 |
-| [ASTS](ASTS-2026-09-10.md) | [AST SpaceMobile](ASTS-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-09-10 |
-| [AVGO](AVGO-2026-09-10.md) | [Broadcom](AVGO-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 | 2026-09-10 |
-| [BA](BA-2026-09-10.md) | [Boeing](BA-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/8 | 2026-09-10 |
-| [BE](BE-2026-09-10.md) | [Bloom Energy](BE-2026-09-10.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | 2 | 8/8 | 2026-09-10 |
-| [BITX](BITX-2026-09-10.md) | [2x Bitcoin Strategy ETF](BITX-2026-09-10.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 2/8 | 2026-09-10 |
-| [CAT](CAT-2026-09-10.md) | [Caterpillar](CAT-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 6/8 | 2026-09-10 |
-| [CDNS](CDNS-2026-09-10.md) | [Cadence Design Systems](CDNS-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 2/8 | 2026-09-10 |
-| [CIFR](CIFR-2026-09-10.md) | [Cipher Mining](CIFR-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/8 | 2026-09-10 |
-| [CORZ](CORZ-2026-09-10.md) | [Core Scientific](CORZ-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 2/8 | 2026-09-10 |
-| [DHI](DHI-2026-09-10.md) | [D.R. Horton](DHI-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 2/8 | 2026-09-10 |
-| [DLR](DLR-2026-09-10.md) | [Digital Realty](DLR-2026-09-10.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/8 | 2026-09-10 |
-| [GDX](GDX-2026-09-10.md) | [GDX 금광주 ETF](GDX-2026-09-10.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 7/8 | 2026-09-10 |
-| [GDXU](GDXU-2026-09-10.md) | [GDXU](GDXU-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 | 2026-09-10 |
-| [GEV](GEV-2026-09-10.md) | [GE Vernova](GEV-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 6/8 | 2026-09-10 |
-| [GOOGL](GOOGL-2026-09-10.md) | [Alphabet](GOOGL-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 5/8 | 2026-09-10 |
-| [GS](GS-2026-09-10.md) | [Goldman Sachs](GS-2026-09-10.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/8 | 2026-09-10 |
-| [IBIT](IBIT-2026-09-10.md) | [IBIT 비트코인 현물 ETF](IBIT-2026-09-10.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 3/8 | 2026-09-10 |
-| [IONQ](IONQ-2026-09-10.md) | [IonQ](IONQ-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-09-10 |
-| [IREN](IREN-2026-09-10.md) | [IREN Limited](IREN-2026-09-10.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 2/8 | 2026-09-10 |
-| [KMI](KMI-2026-09-10.md) | [Kinder Morgan](KMI-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/8 | 2026-09-10 |
-| [KO](KO-2026-09-10.md) | [Coca-Cola](KO-2026-09-10.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 8/8 | 2026-09-10 |
-| [LLY](LLY-2026-09-10.md) | [Eli Lilly](LLY-2026-09-10.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/8 | 2026-09-10 |
-| [LUNR](LUNR-2026-09-10.md) | [Intuitive Machines](LUNR-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/8 | 2026-09-10 |
-| [MS](MS-2026-09-10.md) | [Morgan Stanley](MS-2026-09-10.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 8/8 | 2026-09-10 |
-| [MSFT](MSFT-2026-09-10.md) | [Microsoft](MSFT-2026-09-10.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 | 2026-09-10 |
-| [NVDA](NVDA-2026-09-10.md) | [NVIDIA](NVDA-2026-09-10.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 8/8 | 2026-09-10 |
-| [PCAR](PCAR-2026-09-10.md) | [Paccar](PCAR-2026-09-10.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/8 | 2026-09-10 |
-| [PLTR](PLTR-2026-09-10.md) | [Palantir](PLTR-2026-09-10.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 5/8 | 2026-09-10 |
-| [PM](PM-2026-09-10.md) | [Philip Morris](PM-2026-09-10.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/8 | 2026-09-10 |
-| [PYPL](PYPL-2026-09-10.md) | [PayPal](PYPL-2026-09-10.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 3/8 | 2026-09-10 |
-| [QCOM](QCOM-2026-09-10.md) | [Qualcomm](QCOM-2026-09-10.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 5/8 | 2026-09-10 |
-| [QPUX](QPUX-2026-09-10.md) | [QPUX](QPUX-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 | 2026-09-10 |
-| [RDW](RDW-2026-09-10.md) | [RedWire](RDW-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/8 | 2026-09-10 |
-| [RKLB](RKLB-2026-09-10.md) | [Rocket Lab](RKLB-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/8 | 2026-09-10 |
-| [SKWD](SKWD-2026-09-10.md) | [Skyward Specialty Insurance](SKWD-2026-09-10.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/8 | 2026-09-10 |
-| [SNPS](SNPS-2026-09-10.md) | [Synopsys](SNPS-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 | 2026-09-10 |
-| [SOUN](SOUN-2026-09-10.md) | [SOUN](SOUN-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/8 | 2026-09-10 |
-| [SOXS](SOXS-2026-09-10.md) | [SOXS 반도체 베어 3X](SOXS-2026-09-10.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/8 | 2026-09-10 |
-| [SOXX](SOXX-2026-09-10.md) | [SOXX 반도체 ETF](SOXX-2026-09-10.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/8 | 2026-09-10 |
-| [USD](USD-2026-09-10.md) | [ProShares Ultra Semiconductors (2x)](USD-2026-09-10.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 8/8 | 2026-09-10 |
+| [AAPL](AAPL-2026-09-11.md) | [Apple](AAPL-2026-09-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-09-11 |
+| [AMD](AMD-2026-09-11.md) | [Advanced Micro Devices](AMD-2026-09-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 7/7 | 2026-09-11 |
+| [APLD](APLD-2026-09-11.md) | [Applied Digital](APLD-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/7 | 2026-09-11 |
+| [ASTS](ASTS-2026-09-11.md) | [AST SpaceMobile](ASTS-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/7 | 2026-09-11 |
+| [AVGO](AVGO-2026-09-11.md) | [Broadcom](AVGO-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 2/7 | 2026-09-11 |
+| [BA](BA-2026-09-11.md) | [Boeing](BA-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/7 | 2026-09-11 |
+| [BE](BE-2026-09-11.md) | [Bloom Energy](BE-2026-09-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-09-11 |
+| [BITX](BITX-2026-09-11.md) | [2x Bitcoin Strategy ETF](BITX-2026-09-11.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 2/7 | 2026-09-11 |
+| [CAT](CAT-2026-09-11.md) | [Caterpillar](CAT-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 5/7 | 2026-09-11 |
+| [CDNS](CDNS-2026-09-11.md) | [Cadence Design Systems](CDNS-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 1/7 | 2026-09-11 |
+| [CIFR](CIFR-2026-09-11.md) | [Cipher Mining](CIFR-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/7 | 2026-09-11 |
+| [CORZ](CORZ-2026-09-11.md) | [Core Scientific](CORZ-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 2/7 | 2026-09-11 |
+| [DHI](DHI-2026-09-11.md) | [D.R. Horton](DHI-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/7 | 2026-09-11 |
+| [DLR](DLR-2026-09-11.md) | [Digital Realty](DLR-2026-09-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 5/7 | 2026-09-11 |
+| [GDX](GDX-2026-09-11.md) | [GDX 금광주 ETF](GDX-2026-09-11.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 6/7 | 2026-09-11 |
+| [GDXU](GDXU-2026-09-11.md) | [GDXU](GDXU-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/7 | 2026-09-11 |
+| [GEV](GEV-2026-09-11.md) | [GE Vernova](GEV-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 5/7 | 2026-09-11 |
+| [GOOGL](GOOGL-2026-09-11.md) | [Alphabet](GOOGL-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/7 | 2026-09-11 |
+| [GS](GS-2026-09-11.md) | [Goldman Sachs](GS-2026-09-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-09-11 |
+| [IBIT](IBIT-2026-09-11.md) | [IBIT 비트코인 현물 ETF](IBIT-2026-09-11.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 3/7 | 2026-09-11 |
+| [IONQ](IONQ-2026-09-11.md) | [IonQ](IONQ-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/7 | 2026-09-11 |
+| [IREN](IREN-2026-09-11.md) | [IREN Limited](IREN-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/7 | 2026-09-11 |
+| [KMI](KMI-2026-09-11.md) | [Kinder Morgan](KMI-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/7 | 2026-09-11 |
+| [KO](KO-2026-09-11.md) | [Coca-Cola](KO-2026-09-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-09-11 |
+| [LLY](LLY-2026-09-11.md) | [Eli Lilly](LLY-2026-09-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 5/7 | 2026-09-11 |
+| [LUNR](LUNR-2026-09-11.md) | [Intuitive Machines](LUNR-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/7 | 2026-09-11 |
+| [MS](MS-2026-09-11.md) | [Morgan Stanley](MS-2026-09-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-09-11 |
+| [MSFT](MSFT-2026-09-11.md) | [Microsoft](MSFT-2026-09-11.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 4/7 | 2026-09-11 |
+| [NVDA](NVDA-2026-09-11.md) | [NVIDIA](NVDA-2026-09-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-09-11 |
+| [PCAR](PCAR-2026-09-11.md) | [Paccar](PCAR-2026-09-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 5/7 | 2026-09-11 |
+| [PLTR](PLTR-2026-09-11.md) | [Palantir](PLTR-2026-09-11.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 4/7 | 2026-09-11 |
+| [PM](PM-2026-09-11.md) | [Philip Morris](PM-2026-09-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-09-11 |
+| [PYPL](PYPL-2026-09-11.md) | [PayPal](PYPL-2026-09-11.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 2/7 | 2026-09-11 |
+| [QCOM](QCOM-2026-09-11.md) | [Qualcomm](QCOM-2026-09-11.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 4/7 | 2026-09-11 |
+| [QPUX](QPUX-2026-09-11.md) | [QPUX](QPUX-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/7 | 2026-09-11 |
+| [RDW](RDW-2026-09-11.md) | [RedWire](RDW-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/7 | 2026-09-11 |
+| [RKLB](RKLB-2026-09-11.md) | [Rocket Lab](RKLB-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/7 | 2026-09-11 |
+| [SKWD](SKWD-2026-09-11.md) | [Skyward Specialty Insurance](SKWD-2026-09-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-09-11 |
+| [SNPS](SNPS-2026-09-11.md) | [Synopsys](SNPS-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/7 | 2026-09-11 |
+| [SOUN](SOUN-2026-09-11.md) | [SOUN](SOUN-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/7 | 2026-09-11 |
+| [SOXS](SOXS-2026-09-11.md) | [SOXS 반도체 베어 3X](SOXS-2026-09-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/7 | 2026-09-11 |
+| [SOXX](SOXX-2026-09-11.md) | [SOXX 반도체 ETF](SOXX-2026-09-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-09-11 |
+| [USD](USD-2026-09-11.md) | [ProShares Ultra Semiconductors (2x)](USD-2026-09-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 5/7 | 2026-09-11 |

@@ -4,19 +4,19 @@ Weinstein 스테이지 · Minervini Trend Template · Turtle ATR 3레이어 프�
 
 ## 오늘의 결론
 
-<p class="pick-lead">매수 <b>13</b>종목 (기준일 2026-09-10). 우선순위 상위 5종목이며 순서는 알림 슬롯 배분과 같습니다(주봉 신고가영역 우선, 그다음 저항 손익비).</p>
-<div class="pick-grid"><a class="pick-card pick-card--buy" href="snapshots/DLR-2026-09-10/"><div class="pick-card__head"><span class="pick-card__ticker">DLR</span><span class="pick-card__name">Digital Realty</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 7/8. 손절까지 <b class="pick-num pick-num--risk">-5.5%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+4.2%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 7/8</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">전환 2026-09-04 · 손익비 0.8:1 · 스냅샷 보기 ›</div></a><a class="pick-card pick-card--buy pick-card--expired" href="snapshots/SOXX-2026-09-10/"><div class="pick-card__head"><span class="pick-card__ticker">SOXX</span><span class="pick-card__name">SOXX 반도체 ETF</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 7/8. 손절까지 <b class="pick-num pick-num--risk">-7.4%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+23.3%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 7/8</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">전환 2026-07-18 · 신호 38일 경과 · 추격 비추천 · 손익비 3.1:1 · 스냅샷 보기 ›</div></a><a class="pick-card pick-card--buy pick-card--expired" href="snapshots/USD-2026-09-10/"><div class="pick-card__head"><span class="pick-card__ticker">USD</span><span class="pick-card__name">ProShares Ultra Semiconductors (2x)</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 8/8. 손절까지 <b class="pick-num pick-num--risk">-11.9%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+29.9%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 8/8</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">전환 2026-07-31 · 신호 29일 경과 · 추격 비추천 · 손익비 2.5:1 · 스냅샷 보기 ›</div></a><a class="pick-card pick-card--buy pick-card--expired" href="snapshots/SKWD-2026-09-10/"><div class="pick-card__head"><span class="pick-card__ticker">SKWD</span><span class="pick-card__name">Skyward Specialty Insurance</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 7/8. 손절까지 <b class="pick-num pick-num--risk">-6.8%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+15.4%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 7/8</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">전환 2026-08-08 · 신호 23일 경과 · 추격 비추천 · 손익비 2.3:1 · 스냅샷 보기 ›</div></a><a class="pick-card pick-card--buy pick-card--expired" href="snapshots/GS-2026-09-10/"><div class="pick-card__head"><span class="pick-card__ticker">GS</span><span class="pick-card__name">Goldman Sachs</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 7/8. 손절까지 <b class="pick-num pick-num--risk">-5.2%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+8.8%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 7/8</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">전환 2026-06-25 · 신호 55일 경과 · 추격 비추천 · 손익비 1.7:1 · 스냅샷 보기 ›</div></a></div>
-<p class="pick-more"><a href="watchlist/">매수 상태 13종목 전체 보기</a></p>
+<p class="pick-lead">매수 <b>14</b>종목 (기준일 2026-09-11). 우선순위 상위 5종목이며 순서는 알림 슬롯 배분과 같습니다(주봉 신고가영역 우선, 그다음 저항 손익비).</p>
+<div class="pick-grid"><a class="pick-card pick-card--buy" href="snapshots/BE-2026-09-11/"><div class="pick-card__head"><span class="pick-card__ticker">BE</span><span class="pick-card__name">Bloom Energy</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 6/7. 손절까지 <b class="pick-num pick-num--risk">-15.9%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+24.9%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 6/7</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">전환 2026-09-10 · 손익비 1.6:1 · 스냅샷 보기 ›</div></a><a class="pick-card pick-card--buy" href="snapshots/DLR-2026-09-11/"><div class="pick-card__head"><span class="pick-card__ticker">DLR</span><span class="pick-card__name">Digital Realty</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 5/7. 손절까지 <b class="pick-num pick-num--risk">-5.6%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+1.5%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 5/7</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">전환 2026-09-04 · 손익비 0.3:1 · 스냅샷 보기 ›</div></a><a class="pick-card pick-card--buy pick-card--expired" href="snapshots/SOXX-2026-09-11/"><div class="pick-card__head"><span class="pick-card__ticker">SOXX</span><span class="pick-card__name">SOXX 반도체 ETF</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 6/7. 손절까지 <b class="pick-num pick-num--risk">-7.6%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+26.8%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 6/7</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">전환 2026-07-18 · 신호 39일 경과 · 추격 비추천 · 손익비 3.5:1 · 스냅샷 보기 ›</div></a><a class="pick-card pick-card--buy pick-card--expired" href="snapshots/USD-2026-09-11/"><div class="pick-card__head"><span class="pick-card__ticker">USD</span><span class="pick-card__name">ProShares Ultra Semiconductors (2x)</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 5/7. 손절까지 <b class="pick-num pick-num--risk">-12.6%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+37.1%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 5/7</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">전환 2026-07-31 · 신호 30일 경과 · 추격 비추천 · 손익비 2.9:1 · 스냅샷 보기 ›</div></a><a class="pick-card pick-card--buy pick-card--expired" href="snapshots/SKWD-2026-09-11/"><div class="pick-card__head"><span class="pick-card__ticker">SKWD</span><span class="pick-card__name">Skyward Specialty Insurance</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 6/7. 손절까지 <b class="pick-num pick-num--risk">-6.7%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+15.5%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 6/7</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">전환 2026-08-08 · 신호 24일 경과 · 추격 비추천 · 손익비 2.3:1 · 스냅샷 보기 ›</div></a></div>
+<p class="pick-more"><a href="watchlist/">매수 상태 14종목 전체 보기</a></p>
 
-<div class="stat-grid"><a class="stat-card" href="watchlist/"><div class="stat-card__num">44</div><div class="stat-card__label">관찰 종목</div></a><a class="stat-card stat-card--buy" href="snapshots/"><div class="stat-card__num">13</div><div class="stat-card__label">매수</div></a><a class="stat-card" href="positions/"><div class="stat-card__num">16</div><div class="stat-card__label">오픈 포지션</div></a><a class="stat-card" href="performance/"><div class="stat-card__num">📈</div><div class="stat-card__label">전략 성과</div></a><a class="stat-card" href="snapshots/"><div class="stat-card__num">43</div><div class="stat-card__label">스냅샷</div></a><a class="stat-card" href="alerts/"><div class="stat-card__num">181</div><div class="stat-card__label">알림</div></a></div>
+<div class="stat-grid"><a class="stat-card" href="watchlist/"><div class="stat-card__num">44</div><div class="stat-card__label">관찰 종목</div></a><a class="stat-card stat-card--buy" href="snapshots/"><div class="stat-card__num">14</div><div class="stat-card__label">매수</div></a><a class="stat-card" href="positions/"><div class="stat-card__num">17</div><div class="stat-card__label">오픈 포지션</div></a><a class="stat-card" href="performance/"><div class="stat-card__num">📈</div><div class="stat-card__label">전략 성과</div></a><a class="stat-card" href="snapshots/"><div class="stat-card__num">43</div><div class="stat-card__label">스냅샷</div></a><a class="stat-card" href="alerts/"><div class="stat-card__num">182</div><div class="stat-card__label">알림</div></a></div>
 
 ## 바로 가기
 
 - 📋 **관찰 종목** 44개 — [목록 보기](watchlist/index.md)
-- 💹 **오픈 포지션** 16개 — [수익률·R·시드 계산 보기](positions/index.md)
+- 💹 **오픈 포지션** 17개 — [수익률·R·시드 계산 보기](positions/index.md)
 - 📈 **전략 성과** — [손익비·기대값·승률 보기](performance/index.md)
 - 📊 **분석 스냅샷** 43건 — [최신순 보기](snapshots/index.md)
-- 🔔 **알림** 181건 — [타임라인 보기](alerts/index.md)
+- 🔔 **알림** 182건 — [타임라인 보기](alerts/index.md)
 - 📊 **시장 현황** — [VIX · Fear&Greed · 섹터 흐름](fear-index.md)
 
 ## 용어 설명
@@ -33,21 +33,20 @@ Weinstein 스테이지 · Minervini Trend Template · Turtle ATR 3레이어 프�
 
     이 시스템은 **Stage 2** 종목만 매수 후보로 분류합니다.
 
-??? info "📘 TT (Trend Template — Minervini 8조건)란?"
-    Mark Minervini가 정의한 상승 구조 체크리스트. **충족 조건 수 / 8** 로 점수화.
+??? info "📘 TT (Trend Template — 상승 구조 7조건)란?"
+    Mark Minervini가 정의한 상승 구조 체크리스트. **충족 조건 수 / 7** 로 점수화.
 
     | # | 조건 |
     |---|------|
     | 1 | 현재가 > 150일 MA, 200일 MA |
     | 2 | 150일 MA > 200일 MA |
     | 3 | 200일 MA 최소 1개월째 상승 중 |
-    | 4 | 50일 MA > 150일 MA, 200일 MA |
-    | 5 | 현재가 > 50일 MA |
-    | 6 | 현재가 ≥ 52주 저점 × 1.25 (+25% 이상) |
-    | 7 | 현재가 ≥ 52주 고점 × 0.75 (-25% 이내) |
-    | 8 | RS Rating(상대강도 등급) ≥ 70 |
+    | 4 | 현재가 > 50일 MA |
+    | 5 | 현재가 ≥ 52주 저점 × 1.25 (+25% 이상) |
+    | 6 | 현재가 ≥ 52주 고점 × 0.75 (-25% 이내) |
+    | 7 | RS Rating(상대강도 등급) ≥ 70 |
 
-    **6/8 이상**: 매수 · **5/8 이하**: 기준미달. 조건 개수는 등급이 아닙니다 — 11년 13,187건에서 8/8(+0.148R)이 6/8(+0.208R)보다 나았다는 근거가 없습니다.
+    **5/7 이상**: 매수 · **4/7 이하**: 기준미달. 조건 개수는 등급이 아닙니다 — 11년 13,187건에서 만점(+0.148R)이 하한(+0.208R)보다 나았다는 근거가 없습니다. 2026-09-10 에 `SMA50 > SMA150·SMA200` 조건을 뺐습니다 (성적 변화 없음, 예외 규칙 하나가 함께 사라짐).
 
 ??? info "📘 진입 게이팅 — 점수가 만점이어도 매수불가가 되는 4가지"
     Stage·TT 점수와 별개로, 아래 조건에 걸리면 매수에서 제외됩니다 (2026-06-11 도입).
