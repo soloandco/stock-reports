@@ -324,6 +324,10 @@ def _collect_snapshots() -> list[dict]:
             "reason":  fm.get("verdict-reason", ""),
             "stage":   fm.get("stage", ""),
             "tt":      fm.get("trend-template-score", ""),
+            # 점수 분모. 2026-09-10 에 조건 4 를 빼면서 7 이 됐다.
+            # 이 줄이 없는 과거 스냅샷은 8조건 시절이므로 8 로 읽는다 —
+            # 기본값을 7 로 두면 옛 기록이 소급으로 틀린 분모를 갖는다.
+            "ttmax":   fm.get("tt-max", 8),
             "price":   fm.get("price", ""),
             "market":  fm.get("market", ""),
             "days":    fm.get("candidate-days", ""),   # 매수 상태 경과 거래일 (구형 스냅샷은 "")
@@ -521,7 +525,7 @@ def _headline(snap: dict) -> str:
         bits.append("머리 위 저항 없음(신고가 영역)")
     elif wpct is not None:
         bits.append(f'주봉 저항까지 <b class="pick-num pick-num--up">+{wpct:.1f}%</b>')
-    head = f"Stage {snap.get('stage', '?')} · TT {snap.get('tt', '?')}/8."
+    head = f"Stage {snap.get('stage', '?')} · TT {snap.get('tt', '?')}/{snap.get('ttmax', 8)}."
     return head + (" " + ", ".join(bits) + "." if bits else "")
 
 
@@ -561,7 +565,7 @@ def _pick_card(snap: dict, name: str, entry_date: str) -> str:
         f'<p class="pick-card__lead">{_headline(snap)}</p>'
         f'<div class="pick-card__badges">'
         f'<span class="pick-badge">추세 <b>Stage {snap.get("stage", "?")}</b></span>'
-        f'<span class="pick-badge">구조 <b>TT {snap.get("tt", "?")}/8</b></span>'
+        f'<span class="pick-badge">구조 <b>TT {snap.get("tt", "?")}/{snap.get("ttmax", 8)}</b></span>'
         f'<span class="pick-badge pick-badge--{_PICK_WEEKLY_BADGE.get(pos, "none")}">자리 <b>{pos or "주봉 미확인"}</b></span>'
         f'</div>'
         f'<div class="pick-card__foot">{" · ".join(foot)}</div>'
@@ -657,23 +661,24 @@ def _dashboard(entries, snaps, alerts, names, positions=None) -> str:
         "",
         "    이 시스템은 **Stage 2** 종목만 매수 후보로 분류합니다.",
         "",
-        '??? info "📘 TT (Trend Template — Minervini 8조건)란?"',
-        "    Mark Minervini가 정의한 상승 구조 체크리스트. **충족 조건 수 / 8** 로 점수화.",
+        '??? info "📘 TT (Trend Template — 상승 구조 7조건)란?"',
+        "    Mark Minervini가 정의한 상승 구조 체크리스트. **충족 조건 수 / 7** 로 점수화.",
         "",
         "    | # | 조건 |",
         "    |---|------|",
         "    | 1 | 현재가 > 150일 MA, 200일 MA |",
         "    | 2 | 150일 MA > 200일 MA |",
         "    | 3 | 200일 MA 최소 1개월째 상승 중 |",
-        "    | 4 | 50일 MA > 150일 MA, 200일 MA |",
-        "    | 5 | 현재가 > 50일 MA |",
-        "    | 6 | 현재가 ≥ 52주 저점 × 1.25 (+25% 이상) |",
-        "    | 7 | 현재가 ≥ 52주 고점 × 0.75 (-25% 이내) |",
-        "    | 8 | RS Rating(상대강도 등급) ≥ 70 |",
+        "    | 4 | 현재가 > 50일 MA |",
+        "    | 5 | 현재가 ≥ 52주 저점 × 1.25 (+25% 이상) |",
+        "    | 6 | 현재가 ≥ 52주 고점 × 0.75 (-25% 이내) |",
+        "    | 7 | RS Rating(상대강도 등급) ≥ 70 |",
         "",
-        "    **6/8 이상**: 매수 · **5/8 이하**: 기준미달. "
-        "조건 개수는 등급이 아닙니다 — 11년 13,187건에서 8/8(+0.148R)이 "
-        "6/8(+0.208R)보다 나았다는 근거가 없습니다.",
+        "    **5/7 이상**: 매수 · **4/7 이하**: 기준미달. "
+        "조건 개수는 등급이 아닙니다 — 11년 13,187건에서 만점(+0.148R)이 "
+        "하한(+0.208R)보다 나았다는 근거가 없습니다. "
+        "2026-09-10 에 `SMA50 > SMA150·SMA200` 조건을 뺐습니다 "
+        "(성적 변화 없음, 예외 규칙 하나가 함께 사라짐).",
         "",
         '??? info "📘 진입 게이팅 — 점수가 만점이어도 매수불가가 되는 4가지"',
         "    Stage·TT 점수와 별개로, 아래 조건에 걸리면 매수에서 제외됩니다 (2026-06-11 도입).",
@@ -723,7 +728,7 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
         s = latest_by_ticker.get(ticker)
         if s:
             verdict = _verdict_cell(s["verdict"], s["reason"])
-            stage, tt = s["stage"], f"{s['tt']}/8" if s["tt"] else ""
+            stage, tt = s["stage"], f"{s['tt']}/{s.get('ttmax', 8)}" if s["tt"] else ""
             price = _fmt_price_str(s["price"], market)
             days = _candidate_days_cell(s.get("days", ""))
         else:
@@ -738,7 +743,7 @@ def _snapshots_index(snaps, names) -> str:
         "# 분석 스냅샷",
         "",
         "특정 시점의 **판정 기록**(최신순). 판정 어휘 — "
-        "**매수**(Stage 2 + TT 6/8 이상) · "
+        "**매수**(Stage 2 + TT 5/7 이상) · "
         "**매수불가**(사유: 과열·시장국면·변동성과대·하락국면·천장권·기준미달).",
         "",
         SNAP_FILTERS,
@@ -751,7 +756,7 @@ def _snapshots_index(snaps, names) -> str:
         lines.append(
             f"| [{s['ticker']}]({s['fname']}) | [{name}]({s['fname']}) "
             f"| {_verdict_cell(s['verdict'], s['reason'])} "
-            f"| {s['stage']} | {s['tt']}/8 | {s['created']} |"
+            f"| {s['stage']} | {s['tt']}/{s.get('ttmax', 8)} | {s['created']} |"
         )
     return "\n".join(lines) + "\n"
 
