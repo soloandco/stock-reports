@@ -45,7 +45,7 @@
 | [**IREN**](IREN.md) | [IREN Limited](IREN.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $43.83 |  | 4 | 2/7 | NASDAQ |
 | [**KMI**](KMI.md) | [Kinder Morgan](KMI.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $30.86 |  | 3 | 3/7 | NYSE |
 | [**KO**](KO.md) | [Coca-Cola](KO.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $88.29 | D+54 만료 | 2 | 7/7 | NYSE |
-| [**LLY**](LLY.md) | [Eli Lilly](LLY.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $1,115.70 | D+47 만료 | 2 | 5/7 | NYSE |
+| [**LLY**](LLY.md) | [Eli Lilly](LLY.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $1,115.70 | D+47 만료 | 2 | 6/7 | NYSE |
 | [**LUNR**](LUNR.md) | [Intuitive Machines](LUNR.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $14.35 |  | 4 | 3/7 | NASDAQ |
 | [**MS**](MS.md) | [Morgan Stanley](MS.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $214.38 | D+54 만료 | 2 | 6/7 | NYSE |
 | [**MSFT**](MSFT.md) | [Microsoft](MSFT.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $495.63 | D+0 | 2 | 5/7 | NASDAQ |
