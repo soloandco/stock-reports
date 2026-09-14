@@ -526,11 +526,14 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
 /* 수급 누적 칸 (2026-09-04) — 가격 차트 아래에 쌓는 별도 차트.
    높이는 JS가 인라인으로 준다(수급선이 있는 종목에만 붙는다). 여기서는
    붙어 보이도록 위 여백만 지운다 — 두 그림이 한 덩어리로 읽혀야 한다. */
-.stock-chart-cvd {
+.stock-chart-cvd,
+.stock-chart-sub {
   width: 100%;
   margin: 0 0 0.2rem;
   overflow: hidden;
 }
+/* 물린 비율 칸 (2026-09-14) — 수급 칸 아래 한 칸 더. 같은 규칙을 공유한다
+   (.stock-chart-sub). 시간축(날짜)은 맨 아래 칸에서만 한 번 보인다. */
 
 .stock-chart[data-loading] {
   background: linear-gradient(90deg, rgba(128,128,128,.06), rgba(128,128,128,.12), rgba(128,128,128,.06));

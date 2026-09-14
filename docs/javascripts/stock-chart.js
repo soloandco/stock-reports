@@ -33,10 +33,29 @@
   var CVD_MAIN_H = 300;
   var CVD_PANE_H = 100;
 
+  /* 물린 비율 칸 (2026-09-14). 최근 1년 거래량 중 현재가보다 비싸게 거래된
+     비중(0~100%). 사용자의 「싸다·비싸다고 느끼는 자리」를 선이 아니라 날마다
+     하나의 숫자로 옮긴 것이다. 측정(docs/measure-2026-09-14-underwater-ratio.md,
+     11년 620종목)에서 **가격 위치와 구분되지 않았고** 앞으로의 수익을 가르지
+     못했다 — 표시용이다. 매물대(주황·초록)·수급(청록)과 구분되는 갈색 계열. */
+  var UW_PANE_H = 90;
+  function uwColor() { return isDark() ? "#d1a35a" : "#9a6b1f"; }
+
   /* 값이 없는 종목이 있다(거래량 미제공 등). 그럴 땐 아무것도 그리지 않고
      차트 높이도 지금 그대로 둔다. */
   function cvdPoints(data) {
     var raw = data.cvd;
+    if (!raw || raw.length !== data.bars.length) return null;
+    var pts = [];
+    for (var i = 0; i < raw.length; i++) {
+      if (raw[i] === null || raw[i] === undefined) continue;
+      pts.push({ time: data.bars[i][0], value: raw[i] });
+    }
+    return pts.length >= 2 ? pts : null;
+  }
+
+  function uwPoints(data) {
+    var raw = data.underwater;
     if (!raw || raw.length !== data.bars.length) return null;
     var pts = [];
     for (var i = 0; i < raw.length; i++) {
@@ -95,16 +114,17 @@
   function render(host, data) {
     if (!window.LightweightCharts) return fail(host, "차트 라이브러리를 불러오지 못했습니다.");
     var t = theme();
-    var cvd = cvdPoints(data);
-    // 수급선이 있을 때만 손댄다 — 없는 종목의 차트는 지금과 똑같이 남는다.
-    if (cvd) host.style.height = CVD_MAIN_H + "px";
+    var cvd = cvdPoints(data), uw = uwPoints(data);
+    var hasSub = !!(cvd || uw);
+    // 아래 칸이 있을 때만 손댄다 — 없는 종목의 차트는 지금과 똑같이 남는다.
+    if (hasSub) host.style.height = CVD_MAIN_H + "px";
     var chart = LightweightCharts.createChart(host, {
       layout: { background: { color: t.bg }, textColor: t.text, fontSize: 11 },
       grid: { vertLines: { color: t.grid }, horzLines: { color: t.grid } },
       rightPriceScale: { borderVisible: false, scaleMargins: { top: 0.12, bottom: 0.12 } },
-      // 수급 칸이 붙으면 날짜는 맨 아래(수급 칸)에서 한 번만 보여 준다.
+      // 아래 칸이 붙으면 날짜는 맨 아래 칸에서 한 번만 보여 준다.
       timeScale: { borderVisible: false, fixLeftEdge: true, fixRightEdge: true,
-                   visible: !cvd },
+                   visible: !hasSub },
       crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
       handleScale: { axisPressedMouseMove: false },
       localization: {
@@ -194,24 +214,47 @@
     // 남아 가격축이 0px로 눌린다. 강제로 다시 재게 한다.
     chart.resize(host.clientWidth, host.clientHeight, true);
     host.removeAttribute("data-loading");
-    var pane = cvd ? buildCvdPane(host, chart, cvd) : null;
-    buildLegend(host, pane ? pane.host : host,
-                data.lines || [], Object.keys(maSeries), !!cvd);
-    return { chart: chart, maSeries: maSeries,
-             cvdChart: pane && pane.chart, cvdSeries: pane && pane.series };
+    // 아래 칸들. 시간축(날짜)은 맨 아래 칸에만 둔다. 확대·이동은 전부 함께 움직인다.
+    var sync = { charts: [chart], lock: false };
+    var anchor = host, panes = [];
+    if (cvd) {
+      var cp = buildSubPane(anchor, sync, cvd, {
+        className: "stock-chart-cvd", height: CVD_PANE_H, color: cvdColor(),
+        showTime: !uw
+      });
+      panes.push({ kind: "cvd", host: cp.host, chart: cp.chart, series: cp.series,
+                   colorFn: cvdColor, dot: ".stock-chart-dot--cvd" });
+      anchor = cp.host;
+    }
+    if (uw) {
+      var up = buildSubPane(anchor, sync, uw, {
+        className: "stock-chart-underwater", height: UW_PANE_H, color: uwColor(),
+        showTime: true, fixedRange: [0, 100]
+      });
+      panes.push({ kind: "uw", host: up.host, chart: up.chart, series: up.series,
+                   colorFn: uwColor, dot: ".stock-chart-dot--uw" });
+      anchor = up.host;
+    }
+    buildLegend(host, anchor, data.lines || [], Object.keys(maSeries), !!cvd,
+                uw ? uw[uw.length - 1].value : null);
+    return { chart: chart, maSeries: maSeries, panes: panes };
   }
 
 
-  /* 수급 누적 칸 — 가격 차트 아래에 별도 차트를 쌓고 시간축을 묶는다.
+  /* 아래 칸 — 가격 차트 아래에 별도 차트를 쌓고 시간축을 묶는다.
      v4에는 한 차트 안에 칸을 나누는 기능이 없다(v5부터). 축을 공유하면
-     가격축이 빈 칸까지 눈금을 이어 붙여 없는 가격을 찍는다. */
-  function buildCvdPane(host, mainChart, points) {
+     가격축이 빈 칸까지 눈금을 이어 붙여 없는 가격을 찍는다.
+     수급 누적(2026-09-04)과 물린 비율(2026-09-14)이 같은 함수를 쓴다.
+     opts: className · height · color · showTime(맨 아래 칸만 true) ·
+           fixedRange([min,max], 물린 비율은 0~100 고정 — 종목 간 비교가 되게) */
+  function buildSubPane(anchor, sync, points, opts) {
     var t = theme();
+    var mainChart = sync.charts[0];
     var el = document.createElement("div");
-    el.className = "stock-chart-cvd";
-    el.style.height = CVD_PANE_H + "px";
+    el.className = "stock-chart-sub " + opts.className;
+    el.style.height = opts.height + "px";
     el.style.width = "100%";
-    host.parentNode.insertBefore(el, host.nextSibling);
+    anchor.parentNode.insertBefore(el, anchor.nextSibling);
 
     /* 위 차트의 **그림 영역**과 같은 폭으로 그린다. 위 차트는 오른쪽
        가격축(라벨 길이에 따라 50~90px)만큼 그림이 좁다. 그 폭을 빼지 않으면
@@ -232,10 +275,11 @@
       layout: { background: { color: t.bg }, textColor: t.text, fontSize: 11,
                 attributionLogo: false },
       grid: { vertLines: { color: t.grid }, horzLines: { color: "transparent" } },
-      // 축 자체를 없앤다. 0~1로 눌러 놓은 값이라 숫자에 뜻이 없다.
+      // 축 자체를 없앤다. 값의 뜻은 아래 범례가 맡는다(물린 비율은 마지막 값 %).
       // 대신 아래에서 캔버스 폭을 위 차트의 그림 영역에 맞춘다.
       rightPriceScale: { visible: false },
-      timeScale: { borderVisible: false, fixLeftEdge: true, fixRightEdge: true },
+      timeScale: { borderVisible: false, fixLeftEdge: true, fixRightEdge: true,
+                   visible: !!opts.showTime },
       crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
       handleScale: { axisPressedMouseMove: false },
       localization: { locale: "ko-KR" },
@@ -245,11 +289,17 @@
       x.classList.add("lwc-internal");     // 위 차트와 같은 이유(Material 표 규칙)
     });
 
-    var series = sub.addLineSeries({
-      color: cvdColor(), lineWidth: 2,
+    var seriesOpts = {
+      color: opts.color, lineWidth: 2,
       lastValueVisible: false, priceLineVisible: false,
       crosshairMarkerVisible: false
-    });
+    };
+    if (opts.fixedRange) {
+      seriesOpts.autoscaleInfoProvider = function () {
+        return { priceRange: { minValue: opts.fixedRange[0], maxValue: opts.fixedRange[1] } };
+      };
+    }
+    var series = sub.addLineSeries(seriesOpts);
     series.setData(points);
     sub.timeScale().fitContent();
 
@@ -257,17 +307,16 @@
       sub.applyOptions({ width: plotWidth(), height: el.clientHeight });
     };
 
-    // 확대·이동을 함께 움직인다. 서로를 다시 부르지 않게 잠금 하나를 공유한다.
-    var lock = false;
-    var link = function (from, to) {
-      from.timeScale().subscribeVisibleLogicalRangeChange(function (range) {
-        if (lock || !range) return;
-        lock = true;
-        try { to.timeScale().setVisibleLogicalRange(range); } finally { lock = false; }
+    // 확대·이동을 모든 칸이 함께 움직인다. 서로를 다시 부르지 않게 잠금 하나를 공유한다.
+    sync.charts.push(sub);
+    sub.timeScale().subscribeVisibleLogicalRangeChange(function (range) {
+      broadcast(sync, sub, range);
+    });
+    if (sync.charts.length === 2) {          // 첫 아래 칸이 위 차트의 구독을 건다
+      mainChart.timeScale().subscribeVisibleLogicalRangeChange(function (range) {
+        broadcast(sync, mainChart, range);
       });
-    };
-    link(mainChart, sub);
-    link(sub, mainChart);
+    }
 
     if (window.ResizeObserver) {
       new ResizeObserver(syncWidth).observe(el);
@@ -275,10 +324,21 @@
     return { host: el, chart: sub, series: series };
   }
 
+  function broadcast(sync, from, range) {
+    if (sync.lock || !range) return;
+    sync.lock = true;
+    try {
+      sync.charts.forEach(function (c) {
+        if (c !== from) c.timeScale().setVisibleLogicalRange(range);
+      });
+    } finally { sync.lock = false; }
+  }
+
   /* 선 이름은 차트 밖 글자로 둔다 — 캔버스 안 라벨은 폰에서 잘리고 확대도 안 된다.
      여기서는 구간 표기("매물벽 70.65~75.38")를 그대로 보여줄 수 있다. */
-  function buildLegend(host, anchor, lines, maKeys, hasCvd) {
-    if (!lines.length && !(maKeys || []).length && !hasCvd) return;
+  function buildLegend(host, anchor, lines, maKeys, hasCvd, uwLast) {
+    var hasUw = uwLast !== null && uwLast !== undefined;
+    if (!lines.length && !(maKeys || []).length && !hasCvd && !hasUw) return;
     var ul = document.createElement("ul");
     ul.className = "stock-chart-legend";
     var add = function (color, text, extraClass) {
@@ -300,6 +360,10 @@
     // 이름을 "CVD"로 적지 않는다 — 진짜 CVD는 체결 단위로 세는 것이고
     // 이건 봉의 종가 위치로 만든 근사다. 무엇으로 만들었는지 화면에 밝힌다.
     if (hasCvd) add(cvdColor(), "수급 누적(종가 위치 추정)", "stock-chart-dot--cvd");
+    // 마지막 값을 범례에 적는다. 칸의 축을 지웠으니 숫자는 여기서 읽는다.
+    // 「가격 위치와 구분 안 됨」은 측정 결과(2026-09-14)다. 지우려면 재측정이 먼저.
+    if (hasUw) add(uwColor(), "물린 비율 " + Math.round(uwLast) + "% (1년 거래량 기준 · 가격 위치와 구분 안 됨)",
+                   "stock-chart-dot--uw");
     anchor.parentNode.insertBefore(ul, anchor.nextSibling);
   }
 
@@ -337,18 +401,16 @@
             Object.keys(made.maSeries).forEach(function (p) {
               made.maSeries[p].applyOptions({ color: mc[p] });
             });
-            if (made.cvdSeries) {
-              made.cvdSeries.applyOptions({ color: cvdColor() });
-              if (made.cvdChart) {
-                made.cvdChart.applyOptions({
-                  layout: { background: { color: t.bg }, textColor: t.text },
-                  grid: { vertLines: { color: t.grid },
-                          horzLines: { color: "transparent" } }
-                });
-              }
-              var cdot = host.parentNode.querySelector(".stock-chart-dot--cvd");
-              if (cdot) cdot.style.background = cvdColor();
-            }
+            (made.panes || []).forEach(function (p) {
+              p.series.applyOptions({ color: p.colorFn() });
+              p.chart.applyOptions({
+                layout: { background: { color: t.bg }, textColor: t.text },
+                grid: { vertLines: { color: t.grid },
+                        horzLines: { color: "transparent" } }
+              });
+              var pdot = host.parentNode.querySelector(p.dot);
+              if (pdot) pdot.style.background = p.colorFn();
+            });
             host.parentNode.querySelectorAll(".stock-chart-legend .stock-chart-dot")
               .forEach(function (dot, i) {
                 if (i < Object.keys(made.maSeries).length) {
