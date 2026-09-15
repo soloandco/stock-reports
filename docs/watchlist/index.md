@@ -48,11 +48,11 @@
 | [**LLY**](LLY.md) | [Eli Lilly](LLY.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $1,138.28 | D+48 만료 | 2 | 6/7 | NYSE |
 | [**LUNR**](LUNR.md) | [Intuitive Machines](LUNR.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $13.88 |  | 4 | 3/7 | NASDAQ |
 | [**MS**](MS.md) | [Morgan Stanley](MS.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $206.58 | D+55 만료 | 2 | 6/7 | NYSE |
-| [**MSFT**](MSFT.md) | [Microsoft](MSFT.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $505.41 | D+1 | 2 | 5/7 | NASDAQ |
+| [**MSFT**](MSFT.md) | [Microsoft](MSFT.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $505.41 |  | 2 | 4/7 | NASDAQ |
 | [**NVDA**](NVDA.md) | [NVIDIA](NVDA.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $210.96 | D+30 만료 | 2 | 5/7 | NASDAQ |
 | [**PCAR**](PCAR.md) | [Paccar](PCAR.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $122.86 | D+33 만료 | 2 | 5/7 | NASDAQ |
 | [**PLTR**](PLTR.md) | [Palantir](PLTR.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $173.31 |  | 2 | 4/7 | NASDAQ |
-| [**PM**](PM.md) | [Philip Morris](PM.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $194.86 | D+55 만료 | 2 | 6/7 | NYSE |
+| [**PM**](PM.md) | [Philip Morris](PM.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $194.86 | D+55 만료 | 2 | 7/7 | NYSE |
 | [**PYPL**](PYPL.md) | [PayPal](PYPL.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $54.03 |  | 2 | 2/7 | NASDAQ |
 | [**QCOM**](QCOM.md) | [Qualcomm](QCOM.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $180.15 |  | 2 | 4/7 | NASDAQ |
 | [**QPUX**](QPUX.md) | [QPUX](QPUX.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $11.80 |  | 4 | 0/7 | NASDAQ |
@@ -74,5 +74,5 @@
 | [**XLP**](XLP.md) | [XLP 필수소비재 섹터 ETF](XLP.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $84.42 |  | 2 | 4/7 | NYSE |
 | [**XLRE**](XLRE.md) | [XLRE 리츠 섹터 ETF](XLRE.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $43.12 |  | 3 | 3/7 | NYSE |
 | [**XLU**](XLU.md) | [XLU 유틸리티 섹터 ETF](XLU.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $41.82 |  | 3 | 2/7 | NYSE |
-| [**XLV**](XLV.md) | [XLV 헬스케어 섹터 ETF](XLV.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $167.75 | D+1 | 2 | 6/7 | NYSE |
+| [**XLV**](XLV.md) | [XLV 헬스케어 섹터 ETF](XLV.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $167.75 | D+1 | 2 | 7/7 | NYSE |
 | [**XLY**](XLY.md) | [XLY 임의소비재 섹터 ETF](XLY.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $112.85 |  | 4 | 1/7 | NYSE |
