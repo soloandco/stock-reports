@@ -157,7 +157,11 @@ def _verdict_cell(verdict: str, reason: str) -> str:
     return badge
 
 
-def _candidate_days_cell(days: str) -> str:
+def _truthy(v) -> bool:
+    return str(v).strip().lower() == "true"
+
+
+def _candidate_days_cell(days: str, start_unknown: str = "") -> str:
     """candidate-days 프론트매터 → 'D+N' 셀 (임계 초과는 '만료' — 재전환 대기).
 
     매수 상태가 아니거나 구형 스냅샷이면 빈 문자열.
@@ -167,7 +171,10 @@ def _candidate_days_cell(days: str) -> str:
         n = int(days)
     except (TypeError, ValueError):
         return ""
-    return f"D+{n} 만료" if n > CANDIDATE_FRESH_MAX_DAYS else f"D+{n}"
+    if n > CANDIDATE_FRESH_MAX_DAYS:
+        return f"D+{n} 만료"
+    # 관찰 등록 전부터 매수 상태라 경과일이 짧게 보이는 종목 (2026-09-16)
+    return "시작일 미상" if _truthy(start_unknown) else f"D+{n}"
 
 
 def _company_name(title: str) -> str:
@@ -331,6 +338,7 @@ def _collect_snapshots() -> list[dict]:
             "price":   fm.get("price", ""),
             "market":  fm.get("market", ""),
             "days":    fm.get("candidate-days", ""),   # 매수 상태 경과 거래일 (구형 스냅샷은 "")
+            "start_unknown": fm.get("candidate-start-unknown", ""),  # 등록 전부터 매수 상태
             "gap":     fm.get("sma50-gap-pct", ""),    # SMA50 이격 %
             # 홈 「오늘의 결론」 카드용 (2026-09-03) — 값이 없는 구형 스냅샷은 ""
             "stop":       fm.get("stop-price", ""),
@@ -511,7 +519,9 @@ def _num(v) -> "float | None":
 
 def _is_expired(snap: dict) -> bool:
     d = _num(snap.get("days"))
-    return d is not None and d > CANDIDATE_FRESH_MAX_DAYS
+    if d is None:
+        return False
+    return d > CANDIDATE_FRESH_MAX_DAYS or _truthy(snap.get("start_unknown", ""))
 
 
 def _headline(snap: dict) -> str:
@@ -550,7 +560,9 @@ def _pick_card(snap: dict, name: str, entry_date: str) -> str:
     foot = []
     if entry_date:
         foot.append(f"전환 {entry_date}")
-    if expired:
+    if expired and _num(snap["days"]) <= CANDIDATE_FRESH_MAX_DAYS:
+        foot.append("시작일 미상(관찰 등록 전부터) · 추격 비추천")
+    elif expired:
         foot.append(f"신호 {int(_num(snap['days']))}일 경과 · 추격 비추천")
     foot.append("머리 위 저항 없음" if pos == "신고가영역"
                 else (f"손익비 {rr:.1f}:1" if rr is not None else "손익비 미산출"))
@@ -714,6 +726,8 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
         "이를 넘기면 '만료'로 표시되고 "
         "푸시 알림도 나가지 않습니다(백테스트상 지연 진입은 기대값 감쇠 — 비매수로 "
         "내려갔다 재전환하면 D+0 새 추천으로 부활). "
+        "관찰 등록 때 이미 매수 상태였던 종목은 전환일을 알 수 없어 '시작일 미상'으로 "
+        "표시하고 새 추천으로 보지 않습니다. "
         "이격·실질 손익비 등 진입 타이밍 상세는 각 종목 스냅샷의 '진입 · 손절 · 타겟' 표에 있습니다.",
         "",
         WL_FILTERS,
@@ -730,7 +744,7 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
             verdict = _verdict_cell(s["verdict"], s["reason"])
             stage, tt = s["stage"], f"{s['tt']}/{s.get('ttmax', 8)}" if s["tt"] else ""
             price = _fmt_price_str(s["price"], market)
-            days = _candidate_days_cell(s.get("days", ""))
+            days = _candidate_days_cell(s.get("days", ""), s.get("start_unknown", ""))
         else:
             verdict = stage = tt = price = days = ""
         lines.append(f"| [**{ticker}**]({fname}) | [{name}]({fname}) "
