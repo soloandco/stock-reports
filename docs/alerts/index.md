@@ -7,7 +7,7 @@
 | 2026-09-17 | [CDNS](20260917-cdns-bear_rsi_reversal.md) | [Cadence Design Systems](20260917-cdns-bear_rsi_reversal.md) | 🔄 RSI 반등 |
 | 2026-09-17 | [KMI](20260917-kmi-stop_hit.md) | [Kinder Morgan](20260917-kmi-stop_hit.md) | 🚨 손절 경고 |
 | 2026-09-17 | [QCOM](20260917-qcom-buy_watch.md) | [Qualcomm](20260917-qcom-buy_watch.md) | 📈 매수 신호 |
-| 2026-09-17 | [USD](20260917-usd-buy_watch.md) | [ProShares Ultra Semiconductors (2x)](20260917-usd-buy_watch.md) | 📈 매수 신호 |
+| 2026-09-17 | [USD](20260917-usd-buy_watch.md) | [](20260917-usd-buy_watch.md) | 📈 매수 신호 |
 | 2026-09-16 | [KO](20260916-ko-stop_hit.md) | [Coca-Cola](20260916-ko-stop_hit.md) | 🚨 손절 경고 |
 | 2026-09-15 | [DLR](20260915-dlr-stop_hit.md) | [Digital Realty](20260915-dlr-stop_hit.md) | 🚨 손절 경고 |
 | 2026-09-15 | [GEV](20260915-gev-stop_hit.md) | [GE Vernova](20260915-gev-stop_hit.md) | 🚨 손절 경고 |
@@ -47,13 +47,13 @@
 | 2026-08-28 | [CDNS](20260828-cdns-line_break.md) | [Cadence Design Systems](20260828-cdns-line_break.md) | 📐 라인 돌파 |
 | 2026-08-27 | [329180](20260827-329180-line_break.md) | [](20260827-329180-line_break.md) | 📐 라인 돌파 |
 | 2026-08-27 | [APLD](20260827-apld-line_break.md) | [Applied Digital](20260827-apld-line_break.md) | 📐 라인 돌파 |
-| 2026-08-27 | [BITX](20260827-bitx-line_break.md) | [2x Bitcoin Strategy ETF](20260827-bitx-line_break.md) | 📐 라인 돌파 |
+| 2026-08-27 | [BITX](20260827-bitx-line_break.md) | [](20260827-bitx-line_break.md) | 📐 라인 돌파 |
 | 2026-08-27 | [CORZ](20260827-corz-line_break.md) | [Core Scientific](20260827-corz-line_break.md) | 📐 라인 돌파 |
 | 2026-08-27 | [NVDA](20260827-nvda-line_break.md) | [NVIDIA](20260827-nvda-line_break.md) | 📐 라인 돌파 |
 | 2026-08-27 | [PLTR](20260827-pltr-line_break.md) | [Palantir](20260827-pltr-line_break.md) | 📐 라인 돌파 |
 | 2026-08-27 | [QCOM](20260827-qcom-line_break.md) | [Qualcomm](20260827-qcom-line_break.md) | 📐 라인 돌파 |
 | 2026-08-27 | [SNPS](20260827-snps-line_break.md) | [Synopsys](20260827-snps-line_break.md) | 📐 라인 돌파 |
-| 2026-08-26 | [BITX](20260826-bitx-line_break.md) | [2x Bitcoin Strategy ETF](20260826-bitx-line_break.md) | 📐 라인 돌파 |
+| 2026-08-26 | [BITX](20260826-bitx-line_break.md) | [](20260826-bitx-line_break.md) | 📐 라인 돌파 |
 | 2026-08-26 | [CDNS](20260826-cdns-line_break.md) | [Cadence Design Systems](20260826-cdns-line_break.md) | 📐 라인 돌파 |
 | 2026-08-26 | [GDXU](20260826-gdxu-line_break.md) | [GDXU](20260826-gdxu-line_break.md) | 📐 라인 돌파 |
 | 2026-08-26 | [GS](20260826-gs-buy.md) | [Goldman Sachs](20260826-gs-buy.md) | 📈 매수 신호 |
@@ -70,7 +70,7 @@
 | 2026-08-25 | [NVDA](20260825-nvda-line_break.md) | [NVIDIA](20260825-nvda-line_break.md) | 📐 라인 돌파 |
 | 2026-08-25 | [PM](20260825-pm-line_break.md) | [Philip Morris](20260825-pm-line_break.md) | 📐 라인 돌파 |
 | 2026-08-25 | [QCOM](20260825-qcom-line_break.md) | [Qualcomm](20260825-qcom-line_break.md) | 📐 라인 돌파 |
-| 2026-08-24 | [BITX](20260824-bitx-line_break.md) | [2x Bitcoin Strategy ETF](20260824-bitx-line_break.md) | 📐 라인 돌파 |
+| 2026-08-24 | [BITX](20260824-bitx-line_break.md) | [](20260824-bitx-line_break.md) | 📐 라인 돌파 |
 | 2026-08-22 | [GDX](20260822-gdx-line_break.md) | [GDX 금광주 ETF](20260822-gdx-line_break.md) | 📐 라인 돌파 |
 | 2026-08-22 | [GDXU](20260822-gdxu-line_break.md) | [GDXU](20260822-gdxu-line_break.md) | 📐 라인 돌파 |
 | 2026-08-22 | [RDW](20260822-rdw-line_break.md) | [RedWire](20260822-rdw-line_break.md) | 📐 라인 돌파 |
