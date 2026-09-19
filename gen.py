@@ -39,6 +39,9 @@ FEAR_INDEX_JSON = ROOT.parent / "data" / "fear_index.json"
 SECTOR_JSON = ROOT.parent / "data" / "sector_strength.json"
 TRADE_REPORT_JSON = ROOT.parent / "data" / "trade_report.json"
 COMPLETED_TRADES_JSON = ROOT.parent / "data" / "completed_trades.json"
+# 방식별 기록 (2026-09-19). monitor._refresh_strategy_perf 가 사이트 생성 직전에 만든다.
+STRATEGY_PERF_JSON = ROOT.parent / "data" / "strategy_perf.json"
+OUT_STRAT = OUT / "strategies"
 
 # 매수 추천 유효기간(거래일). 이 값을 넘긴 신호는 '만료'로 표시된다.
 # 2026-09-04부터 매수 두 등급 모두에 적용된다 (옛 구현은 매수후보에만 걸었다).
@@ -897,6 +900,77 @@ def _positions_index(positions: list[dict], names: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
+_STRAT_LABEL = {"base": "스윙", "book": "단타"}
+
+
+def _collect_strategy_perf() -> dict:
+    """data/strategy_perf.json 로드. 없거나 깨졌으면 {} (페이지는 안내문으로 그린다)."""
+    try:
+        return json.loads(STRATEGY_PERF_JSON.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def _md(ts: str) -> str:
+    """'2026-09-18T17:49:00' → '09-18'."""
+    return str(ts)[5:10]
+
+
+def _strat_cell(s: dict) -> tuple[str, str]:
+    done = str(s.get("closed", 0))
+    if s.get("open"):
+        done += f" · 진행 {s['open']}"
+    r = s.get("mean_r")
+    return done, (f"{r:+.2f}R" if r is not None else "—")
+
+
+def _strategies_index(data: dict, names: dict) -> str:
+    """스윙·단타 두 방식의 켜져 있던 기간별 성적과 최근 거래. 모바일 4열 이하."""
+    lines = [
+        "# 방식별 기록",
+        "",
+        "스윙(일봉)과 단타(1시간봉) 두 방식을 섞지 않고 따로 기록합니다. **켜진 방식만 알림이 나가고**, "
+        "꺼진 방식은 같은 기간에 무엇을 했을지 기록만 합니다. 텔레그램에 「단타」·「스윙」을 보내 바꿉니다.",
+        "",
+    ]
+    periods = data.get("periods") or []
+    if not periods:
+        lines += ['!!! info "아직 기록이 없습니다"',
+                  "    다음 스캔 때 채워집니다.", "", DISCLAIMER]
+        return "\n".join(lines) + "\n"
+    active = _STRAT_LABEL.get(data.get("active"), "스윙")
+    since = str(data.get("active_since") or "")[5:16].replace("T", " ")
+    lines += [f"**지금 켜진 방식: {active}** ({since}부터)", "", "## 기간별 성적", "",
+              "| 기간 | 구분 | 끝남 | 거래당 |", "|---|---|---:|---:|"]
+    for i, p in enumerate(periods):
+        on = _STRAT_LABEL[p["strategy"]]
+        off = _STRAT_LABEL["book" if p["strategy"] == "base" else "base"]
+        end = "지금" if i == len(periods) - 1 else _md(p["end"])
+        done, r = _strat_cell(p["active"])
+        lines.append(f"| {_md(p['start'])}~{end} | {on}(알림) | {done} | {r} |")
+        done, r = _strat_cell(p["other"])
+        lines.append(f"| | {off}(기록만) | {done} | {r} |")
+    total = sum(p["active"].get("closed", 0) for p in periods)
+    min_n = data.get("min_n", 100)
+    lines += ["", f'!!! warning "표본 부족: 알림 나간 끝난 거래 {total}건"',
+              f"    {min_n}건이 쌓이기 전에는 두 방식의 우열을 가릴 수 없습니다. 숫자는 기록으로만 읽으세요.",
+              ""] if total < min_n else [""]
+    trades = data.get("trades") or []
+    if trades:
+        lines += ["## 최근 거래", "", "| 진입 | 종목 | 방식 | 결과 |", "|---|---|---|---|"]
+        for t in trades:
+            how = _STRAT_LABEL.get(t["strategy"], "") + ("" if t.get("pushed") else " · 기록만")
+            res = t.get("result", "")
+            if t.get("closed") and t.get("r") is not None:
+                res += f" {t['r']:+.2f}R"
+            lines.append(f"| {_md(t['ts'])} | {t['ticker']} | {how} | {res} |")
+        lines.append("")
+    lines += ["R 은 손절 폭 대비 몇 배를 벌었는지입니다 (−1R = 손절). 거래비용은 빼지 않았습니다. "
+              "알림 기록은 2026-09-04 부터라 그 전에 연 거래는 없습니다.", "",
+              f"> 기준 시각: {str(data.get('generated', ''))[:16].replace('T', ' ')}", "", DISCLAIMER]
+    return "\n".join(lines) + "\n"
+
+
 def _performance_index(data: dict) -> str:
     """완결 트레이드 기준 verdict별 손익비·기대값·승률(CI) 성과 페이지."""
     generated = data.get("generated", "")
@@ -1403,6 +1477,9 @@ def main():
     (OUT_ALERT / "index.md").write_text(_alerts_index(alerts, names), encoding="utf-8")
     (OUT_POS / "index.md").write_text(_positions_index(positions, names), encoding="utf-8")
     (OUT_PERF / "index.md").write_text(_performance_index(perf), encoding="utf-8")
+    OUT_STRAT.mkdir(parents=True, exist_ok=True)
+    (OUT_STRAT / "index.md").write_text(
+        _strategies_index(_collect_strategy_perf(), names), encoding="utf-8")
 
     print(f"생성 완료: 관찰 {len(entries)}개 · 스냅샷 {len(latest)}종목({len(snaps)}건, "
           f"목록 제외 {len(retired)}종목) "
