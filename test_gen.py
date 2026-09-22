@@ -324,3 +324,12 @@ def test_market_sections_hide_korea_when_not_watched():
     on = "\n".join(gen._sector_flow_section(data) + gen._theme_flow_section(data))
     off = "\n".join(gen._sector_flow_section(data, False) + gen._theme_flow_section(data, False))
     assert "한국" in on and "한국" not in off and "미국" in off
+
+
+def test_market_recent_analysis_uses_snapshot_denominator():
+    # 2026-09-22: 이 표만 분모를 8 로 박아 두어 4/7 을 4/8 로 보여 줬다
+    snap = {"ticker": "INOD", "fname": "INOD-2026-09-23.md", "created": "2026-09-23",
+            "verdict": "매수불가", "reason": "기준미달", "stage": 2, "tt": 4, "ttmax": 7}
+    old = dict(snap, ticker="OLD", fname="OLD-2026-09-01.md", ttmax=8)   # tt-max 없는 옛 스냅샷
+    md = gen._fear_index_page([snap, old], {"INOD": "Innodata", "OLD": "Old"})
+    assert "| 2 | 4/7 |" in md and "| 2 | 4/8 |" in md

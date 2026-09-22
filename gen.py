@@ -1283,7 +1283,7 @@ def _fear_index_page(latest=None, names=None, show_kr: bool = True) -> str:
             name = names.get(s['ticker'], '')
             rows.append(
                 f"| [**{s['ticker']}**](snapshots/{s['fname']}) | [{name}](snapshots/{s['fname']}) | {s['created']} | {_verdict_cell(s['verdict'], s['reason'])} "
-                f"| {s['stage']} | {s['tt']}/8 |"
+                f"| {s['stage']} | {s['tt']}/{s.get('ttmax', 8)} |"
             )
         rows += ["", "[→ 전체 스냅샷](snapshots/index.md)", ""]
         return rows
