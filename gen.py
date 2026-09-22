@@ -281,6 +281,21 @@ def _load_superinvestors() -> dict:
         return {}
 
 
+def _usd(v: float) -> str:
+    return f"${v:,.0f}" if v >= 100 else f"${v:,.2f}"
+
+
+def _cost_cell(cost: "dict | None", price: "float | None") -> str:
+    """추정 평단 칸. 첫 줄 평단(현재가 대비), 둘째 줄 범위. 자료 전부터 보유면 「모름」."""
+    if not cost:
+        return ""
+    if not cost.get("known"):
+        return "모름<br>2013년 이전 보유"
+    avg = cost["avg"]
+    gain = f" ({(price / avg - 1) * 100:+.0f}%)" if price and avg else ""
+    return f"{_usd(avg)}{gain}<br>{_usd(cost['low'])}~{_usd(cost['high'])}"
+
+
 def _superinvestor_block(ticker: str, data: dict) -> str:
     """관찰 페이지 「거물 투자자(13F)」 절. 자료에 없는 종목은 빈 문자열.
 
@@ -297,14 +312,18 @@ def _superinvestor_block(ticker: str, data: dict) -> str:
             f" · 집중 투자 기관 {t.get('conc_holders', 0)}곳 보유(신규 {t.get('conc_new', 0)}곳)")
     lines.append(head)
     if rows:
-        lines += ["", "| 투자자 | 비중 | 구분 |", "|--------|-----:|------|"]
+        lines += ["", "| 투자자 | 비중 | 구분 | 추정 평단 |", "|--------|-----:|------|-----------|"]
         for r in rows[:SUPERINV_ROWS]:
-            lines.append(f"| {r['name']} | {r['weight'] * 100:.1f}% | {'신규' if r.get('new') else '보유'} |")
+            lines.append(f"| {r['name']} | {r['weight'] * 100:.1f}% | {'신규' if r.get('new') else '보유'} "
+                         f"| {_cost_cell(r.get('cost'), t.get('price'))} |")
         if len(rows) > SUPERINV_ROWS:
-            lines.append(f"| 외 {len(rows) - SUPERINV_ROWS}곳 | | |")
+            lines.append(f"| 외 {len(rows) - SUPERINV_ROWS}곳 | | | |")
     lines += ["", f'<p class="stock-chart-note">{period} 기준 보유를 SEC 13F 공시로 셉니다(공시 반영 '
               f'{data.get("as_of", "?")}). 분기 말 뒤 최대 45일 늦게 공개되고 매입 단가는 없습니다. '
-              "비중 1% 미만 보유는 세지 않습니다. 유명 투자자 명단은 Dataroma, 집중 투자 기관은 "
+              "비중 1% 미만 보유는 세지 않습니다. 추정 평단은 주식이 늘어난 분기마다 그 분기 거래량 가중 "
+              "평균가에 샀다고 보고 쌓은 값이고, 둘째 줄은 그 분기 최저가~최고가로 잡은 범위입니다. "
+              "괄호는 현재가 대비입니다. 2013년 이전부터 들고 있던 종목은 매입가를 알 수 없어 「모름」입니다. "
+              "유명 투자자 명단은 Dataroma, 집중 투자 기관은 "
               "보유 5~50종목·총액 5억 달러 이상인 기관입니다. 검증(2026-09-23, 11년 1만 건)에서 보유 기관 수는 "
               "매수 신호 성적과 무관했고, 여러 기관이 새로 산 종목은 좋은 쪽이었지만 기준에 못 미쳤습니다. "
               "참고 정보이며 매수 신호가 아닙니다.</p>", ""]
