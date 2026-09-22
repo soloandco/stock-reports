@@ -955,17 +955,41 @@ def _strategies_index(data: dict, names: dict) -> str:
     lines += ["", f'!!! warning "표본 부족: 알림 나간 끝난 거래 {total}건"',
               f"    {min_n}건이 쌓이기 전에는 두 방식의 우열을 가릴 수 없습니다. 숫자는 기록으로만 읽으세요.",
               ""] if total < min_n else [""]
+    money = data.get("money") or {}
+    if money:
+        seed = int(data.get("seed_won", 1_000_000)) // 10000
+        r_won = float(data.get("r_won", 10000))
+        lines += ["## 추천대로 했다면", "",
+                  f"사지 않았어도 **알림이 나간 추천을 그대로 따랐을 때**의 결과입니다. "
+                  f"시드 {seed}만 원에서 추천마다 {r_won:,.0f}원(시드 1%)을 손절 위험으로 건 경우로 환산합니다. "
+                  "진행 중인 추천은 지금 가격으로 평가합니다.", "",
+                  "| 방식 | 끝난 추천 | 진행 중 | 합계 |", "|---|---:|---:|---:|"]
+        for key in ("base", "book"):
+            m = money.get(key)
+            if not m:
+                continue
+            won = lambda r: f"{r * r_won:+,.0f}원"  # noqa: E731
+            lines.append(f"| {_STRAT_LABEL[key]} | {m['closed']}건 {won(m['closed_r'])} | "
+                         f"{m['open']}건 {won(m['open_r'])} | **{m['total_won']:+,.0f}원** |")
+        lines.append("")
     trades = data.get("trades") or []
     if trades:
-        lines += ["## 최근 거래", "", "| 진입 | 종목 | 방식 | 결과 |", "|---|---|---|---|"]
+        lines += ["## 최근 추천", "", "| 추천 | 종목 · 추천가 | 방식 | 결과 |", "|---|---|---|---|"]
         for t in trades:
             how = _STRAT_LABEL.get(t["strategy"], "") + ("" if t.get("pushed") else " · 기록만")
             res = t.get("result", "")
-            if t.get("closed") and t.get("r") is not None:
+            if t.get("r") is not None:
                 res += f" {t['r']:+.2f}R"
-            lines.append(f"| {_md(t['ts'])} | {t['ticker']} | {how} | {res} |")
+                if t.get("pct") is not None:
+                    res += f" ({t['pct'] * 100:+.1f}%)"
+            name = t["ticker"]
+            if t.get("entry") is not None and t.get("stop") is not None:
+                tg = " / ".join(f"{v:,.2f}" for v in (t.get("targets") or [])) or "-"
+                name += f"<br>{t['entry']:,.2f} · 목표 {tg} · 손절 {t['stop']:,.2f}"
+            lines.append(f"| {_md(t['ts'])} | {name} | {how} | {res} |")
         lines.append("")
     lines += ["R 은 손절 폭 대비 몇 배를 벌었는지입니다 (−1R = 손절). 거래비용은 빼지 않았습니다. "
+              "진행 중 추천의 R 은 지금 가격 기준이라 확정 값이 아닙니다. "
               "알림 기록은 2026-09-04 부터라 그 전에 연 거래는 없습니다.", "",
               f"> 기준 시각: {str(data.get('generated', ''))[:16].replace('T', ' ')}", "", DISCLAIMER]
     return "\n".join(lines) + "\n"
