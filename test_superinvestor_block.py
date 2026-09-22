@@ -77,7 +77,8 @@ def test_cost_cell():
     c = {"avg": 44.66, "low": 39.15, "high": 48.8, "known": True}
     assert gen._cost_cell(c, 255.0) == "$44.66 (+471%)<br>$39.15~$48.80"
     assert gen._cost_cell({"avg": 413.86, "low": 355.86, "high": 488.31, "known": True}, 372.0) ==         "$414 (-10%)<br>$356~$488"
-    assert gen._cost_cell({"known": False}, 50.0) == "모름<br>2013년 이전 보유"
+    assert gen._cost_cell({"known": False, "since": "2018-12-31"}, 50.0) == "모름<br>첫 신고(2018-12) 전부터 보유"
+    assert gen._cost_cell({"known": False}, 50.0) == "모름"
     assert gen._cost_cell(None, 50.0) == ""
 
 
