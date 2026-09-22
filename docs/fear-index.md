@@ -5,10 +5,10 @@
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
 | [**AAPL**](snapshots/AAPL-2026-09-22.md) | [Apple](snapshots/AAPL-2026-09-22.md) | 2026-09-22 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/8 |
+| [**INOD**](snapshots/INOD-2026-09-23.md) | [Innodata](snapshots/INOD-2026-09-23.md) | 2026-09-23 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 4/8 |
 | [**AMD**](snapshots/AMD-2026-09-22.md) | [Advanced Micro Devices](snapshots/AMD-2026-09-22.md) | 2026-09-22 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | 2 | 7/8 |
 | [**APLD**](snapshots/APLD-2026-09-22.md) | [Applied Digital](snapshots/APLD-2026-09-22.md) | 2026-09-22 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/8 |
 | [**ASTS**](snapshots/ASTS-2026-09-22.md) | [AST SpaceMobile](snapshots/ASTS-2026-09-22.md) | 2026-09-22 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/8 |
-| [**AVGO**](snapshots/AVGO-2026-09-22.md) | [Broadcom](snapshots/AVGO-2026-09-22.md) | 2026-09-22 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/8 |
 
 [→ 전체 스냅샷](snapshots/index.md)
 
@@ -82,27 +82,27 @@
 
 ## CNN Fear & Greed Index
 
-> 수집: 2026-09-22 02:59 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
+> 수집: 2026-09-22 15:00 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
 
 | 점수 | 전일比 | 등급 |
 |------|--------|------|
-| **33.7** / 100 | +4.6 | 🟠 **공포** |
+| **36.6** / 100 | +2.9 | 🟠 **공포** |
 
 ### 구성 지표 (7개)
 
 | 지표 | 점수 | 등급 |
 |------|------|------|
-| S&P500 모멘텀 | 40.4 | 🟠 공포 |
-| 신고가/신저가 | 1.8 | 🔴 극공포 |
+| S&P500 모멘텀 | 39.0 | 🟠 공포 |
+| 신고가/신저가 | 3.6 | 🔴 극공포 |
 | 시장 폭 | 0.0 | 🔴 극공포 |
-| 풋/콜 비율 | 37.8 | 🟠 공포 |
+| 풋/콜 비율 | 53.6 | ⚪ 중립 |
 | VIX | 50.0 | ⚪ 중립 |
-| 정크본드 수요 | 49.0 | ⚪ 중립 |
-| 안전자산 수요 | 57.0 | 🟢 탐욕 |
+| 정크본드 수요 | 50.0 | ⚪ 중립 |
+| 안전자산 수요 | 58.2 | 🟢 탐욕 |
 
 ## VIX
 
-> 수집: 2026-09-22 02:59 UTC · `python monitor.py --scan` 실행 시 갱신
+> 수집: 2026-09-22 15:00 UTC · `python monitor.py --scan` 실행 시 갱신
 
 | 지수 | 현재값 | 전일比 | 등급 | 시장 국면 | 신규 진입 |
 |------|--------|--------|------|---------|---------|

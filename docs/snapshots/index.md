@@ -21,6 +21,7 @@
 
 | 종목 | 기업명 | 판정 | Stage | TT | 분석일 |
 |------|--------|------|-------|----|--------|
+| [INOD](INOD-2026-09-23.md) | [Innodata](INOD-2026-09-23.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 4/7 | 2026-09-23 |
 | [AAPL](AAPL-2026-09-22.md) | [Apple](AAPL-2026-09-22.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-09-22 |
 | [AMD](AMD-2026-09-22.md) | [Advanced Micro Devices](AMD-2026-09-22.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | 2 | 7/7 | 2026-09-22 |
 | [APLD](APLD-2026-09-22.md) | [Applied Digital](APLD-2026-09-22.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/7 | 2026-09-22 |

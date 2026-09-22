@@ -40,6 +40,7 @@
 | [**GOOGL**](GOOGL.md) | [Alphabet](GOOGL.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | $354.97 | D+1 | 2 | 6/7 | NASDAQ |
 | [**GS**](GS.md) | [Goldman Sachs](GS.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $959.61 |  | 3 | 4/7 | NYSE |
 | [**IBIT**](IBIT.md) | [IBIT 비트코인 현물 ETF](IBIT.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $49.01 |  | 1 | 3/7 | NASDAQ |
+| [**INOD**](INOD.md) | [Innodata](INOD.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $64.24 |  | 2 | 4/7 | NASDAQ |
 | [**IONQ**](IONQ.md) | [IonQ](IONQ.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | $40.48 |  | 4 | 2/7 | NYSE |
 | [**IREN**](IREN.md) | [IREN Limited](IREN.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | $47.23 |  | 1 | 3/7 | NASDAQ |
 | [**KMI**](KMI.md) | [Kinder Morgan](KMI.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | $31.74 |  | 3 | 5/7 | NYSE |
