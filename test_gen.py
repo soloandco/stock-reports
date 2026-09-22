@@ -209,24 +209,6 @@ def test_positions_index_embeds_sizing_data():
     assert data[0]["r"] == 1.0
 
 
-# ── 전략 성과 페이지 ────────────────────────────────────────────────────────
-
-def _summary(**over):
-    base = {
-        "n": 10, "win_rate": 0.6, "win_rate_ci_low": 0.31, "win_rate_ci_high": 0.83,
-        "avg_win_r": 2.0, "avg_loss_r": 1.0, "payoff_ratio": 2.0, "expectancy": 0.8,
-        "stop_rate": 0.4, "target_rate": 0.5, "time_exit_rate": 0.1, "data_end_rate": 0.0,
-        "distinct_tickers": 8, "distinct_entry_days": 6,
-    }
-    base.update(over)
-    return base
-
-
-def test_performance_index_empty_shows_reason():
-    md = gen._performance_index({"generated": "2026-07-09", "trades": [], "summary": {}})
-    assert "아직 완결된 트레이드" in md
-    assert "90일" in md and "만기까지 관측" in md
-    assert "60일" not in md
 
 
 def test_positions_explanation_matches_current_exit_rule():
@@ -266,41 +248,11 @@ def test_actual_trade_date_is_removed_from_public_frontmatter():
     assert "created: 2026-09-02" in public
 
 
-def test_performance_explains_unverified_legacy_dates():
-    md = gen._performance_index({"generated": "2026-09-08",
-                                 "trades": [{"date_basis": "created_legacy"}],
-                                 "summary": {"매수후보": _summary(n=1)}})
-    assert "날짜 미확인 1건" in md and "개선 판단에서 제외" in md
-
-
-def test_performance_index_renders_payoff_and_ci():
-    md = gen._performance_index({
-        "generated": "2026-07-09", "trades": [{}] * 10,
-        "summary": {"매수후보": _summary()},
-    })
-    assert "손익비" in md
-    assert "2.00" in md                        # payoff_ratio
-    assert "31–83%" in md                      # Wilson CI
-    assert "+0.80R" in md                      # expectancy
-    assert "표본이 작습니다" in md              # 소표본 경고
-
-
-def test_performance_index_payoff_none_shows_na():
-    md = gen._performance_index({
-        "generated": "2026-07-09", "trades": [{}] * 3,
-        "summary": {"매수관찰": _summary(payoff_ratio=None)},
-    })
-    assert "n/a" in md
-
-
-def test_collect_completed_trades_missing_returns_empty(tmp_path, monkeypatch):
-    monkeypatch.setattr(gen, "COMPLETED_TRADES_JSON", tmp_path / "nope.json")
-    assert gen._collect_completed_trades() == {}
-
-
-def test_stat_cards_include_performance_link():
-    html = gen._stat_cards([], [], [])
-    assert 'href="performance/"' in html
+def test_stat_cards_link_strategies_not_removed_performance_page():
+    # 전략 성과 페이지는 2026-09-22 에 없앴다 (방식별 기록과 겹치고 3건뿐이라 거의 빈 페이지)
+    html = gen._stat_cards([], [], [], [])
+    assert 'href="strategies/"' in html and 'href="performance/"' not in html
+    assert "가상 포지션" in html and "오픈 포지션" not in html
 
 
 def test_candidate_days_cell():
@@ -343,3 +295,32 @@ def test_watchlist_index_has_days_column():
     md = _watchlist_index(entries, latest)
     assert "| 경과 |" in md
     assert "D+18 만료" in md
+
+
+# ── 메뉴 정리 (2026-09-22 사용자 결정) ──────────────────────────────────────
+def test_nav_drops_performance_and_puts_strategies_second():
+    import yaml
+    nav = yaml.safe_load((Path(__file__).parent / "mkdocs.yml").read_text(encoding="utf-8"))["nav"]
+    titles = [list(x)[0] for x in nav]
+    assert "전략 성과" not in titles and "오픈 포지션" not in titles
+    assert titles[:2] == ["홈", "방식별 기록"] and "가상 포지션" in titles
+
+
+def test_home_quick_links_start_with_strategies_and_count_snapshot_tickers():
+    md = gen._dashboard([], [], [], {}, [])
+    links = md.split("## 바로 가기", 1)[1]
+    assert links.index("방식별 기록") < links.index("관찰 종목")
+    assert "performance/" not in md and "종목 — [최신순 보기]" in links
+
+
+def test_positions_page_explains_difference_from_strategies():
+    md = gen._positions_index([], {})
+    assert md.startswith("# 가상 포지션") and "strategies/index.md" in md
+
+
+def test_market_sections_hide_korea_when_not_watched():
+    data = {"us": [{"name": "XLK"}], "kr": [{"name": "KODEX"}], "theme_us": [{"name": "SMH"}],
+            "theme_kr": [{"name": "전력"}], "updated_at": "2026-09-22"}
+    on = "\n".join(gen._sector_flow_section(data) + gen._theme_flow_section(data))
+    off = "\n".join(gen._sector_flow_section(data, False) + gen._theme_flow_section(data, False))
+    assert "한국" in on and "한국" not in off and "미국" in off

@@ -34,11 +34,9 @@ OUT_SNAP  = OUT / "snapshots"
 OUT_NOTES = OUT / "notes"
 OUT_ALERT = OUT / "alerts"
 OUT_POS   = OUT / "positions"
-OUT_PERF  = OUT / "performance"
 FEAR_INDEX_JSON = ROOT.parent / "data" / "fear_index.json"
 SECTOR_JSON = ROOT.parent / "data" / "sector_strength.json"
 TRADE_REPORT_JSON = ROOT.parent / "data" / "trade_report.json"
-COMPLETED_TRADES_JSON = ROOT.parent / "data" / "completed_trades.json"
 # 방식별 기록 (2026-09-19). monitor._refresh_strategy_perf 가 사이트 생성 직전에 만든다.
 STRATEGY_PERF_JSON = ROOT.parent / "data" / "strategy_perf.json"
 OUT_STRAT = OUT / "strategies"
@@ -464,16 +462,6 @@ def _collect_positions() -> list[dict]:
     } for p in positions]
 
 
-def _collect_completed_trades() -> dict:
-    """data/completed_trades.json 로드 (--completed-trades 산출물). 없으면 {}."""
-    if not COMPLETED_TRADES_JSON.exists():
-        return {}
-    try:
-        return json.loads(COMPLETED_TRADES_JSON.read_text(encoding="utf-8"))
-    except (json.JSONDecodeError, OSError):
-        return {}
-
-
 def _fmt_price(market: str, value: float) -> str:
     """시장별 통화 표기 — KRX는 ₩ 정수, 그 외는 $ 소수 2자리."""
     if market.upper() in ("KRX", "KOSPI", "KOSDAQ"):
@@ -628,13 +616,13 @@ def _stat_cards(entries, snaps, alerts, positions=None) -> str:
         f'<div class="stat-card__label">매수</div></a>'
         f'<a class="stat-card" href="positions/">'
         f'<div class="stat-card__num">{n_pos}</div>'
-        f'<div class="stat-card__label">오픈 포지션</div></a>'
-        f'<a class="stat-card" href="performance/">'
+        f'<div class="stat-card__label">가상 포지션</div></a>'
+        f'<a class="stat-card" href="strategies/">'
         f'<div class="stat-card__num">📈</div>'
-        f'<div class="stat-card__label">전략 성과</div></a>'
+        f'<div class="stat-card__label">방식별 기록</div></a>'
         f'<a class="stat-card" href="snapshots/">'
         f'<div class="stat-card__num">{n_snaps}</div>'
-        f'<div class="stat-card__label">스냅샷</div></a>'
+        f'<div class="stat-card__label">스냅샷 종목</div></a>'
         f'<a class="stat-card" href="alerts/">'
         f'<div class="stat-card__num">{n_alerts}</div>'
         f'<div class="stat-card__label">알림</div></a>'
@@ -653,10 +641,10 @@ def _dashboard(entries, snaps, alerts, names, positions=None) -> str:
         "",
         "## 바로 가기",
         "",
+        "- 📈 **방식별 기록** — [추천가·목표가·손절가와 추천대로 했다면](strategies/index.md)",
         f"- 📋 **관찰 종목** {len(entries)}개 — [목록 보기](watchlist/index.md)",
-        f"- 💹 **오픈 포지션** {len(positions or [])}개 — [수익률·R·시드 계산 보기](positions/index.md)",
-        "- 📈 **전략 성과** — [손익비·기대값·승률 보기](performance/index.md)",
-        f"- 📊 **분석 스냅샷** {len(snaps)}건 — [최신순 보기](snapshots/index.md)",
+        f"- 💹 **가상 포지션** {len(positions or [])}개 — [판정 기록 기준 수익률·시드 계산](positions/index.md)",
+        f"- 📊 **분석 스냅샷** {len(snaps)}종목 — [최신순 보기](snapshots/index.md)",
         f"- 🔔 **알림** {len(alerts)}건 — [타임라인 보기](alerts/index.md)" if alerts else "- 🔔 **알림** 없음",
         "- 📊 **시장 현황** — [VIX · Fear&Greed · 섹터 흐름](fear-index.md)",
         "",
@@ -811,7 +799,12 @@ _SEED_PANEL = """\
 def _positions_index(positions: list[dict], names: dict) -> str:
     """열린 매수 포지션의 진입가 대비 현재 수익률·R 표(진입 R-배수 내림차순)."""
     lines = [
-        "# 오픈 포지션",
+        "# 가상 포지션",
+        "",
+        '!!! info "알림 기준 성적은 방식별 기록에 있습니다"',
+        "    이 페이지는 과거 **판정 기록**에서 매수 전환을 다시 만든 가상 포지션입니다. 알림이 나가지 않은 전환도 "
+        "들어가서 건수가 [방식별 기록](../strategies/index.md)보다 많습니다. 실제로 알림이 나간 추천의 "
+        "추천가·목표가·손절가와 「추천대로 했다면」 금액은 방식별 기록에서 보세요.",
         "",
         "현재 **매수** 판정인 종목의 진입가 대비 현재 수익률·R-배수. "
         "진입가 = 비매수→매수로 전환된 **첫 스냅샷 가격**, 현재가 = **최신 스냅샷 가격**입니다.",
@@ -995,107 +988,6 @@ def _strategies_index(data: dict, names: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
-def _performance_index(data: dict) -> str:
-    """완결 트레이드 기준 verdict별 손익비·기대값·승률(CI) 성과 페이지."""
-    generated = data.get("generated", "")
-    summary = data.get("summary", {})
-    n_trades = len(data.get("trades", []))
-
-    lines = [
-        "# 전략 성과",
-        "",
-        "**완결된 트레이드**(손절·목표달성·시간청산)를 판정(매수 상태)별로 집계한 "
-        "승률·손익비·기대값입니다. 진입가·손절가는 분석 스냅샷 기준입니다. "
-        f"{MAX_HOLD_DAYS}일 만기까지 관측한 진입 표본에 손절·목표·시간청산 규칙을 적용합니다.",
-        "",
-        '!!! warning "표본이 작습니다 — 우열 단정 금지"',
-        "    이 수치는 워치리스트의 실현 트레이드 기반이라 표본이 작고 생존편향이 있습니다. "
-        "**승률 옆 신뢰구간(CI)이 넓으면 통계적으로 의미 없는 노이즈**입니다. "
-        "전략 우열의 더 정직한 추정은 유니버스 PIT 백테스트(shadow-backfill)이며, 이 표는 "
-        "실제 관찰 종목의 사후 성과 기록으로만 읽으세요.",
-        "",
-    ]
-
-    unverified = sum(t.get("date_basis") != "market_session" for t in data.get("trades", []))
-    if unverified:
-        lines += [f"날짜 미확인 {unverified}건이 포함되어 있습니다. "
-                  "시장 봉 날짜가 확인되지 않은 과거 기록은 월간 규칙 개선 판단에서 제외합니다.", ""]
-
-    if not summary:
-        lines += [
-            '!!! info "아직 완결된 트레이드가 없습니다"',
-            f"    아직 {MAX_HOLD_DAYS}일 만기까지 관측한 진입 표본의 완결 결과가 없습니다. "
-            "만기 이전에 손절·목표에 도달했더라도 관측 기간이 차면 이 표에 집계됩니다.",
-            "",
-            f"> 기준일: {generated or '—'}",
-            "",
-            DISCLAIMER,
-        ]
-        return "\n".join(lines) + "\n"
-
-    lines += [
-        "| 판정 | n | 승률 (95% CI) | 손익비 | 기대값 | 손절 | 목표 | 시간청산 | 독립진입일 |",
-        "|------|---|--------------|--------|--------|------|------|---------|-----------|",
-    ]
-    for verdict in sorted(summary, key=lambda v: _VERDICT_ORDER.get(v, 9)):
-        s = summary[verdict]
-        payoff = s.get("payoff_ratio")
-        payoff_str = f"{payoff:.2f}" if payoff is not None else "n/a"
-        ci_lo = s.get("win_rate_ci_low", 0.0) * 100
-        ci_hi = s.get("win_rate_ci_high", 0.0) * 100
-        lines.append(
-            f"| {_verdict_cell(verdict, '')} | {s['n']} "
-            f"| {s['win_rate']*100:.0f}% ({ci_lo:.0f}–{ci_hi:.0f}%) "
-            f"| {payoff_str} | {s['expectancy']:+.2f}R "
-            f"| {s['stop_rate']*100:.0f}% | {s['target_rate']*100:.0f}% "
-            f"| {s['time_exit_rate']*100:.0f}% | {s.get('distinct_entry_days','—')} |"
-        )
-    # ── 손절폭 계층 (2026-08-28) — "변동성과대 → 관찰 강등" 정책 상시 계측 ──
-    # 근거: 실전 +30일 진단에서 손절폭 ≥12% 코호트 23건 전원 손절(-1R). 이
-    # 종목들 대부분이 PIT 백테스트 유니버스에 없어, 기존 기대값(+0.229R)이
-    # 보증한 적 없는 모집단이다. 게이트 도입·임계는 스윕 검증 후 결정.
-    by_width = data.get("summary_by_width", {})
-    if by_width:
-        lines += [
-            "",
-            "## 손절폭별 성과",
-            "",
-            "손절폭 = (진입가−손절가)/진입가. 12% 이상 광폭 구간은 실전 관찰에서 "
-            "손절률이 가장 높았습니다. 이 표는 그 정책을 계속 계측하기 위한 것입니다.",
-            "",
-            "| 손절폭 | n | 승률 (95% CI) | 기대값 | 손절 | 목표 | 시간청산 |",
-            "|--------|---|--------------|--------|------|------|---------|",
-        ]
-        _band_order = ("≤8%", "8~12%", "≥12%")
-        for band in _band_order:
-            s = by_width.get(band)
-            if not s:
-                continue
-            ci_lo = s.get("win_rate_ci_low", 0.0) * 100
-            ci_hi = s.get("win_rate_ci_high", 0.0) * 100
-            lines.append(
-                f"| {band} | {s['n']} "
-                f"| {s['win_rate']*100:.0f}% ({ci_lo:.0f}–{ci_hi:.0f}%) "
-                f"| {s['expectancy']:+.2f}R | {s['stop_rate']*100:.0f}% "
-                f"| {s['target_rate']*100:.0f}% | {s['time_exit_rate']*100:.0f}% |"
-            )
-
-    lines += [
-        "",
-        f"> 완결 트레이드 {n_trades}건 · 기준일: {generated} · "
-        "`python monitor.py --completed-trades` 로 갱신",
-        "",
-        '??? info "📘 손익비·기대값이 뭔가요?"',
-        "    - **손익비** = 평균 이익(R) ÷ 평균 손실(R). 2.0이면 이길 때 질 때의 2배를 번다는 뜻.",
-        "    - **기대값** = 승률×평균이익 − 패률×평균손실. **한 번 매매당 기대 R**. 양수면 장기적으로 우위.",
-        "    - **독립진입일** = 서로 다른 날 진입한 건수. n보다 훨씬 작으면 같은 날 몰린 상관 표본이라 "
-        "실제 정보량은 적습니다.",
-        "",
-        DISCLAIMER,
-    ]
-    return "\n".join(lines) + "\n"
-
-
 _REGIME_KO = {
     "STRONG_UPTREND":   "강한 상승",
     "UPTREND":          "상승",
@@ -1190,7 +1082,7 @@ def _rank_table(title: str, ranking: list, entity_label: str,
     return rows
 
 
-def _sector_flow_section(data: "dict | None") -> list[str]:
+def _sector_flow_section(data: "dict | None", show_kr: bool = True) -> list[str]:
     """섹터 자금 흐름(RS 순위) 대시보드 섹션 마크다운 줄 생성.
 
     data: sector_strength.json 파싱 결과 또는 None.
@@ -1211,16 +1103,18 @@ def _sector_flow_section(data: "dict | None") -> list[str]:
     lines += [
         f"> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · "
         f"**거래대금 비중**: 섹터 쏠림 게이지. 수집: {updated} · `--scan` 시 갱신",
-        ">",
-        "> 한·미는 통화·데이터 소스가 달라 **별도 순위**입니다. 두 시장 점수를 직접 비교하지 마세요.",
+        *([">", "> 한·미는 통화·데이터 소스가 달라 **별도 순위**입니다. 두 시장 점수를 직접 비교하지 마세요."]
+          if show_kr else []),
         "",
         *_rank_table("미국 (S&P 500 섹터 ETF)", data.get("us") or [], "섹터", show_vol_share=True),
-        *_rank_table("한국 (KODEX/TIGER 섹터 ETF)", data.get("kr") or [], "섹터", show_vol_share=True),
+        # 한국은 관찰 종목이 있을 때만 (2026-09-22: 09-05 한국 관찰 제외 뒤 쓰지 않는 칸)
+        *(_rank_table("한국 (KODEX/TIGER 섹터 ETF)", data.get("kr") or [], "섹터", show_vol_share=True)
+          if show_kr else []),
     ]
     return lines
 
 
-def _theme_flow_section(data: "dict | None") -> list[str]:
+def _theme_flow_section(data: "dict | None", show_kr: bool = True) -> list[str]:
     """테마 바스켓 자금 흐름 섹션 마크다운 줄 생성."""
     lines = ["## 테마별 자금 흐름 (로테이션)", ""]
     if not data or (not data.get("theme_us") and not data.get("theme_kr")):
@@ -1237,24 +1131,22 @@ def _theme_flow_section(data: "dict | None") -> list[str]:
         f"RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: {updated}",
         ">",
         "> **US**: SMH(GPU/반도체)·IRBO(AI인프라)·BOTZ(피지컬AI) ETF + 전력/DataCenter 바스켓",
-        "> **KR**: 전력(4종)·기판(5종)·피지컬AI(3종) 균등가중 바스켓",
+        *(["> **KR**: 전력(4종)·기판(5종)·피지컬AI(3종) 균등가중 바스켓"] if show_kr else []),
         "",
         *_rank_table("미국 테마", data.get("theme_us") or [], "테마", show_vol_share=False),
-        *_rank_table("한국 테마", data.get("theme_kr") or [], "테마", show_vol_share=False),
+        *(_rank_table("한국 테마", data.get("theme_kr") or [], "테마", show_vol_share=False)
+          if show_kr else []),
     ]
     return lines
 
 
 def _trade_report_section(data: "dict | None") -> list[str]:
     """수출입 동향 보도자료 → 대시보드 섹션 마크다운."""
-    lines = ["## 수출입 동향 (산업통상자원부)", ""]
+    # 데이터가 없으면 칸 자체를 싣지 않는다 (2026-09-22 사용자 결정: 빈 칸 정리).
+    # 보도자료를 넣으려면 `python monitor.py --trade-report <파일경로>`.
     if not data:
-        lines += [
-            '!!! info "수출입 동향 데이터 없음"',
-            "    보도자료 PDF를 업로드 후 `python monitor.py --trade-report <파일경로>` 를 실행하면 자동 갱신됩니다.",
-            "",
-        ]
-        return lines
+        return []
+    lines = ["## 수출입 동향 (산업통상자원부)", ""]
 
     period   = data.get("period", "?")
     updated  = data.get("updated_at", "")
@@ -1327,7 +1219,7 @@ def _load_sector_flow() -> "dict | None":
         return None
 
 
-def _fear_index_page(latest=None, names=None) -> str:
+def _fear_index_page(latest=None, names=None, show_kr: bool = True) -> str:
     """data/fear_index.json → fear-index.md 마크다운."""
     sector = _load_sector_flow()
     trade  = _load_trade_report()
@@ -1359,9 +1251,9 @@ def _fear_index_page(latest=None, names=None) -> str:
             + "\n".join(_recent_analysis_section()) + "\n"
             + _TV_HEATMAP
             + "\n"
-            + "\n".join(_sector_flow_section(sector))
+            + "\n".join(_sector_flow_section(sector, show_kr))
             + "\n"
-            + "\n".join(_theme_flow_section(sector))
+            + "\n".join(_theme_flow_section(sector, show_kr))
             + "\n"
             + "\n".join(_trade_report_section(trade))
             + "\n"
@@ -1434,8 +1326,8 @@ def _fear_index_page(latest=None, names=None) -> str:
         *_recent_analysis_section(),
         _TV_HEATMAP,
         "",
-        *_sector_flow_section(sector),
-        *_theme_flow_section(sector),
+        *_sector_flow_section(sector, show_kr),
+        *_theme_flow_section(sector, show_kr),
         *_trade_report_section(trade),
         DISCLAIMER,
         "",
@@ -1480,7 +1372,6 @@ def main():
     latest  = _latest_per_ticker(snaps)     # 인덱스·대시보드용: 종목당 최신 1건
     alerts  = _scan_alerts()
     positions = _collect_positions()        # 현재 열린 매수 포지션
-    perf    = _collect_completed_trades()   # 완결 트레이드 손익비 성과
     names   = {ticker: name for ticker, _market, name, _fname in entries}
     # 워치리스트에서 뺀 종목의 옛 스냅샷은 목록·대시보드에서 제외한다 (2026-08-23).
     # 파일은 그대로 복사되므로 히스토리 URL과 백테스트 원자료는 보존된다.
@@ -1490,9 +1381,10 @@ def main():
     latest  = [s for s in latest if s["ticker"] in names]
 
     OUT_POS.mkdir(parents=True, exist_ok=True)
-    OUT_PERF.mkdir(parents=True, exist_ok=True)
     (OUT / "index.md").write_text(_dashboard(entries, latest, alerts, names, positions), encoding="utf-8")
-    (OUT / "fear-index.md").write_text(_fear_index_page(latest, names), encoding="utf-8")
+    kr_watched = any(m in ("KRX", "KOSDAQ") for _t, m, _n, _f in entries)
+    (OUT / "fear-index.md").write_text(_fear_index_page(latest, names, show_kr=kr_watched),
+                                       encoding="utf-8")
     latest_map = {s["ticker"]: s for s in latest}
     (OUT_WL / "index.md").write_text(_watchlist_index(entries, latest_map), encoding="utf-8")
     # _collect_watchlist가 OUT_WL을 통째로 교체하므로 반드시 그 뒤에 쓴다
@@ -1500,15 +1392,13 @@ def main():
     (OUT_SNAP / "index.md").write_text(_snapshots_index(latest, names), encoding="utf-8")
     (OUT_ALERT / "index.md").write_text(_alerts_index(alerts, names), encoding="utf-8")
     (OUT_POS / "index.md").write_text(_positions_index(positions, names), encoding="utf-8")
-    (OUT_PERF / "index.md").write_text(_performance_index(perf), encoding="utf-8")
     OUT_STRAT.mkdir(parents=True, exist_ok=True)
     (OUT_STRAT / "index.md").write_text(
         _strategies_index(_collect_strategy_perf(), names), encoding="utf-8")
 
     print(f"생성 완료: 관찰 {len(entries)}개 · 스냅샷 {len(latest)}종목({len(snaps)}건, "
           f"목록 제외 {len(retired)}종목) "
-          f"· 알림 {len(alerts)}건 · 오픈 포지션 {len(positions)}개 "
-          f"· 완결 트레이드 {len(perf.get('trades', []))}건"
+          f"· 알림 {len(alerts)}건 · 가상 포지션 {len(positions)}개 "
           f" · 차트 {charted}/{len(entries)}종목")
 
 
