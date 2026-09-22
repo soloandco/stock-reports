@@ -82,7 +82,7 @@
 
 ## CNN Fear & Greed Index
 
-> 수집: 2026-09-22 15:52 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
+> 수집: 2026-09-22 17:05 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
 
 | 점수 | 전일比 | 등급 |
 |------|--------|------|
@@ -102,7 +102,7 @@
 
 ## VIX
 
-> 수집: 2026-09-22 15:52 UTC · `python monitor.py --scan` 실행 시 갱신
+> 수집: 2026-09-22 17:05 UTC · `python monitor.py --scan` 실행 시 갱신
 
 | 지수 | 현재값 | 전일比 | 등급 | 시장 국면 | 신규 진입 |
 |------|--------|--------|------|---------|---------|

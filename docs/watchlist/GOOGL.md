@@ -33,21 +33,21 @@ related:
 
 유명 투자자 83곳 중 **24곳 보유** · 이번 분기 신규 **0곳** · 집중 투자 기관 115곳 보유(신규 6곳)
 
-| 투자자 | 비중 | 구분 |
-|--------|-----:|------|
-| Li Lu - Himalaya Capital | 24.6% | 보유 |
-| Lindsell Train | 17.5% | 보유 |
-| Ruane Cunniff | 11.1% | 보유 |
-| Josh Tarasoff - Greenlea Lane | 9.8% | 보유 |
-| Warren Buffett - Berkshire Hathaway | 9.4% | 보유 |
-| David Rolfe - Wedgewood Partners | 9.4% | 보유 |
-| William Von Mueffling - Cantillon | 9.2% | 보유 |
-| David Abrams - Abrams Capital | 8.9% | 보유 |
-| Chase Coleman - Tiger Global | 8.6% | 보유 |
-| Daniel Loeb - Third Point | 7.9% | 보유 |
-| 외 14곳 | | |
+| 투자자 | 비중 | 구분 | 추정 평단 |
+|--------|-----:|------|-----------|
+| Li Lu - Himalaya Capital | 24.6% | 보유 | $112<br>$97.61~$129 |
+| Lindsell Train | 17.5% | 보유 | $168<br>$143~$188 |
+| Ruane Cunniff | 11.1% | 보유 | $50.96<br>$45.66~$54.84 |
+| Josh Tarasoff - Greenlea Lane | 9.8% | 보유 | $113<br>$98.62~$127 |
+| Warren Buffett - Berkshire Hathaway | 9.4% | 보유 | $305<br>$255~$347 |
+| David Rolfe - Wedgewood Partners | 9.4% | 보유 | $77.62<br>$68.33~$86.63 |
+| William Von Mueffling - Cantillon | 9.2% | 보유 | $60.71<br>$52.91~$66.81 |
+| David Abrams - Abrams Capital | 8.9% | 보유 | $69.25<br>$61.29~$77.54 |
+| Chase Coleman - Tiger Global | 8.6% | 보유 | $134<br>$120~$148 |
+| Daniel Loeb - Third Point | 7.9% | 보유 | $352<br>$287~$399 |
+| 외 14곳 | | | |
 
-<p class="stock-chart-note">2026-06-30 기준 보유를 SEC 13F 공시로 셉니다(공시 반영 2026-09-23). 분기 말 뒤 최대 45일 늦게 공개되고 매입 단가는 없습니다. 비중 1% 미만 보유는 세지 않습니다. 유명 투자자 명단은 Dataroma, 집중 투자 기관은 보유 5~50종목·총액 5억 달러 이상인 기관입니다. 검증(2026-09-23, 11년 1만 건)에서 보유 기관 수는 매수 신호 성적과 무관했고, 여러 기관이 새로 산 종목은 좋은 쪽이었지만 기준에 못 미쳤습니다. 참고 정보이며 매수 신호가 아닙니다.</p>
+<p class="stock-chart-note">2026-06-30 기준 보유를 SEC 13F 공시로 셉니다(공시 반영 2026-09-23). 분기 말 뒤 최대 45일 늦게 공개되고 매입 단가는 없습니다. 비중 1% 미만 보유는 세지 않습니다. 추정 평단은 주식이 늘어난 분기마다 그 분기 거래량 가중 평균가에 샀다고 보고 쌓은 값이고, 둘째 줄은 그 분기 최저가~최고가로 잡은 범위입니다. 괄호는 현재가 대비입니다. 2013년 이전부터 들고 있던 종목은 매입가를 알 수 없어 「모름」입니다. 유명 투자자 명단은 Dataroma, 집중 투자 기관은 보유 5~50종목·총액 5억 달러 이상인 기관입니다. 검증(2026-09-23, 11년 1만 건)에서 보유 기관 수는 매수 신호 성적과 무관했고, 여러 기관이 새로 산 종목은 좋은 쪽이었지만 기준에 못 미쳤습니다. 참고 정보이며 매수 신호가 아닙니다.</p>
 
 ## 현황 요약
 
