@@ -40,6 +40,9 @@ TRADE_REPORT_JSON = ROOT.parent / "data" / "trade_report.json"
 # 방식별 기록 (2026-09-19). monitor._refresh_strategy_perf 가 사이트 생성 직전에 만든다.
 STRATEGY_PERF_JSON = ROOT.parent / "data" / "strategy_perf.json"
 OUT_STRAT = OUT / "strategies"
+# 거물 투자자 13F (2026-09-22). research_13f_build.py / monitor 가 만든다 (core.thirteenf.site_payload).
+SUPERINV_JSON = ROOT.parent / "data" / "superinvestors.json"
+SUPERINV_ROWS = 10
 
 # 매수 추천 유효기간(거래일). 이 값을 넘긴 신호는 '만료'로 표시된다.
 # 2026-09-04부터 매수 두 등급 모두에 적용된다 (옛 구현은 매수후보에만 걸었다).
@@ -270,12 +273,50 @@ def _write_chart_data(entries) -> int:
     return ok
 
 
-def _insert_chart_block(text: str, ticker: str) -> str:
+def _load_superinvestors() -> dict:
+    """data/superinvestors.json 로드. 없거나 깨졌으면 {} (절을 그리지 않는다)."""
+    try:
+        return json.loads(SUPERINV_JSON.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def _superinvestor_block(ticker: str, data: dict) -> str:
+    """관찰 페이지 「거물 투자자(13F)」 절. 자료에 없는 종목은 빈 문자열.
+
+    참고 표시다. 판정·알림에 쓰지 않는다. 성적과의 관계는 사전등록 id 40 에서 잰다.
+    """
+    t = (data.get("tickers") or {}).get(ticker)
+    if t is None:
+        return ""
+    period = data.get("period") or "?"
+    rows = t.get("famous") or []
+    lines = ["", "## 거물 투자자 (13F)", ""]
+    head = (f"유명 투자자 83곳 중 **{t.get('famous_holders', 0)}곳 보유**"
+            f" · 이번 분기 신규 **{t.get('famous_new', 0)}곳**"
+            f" · 집중 투자 기관 {t.get('conc_holders', 0)}곳 보유(신규 {t.get('conc_new', 0)}곳)")
+    lines.append(head)
+    if rows:
+        lines += ["", "| 투자자 | 비중 | 구분 |", "|--------|-----:|------|"]
+        for r in rows[:SUPERINV_ROWS]:
+            lines.append(f"| {r['name']} | {r['weight'] * 100:.1f}% | {'신규' if r.get('new') else '보유'} |")
+        if len(rows) > SUPERINV_ROWS:
+            lines.append(f"| 외 {len(rows) - SUPERINV_ROWS}곳 | | |")
+    lines += ["", f'<p class="stock-chart-note">{period} 기준 보유를 SEC 13F 공시로 셉니다(공시 반영 '
+              f'{data.get("as_of", "?")}). 분기 말 뒤 최대 45일 늦게 공개되고 매입 단가는 없습니다. '
+              "비중 1% 미만 보유는 세지 않습니다. 유명 투자자 명단은 Dataroma, 집중 투자 기관은 "
+              "보유 5~50종목·총액 5억 달러 이상인 기관입니다. 검증(2026-09-23, 11년 1만 건)에서 보유 기관 수는 "
+              "매수 신호 성적과 무관했고, 여러 기관이 새로 산 종목은 좋은 쪽이었지만 기준에 못 미쳤습니다. "
+              "참고 정보이며 매수 신호가 아닙니다.</p>", ""]
+    return "\n".join(lines)
+
+
+def _insert_chart_block(text: str, ticker: str, extra: str = "") -> str:
     """본문 첫 H2 앞에 차트 절을 끼운다 — 종목을 열면 그림이 먼저 보이게.
 
-    H2가 없으면(형식이 다른 파일) 끝에 붙인다.
+    H2가 없으면(형식이 다른 파일) 끝에 붙인다. extra 는 차트 바로 뒤에 붙는 절이다.
     """
-    block = _CHART_BLOCK.format(ticker=ticker)
+    block = _CHART_BLOCK.format(ticker=ticker) + extra
     marker = "\n## "
     idx = text.find(marker)
     if idx == -1:
@@ -295,6 +336,7 @@ def _collect_watchlist() -> list[tuple[str, str, str, str]]:
     tmp = OUT_WL.parent / f"{OUT_WL.name}_tmp"
     _reset_dir(tmp)
     entries = []
+    superinv = _load_superinvestors()
     for md in sorted(SRC_WL.glob("*.md")):
         text = md.read_text(encoding="utf-8")
         fm = _frontmatter(text)
@@ -304,7 +346,8 @@ def _collect_watchlist() -> list[tuple[str, str, str, str]]:
         out_name = f"{ticker}.md"   # ASCII-only: 한글 파일명 → 티커만
         # 실계좌 필드·private 블록 제거 후 복사 — 원본(비공개)은 그대로 유지
         (tmp / out_name).write_text(
-            _insert_chart_block(_sanitize_public_md(text), ticker), encoding="utf-8")
+            _insert_chart_block(_sanitize_public_md(text), ticker,
+                                _superinvestor_block(ticker, superinv)), encoding="utf-8")
         entries.append((ticker, fm.get("market", ""),
                         _company_name(fm.get("title", "")), out_name))
     # 모든 파일 복사 완료 후 원자적 교체
