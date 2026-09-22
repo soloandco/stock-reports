@@ -37,3 +37,37 @@ def test_long_list_is_cut():
                                          for i in range(13)], "famous_holders": 13}}}
     b = gen._superinvestor_block("A", many)
     assert "| M9 |" in b and "| M10 |" not in b and "외 3곳" in b
+
+
+HOME = {"period": "2026-06-30", "top_new": [
+    {"ticker": "SPGI", "name": "S&P Global Inc.", "holders": 6,
+     "buyers": [{"name": "Bill Ackman - Pershing Square", "weight": 0.054},
+                {"name": "Triple Frond Partners", "weight": 0.042}]},
+    {"ticker": "WBD", "name": "", "holders": 2,
+     "buyers": [{"name": "Daniel Loeb - Third Point", "weight": 0.115},
+                {"name": "David Einhorn - Greenlight Capital", "weight": 0.015}]}]}
+
+
+def test_home_table_links_watched_tickers_only():
+    h = gen._superinvestor_home(HOME, {"SPGI": "S&P 글로벌"})
+    assert "## 거물 신규 매수 (13F)" in h and "2026-06-30 기준" in h and "종목** 2개" in h
+    assert "| [**SPGI**](watchlist/SPGI.md)<br>S&P 글로벌 | Bill Ackman 5.4% · Triple Frond Partners 4.2% | 2 |" in h
+    assert "| **WBD**<br> | Daniel Loeb 11.5% · David Einhorn 1.5% | 2 |" in h
+    assert "매수 신호가 아닙니다" in h
+
+
+def test_home_table_absent_without_data_and_empty_quarter():
+    assert gen._superinvestor_home({}, {}) == ""
+    assert "이번 분기에는 없습니다" in gen._superinvestor_home({"top_new": []}, {})
+
+
+def test_home_table_is_on_dashboard(monkeypatch):
+    monkeypatch.setattr(gen, "_load_superinvestors", lambda: HOME)
+    md = gen._dashboard([], [], [], {}, [])
+    assert "## 거물 신규 매수 (13F)" in md
+
+
+def test_sec_title_cleanup():
+    assert gen._sec_title("APPLIED MATERIALS INC /DE") == "Applied Materials Inc"
+    assert gen._sec_title("VISA INC.") == "Visa Inc."
+    assert gen._sec_title("Meta Platforms, Inc.") == "Meta Platforms, Inc."

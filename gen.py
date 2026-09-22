@@ -311,6 +311,43 @@ def _superinvestor_block(ticker: str, data: dict) -> str:
     return "\n".join(lines)
 
 
+HOME_NEW_ROWS = 10
+
+
+def _sec_title(name: str) -> str:
+    """SEC 회사명 정리: 주 표기 꼬리표(/DE)를 떼고 전부 대문자면 첫 글자만 대문자로."""
+    name = re.sub(r"\s*/[A-Z]{2,3}/?\s*$", "", name).strip()
+    return name.title() if name.isupper() else name
+
+
+def _superinvestor_home(data: dict, names: dict) -> str:
+    """홈 「거물 신규 매수」 표. 유명 투자자 2명 이상이 이번 분기에 새로 산 종목 (2026-09-23).
+
+    names: 관찰 종목 {티커: 기업명}. 관찰 중이면 종목 페이지로 잇는다. 자료가 없으면 빈 문자열.
+    """
+    rows = data.get("top_new")
+    if rows is None:
+        return ""
+    lines = ["## 거물 신규 매수 (13F)", "",
+             f"유명 투자자 83곳 중 **2명 이상이 이번 분기에 새로 산 종목** {len(rows)}개. "
+             f"{data.get('period') or '?'} 기준 보유이고 분기 말 뒤 최대 45일 늦게 공개됩니다.", ""]
+    if not rows:
+        return "\n".join(lines + ["이번 분기에는 없습니다.", ""])
+    lines += ["| 종목 | 새로 산 투자자 | 인원 |", "|------|----------------|-----:|"]
+    for r in rows[:HOME_NEW_ROWS]:
+        t = r["ticker"]
+        label = f"[**{t}**](watchlist/{t}.md)" if t in names else f"**{t}**"
+        nm = names.get(t) or _sec_title(r.get("name") or "")
+        who = " · ".join(f"{b['name'].split(' - ')[0]} {b['weight'] * 100:.1f}%" for b in r["buyers"])
+        lines.append(f"| {label}<br>{nm} | {who} | {len(r['buyers'])} |")
+    if len(rows) > HOME_NEW_ROWS:
+        lines.append(f"| 외 {len(rows) - HOME_NEW_ROWS}종목 | | |")
+    lines += ["", '<p class="stock-chart-note">비율은 그 투자자 포트폴리오에서 차지하는 비중입니다. '
+              "검증(2026-09-23, 11년 1만 건)에서 여러 기관이 새로 산 종목의 매수 신호는 성적이 좋은 쪽이었지만 "
+              "기준에 못 미쳤습니다. 참고 정보이며 매수 신호가 아닙니다.</p>", ""]
+    return "\n".join(lines)
+
+
 def _insert_chart_block(text: str, ticker: str, extra: str = "") -> str:
     """본문 첫 H2 앞에 차트 절을 끼운다 — 종목을 열면 그림이 먼저 보이게.
 
@@ -680,6 +717,7 @@ def _dashboard(entries, snaps, alerts, names, positions=None) -> str:
         "Weinstein 스테이지 · Minervini Trend Template · Turtle ATR 3레이어 프레임워크 기반 종목 분석.",
         "",
         _conclusion_section(snaps, names, positions),
+        _superinvestor_home(_load_superinvestors(), names),
         _stat_cards(entries, snaps, alerts, positions),
         "",
         "## 바로 가기",
