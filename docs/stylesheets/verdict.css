@@ -549,6 +549,12 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   opacity: 0.72;
   margin-top: 0.1rem;
 }
+/* 긴 안내문은 한 줄만 보이고 나머지는 눌러서 편다 (2026-09-23) */
+.md-typeset details.stock-chart-note { margin: 0.1rem 0 0.8rem; }
+.md-typeset details.stock-chart-note > summary { cursor: pointer; }
+.md-typeset details.stock-chart-note > p { margin: 0.4rem 0 0; }
+/* 관찰 목록: 기업명을 종목 칸 둘째 줄로 (2026-09-23) */
+.md-typeset .wl-name { font-size: 0.62rem; color: var(--md-default-fg-color--light); }
 
 /* Lightweight Charts 내부 표는 JS가 클래스(lwc-internal)를 붙여 Material의
    본문 표 스타일(.md-typeset table:not([class]))에서 빠져나간다 — stock-chart.js 참고.

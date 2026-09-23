@@ -26,10 +26,20 @@ def test_unknown_ticker_or_missing_file_gives_nothing():
     assert gen._superinvestor_block("MSFT", {}) == ""
 
 
-def test_block_goes_right_after_chart():
-    text = "# T\n\n## 분석\n본문\n"
-    out = gen._insert_chart_block(text, "MSFT", gen._superinvestor_block("MSFT", DATA))
-    assert out.index("## 차트") < out.index("## 거물 투자자") < out.index("## 분석")
+def test_block_goes_right_after_chart(tmp_path, monkeypatch):
+    import json
+    src, out = tmp_path / "src", tmp_path / "out"
+    src.mkdir()
+    monkeypatch.setattr(gen, "SRC_WL", src)
+    monkeypatch.setattr(gen, "OUT_WL", out)
+    (tmp_path / "si.json").write_text(json.dumps(DATA), encoding="utf-8")
+    monkeypatch.setattr(gen, "SUPERINV_JSON", tmp_path / "si.json")
+    (src / "MSFT.md").write_text("---\ntype: watchlist\nticker: MSFT\n---\n# T\n\n## 분석\n본문\n",
+                                 encoding="utf-8")
+    gen._collect_watchlist()
+    page = (out / "MSFT.md").read_text(encoding="utf-8")
+    # 손 메모(## 분석)는 접힌 상자 안으로 들어가도 차트·13F 뒤에 온다
+    assert page.index("## 차트") < page.index("## 거물 투자자") < page.index("## 분석")
 
 
 def test_long_list_is_cut():

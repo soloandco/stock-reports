@@ -231,7 +231,9 @@ _CHART_BLOCK = """
 
 <div class="stock-chart" data-src="../charts/{ticker}.json"></div>
 
-<p class="stock-chart-note">추세선·매물벽(저항)·지지대·주봉 저항을 함께 표시합니다. 매물벽·지지대는 위치 참고용이며, 검증(2026-09-07)에서 받치고 막는 비율이 무작위 선과 같았습니다. 아래 칸은 일봉 종가 위치로 추정한 수급 누적선입니다(매수 신호 아님). 맨 아래 칸은 물린 비율(최근 1년 거래량 중 현재가보다 비싸게 거래된 비중)입니다. 측정(2026-09-14, 11년 620종목)에서 이 비율은 「1년 가격 범위의 어디에 있나」와 구분되지 않았고, 앞으로의 수익을 가르지 못했습니다(층화 차이 −0.02R·CI 0 포함). 심리 지도라기보다 위치 표시로 읽으세요. 손가락으로 확대·이동할 수 있습니다.</p>
+<details class="stock-chart-note"><summary>매물벽·지지대는 검증에서 무작위 선과 같았습니다. 아래 두 칸도 매수 신호 아님 · 자세히</summary>
+<p>추세선·매물벽(저항)·지지대·주봉 저항을 함께 표시합니다. 매물벽·지지대는 위치 참고용이며, 검증(2026-09-07)에서 받치고 막는 비율이 무작위 선과 같았습니다. 아래 칸은 일봉 종가 위치로 추정한 수급 누적선입니다(매수 신호 아님). 맨 아래 칸은 물린 비율(최근 1년 거래량 중 현재가보다 비싸게 거래된 비중)입니다. 측정(2026-09-14, 11년 620종목)에서 이 비율은 「1년 가격 범위의 어디에 있나」와 구분되지 않았고, 앞으로의 수익을 가르지 못했습니다(층화 차이 −0.02R·CI 0 포함). 심리 지도라기보다 위치 표시로 읽으세요. 손가락으로 확대·이동할 수 있습니다.</p>
+</details>
 """
 
 
@@ -319,7 +321,9 @@ def _superinvestor_block(ticker: str, data: dict) -> str:
                          f"| {_cost_cell(r.get('cost'), t.get('price'))} |")
         if len(rows) > SUPERINV_ROWS:
             lines.append(f"| 외 {len(rows) - SUPERINV_ROWS}곳 | | | |")
-    lines += ["", f'<p class="stock-chart-note">{period} 기준 보유를 SEC 13F 공시로 셉니다(공시 반영 '
+    lines += ["", f'<details class="stock-chart-note"><summary>{period} 기준 공시(최대 45일 늦음). '
+              "참고 정보이며 매수 신호가 아닙니다 · 자세히</summary>",
+              f'<p>{period} 기준 보유를 SEC 13F 공시로 셉니다(공시 반영 '
               f'{data.get("as_of", "?")}). 분기 말 뒤 최대 45일 늦게 공개되고 매입 단가는 없습니다. '
               "비중 1% 미만 보유는 세지 않습니다. 추정 평단은 주식이 늘어난 분기마다 그 분기 거래량 가중 "
               "평균가에 샀다고 보고 쌓은 값이고, 둘째 줄은 그 분기 최저가~최고가로 잡은 범위입니다. "
@@ -330,7 +334,7 @@ def _superinvestor_block(ticker: str, data: dict) -> str:
               "유명 투자자 명단은 Dataroma, 집중 투자 기관은 "
               "보유 5~50종목·총액 5억 달러 이상인 기관입니다. 검증(2026-09-23, 11년 1만 건)에서 보유 기관 수는 "
               "매수 신호 성적과 무관했고, 여러 기관이 새로 산 종목은 좋은 쪽이었지만 기준에 못 미쳤습니다. "
-              "참고 정보이며 매수 신호가 아닙니다.</p>", ""]
+              "참고 정보이며 매수 신호가 아닙니다.</p></details>", ""]
     return "\n".join(lines)
 
 
@@ -371,20 +375,61 @@ def _superinvestor_home(data: dict, names: dict) -> str:
     return "\n".join(lines)
 
 
-def _insert_chart_block(text: str, ticker: str, extra: str = "") -> str:
-    """본문 첫 H2 앞에 차트 절을 끼운다 — 종목을 열면 그림이 먼저 보이게.
-
-    H2가 없으면(형식이 다른 파일) 끝에 붙인다. extra 는 차트 바로 뒤에 붙는 절이다.
-    """
-    block = _CHART_BLOCK.format(ticker=ticker) + extra
-    marker = "\n## "
-    idx = text.find(marker)
+def _split_at_first_h2(text: str) -> tuple[str, str]:
+    """(머리, 첫 H2부터 끝). H2가 없으면 (전체, "")."""
+    idx = text.find("\n## ")
     if idx == -1:
-        return text.rstrip() + "\n" + block
-    return text[:idx] + "\n" + block + text[idx:]
+        return text.rstrip() + "\n", ""
+    return text[:idx], text[idx:]
 
 
-def _collect_watchlist() -> list[tuple[str, str, str, str]]:
+# ── 관찰 페이지 모바일 정리 (2026-09-23) ──────────────────────────────────
+# 워치리스트 본문은 등록 때 손으로 쓴 메모라 날짜가 지나면 지금 판정과 어긋난다
+# (GOOGL 은 5월 메모 「TT 8/8 매수 후보 1순위」가 맨 위에 보였다). 원본은 그대로 두고
+# 공개 사본에서만 접는다. 「카톡 알림」 절은 없앤 기능의 설명이라 뺀다.
+_KAKAO_SECTION_RE = re.compile(r"\n## [^\n]*카톡[^\n]*\n.*?(?=\n## |\Z)", re.DOTALL)
+
+
+def _fold_old_memo(rest: str, written: str) -> str:
+    """첫 H2부터의 손 메모를 「지난 분석 메모」 접힘 상자로 감싼다. 빈 메모면 ""."""
+    body = _KAKAO_SECTION_RE.sub("", rest).strip("\n")
+    if not body.strip():
+        return ""
+    when = f"작성 {written} · " if written else ""
+    indented = "\n".join(("    " + ln) if ln.strip() else "" for ln in body.splitlines())
+    return f'\n\n??? note "지난 분석 메모 ({when}지금 판정과 다를 수 있음)"\n\n{indented}\n'
+
+
+def _status_section(snap: "dict | None", name: str) -> str:
+    """관찰 페이지 맨 위 「지금 상태」. 최신 스냅샷이 없으면 ""."""
+    if not snap:
+        return ""
+    stem = snap["fname"][:-3] if snap["fname"].endswith(".md") else snap["fname"]
+    base = "../../"      # 관찰 페이지는 /watchlist/{티커}/ 에 열린다
+    if snap["verdict"] in _BUY_STATES:
+        card = _pick_card(snap, name, "", base=base)
+    else:
+        kind = _VERDICT_KIND.get(snap["verdict"], "nobuy")
+        reason = f' <span class="verdict-reason">({snap["reason"]})</span>' if snap.get("reason") else ""
+        price = _fmt_price_str(snap.get("price", ""), snap.get("market", ""))
+        name_html = f'<span class="pick-card__name">{name}</span>' if name else ""
+        card = (
+            f'<a class="pick-card pick-card--{kind}" href="{base}snapshots/{stem}/">'
+            f'<div class="pick-card__head"><span class="pick-card__ticker">{snap["ticker"]}</span>'
+            f'{name_html}<span class="verdict verdict-{kind}">{_display_verdict(snap["verdict"])}</span></div>'
+            f'<p class="pick-card__lead">{_display_verdict(snap["verdict"])}{reason}'
+            f'{" · 현재가 " + price if price else ""}</p>'
+            f'<div class="pick-card__badges">'
+            f'<span class="pick-badge">추세 <b>Stage {snap.get("stage", "?")}</b></span>'
+            f'<span class="pick-badge">구조 <b>TT {snap.get("tt", "?")}/{snap.get("ttmax", 8)}</b></span>'
+            f'</div>'
+            f'<div class="pick-card__foot">스냅샷 보기 ›</div></a>')
+    basis = f" 기준일 {snap['created']}." if snap.get("created") else ""
+    return (f"\n## 지금 상태\n\n<p class=\"pick-lead\">최신 분석 스냅샷 기준입니다.{basis}</p>\n\n"
+            f'<div class="pick-grid">{card}</div>\n')
+
+
+def _collect_watchlist(latest_by_ticker: "dict | None" = None) -> list[tuple[str, str, str, str]]:
     """type=watchlist 만 복사하고 (ticker, market, name, fname) 리스트 반환.
 
     출력 파일명은 {ticker}.md (ASCII only) — 한글 파일명은 GitHub Pages에서
@@ -404,12 +449,16 @@ def _collect_watchlist() -> list[tuple[str, str, str, str]]:
             continue
         ticker = fm.get("ticker", md.stem)
         out_name = f"{ticker}.md"   # ASCII-only: 한글 파일명 → 티커만
+        name = _company_name(fm.get("title", ""))
         # 실계좌 필드·private 블록 제거 후 복사 — 원본(비공개)은 그대로 유지
-        (tmp / out_name).write_text(
-            _insert_chart_block(_sanitize_public_md(text), ticker,
-                                _superinvestor_block(ticker, superinv)), encoding="utf-8")
-        entries.append((ticker, fm.get("market", ""),
-                        _company_name(fm.get("title", "")), out_name))
+        # 순서: 머리말 → 지금 상태 → 차트 → 13F → 지난 분석 메모(접힘) (2026-09-23)
+        head, rest = _split_at_first_h2(_sanitize_public_md(text))
+        page = (head + _status_section((latest_by_ticker or {}).get(ticker), name)
+                + "\n" + _CHART_BLOCK.format(ticker=ticker)
+                + _superinvestor_block(ticker, superinv)
+                + _fold_old_memo(rest, str(fm.get("updated") or fm.get("created") or "")))
+        (tmp / out_name).write_text(page, encoding="utf-8")
+        entries.append((ticker, fm.get("market", ""), name, out_name))
     # 모든 파일 복사 완료 후 원자적 교체
     if OUT_WL.exists():
         shutil.rmtree(OUT_WL)
@@ -646,7 +695,7 @@ def _pick_priority(snap: dict) -> tuple:
             _PICK_WEEKLY_RANK.get(snap.get("weekly_pos") or "", 2), -rr, snap["ticker"])
 
 
-def _pick_card(snap: dict, name: str, entry_date: str) -> str:
+def _pick_card(snap: dict, name: str, entry_date: str, base: str = "") -> str:
     kind = _VERDICT_KIND.get(snap["verdict"], "watch")
     expired = _is_expired(snap)
     pos = snap.get("weekly_pos") or ""
@@ -665,7 +714,7 @@ def _pick_card(snap: dict, name: str, entry_date: str) -> str:
     stem = snap["fname"][:-3] if snap["fname"].endswith(".md") else snap["fname"]
     name_html = f'<span class="pick-card__name">{name}</span>' if name else ""
     return (
-        f'<a class="{cls}" href="snapshots/{stem}/">'
+        f'<a class="{cls}" href="{base}snapshots/{stem}/">'
         f'<div class="pick-card__head"><span class="pick-card__ticker">{snap["ticker"]}</span>'
         f'{name_html}<span class="verdict verdict-{kind}">{_display_verdict(snap["verdict"])}</span></div>'
         f'<p class="pick-card__lead">{_headline(snap)}</p>'
@@ -814,8 +863,10 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
     lines = [
         "# 관찰 종목",
         "",
-        "모니터링 대상 종목. 30분 폴링으로 상태 변화 시 [알림](../alerts/index.md)이 발송됩니다. "
-        "판정·Stage·TT·현재가는 각 종목의 **최신 분석 스냅샷** 기준입니다. "
+        "판정·현재가는 각 종목의 **최신 분석 스냅샷** 기준입니다. 표는 옆으로 밀면 더 보입니다.",
+        "",
+        '??? info "경과·만료 표시 설명"',
+        "    30분 폴링으로 상태가 바뀌면 [알림](../alerts/index.md)이 발송됩니다. "
         "**경과**는 매수 상태 연속 경과 거래일(D+N) · 전환일이 D+0이며, "
         f"매수 추천은 **D+{CANDIDATE_FRESH_MAX_DAYS}까지만 유효**합니다. "
         "이를 넘기면 '만료'로 표시되고 "
@@ -826,12 +877,12 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
         "이격·실질 손익비 등 진입 타이밍 상세는 각 종목 스냅샷의 '진입 · 손절 · 타겟' 표에 있습니다.",
         "",
         WL_FILTERS,
-        # 컬럼 순서 = 폰 폭 우선순위 (2026-07-19): 종목·기업명·판정·현재가가
-        # 앞 4열(≈324px)이라 스크롤 없이 보이고, 보조 지표는 오른쪽으로 밀린다.
+        # 컬럼 순서 = 폰 폭 우선순위 (2026-07-19): 앞 4열만 스크롤 없이 보인다.
+        # 2026-09-23 기업명을 종목 칸 둘째 줄로 합쳐 경과까지 첫 화면에 들어오게 했다.
         # 필터는 헤더 이름으로 열을 찾으므로(tablesort.js) 순서를 바꿔도 안전하다.
         # 경과 = 매수 상태 연속 경과 거래일 D+N (임계 초과는 '만료')
-        "| 종목 | 기업명 | 판정 | 현재가 | 경과 | Stage | TT | 시장 |",
-        "|------|--------|------|-------:|------|-------|----|------|",
+        "| 종목 | 판정 | 현재가 | 경과 | Stage | TT | 시장 |",
+        "|------|------|-------:|------|-------|----|------|",
     ]
     for ticker, market, name, fname in sorted(entries):
         s = latest_by_ticker.get(ticker)
@@ -842,7 +893,8 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
             days = _candidate_days_cell(s.get("days", ""), s.get("start_unknown", ""))
         else:
             verdict = stage = tt = price = days = ""
-        lines.append(f"| [**{ticker}**]({fname}) | [{name}]({fname}) "
+        name_cell = f'<br><span class="wl-name">{name}</span>' if name else ""
+        lines.append(f"| [**{ticker}**]({fname}){name_cell} "
                      f"| {verdict} | {price} | {days} | {stage} | {tt} | {market} |")
     return "\n".join(lines) + "\n"
 
@@ -1471,9 +1523,10 @@ def _fear_index_page(latest=None, names=None, show_kr: bool = True) -> str:
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
 
-    entries = _collect_watchlist()
     snaps   = _collect_snapshots()          # 전체 히스토리 (파일 복사 완료)
     latest  = _latest_per_ticker(snaps)     # 인덱스·대시보드용: 종목당 최신 1건
+    # 관찰 페이지 맨 위 「지금 상태」 카드가 최신 스냅샷을 쓴다 (2026-09-23)
+    entries = _collect_watchlist({s["ticker"]: s for s in latest})
     alerts  = _scan_alerts()
     positions = _collect_positions()        # 현재 열린 매수 포지션
     names   = {ticker: name for ticker, _market, name, _fname in entries}
