@@ -633,7 +633,6 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   .m-tab[aria-current="page"] { color: var(--m-accent); font-weight: 700; }
   .md-main { padding-bottom: calc(3.4rem + env(safe-area-inset-bottom, 0px)); }
   .md-footer { padding-bottom: calc(3.2rem + env(safe-area-inset-bottom, 0px)); }
-  .md-top { bottom: calc(3.8rem + env(safe-area-inset-bottom, 0px)); }
 }
 .md-footer-meta { display: none; }
 
