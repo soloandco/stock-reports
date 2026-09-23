@@ -1,15 +1,15 @@
 # 주식 리포트
 
-<p class="m-basis">9월 23일(수) 기준</p>
+<p class="m-basis">9월 24일(목) 기준</p>
 
-<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 35</b><span class="m-dot">·</span><span>VIX 18.4 중립</span><span class="m-go">›</span></a>
+<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 35</b><span class="m-dot">·</span><span>VIX 15.2 중립</span><span class="m-go">›</span></a>
 
-<div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">3<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 14종목 중</div></div>
-<div class="m-cards"><a class="m-card" href="watchlist/GOOGL/"><div class="m-card__head"><b class="m-card__ticker">GOOGL</b><span class="m-card__name">Alphabet</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-5.1%</b></div><div><span>첫 저항까지</span><b class="m-pos">+16.2%</b></div><div><span>신호</span><b>2일째</b></div></div></a><a class="m-card" href="watchlist/MSFT/"><div class="m-card__head"><b class="m-card__ticker">MSFT</b><span class="m-card__name">Microsoft</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-4.5%</b></div><div><span>첫 저항까지</span><b class="m-pos">+10.3%</b></div><div><span>신호</span><b>4일째</b></div></div></a><a class="m-card" href="watchlist/DLR/"><div class="m-card__head"><b class="m-card__ticker">DLR</b><span class="m-card__name">Digital Realty</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-5.3%</b></div><div><span>첫 저항까지</span><b class="m-wrn">+0.7%</b></div><div><span>신호</span><b>1일째</b></div></div><div class="m-card__warn">머리 위 저항이 바로 앞</div></a></div>
-<a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>11</b>종목</span><span class="m-muted">추격 비추천 · MS·SKWD·SOXX 외</span><span class="m-go">›</span></a>
+<div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">1<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 12종목 중</div></div>
+<div class="m-cards"><a class="m-card" href="watchlist/MSFT/"><div class="m-card__head"><b class="m-card__ticker">MSFT</b><span class="m-card__name">Microsoft</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-4.5%</b></div><div><span>첫 저항까지</span><b class="m-pos">+9.7%</b></div><div><span>신호</span><b>5일째</b></div></div></a></div>
+<a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>11</b>종목</span><span class="m-muted">추격 비추천 · MS·SOXX·NVDA 외</span><span class="m-go">›</span></a>
 
 <div class="m-sec"><span>추천 기록</span><a href="strategies/">전체 ›</a></div>
-<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>단타</b><span class="m-muted">09-18부터</span></div><div class="m-stat3"><div><b>1</b><span>완료</span></div><div><b class="m-pos">+0.60R</b><span>평균</span></div><div><b>1</b><span>진행 중</span></div></div></a>
+<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-24부터</span></div><div class="m-stat3"><div><b>0</b><span>완료</span></div><div><b class="">—</b><span>평균</span></div><div><b>2</b><span>진행 중</span></div></div></a>
 
 <div class="m-sec"><span>최근 알림</span><a href="alerts/">전체 ›</a></div>
 <div class="m-box m-list"><a class="m-li" href="alerts/20260922-aapl-breakeven/"><span class="m-li__d">09-22</span><b>AAPL</b><span>본전 스톱</span></a><a class="m-li" href="alerts/20260917-cdns-bear_rsi_reversal/"><span class="m-li__d">09-17</span><b>CDNS</b><span>RSI 반등</span></a><a class="m-li" href="alerts/20260917-kmi-stop_hit/"><span class="m-li__d">09-17</span><b>KMI</b><span>손절 경고</span></a></div>
