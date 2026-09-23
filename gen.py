@@ -887,6 +887,14 @@ def _strategy_box(perf: dict) -> str:
     if not active or not periods:
         return ""
     s = periods[-1].get("active") or {}
+    if active == "both":
+        # 둘 다 켜진 기간 (2026-09-24): other 가 단타 알림 거래다. 두 방식을 합쳐 보여 준다
+        o = periods[-1].get("other") or {}
+        n = s.get("closed", 0) + o.get("closed", 0)
+        tot = ((s.get("mean_r") or 0) * s.get("closed", 0)
+               + (o.get("mean_r") or 0) * o.get("closed", 0))
+        s = {"closed": n, "open": s.get("open", 0) + o.get("open", 0),
+             "mean_r": tot / n if n else None}
     r = s.get("mean_r")
     rtxt = f"{r:+.2f}R" if r is not None else "—"
     rcls = "" if r is None else ("m-pos" if r >= 0 else "m-neg")
@@ -1215,7 +1223,7 @@ def _positions_index(positions: list[dict], names: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
-_STRAT_LABEL = {"base": "스윙", "book": "단타"}
+_STRAT_LABEL = {"base": "스윙", "book": "단타", "both": "스윙·단타"}
 
 
 def _collect_strategy_perf() -> dict:
@@ -1245,7 +1253,8 @@ def _strategies_index(data: dict, names: dict) -> str:
         "# 방식별 기록",
         "",
         "스윙(일봉)과 단타(1시간봉) 두 방식을 섞지 않고 따로 기록합니다. **켜진 방식만 알림이 나가고**, "
-        "꺼진 방식은 같은 기간에 무엇을 했을지 기록만 합니다. 텔레그램에 「단타」·「스윙」을 보내 바꿉니다.",
+        "꺼진 방식은 같은 기간에 무엇을 했을지 기록만 합니다. 「둘 다」가 켜진 기간에는 두 방식 모두 알림이 "
+        "나갑니다. 텔레그램에 「둘다」·「단타」·「스윙」을 보내 바꿉니다.",
         "",
     ]
     periods = data.get("periods") or []
@@ -1258,14 +1267,17 @@ def _strategies_index(data: dict, names: dict) -> str:
     lines += [f"**지금 켜진 방식: {active}** ({since}부터)", "", "## 기간별 성적", "",
               "| 기간 | 구분 | 끝남 | 거래당 |", "|---|---|---:|---:|"]
     for i, p in enumerate(periods):
-        on = _STRAT_LABEL[p["strategy"]]
-        off = _STRAT_LABEL["book" if p["strategy"] == "base" else "base"]
+        both = p["strategy"] == "both"
+        on = _STRAT_LABEL["base" if both else p["strategy"]]
+        off = _STRAT_LABEL["book" if p["strategy"] in ("base", "both") else "base"]
         end = "지금" if i == len(periods) - 1 else _md(p["end"])
         done, r = _strat_cell(p["active"])
         lines.append(f"| {_md(p['start'])}~{end} | {on}(알림) | {done} | {r} |")
         done, r = _strat_cell(p["other"])
-        lines.append(f"| | {off}(기록만) | {done} | {r} |")
-    total = sum(p["active"].get("closed", 0) for p in periods)
+        lines.append(f"| | {off}({'알림' if both else '기록만'}) | {done} | {r} |")
+    total = sum(p["active"].get("closed", 0)
+                + (p["other"].get("closed", 0) if p["strategy"] == "both" else 0)
+                for p in periods)
     min_n = data.get("min_n", 100)
     lines += ["", f'!!! warning "표본 부족: 알림 나간 끝난 거래 {total}건"',
               f"    {min_n}건이 쌓이기 전에는 두 방식의 우열을 가릴 수 없습니다. 숫자는 기록으로만 읽으세요.",
