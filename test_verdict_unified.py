@@ -56,19 +56,19 @@ def test_filter_has_one_buy_option():
     assert html.count('<option value="buy">') == 1
 
 
-def test_watchlist_filter_matches_snapshot_filter():
-    """두 인덱스의 필터가 어긋나면 한쪽만 조용히 안 걸린다."""
-    assert '<option value="buy">매수</option>' in gen.WL_FILTERS
-    assert "매수관찰" not in gen.WL_FILTERS
+def test_watchlist_chips_have_one_buy_chip():
+    """관찰 목록은 드롭다운 대신 칩 (2026-09-23). 매수 두 등급이 한 칩으로 묶인다."""
+    entries = [("A", "NYSE", "", "A.md"), ("B", "NYSE", "", "B.md")]
+    latest = {"A": _snap("A", "매수후보"), "B": _snap("B", "매수관찰")}
+    md = gen._watchlist_index(entries, latest)
+    assert md.count('data-f="buy" aria-pressed') == 1 and "매수 2</button>" in md
+    assert "매수후보" not in md and "매수관찰" not in md
 
-
-# ── 홈 결론 카드 ─────────────────────────────────────────────────────────
-def test_conclusion_lead_counts_buys_as_one_group():
+def test_conclusion_hero_counts_buys_as_one_group():
     snaps = [_snap("AAA", "매수후보"), _snap("BBB", "매수관찰"), _snap("CCC", "매수불가")]
     out = gen._conclusion_section(snaps, {}, [])
-    assert "매수 <b>2</b>" in out
+    assert "매수 상태 2종목" in out
     assert "매수후보" not in out and "매수관찰" not in out
-
 
 def test_conclusion_empty_message_has_no_grade_names():
     out = gen._conclusion_section([_snap("CCC", "매수불가")], {}, [])
@@ -82,17 +82,8 @@ def test_pick_priority_does_not_favor_the_old_top_grade():
     assert gen._pick_priority(watch_fresh) < gen._pick_priority(cand_worse)
 
 
-# ── 홈 숫자 카드 ─────────────────────────────────────────────────────────
-def test_stat_cards_have_one_buy_tile():
-    snaps = [_snap("AAA", "매수후보"), _snap("BBB", "매수관찰"), _snap("CCC", "매수불가")]
-    html = gen._stat_cards(entries=[1, 2, 3], snaps=snaps, alerts=[], positions=[])
-    assert '<div class="stat-card__label">매수</div>' in html
-    assert "매수후보" not in html and "매수관찰" not in html
-    assert '<div class="stat-card__num">2</div>' in html
-
-
 def test_css_defines_the_merged_badge():
     """배지 클래스가 CSS에 없으면 색 없는 배지가 나간다."""
     css = (Path(__file__).parent / "docs/stylesheets/verdict.css").read_text(encoding="utf-8")
     assert ".verdict-buy" in css
-    assert ".stat-card--buy" in css
+    assert ".m-hero" in css and ".verdict-sell" in css

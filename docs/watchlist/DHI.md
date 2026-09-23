@@ -23,11 +23,11 @@ related:
 
 ---
 
-## 지금 상태
+<div class="m-sum m-sum--sell"><div class="m-sum__top"><span class="m-sum__px">$144.13</span><span class="verdict verdict-sell">매도관찰</span></div><div class="m-sum__sub">기준일 2026-09-23</div><p class="m-why">하락 구간입니다. 새로 사지 않는 자리입니다.</p></div>
 
-<p class="pick-lead">최신 분석 스냅샷 기준입니다. 기준일 2026-09-23.</p>
+<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>하락 구간 <small>(Stage 4)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 1개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +4.2%)</small></span></div></div>
 
-<div class="pick-grid"><a class="pick-card pick-card--nobuy" href="../../snapshots/DHI-2026-09-23/"><div class="pick-card__head"><span class="pick-card__ticker">DHI</span><span class="pick-card__name">D.R. Horton</span><span class="verdict verdict-nobuy">매도관찰</span></div><p class="pick-card__lead">매도관찰 · 현재가 $144.13</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 4</b></span><span class="pick-badge">구조 <b>TT 1/7</b></span></div><div class="pick-card__foot">스냅샷 보기 ›</div></a></div>
+<p class="m-more"><a href="../../snapshots/DHI-2026-09-23/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트

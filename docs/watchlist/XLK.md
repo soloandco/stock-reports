@@ -22,16 +22,16 @@ comments: true
 > (2026-09-12 사용자 결정). 판정·Stage·손절가의 SSOT는
 > 스냅샷(`snapshots/XLK-YYYY-MM-DD.md`)이다.
 
-## 지금 상태
+<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$196.26</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 시작일 미상 · 기준일 2026-09-23</div><div class="m-lv3"><div><span>손절</span><b>$188.90</b><em class="m-neg">-3.8%</em></div><div><span>목표 (5R)</span><b>$233.07</b><em class="m-pos">+18.8%</em></div><div><span>첫 저항</span><b>$198.26</b><em class="m-pos">+1.0%</em></div></div></div>
 
-<p class="pick-lead">최신 분석 스냅샷 기준입니다. 기준일 2026-09-23.</p>
+<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 7개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>시작일 미상 <small>(관찰 등록 전부터 매수 상태)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +1.0%)</small></span></div></div>
 
-<div class="pick-grid"><a class="pick-card pick-card--buy pick-card--expired" href="../../snapshots/XLK-2026-09-23/"><div class="pick-card__head"><span class="pick-card__ticker">XLK</span><span class="pick-card__name">XLK 테크놀로지 섹터 ETF</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 7/7. 손절까지 <b class="pick-num pick-num--risk">-3.8%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+1.0%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 7/7</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">신호 7일 경과 · 추격 비추천 · 손익비 0.3:1 · 스냅샷 보기 ›</div></a></div>
+<p class="m-more"><a href="../../snapshots/XLK-2026-09-23/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트
 
-<div class="stock-chart" data-src="../charts/XLK.json"></div>
+<div class="stock-chart" data-src="../charts/XLK.json" data-stop="188.8981"></div>
 
 <details class="stock-chart-note"><summary>매물벽·지지대는 검증에서 무작위 선과 같았습니다. 아래 두 칸도 매수 신호 아님 · 자세히</summary>
 <p>추세선·매물벽(저항)·지지대·주봉 저항을 함께 표시합니다. 매물벽·지지대는 위치 참고용이며, 검증(2026-09-07)에서 받치고 막는 비율이 무작위 선과 같았습니다. 아래 칸은 일봉 종가 위치로 추정한 수급 누적선입니다(매수 신호 아님). 맨 아래 칸은 물린 비율(최근 1년 거래량 중 현재가보다 비싸게 거래된 비중)입니다. 측정(2026-09-14, 11년 620종목)에서 이 비율은 「1년 가격 범위의 어디에 있나」와 구분되지 않았고, 앞으로의 수익을 가르지 못했습니다(층화 차이 −0.02R·CI 0 포함). 심리 지도라기보다 위치 표시로 읽으세요. 손가락으로 확대·이동할 수 있습니다.</p>

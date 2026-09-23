@@ -16,7 +16,8 @@
     down: "#2f7ed8",
     resistance: "#e07b39",
     support: "#3aa76d",
-    trend: "#8a63d2"
+    trend: "#8a63d2",
+    stop: "#c62828"
   };
 
   /* 수급 누적선은 신호가 아니라 배경 정보다. 매물벽(주황)·지지대(초록)·
@@ -162,6 +163,11 @@
       return { time: b[0], open: b[1], high: b[2], low: b[3], close: b[4] };
     }));
 
+    /* 폰에서 선이 7~8개 겹쳐 읽기 어려웠다(2026-09-23 모바일 개편). 처음에는 현재가 ·
+       손절 · 주봉 저항만 보이고, 나머지(이평선·매물대·추세선)는 「선 더 보기」로 켠다. */
+    var extras = [];
+    var isExtraLine = function (line) { return line.id !== "auto:weekly-resistance"; };
+
     // 이동평균 — 캔들 뒤에 깔리도록 먼저 그린다
     var maSeries = {};
     var mc = maColors();
@@ -182,6 +188,7 @@
         });
         s2.setData(pts);
         maSeries[period] = s2;
+        extras.push({ series: s2 });
       });
     }
 
@@ -191,11 +198,12 @@
       if (line.kind === "level") {
         // 축에는 값만 남긴다. 이름까지 넣으면 폰 폭(가격축 약 50px)에서 잘려
         // 정작 숫자가 안 보였다(2026-08-29 실측). 이름은 아래 범례가 맡는다.
-        candles.createPriceLine({
+        var pl = candles.createPriceLine({
           price: line.price, color: color, lineWidth: 1,
           lineStyle: LightweightCharts.LineStyle.Solid,
           axisLabelVisible: true, title: ""
         });
+        if (isExtraLine(line)) extras.push({ priceLine: pl });
       } else if (line.kind === "trend") {
         var pts = extendTrend(line, first, last);
         if (!pts) return;
@@ -206,8 +214,19 @@
           crosshairMarkerVisible: false
         });
         s.setData(pts);
+        extras.push({ series: s });
       }
     });
+
+    // 손절선 — 매수 상태일 때만 페이지가 data-stop 으로 넘긴다 (알림과 같은 진입 손절)
+    var stop = parseFloat(host.getAttribute("data-stop"));
+    if (isFinite(stop) && stop > 0) {
+      candles.createPriceLine({
+        price: stop, color: COLORS.stop, lineWidth: 1,
+        lineStyle: LightweightCharts.LineStyle.Dashed,
+        axisLabelVisible: true, title: ""
+      });
+    }
 
     chart.timeScale().fitContent();
     // 위에서 클래스를 붙이기 전(Material CSS가 살아 있던 순간)에 잡힌 셀 폭이
@@ -235,8 +254,10 @@
                    colorFn: uwColor, dot: ".stock-chart-dot--uw" });
       anchor = up.host;
     }
-    buildLegend(host, anchor, data.lines || [], Object.keys(maSeries), !!cvd,
-                uw ? uw[uw.length - 1].value : null);
+    var legend = buildLegend(host, anchor, data.lines || [], Object.keys(maSeries), !!cvd,
+                             uw ? uw[uw.length - 1].value : null,
+                             isFinite(stop) && stop > 0, isExtraLine);
+    buildControls(host, chart, data.bars.length, extras, legend);
     return { chart: chart, maSeries: maSeries, panes: panes };
   }
 
@@ -336,13 +357,15 @@
 
   /* 선 이름은 차트 밖 글자로 둔다 — 캔버스 안 라벨은 폰에서 잘리고 확대도 안 된다.
      여기서는 구간 표기("매물벽 70.65~75.38")를 그대로 보여줄 수 있다. */
-  function buildLegend(host, anchor, lines, maKeys, hasCvd, uwLast) {
+  function buildLegend(host, anchor, lines, maKeys, hasCvd, uwLast, hasStop, isExtraLine) {
     var hasUw = uwLast !== null && uwLast !== undefined;
-    if (!lines.length && !(maKeys || []).length && !hasCvd && !hasUw) return;
+    if (!lines.length && !(maKeys || []).length && !hasCvd && !hasUw && !hasStop) return null;
     var ul = document.createElement("ul");
     ul.className = "stock-chart-legend";
-    var add = function (color, text, extraClass) {
+    ul.setAttribute("data-extra", "off");
+    var add = function (color, text, extraClass, isExtra) {
       var li = document.createElement("li");
+      if (isExtra) li.className = "is-extra";
       var dot = document.createElement("span");
       dot.className = "stock-chart-dot" + (extraClass ? " " + extraClass : "");
       dot.style.background = color;
@@ -351,12 +374,13 @@
       ul.appendChild(li);
     };
     var mc = maColors();
-    (maKeys || []).forEach(function (p) { add(mc[p], MA_LABEL[p] || (p + "일선")); });
+    (maKeys || []).forEach(function (p) { add(mc[p], MA_LABEL[p] || (p + "일선"), "", true); });
     lines.forEach(function (line) {
       add(line.kind === "trend" ? COLORS.trend
                                 : (COLORS[line.side] || COLORS.resistance),
-          line.label || "");
+          line.label || "", "", isExtraLine(line));
     });
+    if (hasStop) add(COLORS.stop, "손절", "", false);
     // 이름을 "CVD"로 적지 않는다 — 진짜 CVD는 체결 단위로 세는 것이고
     // 이건 봉의 종가 위치로 만든 근사다. 무엇으로 만들었는지 화면에 밝힌다.
     if (hasCvd) add(cvdColor(), "수급 누적(종가 위치 추정)", "stock-chart-dot--cvd");
@@ -365,6 +389,48 @@
     if (hasUw) add(uwColor(), "물린 비율 " + Math.round(uwLast) + "% (1년 거래량 기준 · 가격 위치와 구분 안 됨)",
                    "stock-chart-dot--uw");
     anchor.parentNode.insertBefore(ul, anchor.nextSibling);
+    return ul;
+  }
+
+  /* 차트 위 버튼 줄: 기간(최근 1개월 · 3개월 · 전체)과 「선 더 보기」.
+     기간은 가격 칸만 옮기면 아래 칸들이 따라온다(시간축이 묶여 있다). */
+  function buildControls(host, chart, nBars, extras, legend) {
+    var bar = document.createElement("div");
+    bar.className = "stock-chart-ctrl";
+    var ranges = [["1개월", 21], ["3개월", 63], ["전체", 0]];
+    var rangeBtns = ranges.map(function (r) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.textContent = r[0];
+      b.setAttribute("aria-pressed", String(r[1] === 0));
+      b.addEventListener("click", function () {
+        rangeBtns.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+        if (!r[1] || r[1] >= nBars) chart.timeScale().fitContent();
+        else chart.timeScale().setVisibleLogicalRange({ from: nBars - r[1], to: nBars - 0.5 });
+      });
+      bar.appendChild(b);
+      return b;
+    });
+    if (extras.length) {
+      var more = document.createElement("button");
+      more.type = "button";
+      more.className = "sc-lines";
+      var setShown = function (on) {
+        extras.forEach(function (e) {
+          if (e.series) e.series.applyOptions({ visible: on });
+          if (e.priceLine) e.priceLine.applyOptions({ lineVisible: on, axisLabelVisible: on });
+        });
+        if (legend) legend.setAttribute("data-extra", on ? "on" : "off");
+        more.setAttribute("aria-pressed", String(on));
+        more.textContent = on ? "선 줄이기" : "선 더 보기 (" + extras.length + ")";
+      };
+      more.addEventListener("click", function () {
+        setShown(more.getAttribute("aria-pressed") !== "true");
+      });
+      bar.appendChild(more);
+      setShown(false);
+    }
+    host.parentNode.insertBefore(bar, host);
   }
 
   function fail(host, msg) {

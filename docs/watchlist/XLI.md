@@ -22,11 +22,11 @@ comments: true
 > (2026-09-12 사용자 결정). 판정·Stage·손절가의 SSOT는
 > 스냅샷(`snapshots/XLI-YYYY-MM-DD.md`)이다.
 
-## 지금 상태
+<div class="m-sum m-sum--sell"><div class="m-sum__top"><span class="m-sum__px">$170.29</span><span class="verdict verdict-sell">매도후보</span></div><div class="m-sum__sub">기준일 2026-09-23</div><p class="m-why">천장 분배 구간입니다. 새로 사지 않는 자리입니다.</p></div>
 
-<p class="pick-lead">최신 분석 스냅샷 기준입니다. 기준일 2026-09-23.</p>
+<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>천장 분배 구간 <small>(Stage 3)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 3개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +3.8%)</small></span></div></div>
 
-<div class="pick-grid"><a class="pick-card pick-card--nobuy" href="../../snapshots/XLI-2026-09-23/"><div class="pick-card__head"><span class="pick-card__ticker">XLI</span><span class="pick-card__name">XLI 산업재 섹터 ETF</span><span class="verdict verdict-nobuy">매도후보</span></div><p class="pick-card__lead">매도후보 · 현재가 $170.29</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 3</b></span><span class="pick-badge">구조 <b>TT 3/7</b></span></div><div class="pick-card__foot">스냅샷 보기 ›</div></a></div>
+<p class="m-more"><a href="../../snapshots/XLI-2026-09-23/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트

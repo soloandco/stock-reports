@@ -20,11 +20,11 @@ related:
 
 ---
 
-## 지금 상태
+<div class="m-sum m-sum--sell"><div class="m-sum__top"><span class="m-sum__px">$364.54</span><span class="verdict verdict-sell">매도후보</span></div><div class="m-sum__sub">기준일 2026-09-23</div><p class="m-why">천장 분배 구간입니다. 새로 사지 않는 자리입니다.</p></div>
 
-<p class="pick-lead">최신 분석 스냅샷 기준입니다. 기준일 2026-09-23.</p>
+<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>천장 분배 구간 <small>(Stage 3)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 2개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +1.7%)</small></span></div></div>
 
-<div class="pick-grid"><a class="pick-card pick-card--nobuy" href="../../snapshots/AVGO-2026-09-23/"><div class="pick-card__head"><span class="pick-card__ticker">AVGO</span><span class="pick-card__name">Broadcom</span><span class="verdict verdict-nobuy">매도후보</span></div><p class="pick-card__lead">매도후보 · 현재가 $364.54</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 3</b></span><span class="pick-badge">구조 <b>TT 2/7</b></span></div><div class="pick-card__foot">스냅샷 보기 ›</div></a></div>
+<p class="m-more"><a href="../../snapshots/AVGO-2026-09-23/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트
@@ -44,8 +44,13 @@ related:
 | William Von Mueffling - Cantillon | 10.6% | 보유 | $28.97 (+1154%)<br>$24.74~$32.64 |
 | Polen Capital | 6.4% | 보유 | $315 (+16%)<br>$263~$374 |
 | Torray Funds | 5.2% | 보유 | $173 (+110%)<br>$126~$216 |
-| Jensen Investment Management | 3.6% | 보유 | $340 (+7%)<br>$303~$383 |
-| Chase Coleman - Tiger Global | 2.8% | 보유 | $177 (+105%)<br>$143~$209 |
+
+??? note "나머지 2곳 보기"
+
+    | 투자자 | 비중 | 구분 | 추정 평단 |
+    |--------|-----:|------|-----------|
+    | Jensen Investment Management | 3.6% | 보유 | $340 (+7%)<br>$303~$383 |
+    | Chase Coleman - Tiger Global | 2.8% | 보유 | $177 (+105%)<br>$143~$209 |
 
 <details class="stock-chart-note"><summary>2026-06-30 기준 공시(최대 45일 늦음). 참고 정보이며 매수 신호가 아닙니다 · 자세히</summary>
 <p>2026-06-30 기준 보유를 SEC 13F 공시로 셉니다(공시 반영 2026-09-23). 분기 말 뒤 최대 45일 늦게 공개되고 매입 단가는 없습니다. 비중 1% 미만 보유는 세지 않습니다. 추정 평단은 주식이 늘어난 분기마다 그 분기 거래량 가중 평균가에 샀다고 보고 쌓은 값이고, 둘째 줄은 그 분기 최저가~최고가로 잡은 범위입니다. 괄호는 현재가 대비입니다. 그 투자자의 첫 13F 신고(가장 이르면 2013년) 전부터 들고 있던 종목은 매입가를 알 수 없어 「모름」입니다. 버크셔 실제 원가와 대조(2019~2021년)하면 장내에서 산 종목은 대부분 ±6% 안이었고, 판 뒤에는 10~16%까지 벌어졌습니다. 종목 코드가 바뀐 경우(구글→알파벳 등)는 이어서 계산합니다. 신주인수권 행사로 받은 주식은 크게 틀릴 수 있습니다. 유명 투자자 명단은 Dataroma, 집중 투자 기관은 보유 5~50종목·총액 5억 달러 이상인 기관입니다. 검증(2026-09-23, 11년 1만 건)에서 보유 기관 수는 매수 신호 성적과 무관했고, 여러 기관이 새로 산 종목은 좋은 쪽이었지만 기준에 못 미쳤습니다. 참고 정보이며 매수 신호가 아닙니다.</p></details>

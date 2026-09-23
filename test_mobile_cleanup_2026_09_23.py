@@ -75,31 +75,35 @@ def test_kakao_section_is_dropped(tmp_path, monkeypatch):
 
 def test_current_status_comes_before_chart_and_memo(tmp_path, monkeypatch):
     page = _page(tmp_path, monkeypatch, {"GOOGL": SNAP})
-    assert page.index("## 지금 상태") < page.index("## 차트") < page.index("지난 분석 메모")
+    assert page.index('class="m-sum') < page.index("## 차트") < page.index("지난 분석 메모")
     assert "> 역할: 대형 기술주 관찰" in page      # H1 아래 머리말은 그대로
-    assert page.index("역할: 대형 기술주") < page.index("## 지금 상태")
+    assert page.index("역할: 대형 기술주") < page.index('class="m-sum')
 
 
 def test_status_card_uses_latest_snapshot_and_links_it(tmp_path, monkeypatch):
     page = _page(tmp_path, monkeypatch, {"GOOGL": SNAP})
-    status = page.split("## 지금 상태", 1)[1].split("## 차트", 1)[0]
-    assert "TT 6/7" in status and "매수" in status
-    assert "기준일 2026-09-23" in status
+    status = page.split("## 차트", 1)[0]
+    assert "7개 중 6개 충족" in status and ">매수<" in status
+    assert "기준일 2026-09-23" in status and "신호 3일째" in status
+    # 손절 · 목표(5R) · 첫 저항. 목표 = 350 + (350-332)×5 = 440
+    assert "$332.00" in status and "$440.00" in status and "목표 (5R)" in status
     # 관찰 페이지는 /watchlist/GOOGL/ 에 열린다
     assert 'href="../../snapshots/GOOGL-2026-09-23/"' in status
+    # 차트에 손절선을 넘긴다 (매수 상태일 때만)
+    assert 'data-stop="332.0000"' in page
 
 
 def test_status_card_for_non_buy_shows_reason(tmp_path, monkeypatch):
     snap = {**SNAP, "verdict": "매수불가", "reason": "과열", "days": ""}
     page = _page(tmp_path, monkeypatch, {"GOOGL": snap})
-    status = page.split("## 지금 상태", 1)[1].split("## 차트", 1)[0]
-    assert "매수불가" in status and "과열" in status
-    assert "손절까지" not in status
+    status = page.split("## 차트", 1)[0]
+    assert "매수불가" in status and "과열" in status and "RSI가 90" in status
+    assert "목표" not in status and "data-stop" not in page
 
 
 def test_no_snapshot_means_no_status_section(tmp_path, monkeypatch):
     page = _page(tmp_path, monkeypatch, None)
-    assert "## 지금 상태" not in page
+    assert "m-sum" not in page
     assert "## 차트" in page and "지난 분석 메모" in page
 
 
@@ -130,19 +134,22 @@ def test_13f_note_keeps_not_a_signal_visible():
     assert "Dataroma" in b.split("</summary>", 1)[1]
 
 
-def test_watchlist_intro_is_short_and_table_merges_name():
-    entries = [("GS", "NYSE", "골드만삭스", "GS.md")]
+def test_watchlist_is_card_rows_with_chips_not_table():
+    entries = [("GS", "NYSE", "골드만삭스", "GS.md"), ("AMD", "NASDAQ", "AMD Inc", "AMD.md"),
+               ("X", "NYSE", "엑스", "X.md")]
     latest = {"GS": {"verdict": "매수관찰", "reason": "", "stage": "2", "tt": "6",
-                     "ttmax": 7, "price": "1074.51", "days": "18"}}
+                     "ttmax": 7, "price": "1074.51", "days": "2"},
+              "AMD": {"verdict": "매수불가", "reason": "과열", "stage": "2", "tt": "7",
+                      "ttmax": 7, "price": "623.77", "days": ""}}
     md = gen._watchlist_index(entries, latest)
-    intro = md.split("\n\n", 2)[1]
-    assert len(intro) < 120
-    assert '??? info' in md and "D+5까지만 유효" in md
-    assert "| 종목 | 판정 | 현재가 | 경과 |" in md
-    assert "| 기업명 |" not in md
-    assert "[**GS**](GS.md)<br>" in md and "골드만삭스" in md
-    # 필터가 헤더 이름으로 찾는 열은 남아 있어야 한다 (tablesort.js)
-    assert "| 판정 |" in md and "| 시장 |" in md and "| Stage |" in md
+    assert "| 종목 |" not in md                     # 표가 아니다
+    assert 'href="GS/"' in md and "골드만삭스" in md and "2일째" in md
+    assert "과열" in md and "분석 전" in md          # 스냅샷 없는 종목
+    assert "전체 3</button>" in md and "매수 1</button>" in md and "매수불가 1</button>" in md
+    # 매수가 매수불가보다 먼저, 새 신호 묶음 제목이 붙는다
+    assert md.index('href="GS/"') < md.index('href="AMD/"') < md.index('href="X/"')
+    assert "새 신호 <b>1</b>" in md
+    assert '??? info' in md and "5일째까지만 유효" in md
 
 
 def test_site_url_is_set_so_404_page_keeps_styles():

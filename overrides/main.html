@@ -1,1 +1,15 @@
 {% extends "base.html" %}
+
+{#- 폰·태블릿 폭 아래쪽 탭 (2026-09-23 모바일 개편). 가상 포지션·분석 스냅샷은 ☰ 메뉴에 남는다.
+    지금 탭 표시는 tabbar.js 가 주소로 다시 맞춘다 (인스턴트 이동은 이 부분을 새로 그리지 않을 수 있다). -#}
+{% block footer %}
+  {{ super() }}
+  {%- set u = page.url if page else "" -%}
+  <nav class="m-tabs" aria-label="주요 메뉴">
+    <a class="m-tab" data-tab="" href="{{ base_url }}/" {% if u == "" %}aria-current="page"{% endif %}>{% include ".icons/material/home-outline.svg" %}<span>홈</span></a>
+    <a class="m-tab" data-tab="watchlist/" href="{{ base_url }}/watchlist/" {% if u.startswith("watchlist/") %}aria-current="page"{% endif %}>{% include ".icons/material/format-list-bulleted.svg" %}<span>관찰</span></a>
+    <a class="m-tab" data-tab="strategies/" href="{{ base_url }}/strategies/" {% if u.startswith("strategies/") %}aria-current="page"{% endif %}>{% include ".icons/material/chart-line.svg" %}<span>기록</span></a>
+    <a class="m-tab" data-tab="alerts/" href="{{ base_url }}/alerts/" {% if u.startswith("alerts/") %}aria-current="page"{% endif %}>{% include ".icons/material/bell-outline.svg" %}<span>알림</span></a>
+    <a class="m-tab" data-tab="fear-index/" href="{{ base_url }}/fear-index/" {% if u.startswith("fear-index/") %}aria-current="page"{% endif %}>{% include ".icons/material/gauge.svg" %}<span>시장</span></a>
+  </nav>
+{% endblock %}

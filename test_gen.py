@@ -128,18 +128,17 @@ def test_monthly_stats_groups_by_month_desc():
     assert [s["month"] for s in stats] == ["2026-07", "2026-06"]
 
 
-def test_stat_cards_use_directory_urls_not_md():
+def test_home_and_tab_links_use_directory_urls_not_md():
     # MkDocs는 원시 HTML의 href를 재작성하지 않는다 → .md 링크는 배포 시 404.
-    # 홈 상단 stat-card는 디렉터리 URL(use_directory_urls)로 링크해야 한다.
-    html = gen._stat_cards([], [], [])
-    assert "index.md" not in html
-    assert 'href="watchlist/"' in html
-    assert 'href="snapshots/"' in html
-    assert 'href="alerts/"' in html
-    assert 'href="positions/"' in html
-
-
-# ── 오픈 포지션 페이지 ──────────────────────────────────────────────────────
+    # 홈 카드·아래쪽 탭은 디렉터리 URL(use_directory_urls)로 링크해야 한다.
+    snap = {"ticker": "GS", "verdict": "매수관찰", "fname": "GS-2026-09-23.md", "days": "1",
+            "price": "100", "stop": "95", "weekly_pos": "저항대아래", "weekly_pct": "5", "rr": "1"}
+    html = gen._conclusion_section([snap], {}, [])
+    assert 'href="watchlist/GS/"' in html and ".md" not in html
+    tpl = (Path(__file__).parent / "overrides" / "main.html").read_text(encoding="utf-8")
+    for path in ("/watchlist/", "/strategies/", "/alerts/", "/fear-index/"):
+        assert f'href="{{{{ base_url }}}}{path}"' in tpl
+    assert ".md" not in tpl
 
 def _pos(ticker: str, r: float, **over) -> dict:
     base = {
@@ -248,12 +247,10 @@ def test_actual_trade_date_is_removed_from_public_frontmatter():
     assert "created: 2026-09-02" in public
 
 
-def test_stat_cards_link_strategies_not_removed_performance_page():
+def test_tabs_link_strategies_not_removed_performance_page():
     # 전략 성과 페이지는 2026-09-22 에 없앴다 (방식별 기록과 겹치고 3건뿐이라 거의 빈 페이지)
-    html = gen._stat_cards([], [], [], [])
-    assert 'href="strategies/"' in html and 'href="performance/"' not in html
-    assert "가상 포지션" in html and "오픈 포지션" not in html
-
+    tpl = (Path(__file__).parent / "overrides" / "main.html").read_text(encoding="utf-8")
+    assert "/strategies/" in tpl and "performance" not in tpl
 
 def test_candidate_days_cell():
     """경과 컬럼 셀 — 후보만 D+N, D+5 초과는 '만료', 구형/비후보는 빈칸 (2026-08-07).
@@ -287,30 +284,20 @@ def test_expiry_threshold_matches_core():
     assert _candidate_days_cell(n + 1) == f"D+{n + 1} 만료"
 
 
-def test_watchlist_index_has_days_column():
+def test_watchlist_index_shows_signal_days_and_expiry():
     from gen import _watchlist_index
     entries = [("GS", "NYSE", "골드만삭스", "GS.md")]
     latest = {"GS": {"verdict": "매수후보", "reason": "", "stage": "2",
                      "tt": "8", "price": "1074.51", "days": "18"}}
     md = _watchlist_index(entries, latest)
-    assert "| 경과 |" in md
-    assert "D+18 만료" in md
+    assert "18일째 · 만료" in md
 
-
-# ── 메뉴 정리 (2026-09-22 사용자 결정) ──────────────────────────────────────
 def test_nav_drops_performance_and_puts_strategies_second():
     import yaml
     nav = yaml.safe_load((Path(__file__).parent / "mkdocs.yml").read_text(encoding="utf-8"))["nav"]
     titles = [list(x)[0] for x in nav]
     assert "전략 성과" not in titles and "오픈 포지션" not in titles
     assert titles[:2] == ["홈", "방식별 기록"] and "가상 포지션" in titles
-
-
-def test_home_quick_links_start_with_strategies_and_count_snapshot_tickers():
-    md = gen._dashboard([], [], [], {}, [])
-    links = md.split("## 바로 가기", 1)[1]
-    assert links.index("방식별 기록") < links.index("관찰 종목")
-    assert "performance/" not in md and "종목 — [최신순 보기]" in links
 
 
 def test_positions_page_explains_difference_from_strategies():

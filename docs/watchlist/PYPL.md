@@ -24,11 +24,11 @@ related:
 
 ---
 
-## 지금 상태
+<div class="m-sum m-sum--nobuy"><div class="m-sum__top"><span class="m-sum__px">$52.89</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span></div><div class="m-sum__sub">기준일 2026-09-23</div><p class="m-why">상승 구조 조건이 매수 기준에 못 미칩니다.</p></div>
 
-<p class="pick-lead">최신 분석 스냅샷 기준입니다. 기준일 2026-09-23.</p>
+<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 2개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +3.1%)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>기준미달</span></div></div>
 
-<div class="pick-grid"><a class="pick-card pick-card--nobuy" href="../../snapshots/PYPL-2026-09-23/"><div class="pick-card__head"><span class="pick-card__ticker">PYPL</span><span class="pick-card__name">PayPal</span><span class="verdict verdict-nobuy">매수불가</span></div><p class="pick-card__lead">매수불가 <span class="verdict-reason">(기준미달)</span> · 현재가 $52.89</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 2/7</b></span></div><div class="pick-card__foot">스냅샷 보기 ›</div></a></div>
+<p class="m-more"><a href="../../snapshots/PYPL-2026-09-23/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트
@@ -48,9 +48,14 @@ related:
 | David Einhorn - Greenlight Capital | 1.6% | 신규 | $45.16 (+18%)<br>$40.20~$52.30 |
 | Norbert Lou - Punch Card | 10.6% | 보유 | $67.32 (-21%)<br>$55.79~$75.56 |
 | Lindsell Train | 5.2% | 보유 | $77.59 (-32%)<br>$64.45~$97.15 |
-| Francis Chou - Chou Associates | 3.3% | 보유 | $50.65 (+5%)<br>$42.99~$62.73 |
-| Yacktman Asset Management | 1.2% | 보유 | $46.45 (+14%)<br>$38.46~$60.13 |
-| First Pacific Advisors | 1.2% | 보유 | $46.03 (+15%)<br>$39.03~$57.57 |
+
+??? note "나머지 3곳 보기"
+
+    | 투자자 | 비중 | 구분 | 추정 평단 |
+    |--------|-----:|------|-----------|
+    | Francis Chou - Chou Associates | 3.3% | 보유 | $50.65 (+5%)<br>$42.99~$62.73 |
+    | Yacktman Asset Management | 1.2% | 보유 | $46.45 (+14%)<br>$38.46~$60.13 |
+    | First Pacific Advisors | 1.2% | 보유 | $46.03 (+15%)<br>$39.03~$57.57 |
 
 <details class="stock-chart-note"><summary>2026-06-30 기준 공시(최대 45일 늦음). 참고 정보이며 매수 신호가 아닙니다 · 자세히</summary>
 <p>2026-06-30 기준 보유를 SEC 13F 공시로 셉니다(공시 반영 2026-09-23). 분기 말 뒤 최대 45일 늦게 공개되고 매입 단가는 없습니다. 비중 1% 미만 보유는 세지 않습니다. 추정 평단은 주식이 늘어난 분기마다 그 분기 거래량 가중 평균가에 샀다고 보고 쌓은 값이고, 둘째 줄은 그 분기 최저가~최고가로 잡은 범위입니다. 괄호는 현재가 대비입니다. 그 투자자의 첫 13F 신고(가장 이르면 2013년) 전부터 들고 있던 종목은 매입가를 알 수 없어 「모름」입니다. 버크셔 실제 원가와 대조(2019~2021년)하면 장내에서 산 종목은 대부분 ±6% 안이었고, 판 뒤에는 10~16%까지 벌어졌습니다. 종목 코드가 바뀐 경우(구글→알파벳 등)는 이어서 계산합니다. 신주인수권 행사로 받은 주식은 크게 틀릴 수 있습니다. 유명 투자자 명단은 Dataroma, 집중 투자 기관은 보유 5~50종목·총액 5억 달러 이상인 기관입니다. 검증(2026-09-23, 11년 1만 건)에서 보유 기관 수는 매수 신호 성적과 무관했고, 여러 기관이 새로 산 종목은 좋은 쪽이었지만 기준에 못 미쳤습니다. 참고 정보이며 매수 신호가 아닙니다.</p></details>

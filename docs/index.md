@@ -1,43 +1,43 @@
-# 주식 분석 리포트
+# 주식 리포트
 
-Weinstein 스테이지 · Minervini Trend Template · Turtle ATR 3레이어 프레임워크 기반 종목 분석.
+<p class="m-basis">9월 23일(수) 기준</p>
 
-## 오늘의 결론
+<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 35</b><span class="m-dot">·</span><span>VIX 18.4 중립</span><span class="m-go">›</span></a>
 
-<p class="pick-lead">매수 <b>14</b>종목 (기준일 2026-09-23). 우선순위 상위 5종목이며 순서는 알림 슬롯 배분과 같습니다(주봉 신고가영역 우선, 그다음 저항 손익비).</p>
-<div class="pick-grid"><a class="pick-card pick-card--buy" href="snapshots/GOOGL-2026-09-23/"><div class="pick-card__head"><span class="pick-card__ticker">GOOGL</span><span class="pick-card__name">Alphabet</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 6/7. 손절까지 <b class="pick-num pick-num--risk">-5.1%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+16.2%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 6/7</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">전환 2026-09-18 · 손익비 3.2:1 · 스냅샷 보기 ›</div></a><a class="pick-card pick-card--buy" href="snapshots/MSFT-2026-09-23/"><div class="pick-card__head"><span class="pick-card__ticker">MSFT</span><span class="pick-card__name">Microsoft</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 6/7. 손절까지 <b class="pick-num pick-num--risk">-4.5%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+10.3%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 6/7</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">전환 2026-09-16 · 손익비 2.3:1 · 스냅샷 보기 ›</div></a><a class="pick-card pick-card--buy" href="snapshots/DLR-2026-09-23/"><div class="pick-card__head"><span class="pick-card__ticker">DLR</span><span class="pick-card__name">Digital Realty</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 5/7. 손절까지 <b class="pick-num pick-num--risk">-5.3%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+0.7%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 5/7</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">전환 2026-09-21 · 손익비 0.1:1 · 스냅샷 보기 ›</div></a><a class="pick-card pick-card--buy pick-card--expired" href="snapshots/MS-2026-09-23/"><div class="pick-card__head"><span class="pick-card__ticker">MS</span><span class="pick-card__name">Morgan Stanley</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 5/7. 손절까지 <b class="pick-num pick-num--risk">-5.4%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+14.5%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 5/7</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">전환 2026-06-30 · 신호 61일 경과 · 추격 비추천 · 손익비 2.7:1 · 스냅샷 보기 ›</div></a><a class="pick-card pick-card--buy pick-card--expired" href="snapshots/SKWD-2026-09-23/"><div class="pick-card__head"><span class="pick-card__ticker">SKWD</span><span class="pick-card__name">Skyward Specialty Insurance</span><span class="verdict verdict-buy">매수</span></div><p class="pick-card__lead">Stage 2 · TT 5/7. 손절까지 <b class="pick-num pick-num--risk">-6.2%</b>, 주봉 저항까지 <b class="pick-num pick-num--up">+16.3%</b>.</p><div class="pick-card__badges"><span class="pick-badge">추세 <b>Stage 2</b></span><span class="pick-badge">구조 <b>TT 5/7</b></span><span class="pick-badge pick-badge--warn">자리 <b>저항대아래</b></span></div><div class="pick-card__foot">전환 2026-08-08 · 신호 32일 경과 · 추격 비추천 · 손익비 2.6:1 · 스냅샷 보기 ›</div></a></div>
-<p class="pick-more"><a href="watchlist/">매수 상태 14종목 전체 보기</a></p>
+<div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">3<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 14종목 중</div></div>
+<div class="m-cards"><a class="m-card" href="watchlist/GOOGL/"><div class="m-card__head"><b class="m-card__ticker">GOOGL</b><span class="m-card__name">Alphabet</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-5.1%</b></div><div><span>첫 저항까지</span><b class="m-pos">+16.2%</b></div><div><span>신호</span><b>2일째</b></div></div></a><a class="m-card" href="watchlist/MSFT/"><div class="m-card__head"><b class="m-card__ticker">MSFT</b><span class="m-card__name">Microsoft</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-4.5%</b></div><div><span>첫 저항까지</span><b class="m-pos">+10.3%</b></div><div><span>신호</span><b>4일째</b></div></div></a><a class="m-card" href="watchlist/DLR/"><div class="m-card__head"><b class="m-card__ticker">DLR</b><span class="m-card__name">Digital Realty</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-5.3%</b></div><div><span>첫 저항까지</span><b class="m-wrn">+0.7%</b></div><div><span>신호</span><b>1일째</b></div></div><div class="m-card__warn">머리 위 저항이 바로 앞</div></a></div>
+<a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>11</b>종목</span><span class="m-muted">추격 비추천 · MS·SKWD·SOXX 외</span><span class="m-go">›</span></a>
+
+<div class="m-sec"><span>추천 기록</span><a href="strategies/">전체 ›</a></div>
+<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>단타</b><span class="m-muted">09-18부터</span></div><div class="m-stat3"><div><b>1</b><span>완료</span></div><div><b class="m-pos">+0.60R</b><span>평균</span></div><div><b>1</b><span>진행 중</span></div></div></a>
+
+<div class="m-sec"><span>최근 알림</span><a href="alerts/">전체 ›</a></div>
+<div class="m-box m-list"><a class="m-li" href="alerts/20260922-aapl-breakeven/"><span class="m-li__d">09-22</span><b>AAPL</b><span>본전 스톱</span></a><a class="m-li" href="alerts/20260917-cdns-bear_rsi_reversal/"><span class="m-li__d">09-17</span><b>CDNS</b><span>RSI 반등</span></a><a class="m-li" href="alerts/20260917-kmi-stop_hit/"><span class="m-li__d">09-17</span><b>KMI</b><span>손절 경고</span></a></div>
 
 ## 거물 신규 매수 (13F)
 
-유명 투자자 83곳 중 **2명 이상이 이번 분기에 새로 산 종목** 14개. 2026-06-30 기준 보유이고 분기 말 뒤 최대 45일 늦게 공개됩니다.
+유명 투자자 83곳 중 **2명 이상이 이번 분기에 새로 산 종목** 14개 · 2026-06-30 기준 (분기 말 뒤 최대 45일 늦게 공개)
 
-| 종목 | 새로 산 투자자 | 인원 |
-|------|----------------|-----:|
-| **SPGI**<br>S&P Global Inc. | Bill Ackman 5.4% · Triple Frond Partners 4.2% · Christopher Bloomstran 2.1% · John Armitage 1.4% | 4 |
-| **WBD**<br>Warner Bros. Discovery, Inc. | Daniel Loeb 11.5% · David Einhorn 1.5% | 2 |
-| **MA**<br>Mastercard Inc | Bill Ackman 5.6% · Terry Smith 4.7% | 2 |
-| **AMAT**<br>Applied Materials Inc | Stephen Mandel 5.3% · John Armitage 3.6% | 2 |
-| **NFLX**<br>Netflix Inc | Bill Ackman 4.8% · Terry Smith 3.7% | 2 |
-| **META**<br>Meta Platforms, Inc. | Clifford Sosin 4.1% · Lee Ainslie 3.9% | 2 |
-| **V**<br>Visa Inc. | Bill Ackman 5.8% · Chase Coleman 1.1% | 2 |
-| **HD**<br>Home Depot, Inc. | Stephen Mandel 5.6% · Bill & Melinda Gates Foundation Trust 1.0% | 2 |
-| [**GEV**](watchlist/GEV.md)<br>GE Vernova | Terry Smith 3.5% · Polen Capital 2.0% | 2 |
-| **TTMI**<br>Ttm Technologies Inc | Stephen Mandel 3.1% · Daniel Loeb 2.0% | 2 |
-| 외 4종목 | | |
+<div class="m-chips13"><span class="m-chip13">SPGI<small>4명</small></span><span class="m-chip13">WBD<small>2명</small></span><span class="m-chip13">MA<small>2명</small></span><span class="m-chip13">AMAT<small>2명</small></span><span class="m-chip13">NFLX<small>2명</small></span><span class="m-chip13">META<small>2명</small></span><span class="m-chip13">V<small>2명</small></span><span class="m-chip13">HD<small>2명</small></span><a class="m-chip13" href="watchlist/GEV/">GEV<small>2명</small></a><span class="m-chip13">TTMI<small>2명</small></span></div>
 
-<p class="stock-chart-note">비율은 그 투자자 포트폴리오에서 차지하는 비중입니다. 검증(2026-09-23, 11년 1만 건)에서 여러 기관이 새로 산 종목의 매수 신호는 성적이 좋은 쪽이었지만 기준에 못 미쳤습니다. 참고 정보이며 매수 신호가 아닙니다.</p>
+??? note "누가 샀는지 보기"
 
-<div class="stat-grid"><a class="stat-card" href="watchlist/"><div class="stat-card__num">53</div><div class="stat-card__label">관찰 종목</div></a><a class="stat-card stat-card--buy" href="snapshots/"><div class="stat-card__num">14</div><div class="stat-card__label">매수</div></a><a class="stat-card" href="positions/"><div class="stat-card__num">18</div><div class="stat-card__label">가상 포지션</div></a><a class="stat-card" href="strategies/"><div class="stat-card__num">📈</div><div class="stat-card__label">방식별 기록</div></a><a class="stat-card" href="snapshots/"><div class="stat-card__num">52</div><div class="stat-card__label">스냅샷 종목</div></a><a class="stat-card" href="alerts/"><div class="stat-card__num">198</div><div class="stat-card__label">알림</div></a></div>
+    | 종목 | 새로 산 투자자 | 인원 |
+    |------|----------------|-----:|
+    | **SPGI**<br>S&P Global Inc. | Bill Ackman 5.4% · Triple Frond Partners 4.2% · Christopher Bloomstran 2.1% · John Armitage 1.4% | 4 |
+    | **WBD**<br>Warner Bros. Discovery, Inc. | Daniel Loeb 11.5% · David Einhorn 1.5% | 2 |
+    | **MA**<br>Mastercard Inc | Bill Ackman 5.6% · Terry Smith 4.7% | 2 |
+    | **AMAT**<br>Applied Materials Inc | Stephen Mandel 5.3% · John Armitage 3.6% | 2 |
+    | **NFLX**<br>Netflix Inc | Bill Ackman 4.8% · Terry Smith 3.7% | 2 |
+    | **META**<br>Meta Platforms, Inc. | Clifford Sosin 4.1% · Lee Ainslie 3.9% | 2 |
+    | **V**<br>Visa Inc. | Bill Ackman 5.8% · Chase Coleman 1.1% | 2 |
+    | **HD**<br>Home Depot, Inc. | Stephen Mandel 5.6% · Bill & Melinda Gates Foundation Trust 1.0% | 2 |
+    | [**GEV**](watchlist/GEV.md)<br>GE Vernova | Terry Smith 3.5% · Polen Capital 2.0% | 2 |
+    | **TTMI**<br>Ttm Technologies Inc | Stephen Mandel 3.1% · Daniel Loeb 2.0% | 2 |
+    | 외 4종목 | | |
 
-## 바로 가기
+<p class="m-fine">참고 정보이며 매수 신호가 아닙니다. 검증(2026-09-23, 11년 1만 건)에서 여러 기관이 새로 산 종목의 매수 신호는 성적이 좋은 쪽이었지만 기준에 못 미쳤습니다.</p>
 
-- 📈 **방식별 기록** — [추천가·목표가·손절가와 추천대로 했다면](strategies/index.md)
-- 📋 **관찰 종목** 53개 — [목록 보기](watchlist/index.md)
-- 💹 **가상 포지션** 18개 — [판정 기록 기준 수익률·시드 계산](positions/index.md)
-- 📊 **분석 스냅샷** 52종목 — [최신순 보기](snapshots/index.md)
-- 🔔 **알림** 198건 — [타임라인 보기](alerts/index.md)
-- 📊 **시장 현황** — [VIX · Fear&Greed · 섹터 흐름](fear-index.md)
 
 ## 용어 설명
 
