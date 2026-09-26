@@ -4,11 +4,11 @@
 
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
-| [**AAPL**](snapshots/AAPL-2026-09-26.md) | [Apple](snapshots/AAPL-2026-09-26.md) | 2026-09-26 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
-| [**AMD**](snapshots/AMD-2026-09-26.md) | [Advanced Micro Devices](snapshots/AMD-2026-09-26.md) | 2026-09-26 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | 2 | 7/7 |
-| [**APLD**](snapshots/APLD-2026-09-26.md) | [Applied Digital](snapshots/APLD-2026-09-26.md) | 2026-09-26 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/7 |
-| [**ASTS**](snapshots/ASTS-2026-09-26.md) | [AST SpaceMobile](snapshots/ASTS-2026-09-26.md) | 2026-09-26 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/7 |
-| [**AVGO**](snapshots/AVGO-2026-09-26.md) | [Broadcom](snapshots/AVGO-2026-09-26.md) | 2026-09-26 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 1/7 |
+| [**AAPL**](snapshots/AAPL-2026-09-27.md) | [Apple](snapshots/AAPL-2026-09-27.md) | 2026-09-27 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
+| [**AMD**](snapshots/AMD-2026-09-27.md) | [Advanced Micro Devices](snapshots/AMD-2026-09-27.md) | 2026-09-27 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | 2 | 7/7 |
+| [**APLD**](snapshots/APLD-2026-09-27.md) | [Applied Digital](snapshots/APLD-2026-09-27.md) | 2026-09-27 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/7 |
+| [**ASTS**](snapshots/ASTS-2026-09-27.md) | [AST SpaceMobile](snapshots/ASTS-2026-09-27.md) | 2026-09-27 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/7 |
+| [**AVGO**](snapshots/AVGO-2026-09-27.md) | [Broadcom](snapshots/AVGO-2026-09-27.md) | 2026-09-27 | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 1/7 |
 
 [→ 전체 스냅샷](snapshots/index.md)
 
@@ -41,7 +41,7 @@
 
 ## 섹터 자금 흐름
 
-> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-09-26 12:43 UTC · `--scan` 시 갱신
+> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-09-26 23:02 UTC · `--scan` 시 갱신
 
 ### 미국 (S&P 500 섹터 ETF)
 
@@ -61,7 +61,7 @@
 
 ## 테마별 자금 흐름 (로테이션)
 
-> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-09-26 12:43 UTC
+> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-09-26 23:02 UTC
 >
 > **US**: SMH(GPU/반도체)·IRBO(AI인프라)·BOTZ(피지컬AI) ETF + 전력/DataCenter 바스켓
 
@@ -82,7 +82,7 @@
 
 ## CNN Fear & Greed Index
 
-> 수집: 2026-09-26 12:43 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
+> 수집: 2026-09-26 23:02 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
 
 | 점수 | 전일比 | 등급 |
 |------|--------|------|
@@ -102,7 +102,7 @@
 
 ## VIX
 
-> 수집: 2026-09-26 12:43 UTC · `python monitor.py --scan` 실행 시 갱신
+> 수집: 2026-09-26 23:02 UTC · `python monitor.py --scan` 실행 시 갱신
 
 | 지수 | 현재값 | 전일比 | 등급 | 시장 국면 | 신규 진입 |
 |------|--------|--------|------|---------|---------|

@@ -1,6 +1,6 @@
 # 주식 리포트
 
-<p class="m-basis">9월 26일(토) 기준</p>
+<p class="m-basis">9월 27일(일) 기준</p>
 
 <a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 37</b><span class="m-dot">·</span><span>VIX 14.9 탐욕</span><span class="m-go">›</span></a>
 
