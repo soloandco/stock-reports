@@ -42,6 +42,8 @@ STRATEGY_PERF_JSON = ROOT.parent / "data" / "strategy_perf.json"
 OUT_STRAT = OUT / "strategies"
 # 거물 투자자 13F (2026-09-22). research_13f_build.py / monitor 가 만든다 (core.thirteenf.site_payload).
 SUPERINV_JSON = ROOT.parent / "data" / "superinvestors.json"
+# 관찰 페이지 「가격 수준」 재료 (2026-09-27). 주간 알림 점검이 만든다 (core/valuation_band.py)
+VALUATION_JSON = ROOT.parent / "data" / "valuation_band.json"
 SUPERINV_ROWS = 10
 SUPERINV_FIRST = 3      # 관찰 페이지에서 접지 않고 보이는 줄 수
 
@@ -323,6 +325,59 @@ def _superinvestor_block(ticker: str, data: dict) -> str:
     return "\n".join(lines)
 
 
+def _load_valuation() -> dict:
+    """data/valuation_band.json 로드. 없거나 깨졌으면 {} (절을 그리지 않는다)."""
+    try:
+        return json.loads(VALUATION_JSON.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+# 자기 과거 3년 밴드에서 이 분위 이하면 「싼 편」, 초과면 「비싼 편」. 가운데는 「보통」.
+_VAL_CHEAP, _VAL_DEAR = 33, 66
+# 측정 결과 한 줄 (id 22·41). 🚫 재측정 없이 문구를 바꾸지 말 것.
+VAL_EVIDENCE = ("검증(2026-09-27, 11년 매수 신호 7,398건): 자기 과거 대비 가장 싼 5분의 1에서 나온 신호는 "
+                "건당 +0.43R, 가장 비싼 5분의 1은 +0.19R 이었습니다. 방향은 맞았지만 채택 기준에 "
+                "못 미쳐 판정·알림에는 쓰지 않습니다.")
+
+
+def _valuation_block(ticker: str, snap: "dict | None", data: dict) -> str:
+    """관찰 페이지 「가격 수준」 절. 자료가 없는 종목(ETF 등)은 빈 문자열.
+
+    지금 P/S 는 **스냅샷 현재가**로 다시 계산한다(판정과 같은 가격). 밴드·매출·주식수는
+    주 1회 갱신 파일에서 읽는다. 참고 표시다. 판정·알림에 쓰지 않는다.
+    """
+    import bisect
+    t = (data.get("tickers") or {}).get(ticker)
+    price = _num((snap or {}).get("price"))
+    if not t or not price or not t.get("ttm") or not t.get("band"):
+        return ""
+    band = t["band"]
+    ps = price * t["shares"] / t["ttm"]
+    if ps < band[0]:
+        where = "3년 중 가장 낮은 수준보다 아래"
+    elif ps > band[-1]:
+        where = "3년 중 가장 높은 수준보다 위"
+    else:
+        pct = round(bisect.bisect_left(band, ps) / (len(band) - 1) * 100)
+        label = ("싼 편" if pct <= _VAL_CHEAP else "비싼 편" if pct > _VAL_DEAR else "보통")
+        where = f"과거 3년 중 **{label}** (하위 {pct}%)"
+    rows = [f"| 회사값 (P/S) | **{ps:.0f}배** · {where}<br>3년 범위 {band[0]:.0f}~{band[-1]:.0f}배 |"]
+    if t.get("growth") is not None:
+        rows.append(f"| 매출 성장 | 전년 같은 분기 대비 **{t['growth']:+.1f}%**"
+                    f" ({(t.get('growth_q') or '')[:7]} 분기) |")
+    gap = _num((snap or {}).get("gap"))
+    if gap is not None:
+        rows.append(f"| 50일선 대비 | **{gap:+.1f}%** (15% 넘으면 매수 보류) |")
+    return "\n".join([
+        "", "## 가격 수준 (참고)", "", "| 항목 | 지금 |", "|------|------|", *rows, "",
+        '<details class="stock-chart-note"><summary>참고 정보이며 매수 신호가 아닙니다 · 자세히</summary>',
+        f"<p>P/S 는 회사값(시가총액)을 최근 1년 매출로 나눈 값입니다. 자기 과거 3년 분포와 비교해 "
+        f"아래 3분의 1은 싼 편, 위 3분의 1은 비싼 편으로 적습니다. 매출·주식수·범위는 매주 일요일 "
+        f"갱신합니다({data.get('as_of', '?')}). 매출은 SEC 공시, 주식수는 액면분할을 반영했습니다. "
+        f"{VAL_EVIDENCE}</p></details>", ""])
+
+
 HOME_NEW_ROWS = 10
 
 
@@ -507,6 +562,7 @@ def _collect_watchlist(latest_by_ticker: "dict | None" = None) -> list[tuple[str
     _reset_dir(tmp)
     entries = []
     superinv = _load_superinvestors()
+    valuation = _load_valuation()
     for md in sorted(SRC_WL.glob("*.md")):
         text = md.read_text(encoding="utf-8")
         fm = _frontmatter(text)
@@ -516,11 +572,12 @@ def _collect_watchlist(latest_by_ticker: "dict | None" = None) -> list[tuple[str
         out_name = f"{ticker}.md"   # ASCII-only: 한글 파일명 → 티커만
         name = _company_name(fm.get("title", ""))
         # 실계좌 필드·private 블록 제거 후 복사 — 원본(비공개)은 그대로 유지
-        # 순서: 머리말 → 지금 상태 → 차트 → 13F → 지난 분석 메모(접힘) (2026-09-23)
+        # 순서: 머리말 → 지금 상태 → 차트 → 가격 수준 → 13F → 지난 분석 메모(접힘) (2026-09-27)
         head, rest = _split_at_first_h2(_sanitize_public_md(text))
         snap = (latest_by_ticker or {}).get(ticker)
         page = (head + _status_section(snap, name)
                 + "\n" + _CHART_BLOCK.format(ticker=ticker, attrs=_chart_attrs(snap))
+                + _valuation_block(ticker, snap, valuation)
                 + _superinvestor_block(ticker, superinv)
                 + _fold_old_memo(rest, str(fm.get("updated") or fm.get("created") or "")))
         (tmp / out_name).write_text(page, encoding="utf-8")
