@@ -42,6 +42,16 @@
   var UW_PANE_H = 90;
   function uwColor() { return isDark() ? "#d1a35a" : "#9a6b1f"; }
 
+  /* RSI 다이버전스 (2026-09-28 사용자 결정). 가격과 RSI 의 저점·고점이 반대로 간 두 점을
+     잇는 선이다. 한국식 상승=붉은 계열·하락=푸른 계열이되 캔들 색과 겹치지 않게 한 톤 옮겼다.
+     RSI 칸이 없으므로 뒤 점에 「RSI 앞→뒤」 값을 적어 캔들만 보고도 확인할 수 있게 한다.
+     표시용이다. 1시간봉 단타 측정(docs/prereg-2026-09-28-book-v3-rsi-video.md)에서 효과가
+     없었고 일봉 정의는 잰 적이 없다. 범례의 「매수 신호 아님」을 지우지 말 것. */
+  function divColor(kind) {
+    if (kind === "bull") return isDark() ? "#f06292" : "#d81b60";
+    return isDark() ? "#9fa8da" : "#3949ab";
+  }
+
   /* 값이 없는 종목이 있다(거래량 미제공 등). 그럴 땐 아무것도 그리지 않고
      차트 높이도 지금 그대로 둔다. */
   function cvdPoints(data) {
@@ -218,6 +228,31 @@
       }
     });
 
+    // RSI 다이버전스 — 두 점을 잇는 선 + 뒤 점에 RSI 값 표기
+    var divKinds = {}, marks = [];
+    (data.divergences || []).forEach(function (d) {
+      if (!d.from || !d.to || d.from[0] >= d.to[0]) return;
+      var s3 = chart.addLineSeries({
+        color: divColor(d.kind), lineWidth: 2,
+        lastValueVisible: false, priceLineVisible: false,
+        crosshairMarkerVisible: false
+      });
+      s3.setData([{ time: d.from[0], value: d.from[1] },
+                  { time: d.to[0], value: d.to[1] }]);
+      divKinds[d.kind] = true;
+      var bull = d.kind === "bull";
+      marks.push({
+        time: d.to[0], color: divColor(d.kind),
+        position: bull ? "belowBar" : "aboveBar",
+        shape: bull ? "arrowUp" : "arrowDown",
+        text: "RSI " + d.rsi[0] + "→" + d.rsi[1]
+      });
+    });
+    if (marks.length) {
+      marks.sort(function (a, b) { return a.time < b.time ? -1 : (a.time > b.time ? 1 : 0); });
+      candles.setMarkers(marks);
+    }
+
     // 손절선 — 매수 상태일 때만 페이지가 data-stop 으로 넘긴다 (알림과 같은 진입 손절)
     var stop = parseFloat(host.getAttribute("data-stop"));
     if (isFinite(stop) && stop > 0) {
@@ -256,7 +291,7 @@
     }
     var legend = buildLegend(host, anchor, data.lines || [], Object.keys(maSeries), !!cvd,
                              uw ? uw[uw.length - 1].value : null,
-                             isFinite(stop) && stop > 0, isExtraLine);
+                             isFinite(stop) && stop > 0, isExtraLine, divKinds);
     buildControls(host, chart, data.bars.length, extras, legend);
     return { chart: chart, maSeries: maSeries, panes: panes };
   }
@@ -357,9 +392,11 @@
 
   /* 선 이름은 차트 밖 글자로 둔다 — 캔버스 안 라벨은 폰에서 잘리고 확대도 안 된다.
      여기서는 구간 표기("매물벽 70.65~75.38")를 그대로 보여줄 수 있다. */
-  function buildLegend(host, anchor, lines, maKeys, hasCvd, uwLast, hasStop, isExtraLine) {
+  function buildLegend(host, anchor, lines, maKeys, hasCvd, uwLast, hasStop, isExtraLine, divKinds) {
     var hasUw = uwLast !== null && uwLast !== undefined;
-    if (!lines.length && !(maKeys || []).length && !hasCvd && !hasUw && !hasStop) return null;
+    divKinds = divKinds || {};
+    var hasDiv = !!(divKinds.bull || divKinds.bear);
+    if (!lines.length && !(maKeys || []).length && !hasCvd && !hasUw && !hasStop && !hasDiv) return null;
     var ul = document.createElement("ul");
     ul.className = "stock-chart-legend";
     ul.setAttribute("data-extra", "off");
@@ -381,6 +418,8 @@
           line.label || "", "", isExtraLine(line));
     });
     if (hasStop) add(COLORS.stop, "손절", "", false);
+    if (divKinds.bull) add(divColor("bull"), "RSI 상승 다이버전스 (참고 · 매수 신호 아님)", "", false);
+    if (divKinds.bear) add(divColor("bear"), "RSI 하락 다이버전스 (참고 · 매도 신호 아님)", "", false);
     // 이름을 "CVD"로 적지 않는다 — 진짜 CVD는 체결 단위로 세는 것이고
     // 이건 봉의 종가 위치로 만든 근사다. 무엇으로 만들었는지 화면에 밝힌다.
     if (hasCvd) add(cvdColor(), "수급 누적(종가 위치 추정)", "stock-chart-dot--cvd");
