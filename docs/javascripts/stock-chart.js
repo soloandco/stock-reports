@@ -76,24 +76,22 @@
     return pts.length >= 2 ? pts : null;
   }
 
-  /* 이동평균 50·150·200 = 이 시스템의 Trend Template 판정 근거. 신호선
+  /* 이동평균 = 이 시스템의 Trend Template 판정 근거. 신호선
      (매물벽 주황·지지대 초록·추세선 보라)과 경쟁하지 않게 무채색 계열로 둔다.
-     기간이 길수록 진하게 — 장기선이 눈에 먼저 들어와야 국면이 읽힌다. */
-  var MA_PERIODS = ["20", "50", "150", "200"];
-  var MA_LABEL = {
-    // 관습적 이름(단기·중기·장기) 대신 **역할**을 적는다 (2026-08-30 사용자 결정).
-    // 50·150·200은 Trend Template 8조건이 실제로 쓰는 선이고 20일선은 참고선이다.
-    // 화면 어휘와 전략 어휘가 따로 놀면 "기준을 바꿨냐"는 혼동이 난다.
-    "20": "20일선(참고)", "50": "50일선(판정)",
-    "150": "150일선(판정)", "200": "200일선(판정)"
-  };
+     기간이 길수록 진하게 — 장기선이 눈에 먼저 들어와야 국면이 읽힌다.
+     2026-09-28 판정선을 SMA 50/150/200 에서 EMA 20/100/200 으로 바꿨다. 새 차트
+     데이터는 ma_kind: "ema" 를 싣고, 그 전에 얼려 둔 알림 차트는 옛 SMA 키를 갖는다. */
+  var MA_PERIODS = ["20", "50", "100", "150", "200"];
+  // 관습적 이름(단기·중기·장기) 대신 **역할**을 적는다 (2026-08-30 사용자 결정).
+  function maLabel(p, kind) {
+    if (kind === "ema") return p + "일 EMA(판정)";
+    return p === "20" ? "20일선(참고)" : p + "일선(판정)";
+  }
 
-  /* 50·150·200은 Trend Template 판정 근거라 뺄 수 없고, 20일선은 통상적인
-     단기선이다. 기간이 길수록 진하게 — 장기선이 먼저 눈에 들어와야 국면이 읽힌다. */
   function maColors() {
     return isDark()
-      ? { "20": "#464c53", "50": "#5f666e", "150": "#98a1aa", "200": "#dfe4e8" }
-      : { "20": "#c2c8ce", "50": "#98a0a8", "150": "#6b737b", "200": "#2b3138" };
+      ? { "20": "#5f666e", "50": "#5f666e", "100": "#98a1aa", "150": "#98a1aa", "200": "#dfe4e8" }
+      : { "20": "#98a0a8", "50": "#98a0a8", "100": "#6b737b", "150": "#6b737b", "200": "#2b3138" };
   }
 
   function isDark() {
@@ -291,7 +289,8 @@
     }
     var legend = buildLegend(host, anchor, data.lines || [], Object.keys(maSeries), !!cvd,
                              uw ? uw[uw.length - 1].value : null,
-                             isFinite(stop) && stop > 0, isExtraLine, divKinds);
+                             isFinite(stop) && stop > 0, isExtraLine, divKinds,
+                             data.ma_kind);
     buildControls(host, chart, data.bars.length, extras, legend);
     return { chart: chart, maSeries: maSeries, panes: panes };
   }
@@ -392,7 +391,7 @@
 
   /* 선 이름은 차트 밖 글자로 둔다 — 캔버스 안 라벨은 폰에서 잘리고 확대도 안 된다.
      여기서는 구간 표기("매물벽 70.65~75.38")를 그대로 보여줄 수 있다. */
-  function buildLegend(host, anchor, lines, maKeys, hasCvd, uwLast, hasStop, isExtraLine, divKinds) {
+  function buildLegend(host, anchor, lines, maKeys, hasCvd, uwLast, hasStop, isExtraLine, divKinds, maKind) {
     var hasUw = uwLast !== null && uwLast !== undefined;
     divKinds = divKinds || {};
     var hasDiv = !!(divKinds.bull || divKinds.bear);
@@ -411,7 +410,7 @@
       ul.appendChild(li);
     };
     var mc = maColors();
-    (maKeys || []).forEach(function (p) { add(mc[p], MA_LABEL[p] || (p + "일선"), "", true); });
+    (maKeys || []).forEach(function (p) { add(mc[p], maLabel(p, maKind), "", true); });
     lines.forEach(function (line) {
       add(line.kind === "trend" ? COLORS.trend
                                 : (COLORS[line.side] || COLORS.resistance),
