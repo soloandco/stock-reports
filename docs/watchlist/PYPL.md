@@ -24,11 +24,11 @@ related:
 
 ---
 
-<div class="m-sum m-sum--nobuy"><div class="m-sum__top"><span class="m-sum__px">$54.28</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span></div><div class="m-sum__sub">기준일 2026-09-29</div><p class="m-why">상승 구조 조건이 매수 기준에 못 미칩니다.</p></div>
+<div class="m-sum m-sum--nobuy"><div class="m-sum__top"><span class="m-sum__px">$53.89</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span></div><div class="m-sum__sub">기준일 2026-09-30</div><p class="m-why">상승 구조 조건이 매수 기준에 못 미칩니다.</p></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 3개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +0.5%)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>기준미달</span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 3개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +1.2%)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>기준미달</span></div></div>
 
-<p class="m-more"><a href="../../snapshots/PYPL-2026-09-29/">분석 스냅샷 전체 보기 ›</a></p>
+<p class="m-more"><a href="../../snapshots/PYPL-2026-09-30/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트
@@ -45,7 +45,7 @@ related:
 |------|------|
 | 회사값 (P/S) | **1배** · 과거 3년 중 **싼 편** (하위 16%)<br>3년 범위 1~3배 |
 | 매출 성장 | 전년 같은 분기 대비 **+7.2%** (2026-03 분기) |
-| 20일 EMA 대비 | **+0.2%** (15% 넘으면 매수 보류) |
+| 20일 EMA 대비 | **-0.5%** (15% 넘으면 매수 보류) |
 
 <details class="stock-chart-note"><summary>참고 정보이며 매수 신호가 아닙니다 · 자세히</summary>
 <p>P/S 는 회사값(시가총액)을 최근 1년 매출로 나눈 값입니다. 자기 과거 3년 분포와 비교해 아래 3분의 1은 싼 편, 위 3분의 1은 비싼 편으로 적습니다. 매출·주식수·범위는 매주 일요일 갱신합니다(2026-09-27). 매출은 SEC 공시, 주식수는 액면분할을 반영했습니다. 검증(2026-09-27, 11년 매수 신호 7,398건): 자기 과거 대비 가장 싼 5분의 1에서 나온 신호는 건당 +0.43R, 가장 비싼 5분의 1은 +0.19R 이었습니다. 방향은 맞았지만 채택 기준에 못 미쳐 판정·알림에는 쓰지 않습니다.</p></details>
@@ -56,20 +56,20 @@ related:
 
 | 투자자 | 비중 | 구분 | 추정 평단 |
 |--------|-----:|------|-----------|
-| David Einhorn - Greenlight Capital | 1.6% | 신규 | $45.16 (+18%)<br>$40.20~$52.30 |
-| Norbert Lou - Punch Card | 10.6% | 보유 | $67.32 (-21%)<br>$55.79~$75.56 |
-| Lindsell Train | 5.2% | 보유 | $77.59 (-32%)<br>$64.45~$97.15 |
+| David Einhorn - Greenlight Capital | 1.6% | 신규 | $45.16 (+19%)<br>$40.20~$52.30 |
+| Norbert Lou - Punch Card | 10.6% | 보유 | $67.32 (-20%)<br>$55.79~$75.56 |
+| Lindsell Train | 5.2% | 보유 | $77.59 (-31%)<br>$64.45~$97.15 |
 
 ??? note "나머지 3곳 보기"
 
     | 투자자 | 비중 | 구분 | 추정 평단 |
     |--------|-----:|------|-----------|
-    | Francis Chou - Chou Associates | 3.3% | 보유 | $50.65 (+5%)<br>$42.99~$62.73 |
-    | Yacktman Asset Management | 1.2% | 보유 | $46.45 (+14%)<br>$38.46~$60.13 |
-    | First Pacific Advisors | 1.2% | 보유 | $46.03 (+15%)<br>$39.03~$57.57 |
+    | Francis Chou - Chou Associates | 3.3% | 보유 | $50.65 (+6%)<br>$42.99~$62.73 |
+    | Yacktman Asset Management | 1.2% | 보유 | $46.45 (+16%)<br>$38.46~$60.13 |
+    | First Pacific Advisors | 1.2% | 보유 | $46.03 (+17%)<br>$39.03~$57.57 |
 
 <details class="stock-chart-note"><summary>2026-06-30 기준 공시(최대 45일 늦음). 참고 정보이며 매수 신호가 아닙니다 · 자세히</summary>
-<p>2026-06-30 기준 보유를 SEC 13F 공시로 셉니다(공시 반영 2026-09-29). 분기 말 뒤 최대 45일 늦게 공개되고 매입 단가는 없습니다. 비중 1% 미만 보유는 세지 않습니다. 추정 평단은 주식이 늘어난 분기마다 그 분기 거래량 가중 평균가에 샀다고 보고 쌓은 값이고, 둘째 줄은 그 분기 최저가~최고가로 잡은 범위입니다. 괄호는 현재가 대비입니다. 그 투자자의 첫 13F 신고(가장 이르면 2013년) 전부터 들고 있던 종목은 매입가를 알 수 없어 「모름」입니다. 버크셔 실제 원가와 대조(2019~2021년)하면 장내에서 산 종목은 대부분 ±6% 안이었고, 판 뒤에는 10~16%까지 벌어졌습니다. 종목 코드가 바뀐 경우(구글→알파벳 등)는 이어서 계산합니다. 신주인수권 행사로 받은 주식은 크게 틀릴 수 있습니다. 유명 투자자 명단은 Dataroma, 집중 투자 기관은 보유 5~50종목·총액 5억 달러 이상인 기관입니다. 검증(2026-09-23, 11년 1만 건)에서 보유 기관 수는 매수 신호 성적과 무관했고, 여러 기관이 새로 산 종목은 좋은 쪽이었지만 기준에 못 미쳤습니다. 참고 정보이며 매수 신호가 아닙니다.</p></details>
+<p>2026-06-30 기준 보유를 SEC 13F 공시로 셉니다(공시 반영 2026-09-30). 분기 말 뒤 최대 45일 늦게 공개되고 매입 단가는 없습니다. 비중 1% 미만 보유는 세지 않습니다. 추정 평단은 주식이 늘어난 분기마다 그 분기 거래량 가중 평균가에 샀다고 보고 쌓은 값이고, 둘째 줄은 그 분기 최저가~최고가로 잡은 범위입니다. 괄호는 현재가 대비입니다. 그 투자자의 첫 13F 신고(가장 이르면 2013년) 전부터 들고 있던 종목은 매입가를 알 수 없어 「모름」입니다. 버크셔 실제 원가와 대조(2019~2021년)하면 장내에서 산 종목은 대부분 ±6% 안이었고, 판 뒤에는 10~16%까지 벌어졌습니다. 종목 코드가 바뀐 경우(구글→알파벳 등)는 이어서 계산합니다. 신주인수권 행사로 받은 주식은 크게 틀릴 수 있습니다. 유명 투자자 명단은 Dataroma, 집중 투자 기관은 보유 5~50종목·총액 5억 달러 이상인 기관입니다. 검증(2026-09-23, 11년 1만 건)에서 보유 기관 수는 매수 신호 성적과 무관했고, 여러 기관이 새로 산 종목은 좋은 쪽이었지만 기준에 못 미쳤습니다. 참고 정보이며 매수 신호가 아닙니다.</p></details>
 
 
 ??? note "지난 분석 메모 (작성 2026-07-15 · 지금 판정과 다를 수 있음)"
