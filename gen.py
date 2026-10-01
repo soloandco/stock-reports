@@ -229,7 +229,7 @@ def _write_chart_data(entries) -> int:
     import sys
     sys.path.insert(0, str(ROOT.parent))
     try:
-        from core.chart_data import build_chart_payload
+        from core.chart_data import WATCH_CHART_DAYS, build_chart_payload
         from core.chart_lines import parse_lines
     except Exception as exc:      # 분석 코드가 없는 환경(CI 등)에서는 조용히 생략
         print(f"  차트 데이터 생략 — {exc}")
@@ -247,7 +247,7 @@ def _write_chart_data(entries) -> int:
     ok = 0
     for ticker, market, _name, _fname in entries:
         lines, _errs = parse_lines(auto.get(ticker) or [])
-        payload = build_chart_payload(ticker, market, lines=lines)
+        payload = build_chart_payload(ticker, market, lines=lines, days=WATCH_CHART_DAYS)
         if not payload:
             continue
         # 구분자를 붙이지 않아 파일을 작게 유지한다 (48종목이 매일 갱신된다)

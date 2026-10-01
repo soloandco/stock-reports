@@ -108,11 +108,22 @@
 
   /* 대각 추세선을 차트 폭 전체로 연장한다. 두 앵커만으로는 화면 좌우 끝까지
      닿지 않아 선이 공중에 떠 보인다. */
+  var DEFAULT_VIEW_BARS = 126;   // 처음 보이는 범위 (약 6개월)
+
   function isLongTrend(line) { return String(line.id || "").indexOf("auto:trend-long-") === 0; }
 
-  function extendTrend(line, firstTime, lastTime) {
+  /* 추세선은 첫 꼭짓점부터 마지막 봉까지 그린다. 예전엔 차트 첫 봉까지 거꾸로
+     늘렸는데, 2년 차트(2026-10-02)에서 선이 꼭짓점보다 1년 앞에서 시작하고 가격축이
+     음수까지 늘어났다. 꼭짓점이 차트보다 앞이면 첫 봉부터. 시작점은 실제 봉
+     날짜에 맞춘다(봉이 없는 날짜를 넣으면 시간축에 빈칸이 생긴다). */
+  function extendTrend(line, bars) {
     var x0 = Date.parse(line.from[0]), x1 = Date.parse(line.to[0]);
     if (!isFinite(x0) || !isFinite(x1) || x1 === x0) return null;
+    var firstTime = bars[0][0], lastTime = bars[bars.length - 1][0];
+    for (var i = 0; i < bars.length; i++) {
+      if (Date.parse(bars[i][0]) >= x0) { firstTime = bars[i][0]; break; }
+    }
+    if (Date.parse(firstTime) >= Date.parse(lastTime)) return null;
     var slope = (line.to[1] - line.from[1]) / (x1 - x0);
     var at = function (t) { return line.from[1] + slope * (Date.parse(t) - x0); };
     var a = at(firstTime), b = at(lastTime);
@@ -203,7 +214,6 @@
       });
     }
 
-    var first = data.bars[0][0], last = data.bars[data.bars.length - 1][0];
     (data.lines || []).forEach(function (line) {
       var color = COLORS[line.side] || COLORS.resistance;
       if (line.kind === "level") {
@@ -216,7 +226,7 @@
         });
         if (isExtraLine(line)) extras.push({ priceLine: pl });
       } else if (line.kind === "trend") {
-        var pts = extendTrend(line, first, last);
+        var pts = extendTrend(line, data.bars);
         if (!pts) return;
         var s = chart.addLineSeries({
           color: isLongTrend(line) ? COLORS.trendLong : COLORS.trend, lineWidth: 2,
@@ -439,20 +449,30 @@
   function buildControls(host, chart, nBars, extras, legend) {
     var bar = document.createElement("div");
     bar.className = "stock-chart-ctrl";
-    var ranges = [["1개월", 21], ["3개월", 63], ["전체", 0]];
+    /* 관찰 페이지 차트는 2년치를 싣는다(2026-10-02). 처음엔 지금까지처럼 최근
+       6개월만 보이고, 「전체」를 누르면 2년이 보인다. 알림 페이지 차트는 6개월치라
+       「6개월」 버튼을 두지 않는다. */
+    var ranges = [["1개월", 21], ["3개월", 63]];
+    if (nBars > DEFAULT_VIEW_BARS) ranges.push(["6개월", DEFAULT_VIEW_BARS]);
+    ranges.push(["전체", 0]);
+    var initial = nBars > DEFAULT_VIEW_BARS ? DEFAULT_VIEW_BARS : 0;
+    var show = function (n) {
+      if (!n || n >= nBars) chart.timeScale().fitContent();
+      else chart.timeScale().setVisibleLogicalRange({ from: nBars - n, to: nBars - 0.5 });
+    };
     var rangeBtns = ranges.map(function (r) {
       var b = document.createElement("button");
       b.type = "button";
       b.textContent = r[0];
-      b.setAttribute("aria-pressed", String(r[1] === 0));
+      b.setAttribute("aria-pressed", String(r[1] === initial));
       b.addEventListener("click", function () {
         rangeBtns.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
-        if (!r[1] || r[1] >= nBars) chart.timeScale().fitContent();
-        else chart.timeScale().setVisibleLogicalRange({ from: nBars - r[1], to: nBars - 0.5 });
+        show(r[1]);
       });
       bar.appendChild(b);
       return b;
     });
+    show(initial);
     if (extras.length) {
       var more = document.createElement("button");
       more.type = "button";
