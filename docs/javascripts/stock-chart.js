@@ -17,6 +17,7 @@
     resistance: "#e07b39",
     support: "#3aa76d",
     trend: "#8a63d2",
+    trendLong: "#5e35b1",   // 장기 추세선(주봉, 2026-10-02). 단기 선(점선)과 같은 보라 계열 실선
     stop: "#c62828"
   };
 
@@ -107,6 +108,8 @@
 
   /* 대각 추세선을 차트 폭 전체로 연장한다. 두 앵커만으로는 화면 좌우 끝까지
      닿지 않아 선이 공중에 떠 보인다. */
+  function isLongTrend(line) { return String(line.id || "").indexOf("auto:trend-long-") === 0; }
+
   function extendTrend(line, firstTime, lastTime) {
     var x0 = Date.parse(line.from[0]), x1 = Date.parse(line.to[0]);
     if (!isFinite(x0) || !isFinite(x1) || x1 === x0) return null;
@@ -216,8 +219,9 @@
         var pts = extendTrend(line, first, last);
         if (!pts) return;
         var s = chart.addLineSeries({
-          color: COLORS.trend, lineWidth: 2,
-          lineStyle: LightweightCharts.LineStyle.Dashed,
+          color: isLongTrend(line) ? COLORS.trendLong : COLORS.trend, lineWidth: 2,
+          lineStyle: isLongTrend(line) ? LightweightCharts.LineStyle.Solid
+                                       : LightweightCharts.LineStyle.Dashed,
           lastValueVisible: false, priceLineVisible: false,
           crosshairMarkerVisible: false
         });
@@ -412,7 +416,7 @@
     var mc = maColors();
     (maKeys || []).forEach(function (p) { add(mc[p], maLabel(p, maKind), "", true); });
     lines.forEach(function (line) {
-      add(line.kind === "trend" ? COLORS.trend
+      add(line.kind === "trend" ? (isLongTrend(line) ? COLORS.trendLong : COLORS.trend)
                                 : (COLORS[line.side] || COLORS.resistance),
           line.label || "", "", isExtraLine(line));
     });
