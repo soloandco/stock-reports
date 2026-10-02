@@ -23,8 +23,8 @@ def test_collect_watchlist_strips_private_fields_and_blocks(tmp_path, monkeypatc
     src = tmp_path / "src"
     out = tmp_path / "out"
     src.mkdir()
-    monkeypatch.setattr(gen, "SRC_WL", src)
-    monkeypatch.setattr(gen, "OUT_WL", out)
+    monkeypatch.setattr("sitegen.config.SRC_WL", src)
+    monkeypatch.setattr("sitegen.config.OUT_WL", out)
 
     (src / "MSFT-x.md").write_text(
         "---\n"
@@ -60,8 +60,8 @@ def test_collect_notes_returns_trade_notes_only(tmp_path, monkeypatch):
     src = tmp_path / "src"
     out = tmp_path / "out"
     src.mkdir()
-    monkeypatch.setattr(gen, "SRC_NOTES", src)
-    monkeypatch.setattr(gen, "OUT_NOTES", out)
+    monkeypatch.setattr("sitegen.config.SRC_NOTES", src)
+    monkeypatch.setattr("sitegen.config.OUT_NOTES", out)
 
     _write_note(src / "2026-07-01-PLTR.md", type="trade-note", ticker="PLTR",
                 entry_date="2026-07-01", status="open")
@@ -80,8 +80,8 @@ def test_collect_notes_sorted_by_entry_date_desc(tmp_path, monkeypatch):
     src = tmp_path / "src"
     out = tmp_path / "out"
     src.mkdir()
-    monkeypatch.setattr(gen, "SRC_NOTES", src)
-    monkeypatch.setattr(gen, "OUT_NOTES", out)
+    monkeypatch.setattr("sitegen.config.SRC_NOTES", src)
+    monkeypatch.setattr("sitegen.config.OUT_NOTES", out)
 
     _write_note(src / "2026-06-01-AAA.md", type="trade-note", ticker="AAA",
                 entry_date="2026-06-01", status="closed")
@@ -221,7 +221,7 @@ def test_positions_explanation_matches_current_exit_rule():
 
 def test_position_link_uses_snapshot_filename_instead_of_market_bar_date(tmp_path, monkeypatch):
     pytest.importorskip("core.positions")  # 비공개 분석 코드가 있는 로컬 통합 테스트
-    monkeypatch.setattr(gen, "SRC_SNAP", tmp_path)
+    monkeypatch.setattr("sitegen.config.SRC_SNAP", tmp_path)
     (tmp_path / "TEST-2026-09-05.md").write_text(
         "---\nticker: TEST\nmarket: NASDAQ\ncreated: 2026-09-05\n"
         "verdict: 매수관찰\nprice: 110\nstop-price: 90\n---\n", encoding="utf-8")

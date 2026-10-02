@@ -48,14 +48,14 @@ def test_block_sits_between_chart_and_13f(tmp_path, monkeypatch):
     import json
     src, out = tmp_path / "src", tmp_path / "out"
     src.mkdir()
-    monkeypatch.setattr(gen, "SRC_WL", src)
-    monkeypatch.setattr(gen, "OUT_WL", out)
+    monkeypatch.setattr("sitegen.config.SRC_WL", src)
+    monkeypatch.setattr("sitegen.config.OUT_WL", out)
     (tmp_path / "v.json").write_text(json.dumps(DATA), encoding="utf-8")
-    monkeypatch.setattr(gen, "VALUATION_JSON", tmp_path / "v.json")
+    monkeypatch.setattr("sitegen.config.VALUATION_JSON", tmp_path / "v.json")
     (tmp_path / "si.json").write_text(json.dumps({"period": "x", "tickers": {"PLTR": {
         "famous": [], "famous_holders": 0, "famous_new": 0, "conc_holders": 0, "conc_new": 0}}}),
         encoding="utf-8")
-    monkeypatch.setattr(gen, "SUPERINV_JSON", tmp_path / "si.json")
+    monkeypatch.setattr("sitegen.config.SUPERINV_JSON", tmp_path / "si.json")
     (src / "PLTR.md").write_text("---\ntype: watchlist\nticker: PLTR\n---\n# T\n\n## 분석\n본문\n",
                                  encoding="utf-8")
     snap = {"fname": "PLTR-2026-09-27.md", "verdict": "매수불가", "price": "185", "gap": "15.7",

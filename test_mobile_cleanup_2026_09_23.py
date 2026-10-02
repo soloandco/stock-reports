@@ -50,9 +50,9 @@ SNAP = {"ticker": "GOOGL", "created": "2026-09-23", "verdict": "매수관찰", "
 def _page(tmp_path, monkeypatch, latest=None):
     src, out = tmp_path / "src", tmp_path / "out"
     src.mkdir()
-    monkeypatch.setattr(gen, "SRC_WL", src)
-    monkeypatch.setattr(gen, "OUT_WL", out)
-    monkeypatch.setattr(gen, "SUPERINV_JSON", tmp_path / "none.json")
+    monkeypatch.setattr("sitegen.config.SRC_WL", src)
+    monkeypatch.setattr("sitegen.config.OUT_WL", out)
+    monkeypatch.setattr("sitegen.config.SUPERINV_JSON", tmp_path / "none.json")
     (src / "GOOGL-alphabet.md").write_text(SRC, encoding="utf-8")
     gen._collect_watchlist(latest)
     return (out / "GOOGL.md").read_text(encoding="utf-8")
@@ -110,9 +110,9 @@ def test_no_snapshot_means_no_status_section(tmp_path, monkeypatch):
 def test_file_without_h2_is_left_alone(tmp_path, monkeypatch):
     src, out = tmp_path / "src", tmp_path / "out"
     src.mkdir()
-    monkeypatch.setattr(gen, "SRC_WL", src)
-    monkeypatch.setattr(gen, "OUT_WL", out)
-    monkeypatch.setattr(gen, "SUPERINV_JSON", tmp_path / "none.json")
+    monkeypatch.setattr("sitegen.config.SRC_WL", src)
+    monkeypatch.setattr("sitegen.config.OUT_WL", out)
+    monkeypatch.setattr("sitegen.config.SUPERINV_JSON", tmp_path / "none.json")
     (src / "X.md").write_text("---\ntype: watchlist\nticker: X\n---\n# X\n본문만\n", encoding="utf-8")
     gen._collect_watchlist()
     page = (out / "X.md").read_text(encoding="utf-8")

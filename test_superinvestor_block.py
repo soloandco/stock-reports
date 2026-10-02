@@ -30,10 +30,10 @@ def test_block_goes_right_after_chart(tmp_path, monkeypatch):
     import json
     src, out = tmp_path / "src", tmp_path / "out"
     src.mkdir()
-    monkeypatch.setattr(gen, "SRC_WL", src)
-    monkeypatch.setattr(gen, "OUT_WL", out)
+    monkeypatch.setattr("sitegen.config.SRC_WL", src)
+    monkeypatch.setattr("sitegen.config.OUT_WL", out)
     (tmp_path / "si.json").write_text(json.dumps(DATA), encoding="utf-8")
-    monkeypatch.setattr(gen, "SUPERINV_JSON", tmp_path / "si.json")
+    monkeypatch.setattr("sitegen.config.SUPERINV_JSON", tmp_path / "si.json")
     (src / "MSFT.md").write_text("---\ntype: watchlist\nticker: MSFT\n---\n# T\n\n## 분석\n본문\n",
                                  encoding="utf-8")
     gen._collect_watchlist()
@@ -72,7 +72,7 @@ def test_home_table_absent_without_data_and_empty_quarter():
 
 
 def test_home_table_is_on_dashboard(monkeypatch):
-    monkeypatch.setattr(gen, "_load_superinvestors", lambda: HOME)
+    monkeypatch.setattr("sitegen.watch_pages._load_superinvestors", lambda: HOME)
     md = gen._dashboard([], [], [], {}, [])
     assert "## 거물 신규 매수 (13F)" in md
 

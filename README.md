@@ -12,6 +12,7 @@ Weinstein 스테이지 · Minervini Trend Template · Turtle ATR 3레이어 프�
   - `docs/alerts/` — **monitor.py가 직접 push** (gen.py는 인덱스만 만들고 삭제하지 않음)
   - `docs/fear-index.md` — `data/fear_index.json`에서 자동 생성 (`--scan` 실행 시 갱신)
 - `gen.py` — 메인 저장소 워치리스트/스냅샷 → 사이트 docs 변환 + 섹션 인덱스 생성, 공포 지수 페이지 포함
+  - 실행 입구. 본체는 `sitegen/`(경로·공용·관찰 종목·목록·홈·방식별 기록·시장 현황, 2026-10-02 분할)
 - `mkdocs.yml` — MkDocs Material 설정 (nav 5메뉴)
 - `.github/workflows/deploy.yml` — push 시 GitHub Pages 자동 배포
 
