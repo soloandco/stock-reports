@@ -17,6 +17,8 @@
     resistance: "#e07b39",
     support: "#3aa76d",
     trend: "#8a63d2",
+    alertBuy: "#2e7d32",    // 실제 보낸 매수 알림 (2026-10-02)
+    alertExit: "#455a64",   // 실제 보낸 청산 알림
     trendLong: "#5e35b1",   // 장기 추세선(주봉, 2026-10-02). 단기 선(점선)과 같은 보라 계열 실선
     stop: "#c62828"
   };
@@ -287,6 +289,16 @@
         text: "RSI " + d.rsi[0] + "→" + d.rsi[1]
       });
     });
+    // 실제로 보낸 매수·청산 알림 (2026-10-02). 매수는 캔들 아래 ▲, 청산은 위 ▼.
+    (data.alert_marks || []).forEach(function (m) {
+      var buy = m.kind === "buy";
+      divKinds[buy ? "alertBuy" : "alertExit"] = true;
+      marks.push({
+        time: m.date, color: buy ? COLORS.alertBuy : COLORS.alertExit,
+        position: buy ? "belowBar" : "aboveBar",
+        shape: buy ? "arrowUp" : "arrowDown", text: m.text
+      });
+    });
     if (marks.length) {
       marks.sort(function (a, b) { return a.time < b.time ? -1 : (a.time > b.time ? 1 : 0); });
       candles.setMarkers(marks);
@@ -460,6 +472,8 @@
           line.label || "", "", isExtraLine(line));
     });
     if (hasStop) add(COLORS.stop, "손절", "", false);
+    if (divKinds.alertBuy) add(COLORS.alertBuy, "▲ 보낸 매수 알림", "", false);
+    if (divKinds.alertExit) add(COLORS.alertExit, "▼ 보낸 청산 알림", "", false);
     if (divKinds.bull) add(divColor("bull"), "RSI 상승 다이버전스 (참고 · 매수 신호 아님)", "", false);
     if (divKinds.bear) add(divColor("bear"), "RSI 하락 다이버전스 (참고 · 매도 신호 아님)", "", false);
     // 이름을 "CVD"로 적지 않는다 — 진짜 CVD는 체결 단위로 세는 것이고

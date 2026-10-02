@@ -243,11 +243,24 @@ def _write_chart_data(entries) -> int:
         except Exception:
             auto = {}
 
+    # 실제로 보낸 알림 원장 (2026-10-02). 차트에 매수·청산 날짜를 찍는다. 없거나 깨진 줄은 건너뛴다.
+    alerts_by_ticker: dict[str, list] = {}
+    ledger = ROOT.parent / "data" / "alert_ledger.jsonl"
+    if ledger.exists():
+        for raw in ledger.read_text(encoding="utf-8").splitlines():
+            try:
+                row = json.loads(raw)
+            except Exception:
+                continue
+            if isinstance(row, dict) and row.get("ticker"):
+                alerts_by_ticker.setdefault(row["ticker"], []).append(row)
+
     OUT_WL_CHARTS.mkdir(parents=True, exist_ok=True)
     ok = 0
     for ticker, market, _name, _fname in entries:
         lines, _errs = parse_lines(auto.get(ticker) or [])
-        payload = build_chart_payload(ticker, market, lines=lines, days=WATCH_CHART_DAYS)
+        payload = build_chart_payload(ticker, market, lines=lines, days=WATCH_CHART_DAYS,
+                                      alerts=alerts_by_ticker.get(ticker))
         if not payload:
             continue
         # 구분자를 붙이지 않아 파일을 작게 유지한다 (48종목이 매일 갱신된다)
