@@ -1,12 +1,12 @@
 # 주식 리포트
 
-<p class="m-basis">10월 2일(금) 기준</p>
+<p class="m-basis">10월 3일(토) 기준</p>
 
-<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 28</b><span class="m-dot">·</span><span>VIX 16.4 중립</span><span class="m-go">›</span></a>
+<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 32</b><span class="m-dot">·</span><span>VIX 15.4 중립</span><span class="m-go">›</span></a>
 
-<div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">0<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 13종목 중</div></div>
-<p class="m-empty">오늘 새 신호는 없습니다.</p>
-<a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>13</b>종목</span><span class="m-muted">추격 비추천 · XLE·SOXX·MSFT 외</span><span class="m-go">›</span></a>
+<div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">2<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 15종목 중</div></div>
+<div class="m-cards"><a class="m-card" href="watchlist/QCOM/"><div class="m-card__head"><b class="m-card__ticker">QCOM</b><span class="m-card__name">Qualcomm</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-9.0%</b></div><div><span>첫 저항까지</span><b class="m-pos">+8.8%</b></div><div><span>신호</span><b>오늘</b></div></div></a><a class="m-card" href="watchlist/SKWD/"><div class="m-card__head"><b class="m-card__ticker">SKWD</b><span class="m-card__name">Skyward Specialty Insurance</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-5.8%</b></div><div><span>첫 저항까지</span><b class="m-wrn">+0.9%</b></div><div><span>신호</span><b>오늘</b></div></div><div class="m-card__warn">머리 위 저항이 바로 앞</div></a></div>
+<a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>13</b>종목</span><span class="m-muted">추격 비추천 · AMD·XLE·XLK 외</span><span class="m-go">›</span></a>
 
 <div class="m-sec"><span>추천 기록</span><a href="strategies/">전체 ›</a></div>
 <a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>4</b><span>완료</span></div><div><b class="m-pos">+0.66R</b><span>평균</span></div><div><b>0</b><span>진행 중</span></div></div></a>
