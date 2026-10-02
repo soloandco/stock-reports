@@ -802,6 +802,8 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
 }
 .stock-chart-ctrl button[aria-pressed="true"] { background: var(--m-ink); border-color: var(--m-ink); color: var(--m-card); font-weight: 700; }
 .stock-chart-ctrl .sc-lines { margin-left: auto; }
+/* 차트 위 날짜·시고저종 한 줄 (2026-10-02). 숫자 폭이 일정해야 손가락을 움직일 때 줄이 흔들리지 않는다 */
+.stock-chart-readout { font-size: 0.6rem; color: var(--md-default-fg-color--light); font-variant-numeric: tabular-nums; margin: 0 0 0.2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .stock-chart-legend[data-extra="off"] li.is-extra { display: none; }
 /* 표 바탕을 카드색으로 바꿨으니 고정 첫 열도 같은 색 (안 맞추면 회색 띠가 생긴다) */
 .md-typeset__scrollwrap table:not([class]) th:first-child,

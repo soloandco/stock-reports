@@ -110,6 +110,32 @@
      닿지 않아 선이 공중에 떠 보인다. */
   var DEFAULT_VIEW_BARS = 126;   // 처음 보이는 범위 (약 6개월)
 
+  /* 날짜 표기 (2026-10-02 사용자 요청). 눈금은 연·월·일 단계에 맞춰 「2026년」·
+     「7월」·「7/23」으로 쓴다. 기본 눈금은 확대해도 날짜가 숫자만 나와 무슨 달인지
+     알기 어려웠다. 시간 값은 문자열 날짜를 넣었으므로 {year,month,day}로 온다. */
+  var WEEKDAYS = ["일", "월", "화", "수", "목", "금", "토"];
+  function ymd(time) {
+    if (time && typeof time === "object") return { y: time.year, m: time.month, d: time.day };
+    if (typeof time === "string") {
+      var p = time.split("-");
+      return { y: +p[0], m: +p[1], d: +p[2] };
+    }
+    var dt = new Date(time * 1000);
+    return { y: dt.getUTCFullYear(), m: dt.getUTCMonth() + 1, d: dt.getUTCDate() };
+  }
+  function tickLabel(time, type) {
+    var t = ymd(time);
+    if (type === 0) return t.y + "년";
+    if (type === 1) return t.m + "월";
+    return t.m + "/" + t.d;
+  }
+  function fullDate(time) {
+    var t = ymd(time);
+    var w = new Date(Date.UTC(t.y, t.m - 1, t.d)).getUTCDay();
+    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+    return t.y + "-" + pad(t.m) + "-" + pad(t.d) + " (" + WEEKDAYS[w] + ")";
+  }
+
   function isLongTrend(line) { return String(line.id || "").indexOf("auto:trend-long-") === 0; }
 
   /* 추세선은 첫 꼭짓점부터 마지막 봉까지 그린다. 예전엔 차트 첫 봉까지 거꾸로
@@ -147,11 +173,12 @@
       rightPriceScale: { borderVisible: false, scaleMargins: { top: 0.12, bottom: 0.12 } },
       // 아래 칸이 붙으면 날짜는 맨 아래 칸에서 한 번만 보여 준다.
       timeScale: { borderVisible: false, fixLeftEdge: true, fixRightEdge: true,
-                   visible: !hasSub },
+                   visible: !hasSub, tickMarkFormatter: tickLabel },
       crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
       handleScale: { axisPressedMouseMove: false },
       localization: {
         locale: "ko-KR",
+        timeFormatter: fullDate,
         priceFormatter: function (p) { return p.toLocaleString("ko-KR"); }
       },
       // autoSize를 쓰지 않는다: 컨테이너(343px)보다 44px 넓은 캔버스를 그려
@@ -306,6 +333,7 @@
                              isFinite(stop) && stop > 0, isExtraLine, divKinds,
                              data.ma_kind);
     buildControls(host, chart, data.bars.length, extras, legend);
+    buildReadout(host, data.bars, [chart].concat(panes.map(function (p) { return p.chart; })));
     return { chart: chart, maSeries: maSeries, panes: panes };
   }
 
@@ -348,7 +376,8 @@
       // 대신 아래에서 캔버스 폭을 위 차트의 그림 영역에 맞춘다.
       rightPriceScale: { visible: false },
       timeScale: { borderVisible: false, fixLeftEdge: true, fixRightEdge: true,
-                   visible: !!opts.showTime },
+                   visible: !!opts.showTime, tickMarkFormatter: tickLabel },
+      localization: { locale: "ko-KR", timeFormatter: fullDate },
       crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
       handleScale: { axisPressedMouseMove: false },
       localization: { locale: "ko-KR" },
@@ -446,6 +475,33 @@
 
   /* 차트 위 버튼 줄: 기간(최근 1개월 · 3개월 · 전체)과 「선 더 보기」.
      기간은 가격 칸만 옮기면 아래 칸들이 따라온다(시간축이 묶여 있다). */
+  /* 차트 바로 위 한 줄: 마우스(폰은 손가락)가 가리키는 날의 날짜와 시가·고가·
+     저가·종가. 가리키는 곳이 없으면 마지막 봉. 아래 칸 위에서 움직여도 같은 날을 보인다
+     (2026-10-02 사용자 요청: 「날짜도 표기되게」). */
+  function buildReadout(host, bars, charts) {
+    var el = document.createElement("div");
+    el.className = "stock-chart-readout";
+    host.parentNode.insertBefore(el, host);
+    var byDate = {};
+    bars.forEach(function (b) { byDate[b[0]] = b; });
+    var fmt = function (v) { return v.toLocaleString("ko-KR", { maximumFractionDigits: 2 }); };
+    var show = function (b) {
+      if (!b) return;
+      el.textContent = fullDate(b[0]) + " · 시 " + fmt(b[1]) + " · 고 " + fmt(b[2]) +
+        " · 저 " + fmt(b[3]) + " · 종 " + fmt(b[4]);
+    };
+    var last = bars[bars.length - 1];
+    show(last);
+    charts.forEach(function (c) {
+      c.subscribeCrosshairMove(function (param) {
+        if (!param || param.time === undefined) return show(last);
+        var t = ymd(param.time);
+        var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+        show(byDate[t.y + "-" + pad(t.m) + "-" + pad(t.d)] || last);
+      });
+    });
+  }
+
   function buildControls(host, chart, nBars, extras, legend) {
     var bar = document.createElement("div");
     bar.className = "stock-chart-ctrl";
