@@ -1,6 +1,6 @@
 # 주식 리포트
 
-<p class="m-basis">10월 4일(일) 기준</p>
+<p class="m-basis">10월 5일(월) 기준</p>
 
 <a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 31</b><span class="m-dot">·</span><span>VIX 15.3 중립</span><span class="m-go">›</span></a>
 
