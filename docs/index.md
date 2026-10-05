@@ -2,7 +2,7 @@
 
 <p class="m-basis">10월 6일(화) 기준</p>
 
-<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 43</b><span class="m-dot">·</span><span>VIX 15.6 중립</span><span class="m-go">›</span></a>
+<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 43</b><span class="m-dot">·</span><span>VIX 15.5 중립</span><span class="m-go">›</span></a>
 
 <div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">1<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 14종목 중</div></div>
 <div class="m-cards"><a class="m-card" href="watchlist/SKWD/"><div class="m-card__head"><b class="m-card__ticker">SKWD</b><span class="m-card__name">Skyward Specialty Insurance</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-5.6%</b></div><div><span>첫 저항까지</span><b class="m-wrn">+0.6%</b></div><div><span>신호</span><b>1일째</b></div></div><div class="m-card__warn">머리 위 저항이 바로 앞</div></a></div>
