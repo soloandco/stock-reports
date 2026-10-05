@@ -1,15 +1,15 @@
 # 주식 리포트
 
-<p class="m-basis">10월 5일(월) 기준</p>
+<p class="m-basis">10월 6일(화) 기준</p>
 
-<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 31</b><span class="m-dot">·</span><span>VIX 15.3 중립</span><span class="m-go">›</span></a>
+<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 43</b><span class="m-dot">·</span><span>VIX 15.6 중립</span><span class="m-go">›</span></a>
 
-<div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">2<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 15종목 중</div></div>
-<div class="m-cards"><a class="m-card" href="watchlist/QCOM/"><div class="m-card__head"><b class="m-card__ticker">QCOM</b><span class="m-card__name">Qualcomm</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-9.0%</b></div><div><span>첫 저항까지</span><b class="m-pos">+8.8%</b></div><div><span>신호</span><b>오늘</b></div></div></a><a class="m-card" href="watchlist/SKWD/"><div class="m-card__head"><b class="m-card__ticker">SKWD</b><span class="m-card__name">Skyward Specialty Insurance</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-5.8%</b></div><div><span>첫 저항까지</span><b class="m-wrn">+0.9%</b></div><div><span>신호</span><b>오늘</b></div></div><div class="m-card__warn">머리 위 저항이 바로 앞</div></a></div>
-<a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>13</b>종목</span><span class="m-muted">추격 비추천 · AMD·XLE·XLK 외</span><span class="m-go">›</span></a>
+<div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">1<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 14종목 중</div></div>
+<div class="m-cards"><a class="m-card" href="watchlist/SKWD/"><div class="m-card__head"><b class="m-card__ticker">SKWD</b><span class="m-card__name">Skyward Specialty Insurance</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-5.6%</b></div><div><span>첫 저항까지</span><b class="m-wrn">+0.6%</b></div><div><span>신호</span><b>1일째</b></div></div><div class="m-card__warn">머리 위 저항이 바로 앞</div></a></div>
+<a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>13</b>종목</span><span class="m-muted">추격 비추천 · AMD·NVDA·XLE 외</span><span class="m-go">›</span></a>
 
 <div class="m-sec"><span>추천 기록</span><a href="strategies/">전체 ›</a></div>
-<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>4</b><span>완료</span></div><div><b class="m-pos">+0.66R</b><span>평균</span></div><div><b>1</b><span>진행 중</span></div></div></a>
+<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>4</b><span>완료</span></div><div><b class="m-pos">+0.66R</b><span>평균</span></div><div><b>3</b><span>진행 중</span></div></div></a>
 
 <div class="m-sec"><span>최근 알림</span><a href="alerts/">전체 ›</a></div>
 <div class="m-box m-list"><a class="m-li" href="alerts/20261003-skwd-buy_watch/"><span class="m-li__d">10-03</span><b>SKWD</b><span>매수 신호</span></a><a class="m-li" href="alerts/20260929-dlr-stop_hit/"><span class="m-li__d">09-29</span><b>DLR</b><span>손절 경고</span></a><a class="m-li" href="alerts/20260928-amd-buy/"><span class="m-li__d">09-28</span><b>AMD</b><span>매수 신호</span></a></div>
