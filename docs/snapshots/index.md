@@ -147,6 +147,6 @@
 | [XLP](XLP-2026-10-07.md) | [XLP 필수소비재 섹터 ETF](XLP-2026-10-07.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/7 | 2026-10-07 |
 | [XLRE](XLRE-2026-10-07.md) | [XLRE 리츠 섹터 ETF](XLRE-2026-10-07.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/7 | 2026-10-07 |
 | [XLU](XLU-2026-10-07.md) | [XLU 유틸리티 섹터 ETF](XLU-2026-10-07.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/7 | 2026-10-07 |
-| [XLV](XLV-2026-10-07.md) | [XLV 헬스케어 섹터 ETF](XLV-2026-10-07.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 4/7 | 2026-10-07 |
+| [XLV](XLV-2026-10-07.md) | [XLV 헬스케어 섹터 ETF](XLV-2026-10-07.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 5/7 | 2026-10-07 |
 | [XLY](XLY-2026-10-07.md) | [XLY 임의소비재 섹터 ETF](XLY-2026-10-07.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/7 | 2026-10-07 |
 | [ZBRA](ZBRA-2026-10-07.md) | [ZBRA ZEBRA TECHNOLOGIES CORP](ZBRA-2026-10-07.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-10-07 |

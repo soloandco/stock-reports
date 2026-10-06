@@ -22,16 +22,16 @@ comments: true
 > (2026-09-12 사용자 결정). 판정·Stage·손절가의 SSOT는
 > 스냅샷(`snapshots/XLV-YYYY-MM-DD.md`)이다.
 
-<div class="m-sum m-sum--nobuy"><div class="m-sum__top"><span class="m-sum__px">$167.09</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span></div><div class="m-sum__sub">기준일 2026-10-07</div><p class="m-why">상승 구조 조건이 매수 기준에 못 미칩니다.</p></div>
+<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$167.09</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 오늘 · 10-07 매수 전환 · 기준일 2026-10-07</div><div class="m-lv3"><div><span>손절</span><b>$162.17</b><em class="m-neg">-2.9%</em></div><div><span>목표 (5R)</span><b>$191.71</b><em class="m-pos">+14.7%</em></div><div><span>첫 저항</span><b>$175.93</b><em class="m-pos">+5.3%</em></div></div></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 4개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>저항 돌파 후 되돌림 자리</span></div><div class="m-ck m-ck--no"><i>✕</i><span>기준미달</span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 5개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>신호 5일 이내 <small>(오늘)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>저항 돌파 후 되돌림 자리</span></div></div>
 
 <p class="m-more"><a href="../../snapshots/XLV-2026-10-07/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트
 
-<div class="stock-chart" data-src="../charts/XLV.json"></div>
+<div class="stock-chart" data-src="../charts/XLV.json" data-stop="162.1662"></div>
 
 <details class="stock-chart-note"><summary>매물벽·지지대는 검증에서 무작위 선과 같았습니다. 아래 두 칸도 매수 신호 아님 · 자세히</summary>
 <p>추세선·매물벽(저항)·지지대·주봉 저항을 함께 표시합니다. 매물벽·지지대는 위치 참고용이며, 검증(2026-09-07)에서 받치고 막는 비율이 무작위 선과 같았습니다. 아래 칸은 일봉 종가 위치로 추정한 수급 누적선입니다(매수 신호 아님). 맨 아래 칸은 물린 비율(최근 1년 거래량 중 현재가보다 비싸게 거래된 비중)입니다. 측정(2026-09-14, 11년 620종목)에서 이 비율은 「1년 가격 범위의 어디에 있나」와 구분되지 않았고, 앞으로의 수익을 가르지 못했습니다(층화 차이 −0.02R·CI 0 포함). 심리 지도라기보다 위치 표시로 읽으세요. 손가락으로 확대·이동할 수 있습니다.</p>
