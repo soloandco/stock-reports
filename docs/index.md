@@ -4,9 +4,9 @@
 
 <a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 43</b><span class="m-dot">·</span><span>VIX 15.5 중립</span><span class="m-go">›</span></a>
 
-<div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">1<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 14종목 중</div></div>
+<div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">1<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 32종목 중</div></div>
 <div class="m-cards"><a class="m-card" href="watchlist/SKWD/"><div class="m-card__head"><b class="m-card__ticker">SKWD</b><span class="m-card__name">Skyward Specialty Insurance</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-5.6%</b></div><div><span>첫 저항까지</span><b class="m-wrn">+0.6%</b></div><div><span>신호</span><b>1일째</b></div></div><div class="m-card__warn">머리 위 저항이 바로 앞</div></a></div>
-<a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>13</b>종목</span><span class="m-muted">추격 비추천 · AMD·NVDA·XLE 외</span><span class="m-go">›</span></a>
+<a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>31</b>종목</span><span class="m-muted">추격 비추천 · AMD·HPE·NDSN 외</span><span class="m-go">›</span></a>
 
 <div class="m-sec"><span>추천 기록</span><a href="strategies/">전체 ›</a></div>
 <a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>4</b><span>완료</span></div><div><b class="m-pos">+0.66R</b><span>평균</span></div><div><b>3</b><span>진행 중</span></div></div></a>
@@ -18,14 +18,14 @@
 
 유명 투자자 83곳 중 **2명 이상이 이번 분기에 새로 산 종목** 14개 · 2026-06-30 기준 (분기 말 뒤 최대 45일 늦게 공개)
 
-<div class="m-chips13"><span class="m-chip13">SPGI<small>4명</small></span><span class="m-chip13">WBD<small>2명</small></span><span class="m-chip13">MA<small>2명</small></span><span class="m-chip13">AMAT<small>2명</small></span><span class="m-chip13">NFLX<small>2명</small></span><span class="m-chip13">META<small>2명</small></span><span class="m-chip13">V<small>2명</small></span><span class="m-chip13">HD<small>2명</small></span><a class="m-chip13" href="watchlist/GEV/">GEV<small>2명</small></a><span class="m-chip13">TTMI<small>2명</small></span></div>
+<div class="m-chips13"><span class="m-chip13">SPGI<small>4명</small></span><a class="m-chip13" href="watchlist/WBD/">WBD<small>2명</small></a><span class="m-chip13">MA<small>2명</small></span><span class="m-chip13">AMAT<small>2명</small></span><span class="m-chip13">NFLX<small>2명</small></span><span class="m-chip13">META<small>2명</small></span><span class="m-chip13">V<small>2명</small></span><span class="m-chip13">HD<small>2명</small></span><a class="m-chip13" href="watchlist/GEV/">GEV<small>2명</small></a><span class="m-chip13">TTMI<small>2명</small></span></div>
 
 ??? note "누가 샀는지 보기"
 
     | 종목 | 새로 산 투자자 | 인원 |
     |------|----------------|-----:|
     | **SPGI**<br>S&P Global Inc. | Bill Ackman 5.4% · Triple Frond Partners 4.2% · Christopher Bloomstran 2.1% · John Armitage 1.4% | 4 |
-    | **WBD**<br>Warner Bros. Discovery, Inc. | Daniel Loeb 11.5% · David Einhorn 1.5% | 2 |
+    | [**WBD**](watchlist/WBD.md)<br>WBD Warner Bros. Discovery, Inc. | Daniel Loeb 11.5% · David Einhorn 1.5% | 2 |
     | **MA**<br>Mastercard Inc | Bill Ackman 5.6% · Terry Smith 4.7% | 2 |
     | **AMAT**<br>Applied Materials Inc | Stephen Mandel 5.3% · John Armitage 3.6% | 2 |
     | **NFLX**<br>Netflix Inc | Bill Ackman 4.8% · Terry Smith 3.7% | 2 |
