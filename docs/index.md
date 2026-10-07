@@ -1,18 +1,18 @@
 # 주식 리포트
 
-<p class="m-basis">10월 7일(수) 기준</p>
+<p class="m-basis">10월 8일(목) 기준</p>
 
-<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="">중립 47</b><span class="m-dot">·</span><span>VIX 15.0 중립</span><span class="m-go">›</span></a>
+<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 45</b><span class="m-dot">·</span><span>VIX 15.1 중립</span><span class="m-go">›</span></a>
 
-<div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">4<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 34종목 중</div></div>
-<div class="m-cards"><a class="m-card" href="watchlist/SKWD/"><div class="m-card__head"><b class="m-card__ticker">SKWD</b><span class="m-card__name">Skyward Specialty Insurance</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-5.5%</b></div><div><span>첫 저항까지</span><b class="m-pos">+15.2%</b></div><div><span>신호</span><b>2일째</b></div></div></a><a class="m-card" href="watchlist/ALLE/"><div class="m-card__head"><b class="m-card__ticker">ALLE</b><span class="m-card__name">ALLE Allegion plc</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-4.3%</b></div><div><span>첫 저항까지</span><b class="m-pos">+9.7%</b></div><div><span>신호</span><b>오늘</b></div></div></a><a class="m-card" href="watchlist/HSIC/"><div class="m-card__head"><b class="m-card__ticker">HSIC</b><span class="m-card__name">HSIC HENRY SCHEIN INC</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-4.4%</b></div><div><span>첫 저항까지</span><b class="m-wrn">+1.1%</b></div><div><span>신호</span><b>오늘</b></div></div><div class="m-card__warn">머리 위 저항이 바로 앞</div></a><a class="m-card" href="watchlist/XLV/"><div class="m-card__head"><b class="m-card__ticker">XLV</b><span class="m-card__name">XLV 헬스케어 섹터 ETF</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-2.9%</b></div><div><span>첫 저항까지</span><b class="m-pos">+5.3%</b></div><div><span>신호</span><b>오늘</b></div></div></a></div>
-<a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>30</b>종목</span><span class="m-muted">추격 비추천 · AMD·HPE·NDSN 외</span><span class="m-go">›</span></a>
+<div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">2<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 30종목 중</div></div>
+<div class="m-cards"><a class="m-card" href="watchlist/SKWD/"><div class="m-card__head"><b class="m-card__ticker">SKWD</b><span class="m-card__name">Skyward Specialty Insurance</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-5.5%</b></div><div><span>첫 저항까지</span><b class="m-pos">+13.2%</b></div><div><span>신호</span><b>3일째</b></div></div></a><a class="m-card" href="watchlist/CSCO/"><div class="m-card__head"><b class="m-card__ticker">CSCO</b><span class="m-card__name">CSCO CISCO SYSTEMS, INC.</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-4.8%</b></div><div><span>첫 저항까지</span><b class="m-pos">+5.8%</b></div><div><span>신호</span><b>오늘</b></div></div></a></div>
+<a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>28</b>종목</span><span class="m-muted">추격 비추천 · AMD·HPE·NVDA 외</span><span class="m-go">›</span></a>
 
 <div class="m-sec"><span>추천 기록</span><a href="strategies/">전체 ›</a></div>
-<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>5</b><span>완료</span></div><div><b class="m-pos">+0.96R</b><span>평균</span></div><div><b>10</b><span>진행 중</span></div></div></a>
+<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>10</b><span>완료</span></div><div><b class="m-neg">-0.02R</b><span>평균</span></div><div><b>7</b><span>진행 중</span></div></div></a>
 
 <div class="m-sec"><span>최근 알림</span><a href="alerts/">전체 ›</a></div>
-<div class="m-box m-list"><a class="m-li" href="alerts/20261007-alle-buy_watch/"><span class="m-li__d">10-07</span><b>ALLE</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261007-hsic-buy_watch/"><span class="m-li__d">10-07</span><b>HSIC</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261007-vrtx-buy_watch/"><span class="m-li__d">10-07</span><b>VRTX</b><span>매수 신호</span></a></div>
+<div class="m-box m-list"><a class="m-li" href="alerts/20261007-alle-buy_watch/"><span class="m-li__d">10-07</span><b>ALLE</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261007-alle-stop_hit/"><span class="m-li__d">10-07</span><b>ALLE</b><span>손절 경고</span></a><a class="m-li" href="alerts/20261007-hsic-buy_watch/"><span class="m-li__d">10-07</span><b>HSIC</b><span>매수 신호</span></a></div>
 
 ## 거물 신규 매수 (13F)
 
