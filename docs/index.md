@@ -9,10 +9,10 @@
 <a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>28</b>종목</span><span class="m-muted">추격 비추천 · AMD·HPE·NVDA 외</span><span class="m-go">›</span></a>
 
 <div class="m-sec"><span>추천 기록</span><a href="strategies/">전체 ›</a></div>
-<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>10</b><span>완료</span></div><div><b class="m-neg">-0.02R</b><span>평균</span></div><div><b>7</b><span>진행 중</span></div></div></a>
+<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>10</b><span>완료</span></div><div><b class="m-neg">-0.02R</b><span>평균</span></div><div><b>9</b><span>진행 중</span></div></div></a>
 
 <div class="m-sec"><span>최근 알림</span><a href="alerts/">전체 ›</a></div>
-<div class="m-box m-list"><a class="m-li" href="alerts/20261007-alle-buy_watch/"><span class="m-li__d">10-07</span><b>ALLE</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261007-alle-stop_hit/"><span class="m-li__d">10-07</span><b>ALLE</b><span>손절 경고</span></a><a class="m-li" href="alerts/20261007-hsic-buy_watch/"><span class="m-li__d">10-07</span><b>HSIC</b><span>매수 신호</span></a></div>
+<div class="m-box m-list"><a class="m-li" href="alerts/20261008-csco-buy/"><span class="m-li__d">10-08</span><b>CSCO</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261008-hpe-buy/"><span class="m-li__d">10-08</span><b>HPE</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261007-alle-buy_watch/"><span class="m-li__d">10-07</span><b>ALLE</b><span>매수 신호</span></a></div>
 
 ## 거물 신규 매수 (13F)
 
