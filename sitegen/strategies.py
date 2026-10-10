@@ -36,6 +36,12 @@ def _strategies_index(data: dict, names: dict) -> str:
         "나갑니다. 텔레그램에 「둘다」·「단타」·「스윙」을 보내 바꿉니다.",
         "",
     ]
+    # RSI 반등 방식 (2026-10-10): 스윙·단타 전환과 무관하게 따로 켜고 끈다. 기록이 있거나 켜져 있을 때만 적는다
+    if data.get("rsi_on") or (data.get("money") or {}).get("rsi"):
+        lines += ["**RSI 방식**(일봉 RSI 가 30 아래에서 꺾여 올라오면 알림)은 위 두 방식과 따로 돕니다. "
+                  f"지금 {'켜져' if data.get('rsi_on') else '꺼져'} 있습니다. "
+                  "텔레그램에 「RSI 켜」·「RSI 꺼」를 보내 바꿉니다. 기간별 성적 표에는 넣지 않고 "
+                  "아래 「추천대로 했다면」과 「최근 추천」에 함께 적습니다.", ""]
     periods = data.get("periods") or []
     if not periods:
         lines += ['!!! info "아직 기록이 없습니다"',
@@ -70,7 +76,7 @@ def _strategies_index(data: dict, names: dict) -> str:
                   f"시드 {seed}만 원에서 추천마다 {r_won:,.0f}원(시드 1%)을 손절 위험으로 건 경우로 환산합니다. "
                   "진행 중인 추천은 지금 가격으로 평가합니다.", "",
                   "| 방식 | 끝난 추천 | 진행 중 | 합계 |", "|---|---:|---:|---:|"]
-        for key in ("base", "book"):
+        for key in ("base", "book", "rsi"):
             m = money.get(key)
             if not m:
                 continue

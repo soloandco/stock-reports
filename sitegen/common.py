@@ -158,7 +158,7 @@ def _pct_text(v: float) -> str:
     return f"{v:+.1f}%"
 
 
-_STRAT_LABEL = {"base": "스윙", "book": "단타", "both": "스윙·단타"}
+_STRAT_LABEL = {"base": "스윙", "book": "단타", "both": "스윙·단타", "rsi": "RSI"}
 
 
 def _md(ts: str) -> str:

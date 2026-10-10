@@ -47,3 +47,28 @@ def test_tables_have_no_class_and_at_most_four_columns():
 def test_missing_data_renders_placeholder():
     md = gen._strategies_index({}, {})
     assert "# 방식별 기록" in md and "아직" in md
+
+
+# ── RSI 반등 방식 (2026-10-10): 스윙·단타와 따로 켜고 끄는 세 번째 방식 ─────────
+_MONEY = {"closed": 0, "closed_r": 0.0, "open": 0, "open_r": 0.0, "unvalued": 0,
+          "total_r": 0.0, "total_won": 0.0}
+
+
+def test_rsi_row_and_note_appear_when_on():
+    data = {**DATA, "rsi_on": True, "seed_won": 1_000_000, "r_won": 10000.0,
+            "money": {"base": dict(_MONEY), "book": dict(_MONEY),
+                      "rsi": {**_MONEY, "closed": 1, "closed_r": -1.0, "open": 2, "open_r": 0.5,
+                              "total_r": -0.5, "total_won": -5000.0}},
+            "trades": [{"strategy": "rsi", "ts": "2026-10-10T06:00:00", "ticker": "AAA",
+                        "pushed": True, "closed": False, "r": 0.25, "pct": 0.02, "result": "진행 중",
+                        "entry": 100.0, "stop": 92.0, "targets": [140.0]}]}
+    md = gen._strategies_index(data, {})
+    assert "**RSI 방식**" in md and "지금 켜져 있습니다" in md
+    assert "| RSI | 1건 -10,000원 | 2건 +5,000원 | **-5,000원** |" in md
+    assert "| 10-10 | AAA<br>100.00 · 목표 140.00 · 손절 92.00 | RSI | 진행 중 +0.25R (+2.0%) |" in md
+
+
+def test_rsi_is_absent_when_off_and_unrecorded():
+    data = {**DATA, "rsi_on": False, "money": {"base": dict(_MONEY), "book": dict(_MONEY)}}
+    md = gen._strategies_index(data, {})
+    assert "RSI" not in md
