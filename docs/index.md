@@ -1,6 +1,6 @@
 # 주식 리포트
 
-<p class="m-basis">10월 11일(일) 기준</p>
+<p class="m-basis">10월 12일(월) 기준</p>
 
 <a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 45</b><span class="m-dot">·</span><span>VIX 14.8 탐욕</span><span class="m-go">›</span></a>
 
