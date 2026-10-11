@@ -1,6 +1,6 @@
 # 주식 리포트
 
-<p class="m-basis">10월 10일(토) 기준</p>
+<p class="m-basis">10월 11일(일) 기준</p>
 
 <a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 45</b><span class="m-dot">·</span><span>VIX 14.8 탐욕</span><span class="m-go">›</span></a>
 
@@ -9,10 +9,10 @@
 <a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>27</b>종목</span><span class="m-muted">추격 비추천 · HPE·NDSN·PLTR 외</span><span class="m-go">›</span></a>
 
 <div class="m-sec"><span>추천 기록</span><a href="strategies/">전체 ›</a></div>
-<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>15</b><span>완료</span></div><div><b class="m-neg">-0.46R</b><span>평균</span></div><div><b>12</b><span>진행 중</span></div></div></a>
+<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>15</b><span>완료</span></div><div><b class="m-neg">-0.46R</b><span>평균</span></div><div><b>17</b><span>진행 중</span></div></div></a>
 
 <div class="m-sec"><span>최근 알림</span><a href="alerts/">전체 ›</a></div>
-<div class="m-box m-list"><a class="m-li" href="alerts/20261010-regn-buy_watch/"><span class="m-li__d">10-10</span><b>REGN</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261009-hsic-buy_watch/"><span class="m-li__d">10-09</span><b>HSIC</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261009-ice-buy_watch/"><span class="m-li__d">10-09</span><b>ICE</b><span>매수 신호</span></a></div>
+<div class="m-box m-list"><a class="m-li" href="alerts/20261011-gdx-buy_watch/"><span class="m-li__d">10-11</span><b>GDX</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261010-lrcx-buy_watch/"><span class="m-li__d">10-10</span><b>LRCX</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261010-ma-buy_watch/"><span class="m-li__d">10-10</span><b>MA</b><span>매수 신호</span></a></div>
 
 ## 거물 신규 매수 (13F)
 
