@@ -86,7 +86,7 @@
 | [KO](KO-2026-10-14.md) | [Coca-Cola](KO-2026-10-14.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-10-14 |
 | [LH](LH-2026-10-14.md) | [LH LABCORP HOLDINGS INC.](LH-2026-10-14.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-10-14 |
 | [LII](LII-2026-10-14.md) | [LII LENNOX INTERNATIONAL INC](LII-2026-10-14.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/7 | 2026-10-14 |
-| [LLY](LLY-2026-10-14.md) | [Eli Lilly](LLY-2026-10-14.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-10-14 |
+| [LLY](LLY-2026-10-14.md) | [Eli Lilly](LLY-2026-10-14.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-10-14 |
 | [LUNR](LUNR-2026-10-14.md) | [Intuitive Machines](LUNR-2026-10-14.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/7 | 2026-10-14 |
 | [LYB](LYB-2026-10-14.md) | [LYB LyondellBasell Industries N.V.](LYB-2026-10-14.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/7 | 2026-10-14 |
 | [MCD](MCD-2026-10-14.md) | [MCD MCDONALDS CORP](MCD-2026-10-14.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/7 | 2026-10-14 |
