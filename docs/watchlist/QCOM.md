@@ -18,11 +18,11 @@ comments: true
 
 ---
 
-<div class="m-sum m-sum--nobuy"><div class="m-sum__top"><span class="m-sum__px">$176.86</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span></div><div class="m-sum__sub">기준일 2026-10-14</div><p class="m-why">상승 구조 조건이 매수 기준에 못 미칩니다.</p></div>
+<div class="m-sum m-sum--sell"><div class="m-sum__top"><span class="m-sum__px">$172.62</span><span class="verdict verdict-sell">매도후보</span></div><div class="m-sum__sub">기준일 2026-10-15</div><p class="m-why">천장 분배 구간입니다. 새로 사지 않는 자리입니다.</p></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 4개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +2.1%)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>기준미달</span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>천장 분배 구간 <small>(Stage 3)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 3개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +0.2%)</small></span></div></div>
 
-<p class="m-more"><a href="../../snapshots/QCOM-2026-10-14/">분석 스냅샷 전체 보기 ›</a></p>
+<p class="m-more"><a href="../../snapshots/QCOM-2026-10-15/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트
@@ -37,9 +37,9 @@ comments: true
 
 | 항목 | 지금 |
 |------|------|
-| 회사값 (P/S) | **4배** · 과거 3년 중 **보통** (하위 47%)<br>3년 범위 3~7배 |
+| 회사값 (P/S) | **4배** · 과거 3년 중 **보통** (하위 39%)<br>3년 범위 3~7배 |
 | 매출 성장 | 전년 같은 분기 대비 **-4.0%** (2026-06 분기) |
-| 20일 EMA 대비 | **-2.0%** (15% 넘으면 매수 보류) |
+| 20일 EMA 대비 | **-4.0%** (15% 넘으면 매수 보류) |
 
 <details class="stock-chart-note"><summary>참고 정보이며 매수 신호가 아닙니다 · 자세히</summary>
 <p>P/S 는 회사값(시가총액)을 최근 1년 매출로 나눈 값입니다. 자기 과거 3년 분포와 비교해 아래 3분의 1은 싼 편, 위 3분의 1은 비싼 편으로 적습니다. 매출·주식수·범위는 매주 일요일 갱신합니다(2026-10-11). 매출은 SEC 공시, 주식수는 액면분할을 반영했습니다. 검증(2026-09-27, 11년 매수 신호 7,398건): 자기 과거 대비 가장 싼 5분의 1에서 나온 신호는 건당 +0.43R, 가장 비싼 5분의 1은 +0.19R 이었습니다. 방향은 맞았지만 채택 기준에 못 미쳐 판정·알림에는 쓰지 않습니다.</p></details>

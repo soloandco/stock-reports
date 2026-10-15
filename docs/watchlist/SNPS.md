@@ -18,16 +18,16 @@ comments: true
 
 ---
 
-<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$494.51</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 오늘 · 10-14 매수 전환 · 기준일 2026-10-14</div><div class="m-lv3"><div><span>손절</span><b>$459.75</b><em class="m-neg">-7.0%</em></div><div><span>목표 (5R)</span><b>$668.31</b><em class="m-pos">+35.1%</em></div><div><span>첫 저항</span><b>$502.66</b><em class="m-pos">+1.6%</em></div></div></div>
+<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$479.93</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 1일째 · 10-14 매수 전환 · 기준일 2026-10-15</div><div class="m-lv3"><div><span>손절</span><b>$445.00</b><em class="m-neg">-7.3%</em></div><div><span>목표 (5R)</span><b>$654.59</b><em class="m-pos">+36.4%</em></div><div><span>첫 저항</span><b>$502.66</b><em class="m-pos">+4.7%</em></div></div></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 5개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>신호 5일 이내 <small>(오늘)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +1.6%)</small></span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 5개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>신호 5일 이내 <small>(1일째)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +4.7%)</small></span></div></div>
 
-<p class="m-more"><a href="../../snapshots/SNPS-2026-10-14/">분석 스냅샷 전체 보기 ›</a></p>
+<p class="m-more"><a href="../../snapshots/SNPS-2026-10-15/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트
 
-<div class="stock-chart" data-src="../charts/SNPS.json" data-stop="459.7503"></div>
+<div class="stock-chart" data-src="../charts/SNPS.json" data-stop="444.9982"></div>
 
 <details class="stock-chart-note"><summary>매물벽·지지대는 검증에서 무작위 선과 같았습니다. 아래 두 칸도 매수 신호 아님 · 자세히</summary>
 <p>추세선·매물벽(저항)·지지대·주봉 저항을 함께 표시합니다. 매물벽·지지대는 위치 참고용이며, 검증(2026-09-07)에서 받치고 막는 비율이 무작위 선과 같았습니다. 아래 칸은 일봉 종가 위치로 추정한 수급 누적선입니다(매수 신호 아님). 맨 아래 칸은 물린 비율(최근 1년 거래량 중 현재가보다 비싸게 거래된 비중)입니다. 측정(2026-09-14, 11년 620종목)에서 이 비율은 「1년 가격 범위의 어디에 있나」와 구분되지 않았고, 앞으로의 수익을 가르지 못했습니다(층화 차이 −0.02R·CI 0 포함). 심리 지도라기보다 위치 표시로 읽으세요. 손가락으로 확대·이동할 수 있습니다.</p>
@@ -37,9 +37,9 @@ comments: true
 
 | 항목 | 지금 |
 |------|------|
-| 회사값 (P/S) | **10배** · 과거 3년 중 **싼 편** (하위 13%)<br>3년 범위 7~20배 |
+| 회사값 (P/S) | **10배** · 과거 3년 중 **싼 편** (하위 10%)<br>3년 범위 7~20배 |
 | 매출 성장 | 전년 같은 분기 대비 **+42.4%** (2026-07 분기) |
-| 20일 EMA 대비 | **+6.9%** (15% 넘으면 매수 보류) |
+| 20일 EMA 대비 | **+3.4%** (15% 넘으면 매수 보류) |
 
 <details class="stock-chart-note"><summary>참고 정보이며 매수 신호가 아닙니다 · 자세히</summary>
 <p>P/S 는 회사값(시가총액)을 최근 1년 매출로 나눈 값입니다. 자기 과거 3년 분포와 비교해 아래 3분의 1은 싼 편, 위 3분의 1은 비싼 편으로 적습니다. 매출·주식수·범위는 매주 일요일 갱신합니다(2026-10-11). 매출은 SEC 공시, 주식수는 액면분할을 반영했습니다. 검증(2026-09-27, 11년 매수 신호 7,398건): 자기 과거 대비 가장 싼 5분의 1에서 나온 신호는 건당 +0.43R, 가장 비싼 5분의 1은 +0.19R 이었습니다. 방향은 맞았지만 채택 기준에 못 미쳐 판정·알림에는 쓰지 않습니다.</p></details>

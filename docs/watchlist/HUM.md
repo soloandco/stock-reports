@@ -20,16 +20,16 @@ comments: true
 > 지지선 성격 엄격 기준을 통과한 79종목을 한꺼번에 등록했다. 판정·Stage·손절가의 SSOT는
 > 스냅샷(`snapshots/HUM-YYYY-MM-DD.md`)이다. 알림은 다른 관찰 종목과 같다(새 알림 종류 없음).
 
-<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$420.03</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 시작일 미상 · 기준일 2026-10-14</div><div class="m-lv3"><div><span>손절</span><b>$384.44</b><em class="m-neg">-8.5%</em></div><div><span>목표 (5R)</span><b>$597.97</b><em class="m-pos">+42.4%</em></div><div><span>첫 저항</span><b>$425.99</b><em class="m-pos">+1.4%</em></div></div></div>
+<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$427.40</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 시작일 미상 · 기준일 2026-10-15</div><div class="m-lv3"><div><span>손절</span><b>$392.41</b><em class="m-neg">-8.2%</em></div><div><span>목표 (5R)</span><b>$602.37</b><em class="m-pos">+40.9%</em></div><div><span>첫 저항</span><b>$428.88</b><em class="m-pos">+0.3%</em></div></div></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 7개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>시작일 미상 <small>(관찰 등록 전부터 매수 상태)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +1.4%)</small></span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 7개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>시작일 미상 <small>(관찰 등록 전부터 매수 상태)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +0.3%)</small></span></div></div>
 
-<p class="m-more"><a href="../../snapshots/HUM-2026-10-14/">분석 스냅샷 전체 보기 ›</a></p>
+<p class="m-more"><a href="../../snapshots/HUM-2026-10-15/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트
 
-<div class="stock-chart" data-src="../charts/HUM.json" data-stop="384.4427"></div>
+<div class="stock-chart" data-src="../charts/HUM.json" data-stop="392.4060"></div>
 
 <details class="stock-chart-note"><summary>매물벽·지지대는 검증에서 무작위 선과 같았습니다. 아래 두 칸도 매수 신호 아님 · 자세히</summary>
 <p>추세선·매물벽(저항)·지지대·주봉 저항을 함께 표시합니다. 매물벽·지지대는 위치 참고용이며, 검증(2026-09-07)에서 받치고 막는 비율이 무작위 선과 같았습니다. 아래 칸은 일봉 종가 위치로 추정한 수급 누적선입니다(매수 신호 아님). 맨 아래 칸은 물린 비율(최근 1년 거래량 중 현재가보다 비싸게 거래된 비중)입니다. 측정(2026-09-14, 11년 620종목)에서 이 비율은 「1년 가격 범위의 어디에 있나」와 구분되지 않았고, 앞으로의 수익을 가르지 못했습니다(층화 차이 −0.02R·CI 0 포함). 심리 지도라기보다 위치 표시로 읽으세요. 손가락으로 확대·이동할 수 있습니다.</p>

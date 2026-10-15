@@ -24,16 +24,16 @@ related:
 > 용도로 등록됐다 (`core/inverse.py`, 2026-07-18).
 > 판정·Stage·손절가의 SSOT는 스냅샷(`snapshots/SOXX-YYYY-MM-DD.md`)이다.
 
-<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$543.90</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 시작일 미상 · 기준일 2026-10-14</div><div class="m-lv3"><div><span>손절</span><b>$509.73</b><em class="m-neg">-6.3%</em></div><div><span>목표 (5R)</span><b>$714.76</b><em class="m-pos">+31.4%</em></div><div><span>첫 저항</span><b>$565.65</b><em class="m-pos">+4.0%</em></div></div></div>
+<div class="m-sum m-sum--sell"><div class="m-sum__top"><span class="m-sum__px">$519.42</span><span class="verdict verdict-sell">매도후보</span></div><div class="m-sum__sub">기준일 2026-10-15</div><p class="m-why">천장 분배 구간입니다. 새로 사지 않는 자리입니다.</p></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 6개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>시작일 미상 <small>(관찰 등록 전부터 매수 상태)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +4.0%)</small></span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>천장 분배 구간 <small>(Stage 3)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 5개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +8.9%)</small></span></div></div>
 
-<p class="m-more"><a href="../../snapshots/SOXX-2026-10-14/">분석 스냅샷 전체 보기 ›</a></p>
+<p class="m-more"><a href="../../snapshots/SOXX-2026-10-15/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트
 
-<div class="stock-chart" data-src="../charts/SOXX.json" data-stop="509.7285"></div>
+<div class="stock-chart" data-src="../charts/SOXX.json"></div>
 
 <details class="stock-chart-note"><summary>매물벽·지지대는 검증에서 무작위 선과 같았습니다. 아래 두 칸도 매수 신호 아님 · 자세히</summary>
 <p>추세선·매물벽(저항)·지지대·주봉 저항을 함께 표시합니다. 매물벽·지지대는 위치 참고용이며, 검증(2026-09-07)에서 받치고 막는 비율이 무작위 선과 같았습니다. 아래 칸은 일봉 종가 위치로 추정한 수급 누적선입니다(매수 신호 아님). 맨 아래 칸은 물린 비율(최근 1년 거래량 중 현재가보다 비싸게 거래된 비중)입니다. 측정(2026-09-14, 11년 620종목)에서 이 비율은 「1년 가격 범위의 어디에 있나」와 구분되지 않았고, 앞으로의 수익을 가르지 못했습니다(층화 차이 −0.02R·CI 0 포함). 심리 지도라기보다 위치 표시로 읽으세요. 손가락으로 확대·이동할 수 있습니다.</p>

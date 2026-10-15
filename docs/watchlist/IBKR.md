@@ -20,11 +20,11 @@ comments: true
 > 지지선 성격 엄격 기준을 통과한 79종목을 한꺼번에 등록했다. 판정·Stage·손절가의 SSOT는
 > 스냅샷(`snapshots/IBKR-YYYY-MM-DD.md`)이다. 알림은 다른 관찰 종목과 같다(새 알림 종류 없음).
 
-<div class="m-sum m-sum--sell"><div class="m-sum__top"><span class="m-sum__px">$87.49</span><span class="verdict verdict-sell">매도후보</span></div><div class="m-sum__sub">기준일 2026-10-14</div><p class="m-why">천장 분배 구간입니다. 새로 사지 않는 자리입니다.</p></div>
+<div class="m-sum m-sum--sell"><div class="m-sum__top"><span class="m-sum__px">$84.14</span><span class="verdict verdict-sell">매도후보</span></div><div class="m-sum__sub">기준일 2026-10-15</div><p class="m-why">천장 분배 구간입니다. 새로 사지 않는 자리입니다.</p></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>천장 분배 구간 <small>(Stage 3)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 4개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +11.7%)</small></span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>천장 분배 구간 <small>(Stage 3)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 4개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +16.2%)</small></span></div></div>
 
-<p class="m-more"><a href="../../snapshots/IBKR-2026-10-14/">분석 스냅샷 전체 보기 ›</a></p>
+<p class="m-more"><a href="../../snapshots/IBKR-2026-10-15/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트

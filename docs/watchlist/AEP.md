@@ -20,11 +20,11 @@ comments: true
 > 지지선 성격 엄격 기준을 통과한 79종목을 한꺼번에 등록했다. 판정·Stage·손절가의 SSOT는
 > 스냅샷(`snapshots/AEP-YYYY-MM-DD.md`)이다. 알림은 다른 관찰 종목과 같다(새 알림 종류 없음).
 
-<div class="m-sum m-sum--nobuy"><div class="m-sum__top"><span class="m-sum__px">$125.65</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span></div><div class="m-sum__sub">기준일 2026-10-14</div><p class="m-why">상승 구조 조건이 매수 기준에 못 미칩니다.</p></div>
+<div class="m-sum m-sum--nobuy"><div class="m-sum__top"><span class="m-sum__px">$126.13</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span></div><div class="m-sum__sub">기준일 2026-10-15</div><p class="m-why">상승 구조 조건이 매수 기준에 못 미칩니다.</p></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>바닥 다지기 구간 <small>(Stage 1)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 4개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +10.1%)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>기준미달</span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>바닥 다지기 구간 <small>(Stage 1)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 4개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +9.7%)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>기준미달</span></div></div>
 
-<p class="m-more"><a href="../../snapshots/AEP-2026-10-14/">분석 스냅샷 전체 보기 ›</a></p>
+<p class="m-more"><a href="../../snapshots/AEP-2026-10-15/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트
@@ -39,7 +39,7 @@ comments: true
 
 | 항목 | 지금 |
 |------|------|
-| 회사값 (P/S) | **3배** · 과거 3년 중 **비싼 편** (하위 84%)<br>3년 범위 2~3배 |
+| 회사값 (P/S) | **3배** · 과거 3년 중 **비싼 편** (하위 85%)<br>3년 범위 2~3배 |
 | 매출 성장 | 전년 같은 분기 대비 **+5.1%** (2026-03 분기) |
 | 20일 EMA 대비 | **+3.2%** (15% 넘으면 매수 보류) |
 

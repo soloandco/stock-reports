@@ -29,11 +29,11 @@ related:
 > **판정·Stage·매물대·주봉 저항은 이 종목에서 읽는다** (2026-08-10).
 > 판정의 SSOT는 스냅샷(`snapshots/GDX-YYYY-MM-DD.md`)이다.
 
-<div class="m-sum m-sum--sell"><div class="m-sum__top"><span class="m-sum__px">$87.25</span><span class="verdict verdict-sell">매도후보</span></div><div class="m-sum__sub">기준일 2026-10-14</div><p class="m-why">천장 분배 구간입니다. 새로 사지 않는 자리입니다.</p></div>
+<div class="m-sum m-sum--sell"><div class="m-sum__top"><span class="m-sum__px">$83.40</span><span class="verdict verdict-sell">매도후보</span></div><div class="m-sum__sub">기준일 2026-10-15</div><p class="m-why">천장 분배 구간입니다. 새로 사지 않는 자리입니다.</p></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>천장 분배 구간 <small>(Stage 3)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 3개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +17.4%)</small></span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>천장 분배 구간 <small>(Stage 3)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 2개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +1.3%)</small></span></div></div>
 
-<p class="m-more"><a href="../../snapshots/GDX-2026-10-14/">분석 스냅샷 전체 보기 ›</a></p>
+<p class="m-more"><a href="../../snapshots/GDX-2026-10-15/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트
