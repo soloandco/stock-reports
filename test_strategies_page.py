@@ -72,3 +72,18 @@ def test_rsi_is_absent_when_off_and_unrecorded():
     data = {**DATA, "rsi_on": False, "money": {"base": dict(_MONEY), "book": dict(_MONEY)}}
     md = gen._strategies_index(data, {})
     assert "RSI" not in md
+
+
+def test_money_table_uses_capped_won_from_data():
+    """분석 코드가 시드 상한까지 반영한 금액(closed_won 등)을 넘기면 그 값을 쓴다 (2026-10-16)."""
+    money = {"book": {"closed": 1, "closed_r": -6.53, "closed_won": -35237.0,
+                      "open": 0, "open_r": 0.0, "open_won": 0.0, "total_won": -35237.0}}
+    md = gen._strategies_index({**DATA, "money": money, "seed_won": 1_000_000, "r_won": 10_000}, {})
+    assert "1건 -35,237원" in md and "-65,300원" not in md
+    assert "시드만큼만 산 것으로" in md
+
+
+def test_money_table_old_data_falls_back_to_r():
+    money = {"base": {"closed": 1, "closed_r": -1.0, "open": 0, "open_r": 0.0, "total_won": -10000.0}}
+    md = gen._strategies_index({**DATA, "money": money, "seed_won": 1_000_000, "r_won": 10_000}, {})
+    assert "1건 -10,000원" in md

@@ -74,15 +74,18 @@ def _strategies_index(data: dict, names: dict) -> str:
         lines += ["## 추천대로 했다면", "",
                   f"사지 않았어도 **알림이 나간 추천을 그대로 따랐을 때**의 결과입니다. "
                   f"시드 {seed}만 원에서 추천마다 {r_won:,.0f}원(시드 1%)을 손절 위험으로 건 경우로 환산합니다. "
+                  "손절폭이 좁아 시드보다 많이 사야 하는 추천은 알림의 권장 주수처럼 시드만큼만 산 것으로 셉니다. "
                   "진행 중인 추천은 지금 가격으로 평가합니다.", "",
                   "| 방식 | 끝난 추천 | 진행 중 | 합계 |", "|---|---:|---:|---:|"]
         for key in ("base", "book", "rsi"):
             m = money.get(key)
             if not m:
                 continue
-            won = lambda r: f"{r * r_won:+,.0f}원"  # noqa: E731
-            lines.append(f"| {common._STRAT_LABEL[key]} | {m['closed']}건 {won(m['closed_r'])} | "
-                         f"{m['open']}건 {won(m['open_r'])} | **{m['total_won']:+,.0f}원** |")
+            # 금액은 분석 코드가 시드 상한까지 반영해 넘긴다(2026-10-16). 옛 자료에는 없어 R × 1R 로 물러선다
+            closed_won = m.get("closed_won", m["closed_r"] * r_won)
+            open_won = m.get("open_won", m["open_r"] * r_won)
+            lines.append(f"| {common._STRAT_LABEL[key]} | {m['closed']}건 {closed_won:+,.0f}원 | "
+                         f"{m['open']}건 {open_won:+,.0f}원 | **{m['total_won']:+,.0f}원** |")
         lines.append("")
     trades = data.get("trades") or []
     if trades:
