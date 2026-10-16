@@ -1,18 +1,18 @@
 # 주식 리포트
 
-<p class="m-basis">10월 16일(금) 기준</p>
+<p class="m-basis">10월 17일(토) 기준</p>
 
-<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">공포 32</b><span class="m-dot">·</span><span>VIX 16.5 중립</span><span class="m-go">›</span></a>
+<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">극공포 18</b><span class="m-dot">·</span><span>VIX 20.2 주의</span><span class="m-go">›</span></a>
 
-<div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">9<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 35종목 중</div></div>
-<div class="m-cards"><a class="m-card" href="watchlist/ALLE/"><div class="m-card__head"><b class="m-card__ticker">ALLE</b><span class="m-card__name">ALLE Allegion plc</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-4.7%</b></div><div><span>첫 저항까지</span><b class="m-pos">+9.3%</b></div><div><span>신호</span><b>2일째</b></div></div></a><a class="m-card" href="watchlist/SNPS/"><div class="m-card__head"><b class="m-card__ticker">SNPS</b><span class="m-card__name">Synopsys</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-7.6%</b></div><div><span>첫 저항까지</span><b class="m-pos">+7.4%</b></div><div><span>신호</span><b>2일째</b></div></div></a><a class="m-card" href="watchlist/ICE/"><div class="m-card__head"><b class="m-card__ticker">ICE</b><span class="m-card__name">ICE Intercontinental Exchange, Inc.</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-4.1%</b></div><div><span>첫 저항까지</span><b class="m-pos">+3.5%</b></div><div><span>신호</span><b>5일째</b></div></div></a><a class="m-card" href="watchlist/REGN/"><div class="m-card__head"><b class="m-card__ticker">REGN</b><span class="m-card__name">REGN REGENERON PHARMACEUTICALS, INC.</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-5.4%</b></div><div><span>첫 저항까지</span><b class="m-wrn">+2.1%</b></div><div><span>신호</span><b>4일째</b></div></div><div class="m-card__warn">머리 위 저항이 바로 앞</div></a><a class="m-card" href="watchlist/WDAY/"><div class="m-card__head"><b class="m-card__ticker">WDAY</b><span class="m-card__name">WDAY Workday, Inc.</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-7.6%</b></div><div><span>첫 저항까지</span><b class="m-wrn">+1.7%</b></div><div><span>신호</span><b>5일째</b></div></div><div class="m-card__warn">머리 위 저항이 바로 앞</div></a><a class="m-card" href="watchlist/CTSH/"><div class="m-card__head"><b class="m-card__ticker">CTSH</b><span class="m-card__name">CTSH COGNIZANT TECHNOLOGY SOLUTIONS CORP</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-7.3%</b></div><div><span>첫 저항까지</span><b class="m-wrn">+0.6%</b></div><div><span>신호</span><b>오늘</b></div></div><div class="m-card__warn">머리 위 저항이 바로 앞</div></a><a class="m-card" href="watchlist/SJM/"><div class="m-card__head"><b class="m-card__ticker">SJM</b><span class="m-card__name">SJM J M SMUCKER Co</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-4.6%</b></div><div><span>첫 저항까지</span><b class="m-wrn">+0.1%</b></div><div><span>신호</span><b>5일째</b></div></div><div class="m-card__warn">머리 위 저항이 바로 앞</div></a><a class="m-card" href="watchlist/DE/"><div class="m-card__head"><b class="m-card__ticker">DE</b><span class="m-card__name">DE DEERE & CO</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-5.7%</b></div><div><span>첫 저항까지</span><b class="m-wrn">+2.8%</b></div><div><span>신호</span><b>3일째</b></div></div><div class="m-card__warn">머리 위 저항이 바로 앞</div></a></div>
-<a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>26</b>종목</span><span class="m-muted">추격 비추천 · KO·NDSN·PSX 외</span><span class="m-go">›</span></a>
+<div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">4<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 30종목 중</div></div>
+<div class="m-cards"><a class="m-card" href="watchlist/ALLE/"><div class="m-card__head"><b class="m-card__ticker">ALLE</b><span class="m-card__name">ALLE Allegion plc</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-4.6%</b></div><div><span>첫 저항까지</span><b class="m-pos">+8.8%</b></div><div><span>신호</span><b>3일째</b></div></div></a><a class="m-card" href="watchlist/REGN/"><div class="m-card__head"><b class="m-card__ticker">REGN</b><span class="m-card__name">REGN REGENERON PHARMACEUTICALS, INC.</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-5.4%</b></div><div><span>첫 저항까지</span><b class="m-wrn">+0.3%</b></div><div><span>신호</span><b>5일째</b></div></div><div class="m-card__warn">머리 위 저항이 바로 앞</div></a><a class="m-card" href="watchlist/CTSH/"><div class="m-card__head"><b class="m-card__ticker">CTSH</b><span class="m-card__name">CTSH COGNIZANT TECHNOLOGY SOLUTIONS CORP</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-7.3%</b></div><div><span>첫 저항까지</span><b class="m-wrn">+0.2%</b></div><div><span>신호</span><b>1일째</b></div></div><div class="m-card__warn">머리 위 저항이 바로 앞</div></a><a class="m-card" href="watchlist/DE/"><div class="m-card__head"><b class="m-card__ticker">DE</b><span class="m-card__name">DE DEERE & CO</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-5.8%</b></div><div><span>첫 저항까지</span><b class="m-pos">+4.2%</b></div><div><span>신호</span><b>4일째</b></div></div></a></div>
+<a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>26</b>종목</span><span class="m-muted">추격 비추천 · KO·PSX·XLV 외</span><span class="m-go">›</span></a>
 
 <div class="m-sec"><span>추천 기록</span><a href="strategies/">전체 ›</a></div>
-<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>31</b><span>완료</span></div><div><b class="m-neg">-0.44R</b><span>평균</span></div><div><b>27</b><span>진행 중</span></div></div></a>
+<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>35</b><span>완료</span></div><div><b class="m-neg">-0.45R</b><span>평균</span></div><div><b>29</b><span>진행 중</span></div></div></a>
 
 <div class="m-sec"><span>최근 알림</span><a href="alerts/">전체 ›</a></div>
-<div class="m-box m-list"><a class="m-li" href="alerts/20261016-ctsh-buy_watch/"><span class="m-li__d">10-16</span><b>CTSH</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261015-be-stop_hit/"><span class="m-li__d">10-15</span><b>BE</b><span>손절 경고</span></a><a class="m-li" href="alerts/20261015-csco-stop_hit/"><span class="m-li__d">10-15</span><b>CSCO</b><span>손절 경고</span></a></div>
+<div class="m-box m-list"><a class="m-li" href="alerts/20261016-ctsh-buy_watch/"><span class="m-li__d">10-16</span><b>CTSH</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261016-dg-buy_watch/"><span class="m-li__d">10-16</span><b>DG</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261016-gpn-buy_watch/"><span class="m-li__d">10-16</span><b>GPN</b><span>매수 신호</span></a></div>
 
 ## 거물 신규 매수 (13F)
 
@@ -68,16 +68,13 @@
 
     **5/7 이상**: 매수 · **4/7 이하**: 기준미달. 조건 개수는 등급이 아닙니다 — 11년 13,187건에서 만점(+0.148R)이 하한(+0.208R)보다 나았다는 근거가 없습니다. 2026-09-10 에 `SMA50 > SMA150·SMA200` 조건을 뺐습니다 (성적 변화 없음, 예외 규칙 하나가 함께 사라짐). 2026-09-28 에 판정선을 단순이동평균 50·150·200일에서 지수이동평균(EMA) 20·100·200일로 바꿨습니다 (과거 11년 측정에서는 건당 +0.30R → +0.26R 로 낮았습니다).
 
-??? info "📘 진입 게이팅 — 점수가 만점이어도 매수불가가 되는 4가지"
-    Stage·TT 점수와 별개로, 아래 조건에 걸리면 매수에서 제외됩니다 (2026-06-11 도입).
+??? info "📘 진입 제외 — 점수가 충분해도 매수불가가 되는 2가지"
+    Stage·TT 점수와 별개로, 아래 조건에 걸리면 매수에서 제외됩니다.
 
-    | 게이트 | 조건 | 사유 표기 |
-    |--------|------|----------|
-    | 시장 국면 | 지수 MA 정렬이 하락/횡보 | 매수불가 (시장국면) |
-    | DD 누적 | 4주 내 Distribution Day(기관 매도일) 5회 이상 | 매수불가 (시장국면) |
-    | 지수 과열 | 지수가 20일 EMA 대비 +15% 초과 (파라볼릭) | 매수불가 (시장국면) |
-    | 종목 과열 | 20일 EMA +25% 이격 또는 RSI > 90 | 매수불가 (과열) |
-    | 변동성 | 2N ATR 손절폭이 진입가의 8% 초과 | 매수불가 (변동성과대) |
+    | 제외 | 조건 | 사유 표기 |
+    |------|------|----------|
+    | 과열 | 20일 EMA 대비 +25% 초과 또는 RSI > 90 | 매수불가 (과열) |
+    | 이격 | 20일 EMA 대비 +15% 초과 | 매수불가 (이격과대) |
 
-    매수 후 **+1.5R** 도달 시 손절선을 본전으로 올리라는 🔒 본전 스톱 알림이 발송됩니다.
+    손절폭이 넓은 종목은 제외하지 않고 권장 주수를 줄여 대응합니다. 시장 국면·기관 매도일·지수 과열로 막던 규칙은 효과가 확인되지 않아 뺐습니다(2026-07-13). 매수 뒤에는 **손절선 도달 · 목표 5R · 90일 만기** 세 가지 청산 알림만 나갑니다.
 
