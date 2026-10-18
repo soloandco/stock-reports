@@ -57,6 +57,7 @@ extra_javascript:
 nav:
   - 홈: index.md
   - 방식별 기록: strategies/index.md
+  - 매도 규칙·비교: strategies/manual-exits-2026-10-18.md
   - 시장 현황: fear-index.md
   - 관찰 종목: watchlist/index.md
   - 가상 포지션: positions/index.md
