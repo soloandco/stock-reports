@@ -26,6 +26,39 @@ def _strat_cell(s: dict) -> tuple[str, str]:
     return done, (f"{r:+.2f}R" if r is not None else "—")
 
 
+def _cash_account_lines(a: dict) -> list[str]:
+    """공개 고정 시드로 계산한 계좌. 개인 잔고·설정은 읽거나 노출하지 않는다."""
+    if not a:
+        return []
+    lines = ["## 현금 제약 모의계좌", "",
+             "**실제 체결 계좌 수익률이 아닙니다.** 알림이 나간 미국 추천을 한 계좌에서 따라간 모의 결과입니다.",
+             f"{a['start']}부터 기준자금 {a['seed']:,.0f}원으로 시작하며, 이전 보유분은 제외합니다.", ""]
+    if a["complete"]:
+        lines += [f"**계좌 수익률 {a['return_pct']:+.2%} · 순자산 {a['equity']:,.0f}원**", ""]
+    else:
+        lines += [f"**수익률 산출 보류: 미평가 {a['unvalued']}건 · 기록 오류 {a['invalid']}건**", "",
+                  "미평가 자산을 0원이나 원금으로 간주하지 않습니다.", ""]
+    lines += ["| 현금 | 보유 평가금액 | 납부 비용 | 미청산 매도비용 |", "|---:|---:|---:|---:|",
+              f"| {a['cash']:,.0f}원 | {a['market_value']:,.0f}원{' (부분)' if a['unvalued'] else ''} | "
+              f"{a['fees_paid']:,.0f}원 | {a['exit_cost_reserve']:,.0f}원 |", "",
+              f"진입 {a['taken']}건 · 완료 {a['closed']}건 · 보유 {a['open']}건 · "
+              f"잔액 부족으로 축소 {a['reduced']}건 · 자금 부족 제외 {a['skipped_cash']}건", "",
+              f"스윙·단타·RSI가 현금을 공유합니다. 초기자금의 {a['risk_pct']:.1%}를 손절 위험으로 배정하고, "
+              "부족하면 남은 현금만큼 줄입니다. 차입은 없으며 매도대금은 원장에 기록된 시각 이후 재사용합니다.", "",
+              f"편도 {a['side_cost']:.2%} 비용을 가정합니다. 순자산은 현금과 보유 평가금액의 합에서 미청산 매도비용을 뺀 값입니다.",
+              "환율 고정 환산·소수점 배분·알림가/규칙 청산가 기준입니다. 실제 체결가·환율 변동·세금·배당·입출금은 미반영입니다.", "",
+              "**실체결 계좌 수익률: 산출 보류.** 확인된 체결 수량·가격, 시작 잔고, 입출금 자료가 필요합니다.", ""]
+    if a.get("positions"):
+        lines += ["### 모의계좌 보유", "", "| 방식·종목 | 투입 원금·비용 | 평가금액 | 가격 기준봉 |", "|---|---:|---:|---|"]
+        for p in a["positions"]:
+            value = f"{p['market_value']:,.0f}원" if p["market_value"] is not None else "미평가"
+            day = (p.get("quote") or {}).get("bar_date") or "미상"
+            lines.append(f"| {common._STRAT_LABEL.get(p['strategy'], p['strategy'])} {p['ticker']} | "
+                         f"{p['cost']:,.0f}원 | {value} | {day} |")
+        lines.append("")
+    return lines
+
+
 def _strategies_index(data: dict, names: dict) -> str:
     """스윙·단타 두 방식의 켜져 있던 기간별 성적과 최근 거래. 모바일 4열 이하."""
     lines = [
@@ -42,6 +75,7 @@ def _strategies_index(data: dict, names: dict) -> str:
                   f"지금 {'켜져' if data.get('rsi_on') else '꺼져'} 있습니다. "
                   "텔레그램에 「RSI 켜」·「RSI 꺼」를 보내 바꿉니다. 기간별 성적 표에는 넣지 않고 "
                   "아래 「추천대로 했다면」과 「최근 추천」에 함께 적습니다.", ""]
+    lines += _cash_account_lines(data.get("cash_account") or {})
     periods = data.get("periods") or []
     if not periods:
         lines += ['!!! info "아직 기록이 없습니다"',
@@ -72,6 +106,7 @@ def _strategies_index(data: dict, names: dict) -> str:
         seed = int(data.get("seed_won", 1_000_000)) // 10000
         r_won = float(data.get("r_won", 10000))
         lines += ["## 추천대로 했다면", "",
+                  "이 표는 추천별 독립 손익의 합입니다. 동시 보유 자금 제약과 거래비용이 없어 계좌 수익률로 읽으면 안 됩니다.", "",
                   f"사지 않았어도 **알림이 나간 추천을 그대로 따랐을 때**의 결과입니다. "
                   f"시드 {seed}만 원에서 추천마다 {r_won:,.0f}원(시드 1%)을 손절 위험으로 건 경우로 환산합니다. "
                   "손절폭이 좁아 시드보다 많이 사야 하는 추천은 알림의 권장 주수처럼 시드만큼만 산 것으로 셉니다. "
@@ -87,6 +122,10 @@ def _strategies_index(data: dict, names: dict) -> str:
             lines.append(f"| {common._STRAT_LABEL[key]} | {m['closed']}건 {closed_won:+,.0f}원 | "
                          f"{m['open']}건 {open_won:+,.0f}원 | **{m['total_won']:+,.0f}원** |")
         lines.append("")
+        for key, m in money.items():
+            if m.get("unvalued"):
+                lines += [f"**{common._STRAT_LABEL[key]} 부분 집계: 미평가 {m['unvalued']}건. "
+                          "해당 보유분의 손익은 합계에서 빠져 있습니다.**", ""]
     trades = data.get("trades") or []
     if trades:
         lines += ["## 최근 추천", "", "| 추천 | 종목 · 추천가 | 방식 | 결과 |", "|---|---|---|---|"]
