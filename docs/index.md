@@ -1,6 +1,6 @@
 # 주식 리포트
 
-<p class="m-basis">10월 17일(토) 기준</p>
+<p class="m-basis">10월 18일(일) 기준</p>
 
 <a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">극공포 18</b><span class="m-dot">·</span><span>VIX 20.0 중립</span><span class="m-go">›</span></a>
 
@@ -9,10 +9,10 @@
 <a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>26</b>종목</span><span class="m-muted">추격 비추천 · KO·PSX·XLV 외</span><span class="m-go">›</span></a>
 
 <div class="m-sec"><span>추천 기록</span><a href="strategies/">전체 ›</a></div>
-<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>35</b><span>완료</span></div><div><b class="m-neg">-0.45R</b><span>평균</span></div><div><b>29</b><span>진행 중</span></div></div></a>
+<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>35</b><span>완료</span></div><div><b class="m-neg">-0.45R</b><span>평균</span></div><div><b>34</b><span>진행 중</span></div></div></a>
 
 <div class="m-sec"><span>최근 알림</span><a href="alerts/">전체 ›</a></div>
-<div class="m-box m-list"><a class="m-li" href="alerts/20261016-ctsh-buy_watch/"><span class="m-li__d">10-16</span><b>CTSH</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261016-dg-buy_watch/"><span class="m-li__d">10-16</span><b>DG</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261016-gpn-buy_watch/"><span class="m-li__d">10-16</span><b>GPN</b><span>매수 신호</span></a></div>
+<div class="m-box m-list"><a class="m-li" href="alerts/20261017-cor-buy_watch/"><span class="m-li__d">10-17</span><b>COR</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261017-has-buy/"><span class="m-li__d">10-17</span><b>HAS</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261017-hst-buy/"><span class="m-li__d">10-17</span><b>HST</b><span>매수 신호</span></a></div>
 
 ## 거물 신규 매수 (13F)
 
