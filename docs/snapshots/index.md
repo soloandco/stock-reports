@@ -58,7 +58,7 @@
 | [ED](ED-2026-10-23.md) | [ED CONSOLIDATED EDISON INC](ED-2026-10-23.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 6/7 | 2026-10-23 |
 | [EVRG](EVRG-2026-10-23.md) | [EVRG Evergy, Inc.](EVRG-2026-10-23.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 5/7 | 2026-10-23 |
 | [F](F-2026-10-23.md) | [F FORD MOTOR CO](F-2026-10-23.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/7 | 2026-10-23 |
-| [FDX](FDX-2026-10-23.md) | [FDX FEDEX CORP](FDX-2026-10-23.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 6/7 | 2026-10-23 |
+| [FDX](FDX-2026-10-23.md) | [FDX FEDEX CORP](FDX-2026-10-23.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 5/7 | 2026-10-23 |
 | [FE](FE-2026-10-23.md) | [FE FIRSTENERGY CORP](FE-2026-10-23.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/7 | 2026-10-23 |
 | [FITB](FITB-2026-10-23.md) | [FITB FIFTH THIRD BANCORP](FITB-2026-10-23.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 6/7 | 2026-10-23 |
 | [FSLR](FSLR-2026-10-23.md) | [FSLR FIRST SOLAR, INC.](FSLR-2026-10-23.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/7 | 2026-10-23 |
