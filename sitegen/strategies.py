@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import json
 
-from sitegen import common, config as cfg
+from sitegen import common, config as cfg, strategy_comparison
 
 
 def _collect_strategy_perf() -> dict:
@@ -90,6 +90,7 @@ def _strategies_index(data: dict, names: dict) -> str:
                   f"지금 {'켜져' if data.get('rsi_on') else '꺼져'} 있습니다. "
                   "텔레그램에 「RSI 켜」·「RSI 꺼」를 보내 바꿉니다. 기간별 성적 표에는 넣지 않고 "
                   "아래 「추천대로 했다면」과 「최근 추천」에 함께 적습니다.", ""]
+    lines[2:2] = strategy_comparison.lines()
     lines += _cash_account_lines(data.get("cash_account") or {})
     periods = data.get("periods") or []
     if not periods:
@@ -109,13 +110,17 @@ def _strategies_index(data: dict, names: dict) -> str:
         lines.append(f"| {common._md(p['start'])}~{end} | {on}(알림) | {done} | {r} |")
         done, r = _strat_cell(p["other"])
         lines.append(f"| | {off}({'알림' if both else '기록만'}) | {done} | {r} |")
-    total = sum(p["active"].get("closed", 0)
-                + (p["other"].get("closed", 0) if p["strategy"] == "both" else 0)
-                for p in periods)
-    min_n = data.get("min_n", 100)
-    lines += ["", f'!!! warning "표본 부족: 알림 나간 끝난 거래 {total}건"',
-              f"    {min_n}건이 쌓이기 전에는 두 방식의 우열을 가릴 수 없습니다. 숫자는 기록으로만 읽으세요.",
-              ""] if total < min_n else [""]
+    counts = data.get('closed_counts')
+    if counts is None:
+        counts = {'base': 0, 'book': 0}
+        for p in periods:
+            counts['base' if p['strategy'] == 'both' else p['strategy']] += p['active'].get('closed', 0)
+            if p['strategy'] == 'both':
+                counts['book'] += p['other'].get('closed', 0)
+    lines += ['', '방식별 완결: ' + ' · '.join(f'{common._STRAT_LABEL[k]} {v}/200건' for k,v in counts.items()), '',
+              '200건은 방식별 점검 시점이며 우월성 보장이 아닙니다. 비용 차감 계좌 수익률로 비교합니다.', '']
+    if any(v < 200 for v in counts.values()):
+        lines += ['**표본 부족: 서로 다른 방식의 거래 수를 합치지 않습니다.**', '']
     money = data.get("money") or {}
     if money:
         seed = int(data.get("seed_won", 1_000_000)) // 10000

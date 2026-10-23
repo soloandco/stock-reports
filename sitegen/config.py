@@ -23,6 +23,7 @@ SECTOR_JSON = ROOT.parent / "data" / "sector_strength.json"
 TRADE_REPORT_JSON = ROOT.parent / "data" / "trade_report.json"
 # 방식별 기록 (2026-09-19). monitor._refresh_strategy_perf 가 사이트 생성 직전에 만든다.
 STRATEGY_PERF_JSON = ROOT.parent / "data" / "strategy_perf.json"
+STRATEGY_COMPARISON_JSON = ROOT.parent / "data" / "strategy_comparison.json"
 OUT_STRAT = OUT / "strategies"
 # 거물 투자자 13F (2026-09-22). research_13f_build.py / monitor 가 만든다 (core.thirteenf.site_payload).
 SUPERINV_JSON = ROOT.parent / "data" / "superinvestors.json"

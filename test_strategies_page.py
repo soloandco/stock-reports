@@ -71,7 +71,8 @@ def test_rsi_row_and_note_appear_when_on():
 def test_rsi_is_absent_when_off_and_unrecorded():
     data = {**DATA, "rsi_on": False, "money": {"base": dict(_MONEY), "book": dict(_MONEY)}}
     md = gen._strategies_index(data, {})
-    assert "RSI" not in md
+    # 과거 연구 표에 RSI가 있어도 운영 RSI 안내는 켜지지 않아야 한다.
+    assert "**RSI 방식**" not in md
 
 
 def test_money_table_uses_capped_won_from_data():
