@@ -3,6 +3,7 @@ import json
 
 from sitegen import config as cfg
 from sitegen import regime_switch
+from sitegen import research_update
 
 LABEL = {'base': '스윙', 'rsi': 'RSI', 'book': '단타', 'pistol': '권총 1시간', 'sue': 'SUE 상위'}
 GATE = {'all': '전체', 'up': '상승 진입', 'down': '하락 진입'}
@@ -10,7 +11,7 @@ GATE = {'all': '전체', 'up': '상승 진입', 'down': '하락 진입'}
 
 def lines():
     if not cfg.STRATEGY_COMPARISON_JSON.exists():
-        return ['## 시장 상황별 계좌 비교', '', '공통 조건 비교 결과를 아직 생성하지 않았습니다.', '']
+        return research_update.lines() + ['## 시장 상황별 계좌 비교', '', '공통 조건 비교 결과를 아직 생성하지 않았습니다.', '']
     data = json.loads(cfg.STRATEGY_COMPARISON_JSON.read_text(encoding='utf-8'))
     out = ['## 시장 상황별 계좌 비교', '',
            '**비용 차감 후 전체 계좌 수익률** 순서입니다. 과거 비교이며 최적 전략의 검증 결과는 아닙니다.', '',
@@ -72,4 +73,4 @@ def lines():
             '**해석 한계:** 이미 탐색한 과거 구간입니다. 현재 캐시 모집단의 잔여 생존편향과 '
             '체결 가정을 포함합니다. 다음 하락장 홀드아웃과 실제 계좌 성과를 대신하지 않습니다.', '',
             '이 비교로 운영 알림이나 신규 진입 차단 규칙을 자동 변경하지 않습니다.', '']
-    return regime_switch.lines(data, cfg.STRATEGY_COMPARISON_JSON, LABEL) + out
+    return research_update.lines() + regime_switch.lines(data, cfg.STRATEGY_COMPARISON_JSON, LABEL) + out
