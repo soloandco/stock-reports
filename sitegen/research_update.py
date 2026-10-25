@@ -54,6 +54,7 @@ def lines():
     best = row(8, 'E50')
     spy = data['benchmark']
     out = [START, '<div id="research-2026-10-25" data-testid="research-update"></div>', '',
+           '<style>.md-typeset details.research-experiment > summary { min-height: 44px; }</style>', '',
            '## 자금 배분·진입·청산 개선 비교', '',
            '**이전 방식보다 개선됐지만 SPY 초과 우위는 확인하지 못했습니다.**', '',
            f"분석 기준 {data['as_of']} · 공개 {data['published_on']}", '',
@@ -83,7 +84,7 @@ def lines():
             '현금을 없애면 같은 금액이 회복된다는 뜻은 아닙니다.', '',
             '### 실험별 전체 비교', '']
     for i, group in enumerate(groups):
-        out += [f"??? info \"{group['title']} · 연구 {group['trial']}\"", '']
+        out += [f"??? info research-experiment \"{group['title']} · 연구 {group['trial']}\"", '']
         content = NOTES[i].splitlines() + ['']
         rows = [(f"SPY {r['id']}%" if i == 4 else LABELS[r['id']], r) for r in group['rows']]
         content += table(rows)
