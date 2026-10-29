@@ -20,11 +20,11 @@ comments: true
 > 지지선 성격 엄격 기준을 통과한 79종목을 한꺼번에 등록했다. 판정·Stage·손절가의 SSOT는
 > 스냅샷(`snapshots/COF-YYYY-MM-DD.md`)이다. 알림은 다른 관찰 종목과 같다(새 알림 종류 없음).
 
-<div class="m-sum m-sum--nobuy"><div class="m-sum__top"><span class="m-sum__px">$204.91</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span></div><div class="m-sum__sub">기준일 2026-10-29</div><p class="m-why">상승 구조 조건이 매수 기준에 못 미칩니다.</p></div>
+<div class="m-sum m-sum--nobuy"><div class="m-sum__top"><span class="m-sum__px">$208.79</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span></div><div class="m-sum__sub">기준일 2026-10-30</div><p class="m-why">상승 구조 조건이 매수 기준에 못 미칩니다.</p></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>바닥 다지기 구간 <small>(Stage 1)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 4개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +0.6%)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>기준미달</span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>바닥 다지기 구간 <small>(Stage 1)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 4개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +0.2%)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>기준미달</span></div></div>
 
-<p class="m-more"><a href="../../snapshots/COF-2026-10-29/">분석 스냅샷 전체 보기 ›</a></p>
+<p class="m-more"><a href="../../snapshots/COF-2026-10-30/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트
@@ -41,23 +41,23 @@ comments: true
 
 | 투자자 | 비중 | 구분 | 추정 평단 |
 |--------|-----:|------|-----------|
-| Christopher Davis - Davis Advisors | 7.1% | 보유 | $89.35 (+131%)<br>$73.49~$104 |
-| Ruane Cunniff | 6.1% | 보유 | $105 (+97%)<br>$89.34~$117 |
+| Christopher Davis - Davis Advisors | 7.1% | 보유 | $89.35 (+129%)<br>$73.49~$104 |
+| Ruane Cunniff | 6.1% | 보유 | $105 (+95%)<br>$89.34~$117 |
 | Glenn Greenberg - Brave Warrior Advisors | 4.3% | 보유 | $187 (+10%)<br>$151~$216 |
 
 ??? note "나머지 6곳 보기"
 
     | 투자자 | 비중 | 구분 | 추정 평단 |
     |--------|-----:|------|-----------|
-    | Abrams Bison Investments | 4.2% | 보유 | $106 (+95%)<br>$89.44~$125 |
-    | Daniel Loeb - Third Point | 3.6% | 보유 | $190 (+9%)<br>$169~$210 |
+    | Abrams Bison Investments | 4.2% | 보유 | $106 (+93%)<br>$89.44~$125 |
+    | Daniel Loeb - Third Point | 3.6% | 보유 | $190 (+8%)<br>$169~$210 |
     | Bill Nygren - Oakmark (Harris Associates) | 3.1% | 보유 | 모름<br>첫 신고(2013-06) 전부터 보유 |
-    | Richard Pzena - Pzena Investment Management | 2.7% | 보유 | $95.28 (+117%)<br>$81.02~$109 |
-    | Leon Cooperman | 2.6% | 보유 | $206 (+0%)<br>$175~$251 |
-    | Lee Ainslie - Maverick Capital | 2.5% | 보유 | $191 (+8%)<br>$160~$219 |
+    | Richard Pzena - Pzena Investment Management | 2.7% | 보유 | $95.28 (+115%)<br>$81.02~$109 |
+    | Leon Cooperman | 2.6% | 보유 | $206 (-1%)<br>$175~$251 |
+    | Lee Ainslie - Maverick Capital | 2.5% | 보유 | $191 (+7%)<br>$160~$219 |
 
 <details class="stock-chart-note"><summary>2026-09-30 기준 공시(최대 45일 늦음). 참고 정보이며 매수 신호가 아닙니다 · 자세히</summary>
-<p>2026-09-30 기준 보유를 SEC 13F 공시로 셉니다(공시 반영 2026-10-29). 분기 말 뒤 최대 45일 늦게 공개되고 매입 단가는 없습니다. 비중 1% 미만 보유는 세지 않습니다. 추정 평단은 주식이 늘어난 분기마다 그 분기 거래량 가중 평균가에 샀다고 보고 쌓은 값이고, 둘째 줄은 그 분기 최저가~최고가로 잡은 범위입니다. 괄호는 현재가 대비입니다. 그 투자자의 첫 13F 신고(가장 이르면 2013년) 전부터 들고 있던 종목은 매입가를 알 수 없어 「모름」입니다. 버크셔 실제 원가와 대조(2019~2021년)하면 장내에서 산 종목은 대부분 ±6% 안이었고, 판 뒤에는 10~16%까지 벌어졌습니다. 종목 코드가 바뀐 경우(구글→알파벳 등)는 이어서 계산합니다. 신주인수권 행사로 받은 주식은 크게 틀릴 수 있습니다. 유명 투자자 명단은 Dataroma, 집중 투자 기관은 보유 5~50종목·총액 5억 달러 이상인 기관입니다. 검증(2026-09-23, 11년 1만 건)에서 보유 기관 수는 매수 신호 성적과 무관했고, 여러 기관이 새로 산 종목은 좋은 쪽이었지만 기준에 못 미쳤습니다. 참고 정보이며 매수 신호가 아닙니다.</p></details>
+<p>2026-09-30 기준 보유를 SEC 13F 공시로 셉니다(공시 반영 2026-10-30). 분기 말 뒤 최대 45일 늦게 공개되고 매입 단가는 없습니다. 비중 1% 미만 보유는 세지 않습니다. 추정 평단은 주식이 늘어난 분기마다 그 분기 거래량 가중 평균가에 샀다고 보고 쌓은 값이고, 둘째 줄은 그 분기 최저가~최고가로 잡은 범위입니다. 괄호는 현재가 대비입니다. 그 투자자의 첫 13F 신고(가장 이르면 2013년) 전부터 들고 있던 종목은 매입가를 알 수 없어 「모름」입니다. 버크셔 실제 원가와 대조(2019~2021년)하면 장내에서 산 종목은 대부분 ±6% 안이었고, 판 뒤에는 10~16%까지 벌어졌습니다. 종목 코드가 바뀐 경우(구글→알파벳 등)는 이어서 계산합니다. 신주인수권 행사로 받은 주식은 크게 틀릴 수 있습니다. 유명 투자자 명단은 Dataroma, 집중 투자 기관은 보유 5~50종목·총액 5억 달러 이상인 기관입니다. 검증(2026-09-23, 11년 1만 건)에서 보유 기관 수는 매수 신호 성적과 무관했고, 여러 기관이 새로 산 종목은 좋은 쪽이었지만 기준에 못 미쳤습니다. 참고 정보이며 매수 신호가 아닙니다.</p></details>
 
 
 ??? note "지난 분석 메모 (작성 2026-10-06 · 지금 판정과 다를 수 있음)"
