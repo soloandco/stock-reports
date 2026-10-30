@@ -4,11 +4,11 @@
 
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
-| [**AAPL**](snapshots/AAPL-2026-10-30.md) | [Apple](snapshots/AAPL-2026-10-30.md) | 2026-10-30 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
-| [**ADI**](snapshots/ADI-2026-10-30.md) | [ADI ANALOG DEVICES INC](snapshots/ADI-2026-10-30.md) | 2026-10-30 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
-| [**ADP**](snapshots/ADP-2026-10-30.md) | [ADP AUTOMATIC DATA PROCESSING INC](snapshots/ADP-2026-10-30.md) | 2026-10-30 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
-| [**AEE**](snapshots/AEE-2026-10-30.md) | [AEE AMEREN CORP](snapshots/AEE-2026-10-30.md) | 2026-10-30 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/7 |
-| [**AEP**](snapshots/AEP-2026-10-30.md) | [AEP AMERICAN ELECTRIC POWER CO INC](snapshots/AEP-2026-10-30.md) | 2026-10-30 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 5/7 |
+| [**AAPL**](snapshots/AAPL-2026-10-31.md) | [Apple](snapshots/AAPL-2026-10-31.md) | 2026-10-31 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
+| [**ADI**](snapshots/ADI-2026-10-31.md) | [ADI ANALOG DEVICES INC](snapshots/ADI-2026-10-31.md) | 2026-10-31 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
+| [**ADP**](snapshots/ADP-2026-10-31.md) | [ADP AUTOMATIC DATA PROCESSING INC](snapshots/ADP-2026-10-31.md) | 2026-10-31 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
+| [**AEE**](snapshots/AEE-2026-10-31.md) | [AEE AMEREN CORP](snapshots/AEE-2026-10-31.md) | 2026-10-31 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/7 |
+| [**AEP**](snapshots/AEP-2026-10-31.md) | [AEP AMERICAN ELECTRIC POWER CO INC](snapshots/AEP-2026-10-31.md) | 2026-10-31 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 5/7 |
 
 [→ 전체 스냅샷](snapshots/index.md)
 
@@ -41,27 +41,27 @@
 
 ## 섹터 자금 흐름
 
-> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-10-29 23:01 UTC · `--scan` 시 갱신
+> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-10-30 20:14 UTC · `--scan` 시 갱신
 
 ### 미국 (S&P 500 섹터 ETF)
 
 | 순위 | 섹터 | RS | 신호 | 매집일 | 분산일 | 거래대금 비중 |
 |---|---|---|---|---|---|---|
-| 1 | Energy | +1.51 | 🟢 매집 | 5 | 1 | 17.0% |
-| 2 | Health Care | +1.06 | 🟢 매집 | 6 | 3 | 13.5% |
-| 3 | Technology | +0.86 | 🔴 분산 | 3 | 6 | 11.2% |
-| 4 | Consumer Staples | +0.41 | 🟢 매집 | 7 | 1 | 10.4% |
-| 5 | Materials | +0.41 | 🟢 매집 | 9 | 0 | 4.4% |
-| 6 | Financials | +0.28 | 🟢 매집 | 5 | 3 | 12.2% |
-| 7 | Real Estate | +0.07 | 🟢 매집 | 5 | 3 | 2.8% |
-| 8 | Industrials | -0.00 | 🟢 매집 | 5 | 4 | 9.6% |
-| 9 | Utilities | -0.10 | 🟢 매집 | 5 | 3 | 6.3% |
-| 10 | Consumer Discretionary | -0.10 | 🔴 분산 | 2 | 3 | 5.8% |
-| 11 | Communication | -0.57 | 🔴 분산 | 3 | 7 | 6.7% |
+| 1 | Energy | +1.67 | 🟢 매집 | 5 | 3 | 14.8% |
+| 2 | Health Care | +1.08 | 🟢 매집 | 7 | 1 | 15.1% |
+| 3 | Technology | +0.48 | 🔴 분산 | 2 | 7 | 13.2% |
+| 4 | Consumer Staples | +0.47 | 🟢 매집 | 8 | 1 | 10.4% |
+| 5 | Materials | +0.41 | 🟢 매집 | 8 | 0 | 4.2% |
+| 6 | Financials | +0.22 | 🟢 매집 | 6 | 4 | 11.7% |
+| 7 | Real Estate | +0.10 | 🟢 매집 | 7 | 3 | 2.5% |
+| 8 | Utilities | -0.03 | 🟢 매집 | 5 | 3 | 6.4% |
+| 9 | Industrials | -0.11 | ⚪ 중립 | 5 | 5 | 9.4% |
+| 10 | Consumer Discretionary | -0.11 | 🔴 분산 | 1 | 4 | 5.9% |
+| 11 | Communication | -0.62 | 🔴 분산 | 2 | 8 | 6.4% |
 
 ## 테마별 자금 흐름 (로테이션)
 
-> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-10-29 23:01 UTC
+> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-10-30 20:14 UTC
 >
 > **US**: SMH(GPU/반도체)·IRBO(AI인프라)·BOTZ(피지컬AI) ETF + 전력/DataCenter 바스켓
 
@@ -69,10 +69,10 @@
 
 | 순위 | 테마 | ETF/바스켓 | RS | 신호 | 매집일 | 분산일 |
 |---|---|---|---|---|---|---|
-| 1 | GPU/반도체 | SOXX | +1.28 | 🔴 분산 | 2 | 6 |
-| 2 | AI인프라 | ARTY | +1.08 | 🔴 분산 | 3 | 5 |
-| 3 | 전력/DataCenter | VST·CEG·GEV·VRT·ETN | -0.14 | 🔴 분산 | 4 | 6 |
-| 4 | 피지컬AI(로보틱스) | BOTZ | -0.50 | 🔴 분산 | 4 | 5 |
+| 1 | GPU/반도체 | SOXX | +0.65 | 🔴 분산 | 2 | 7 |
+| 2 | AI인프라 | ARTY | +0.62 | 🔴 분산 | 2 | 6 |
+| 3 | 전력/DataCenter | VST·CEG·GEV·VRT·ETN | -0.33 | 🔴 분산 | 4 | 7 |
+| 4 | 피지컬AI(로보틱스) | BOTZ | -0.68 | 🔴 분산 | 4 | 5 |
 
 !!! warning "투자 유의 / Disclaimer"
     이 사이트는 기술적 분석 프레임워크(Weinstein·Minervini·Turtle)의 **판정 결과를 기록**한 것으로,
@@ -82,31 +82,31 @@
 
 ## CNN Fear & Greed Index
 
-> 수집: 2026-10-29 23:01 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
+> 수집: 2026-10-30 20:13 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
 
 | 점수 | 전일比 | 등급 |
 |------|--------|------|
-| **34.6** / 100 | -1.3 | 🟠 **공포** |
+| **25.5** / 100 | -9.1 | 🟠 **공포** |
 
 ### 구성 지표 (7개)
 
 | 지표 | 점수 | 등급 |
 |------|------|------|
-| S&P500 모멘텀 | 35.4 | 🟠 공포 |
-| 신고가/신저가 | 32.0 | 🟠 공포 |
-| 시장 폭 | 35.4 | 🟠 공포 |
-| 풋/콜 비율 | 29.8 | 🟠 공포 |
-| VIX | 50.0 | ⚪ 중립 |
-| 정크본드 수요 | 50.0 | ⚪ 중립 |
-| 안전자산 수요 | 9.6 | 🔴 극공포 |
+| S&P500 모멘텀 | 14.6 | 🔴 극공포 |
+| 신고가/신저가 | 32.4 | 🟠 공포 |
+| 시장 폭 | 36.6 | 🟠 공포 |
+| 풋/콜 비율 | 27.8 | 🟠 공포 |
+| VIX | 19.9 | 🔴 극공포 |
+| 정크본드 수요 | 45.2 | ⚪ 중립 |
+| 안전자산 수요 | 2.2 | 🔴 극공포 |
 
 ## VIX
 
-> 수집: 2026-10-29 23:01 UTC · `python monitor.py --scan` 실행 시 갱신
+> 수집: 2026-10-30 20:13 UTC · `python monitor.py --scan` 실행 시 갱신
 
 | 지수 | 현재값 | 전일比 | 등급 | 시장 국면 | 신규 진입 |
 |------|--------|--------|------|---------|---------|
-| VIX (미국 S&P500) | 17.2 | +0.29 | ⚪ 중립 | 강한 상승 | ✅ 신규 진입 허용 |
+| VIX (미국 S&P500) | 19.91 | +2.71 | ⚪ 중립 | 횡보 | ⚠️ 신규 진입 자제 |
 
 ??? info "📘 VIX 등급 기준"
     | 등급 | VIX | 의미 |
