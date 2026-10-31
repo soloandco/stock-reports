@@ -4,11 +4,11 @@
 
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
-| [**AAPL**](snapshots/AAPL-2026-10-31.md) | [Apple](snapshots/AAPL-2026-10-31.md) | 2026-10-31 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
-| [**ADI**](snapshots/ADI-2026-10-31.md) | [ADI ANALOG DEVICES INC](snapshots/ADI-2026-10-31.md) | 2026-10-31 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
-| [**ADP**](snapshots/ADP-2026-10-31.md) | [ADP AUTOMATIC DATA PROCESSING INC](snapshots/ADP-2026-10-31.md) | 2026-10-31 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
-| [**AEE**](snapshots/AEE-2026-10-31.md) | [AEE AMEREN CORP](snapshots/AEE-2026-10-31.md) | 2026-10-31 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/7 |
-| [**AEP**](snapshots/AEP-2026-10-31.md) | [AEP AMERICAN ELECTRIC POWER CO INC](snapshots/AEP-2026-10-31.md) | 2026-10-31 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 5/7 |
+| [**AAPL**](snapshots/AAPL-2026-11-01.md) | [Apple](snapshots/AAPL-2026-11-01.md) | 2026-11-01 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
+| [**ADI**](snapshots/ADI-2026-11-01.md) | [ADI ANALOG DEVICES INC](snapshots/ADI-2026-11-01.md) | 2026-11-01 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
+| [**ADP**](snapshots/ADP-2026-11-01.md) | [ADP AUTOMATIC DATA PROCESSING INC](snapshots/ADP-2026-11-01.md) | 2026-11-01 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
+| [**AEE**](snapshots/AEE-2026-11-01.md) | [AEE AMEREN CORP](snapshots/AEE-2026-11-01.md) | 2026-11-01 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/7 |
+| [**AEP**](snapshots/AEP-2026-11-01.md) | [AEP AMERICAN ELECTRIC POWER CO INC](snapshots/AEP-2026-11-01.md) | 2026-11-01 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 5/7 |
 
 [→ 전체 스냅샷](snapshots/index.md)
 
@@ -41,13 +41,13 @@
 
 ## 섹터 자금 흐름
 
-> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-10-30 23:01 UTC · `--scan` 시 갱신
+> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-10-31 23:06 UTC · `--scan` 시 갱신
 
 ### 미국 (S&P 500 섹터 ETF)
 
 | 순위 | 섹터 | RS | 신호 | 매집일 | 분산일 | 거래대금 비중 |
 |---|---|---|---|---|---|---|
-| 1 | Energy | +1.67 | 🟢 매집 | 5 | 3 | 14.7% |
+| 1 | Energy | +1.67 | 🟢 매집 | 6 | 3 | 14.7% |
 | 2 | Health Care | +1.08 | 🟢 매집 | 7 | 1 | 15.2% |
 | 3 | Technology | +0.48 | 🔴 분산 | 2 | 7 | 13.1% |
 | 4 | Consumer Staples | +0.47 | 🟢 매집 | 8 | 1 | 10.4% |
@@ -56,12 +56,12 @@
 | 7 | Real Estate | +0.10 | 🟢 매집 | 7 | 3 | 2.5% |
 | 8 | Utilities | -0.03 | 🟢 매집 | 6 | 3 | 6.5% |
 | 9 | Industrials | -0.11 | ⚪ 중립 | 5 | 5 | 9.6% |
-| 10 | Consumer Discretionary | -0.11 | 🔴 분산 | 1 | 4 | 5.8% |
+| 10 | Consumer Discretionary | -0.11 | 🔴 분산 | 1 | 4 | 5.9% |
 | 11 | Communication | -0.62 | 🔴 분산 | 2 | 8 | 6.4% |
 
 ## 테마별 자금 흐름 (로테이션)
 
-> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-10-30 23:01 UTC
+> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-10-31 23:06 UTC
 >
 > **US**: SMH(GPU/반도체)·IRBO(AI인프라)·BOTZ(피지컬AI) ETF + 전력/DataCenter 바스켓
 
@@ -82,7 +82,7 @@
 
 ## CNN Fear & Greed Index
 
-> 수집: 2026-10-30 23:01 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
+> 수집: 2026-10-31 23:06 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
 
 | 점수 | 전일比 | 등급 |
 |------|--------|------|
@@ -102,7 +102,7 @@
 
 ## VIX
 
-> 수집: 2026-10-30 23:01 UTC · `python monitor.py --scan` 실행 시 갱신
+> 수집: 2026-10-31 23:06 UTC · `python monitor.py --scan` 실행 시 갱신
 
 | 지수 | 현재값 | 전일比 | 등급 | 시장 국면 | 신규 진입 |
 |------|--------|--------|------|---------|---------|
