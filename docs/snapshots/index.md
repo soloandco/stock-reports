@@ -103,6 +103,7 @@
 | [OMC](OMC-2026-11-03.md) | [OMC OMNICOM GROUP INC.](OMC-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 6/7 | 2026-11-03 |
 | [ON](ON-2026-11-03.md) | [ON ON SEMICONDUCTOR CORP](ON-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/7 | 2026-11-03 |
 | [PCAR](PCAR-2026-11-03.md) | [Paccar](PCAR-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/7 | 2026-11-03 |
+| [PGY](PGY-2026-11-03.md) | [Pagaya Technologies](PGY-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/7 | 2026-11-03 |
 | [PLTR](PLTR-2026-11-03.md) | [Palantir](PLTR-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 5/7 | 2026-11-03 |
 | [PM](PM-2026-11-03.md) | [Philip Morris](PM-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-03 |
 | [PNC](PNC-2026-11-03.md) | [PNC PNC FINANCIAL SERVICES GROUP, INC.](PNC-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 5/7 | 2026-11-03 |
