@@ -18,9 +18,9 @@ comments: true
 
 ---
 
-<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$466.08</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 5일째 · 10-27 매수 전환 · 기준일 2026-11-03</div><div class="m-lv3"><div><span>손절</span><b>$428.84</b><em class="m-neg">-8.0%</em></div><div><span>목표 (5R)</span><b>$652.26</b><em class="m-pos">+39.9%</em></div><div><span>첫 저항</span><b>$468.03</b><em class="m-pos">+0.4%</em></div></div></div>
+<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$466.08</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 5일째 · 10-27 매수 전환 · 기준일 2026-11-03</div><div class="m-lv3"><div><span>손절</span><b>$428.84</b><em class="m-neg">-8.0%</em></div><div><span>목표 (5R)</span><b>$652.26</b><em class="m-pos">+39.9%</em></div><div><span>첫 저항</span><b>$539.48</b><em class="m-pos">+15.7%</em></div></div></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 5개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>신호 5일 이내 <small>(5일째)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +0.4%)</small></span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 5개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>신호 5일 이내 <small>(5일째)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +15.7%)</small></span></div></div>
 
 <p class="m-more"><a href="../../snapshots/SNPS-2026-11-03/">분석 스냅샷 전체 보기 ›</a></p>
 

@@ -22,9 +22,9 @@ related:
 
 ---
 
-<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$178.34</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 시작일 미상 · 기준일 2026-11-03</div><div class="m-lv3"><div><span>손절</span><b>$162.19</b><em class="m-neg">-9.1%</em></div><div><span>목표 (5R)</span><b>$259.08</b><em class="m-pos">+45.3%</em></div><div><span>첫 저항</span><b>$188.20</b><em class="m-pos">+5.5%</em></div></div></div>
+<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$178.34</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 시작일 미상 · 기준일 2026-11-03</div><div class="m-lv3"><div><span>손절</span><b>$162.19</b><em class="m-neg">-9.1%</em></div><div><span>목표 (5R)</span><b>$259.08</b><em class="m-pos">+45.3%</em></div><div><span>첫 저항</span><b>$188.37</b><em class="m-pos">+5.6%</em></div></div></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 5개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>시작일 미상 <small>(관찰 등록 전부터 매수 상태)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +5.5%)</small></span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 5개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>시작일 미상 <small>(관찰 등록 전부터 매수 상태)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +5.6%)</small></span></div></div>
 
 <p class="m-more"><a href="../../snapshots/PLTR-2026-11-03/">분석 스냅샷 전체 보기 ›</a></p>
 

@@ -20,9 +20,9 @@ comments: true
 > 지지선 성격 엄격 기준을 통과한 79종목을 한꺼번에 등록했다. 판정·Stage·손절가의 SSOT는
 > 스냅샷(`snapshots/DOCU-YYYY-MM-DD.md`)이다. 알림은 다른 관찰 종목과 같다(새 알림 종류 없음).
 
-<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$81.65</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 6일째 · 10-24 매수 전환 · 기준일 2026-11-03</div><div class="m-lv3"><div><span>손절</span><b>$75.99</b><em class="m-neg">-6.9%</em></div><div><span>목표 (5R)</span><b>$109.94</b><em class="m-pos">+34.6%</em></div><div><span>첫 저항</span><b>$81.73</b><em class="m-pos">+0.1%</em></div></div></div>
+<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$81.65</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 6일째 · 10-24 매수 전환 · 기준일 2026-11-03</div><div class="m-lv3"><div><span>손절</span><b>$75.99</b><em class="m-neg">-6.9%</em></div><div><span>목표 (5R)</span><b>$109.94</b><em class="m-pos">+34.6%</em></div><div><span>첫 저항</span><b>$86.65</b><em class="m-pos">+6.1%</em></div></div></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 7개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>신호 6일째 <small>(추격 비추천)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +0.1%)</small></span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 7개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>신호 6일째 <small>(추격 비추천)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +6.1%)</small></span></div></div>
 
 <p class="m-more"><a href="../../snapshots/DOCU-2026-11-03/">분석 스냅샷 전체 보기 ›</a></p>
 

@@ -20,16 +20,16 @@ comments: true
 > 지지선 성격 엄격 기준을 통과한 79종목을 한꺼번에 등록했다. 판정·Stage·손절가의 SSOT는
 > 스냅샷(`snapshots/NSC-YYYY-MM-DD.md`)이다. 알림은 다른 관찰 종목과 같다(새 알림 종류 없음).
 
-<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$345.87</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 1일째 · 10-31 매수 전환 · 기준일 2026-11-03</div><div class="m-lv3"><div><span>손절</span><b>$334.11</b><em class="m-neg">-3.4%</em></div><div><span>목표 (5R)</span><b>$404.68</b><em class="m-pos">+17.0%</em></div><div><span>첫 저항</span><b>$355.99</b><em class="m-pos">+2.9%</em></div></div></div>
+<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$345.68</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 1일째 · 10-31 매수 전환 · 기준일 2026-11-03</div><div class="m-lv3"><div><span>손절</span><b>$333.92</b><em class="m-neg">-3.4%</em></div><div><span>목표 (5R)</span><b>$404.49</b><em class="m-pos">+17.0%</em></div><div><span>첫 저항</span><b>$355.99</b><em class="m-pos">+3.0%</em></div></div></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 6개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>신호 5일 이내 <small>(1일째)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +2.9%)</small></span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 6개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>신호 5일 이내 <small>(1일째)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +3.0%)</small></span></div></div>
 
 <p class="m-more"><a href="../../snapshots/NSC-2026-11-03/">분석 스냅샷 전체 보기 ›</a></p>
 
 
 ## 차트
 
-<div class="stock-chart" data-src="../charts/NSC.json" data-stop="334.1077"></div>
+<div class="stock-chart" data-src="../charts/NSC.json" data-stop="333.9177"></div>
 
 <details class="stock-chart-note"><summary>매물벽·지지대는 검증에서 무작위 선과 같았습니다. 아래 두 칸도 매수 신호 아님 · 자세히</summary>
 <p>추세선·매물벽(저항)·지지대·주봉 저항을 함께 표시합니다. 매물벽·지지대는 위치 참고용이며, 검증(2026-09-07)에서 받치고 막는 비율이 무작위 선과 같았습니다. 아래 칸은 일봉 종가 위치로 추정한 수급 누적선입니다(매수 신호 아님). 맨 아래 칸은 물린 비율(최근 1년 거래량 중 현재가보다 비싸게 거래된 비중)입니다. 측정(2026-09-14, 11년 620종목)에서 이 비율은 「1년 가격 범위의 어디에 있나」와 구분되지 않았고, 앞으로의 수익을 가르지 못했습니다(층화 차이 −0.02R·CI 0 포함). 심리 지도라기보다 위치 표시로 읽으세요. 손가락으로 확대·이동할 수 있습니다.</p>
@@ -39,7 +39,7 @@ comments: true
 
 | 항목 | 지금 |
 |------|------|
-| 회사값 (P/S) | **6배** · 과거 3년 중 **비싼 편** (하위 96%)<br>3년 범위 3~6배 |
+| 회사값 (P/S) | **6배** · 과거 3년 중 **비싼 편** (하위 95%)<br>3년 범위 3~6배 |
 | 매출 성장 | 전년 같은 분기 대비 **+13.6%** (2026-09 분기) |
 | 20일 EMA 대비 | **+4.3%** (15% 넘으면 매수 보류) |
 

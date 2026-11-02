@@ -22,7 +22,7 @@ related:
 
 <div class="m-sum m-sum--sell"><div class="m-sum__top"><span class="m-sum__px">$18.13</span><span class="verdict verdict-sell">매도후보</span></div><div class="m-sum__sub">기준일 2026-11-03</div><p class="m-why">천장 분배 구간입니다. 새로 사지 않는 자리입니다.</p></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>천장 분배 구간 <small>(Stage 3)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 3개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +1.3%)</small></span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>천장 분배 구간 <small>(Stage 3)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 3개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +30.6%)</small></span></div></div>
 
 <p class="m-more"><a href="../../snapshots/PGY-2026-11-03/">분석 스냅샷 전체 보기 ›</a></p>
 
@@ -77,6 +77,6 @@ related:
 
     참고 가격: 위 $20.81~21.15 · $23.68 · $26.80 · $29.75, 아래 $17.01 · $16.10, ATR 손절 $15.59(−14.0%), 매물 최다 구간 $14.43~15.24. 매물대·수평선은 무작위 선과 구분되지 않았으므로 위치만 본다.
 
-    ⚠ 스냅샷의 「주봉 머리 위 저항 $18.36, 과거 −59% 거부, 한 번도 넘지 못함」과 real-rr 0.09 는 쓰지 않는다. $18.36 은 2022-11 주봉 고점이고 그 뒤 주가는 $44.99(2025-09)까지 갔다. 「직전 고점」이 역분할 전 2021년 고점 $414 로 잡혀 나온 값이다.
+    주봉 머리 위 저항은 $23.68(+30.6%, 2026-08 고점)이다. 처음 스냅샷의 $18.36 은 2022-11 고점을 잘못 잡은 값이라 같은 날 계산을 고쳤다(주가는 그 뒤 $44.99 까지 갔다). 직전 고점 $414 는 역분할 전 2021년 값이다.
 
     펀더멘털: 2026Q2 영업이익률 28.9%, 순이익률 11.6%, 분기 ROE 7.1%(dartlab). dCR-A+ 는 2025 연간 기준이고 사업안정성·공시 축은 값이 없다. 실적 공시의 전기 가이던스와 주주서한은 읽지 못했고, 11-02 하락의 원인은 확인하지 못했다.

@@ -24,9 +24,9 @@ related:
 
 ---
 
-<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$58.78</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 2일째 · 10-30 매수 전환 · 기준일 2026-11-03</div><div class="m-lv3"><div><span>손절</span><b>$55.87</b><em class="m-neg">-5.0%</em></div><div><span>목표 (5R)</span><b>$73.34</b><em class="m-pos">+24.8%</em></div><div><span>첫 저항</span><b>$60.62</b><em class="m-pos">+3.1%</em></div></div></div>
+<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$58.78</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 2일째 · 10-30 매수 전환 · 기준일 2026-11-03</div><div class="m-lv3"><div><span>손절</span><b>$55.87</b><em class="m-neg">-5.0%</em></div><div><span>목표 (5R)</span><b>$73.34</b><em class="m-pos">+24.8%</em></div><div><span>첫 저항</span><b>$62.58</b><em class="m-pos">+6.5%</em></div></div></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 6개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>신호 5일 이내 <small>(2일째)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +3.1%)</small></span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 6개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>신호 5일 이내 <small>(2일째)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +6.5%)</small></span></div></div>
 
 <p class="m-more"><a href="../../snapshots/PYPL-2026-11-03/">분석 스냅샷 전체 보기 ›</a></p>
 

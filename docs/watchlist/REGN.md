@@ -22,7 +22,7 @@ comments: true
 
 <div class="m-sum m-sum--nobuy"><div class="m-sum__top"><span class="m-sum__px">$961.26</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span></div><div class="m-sum__sub">기준일 2026-11-03</div><p class="m-why">20일 EMA보다 15% 넘게 위에 있습니다. 지금은 추격 자리입니다.</p></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 7개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +2.9%)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>이격과대</span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 7개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +24.8%)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>이격과대</span></div></div>
 
 <p class="m-more"><a href="../../snapshots/REGN-2026-11-03/">분석 스냅샷 전체 보기 ›</a></p>
 

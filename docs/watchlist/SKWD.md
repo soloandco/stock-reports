@@ -23,9 +23,9 @@ related:
 
 ---
 
-<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$61.13</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 21일째 · 10-03 매수 전환 · 기준일 2026-11-03</div><div class="m-lv3"><div><span>손절</span><b>$57.92</b><em class="m-neg">-5.2%</em></div><div><span>목표 (5R)</span><b>$77.17</b><em class="m-pos">+26.2%</em></div><div><span>첫 저항</span><b>$65.05</b><em class="m-pos">+6.4%</em></div></div></div>
+<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$61.13</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 21일째 · 10-03 매수 전환 · 기준일 2026-11-03</div><div class="m-lv3"><div><span>손절</span><b>$57.92</b><em class="m-neg">-5.2%</em></div><div><span>목표 (5R)</span><b>$77.17</b><em class="m-pos">+26.2%</em></div><div><span>첫 저항</span><b>$65.69</b><em class="m-pos">+7.5%</em></div></div></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 7개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>신호 21일째 <small>(추격 비추천)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +6.4%)</small></span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세 <small>(Stage 2)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 7개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>신호 21일째 <small>(추격 비추천)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +7.5%)</small></span></div></div>
 
 <p class="m-more"><a href="../../snapshots/SKWD-2026-11-03/">분석 스냅샷 전체 보기 ›</a></p>
 

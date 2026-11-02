@@ -22,7 +22,7 @@ related:
 
 <div class="m-sum m-sum--sell"><div class="m-sum__top"><span class="m-sum__px">$322.23</span><span class="verdict verdict-sell">매도관찰</span></div><div class="m-sum__sub">기준일 2026-11-03</div><p class="m-why">하락 구간입니다. 새로 사지 않는 자리입니다.</p></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>하락 구간 <small>(Stage 4)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 1개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +8.7%)</small></span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>하락 구간 <small>(Stage 4)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 1개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +34.0%)</small></span></div></div>
 
 <p class="m-more"><a href="../../snapshots/AVGO-2026-11-03/">분석 스냅샷 전체 보기 ›</a></p>
 

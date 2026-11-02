@@ -20,7 +20,7 @@ comments: true
 > 지지선 성격 엄격 기준을 통과한 79종목을 한꺼번에 등록했다. 판정·Stage·손절가의 SSOT는
 > 스냅샷(`snapshots/PSA-YYYY-MM-DD.md`)이다. 알림은 다른 관찰 종목과 같다(새 알림 종류 없음).
 
-<div class="m-sum m-sum--nobuy"><div class="m-sum__top"><span class="m-sum__px">$333.08</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span></div><div class="m-sum__sub">기준일 2026-11-03</div><p class="m-why">상승 구조 조건이 매수 기준에 못 미칩니다.</p></div>
+<div class="m-sum m-sum--nobuy"><div class="m-sum__top"><span class="m-sum__px">$333.24</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span></div><div class="m-sum__sub">기준일 2026-11-03</div><p class="m-why">상승 구조 조건이 매수 기준에 못 미칩니다.</p></div>
 
 <div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>바닥 다지기 구간 <small>(Stage 1)</small></span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 구조 7개 중 6개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>주봉 저항 아래 자리 <small>(첫 저항 +2.5%)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>기준미달</span></div></div>
 
@@ -39,7 +39,7 @@ comments: true
 
 | 항목 | 지금 |
 |------|------|
-| 회사값 (P/S) | **12배** · 과거 3년 중 **비싼 편** (하위 88%)<br>3년 범위 9~14배 |
+| 회사값 (P/S) | **12배** · 과거 3년 중 **비싼 편** (하위 89%)<br>3년 범위 9~14배 |
 | 매출 성장 | 전년 같은 분기 대비 **+11.6%** (2026-09 분기) |
 | 20일 EMA 대비 | **+8.8%** (15% 넘으면 매수 보류) |
 
