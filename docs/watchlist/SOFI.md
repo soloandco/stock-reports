@@ -28,7 +28,6 @@ related:
 # SOFI: SoFi Technologies 관찰 종목
 
 > 사용자 요청으로 손익비 가격 알림을 걸려고 등록했다 (2026-11-03). 판정의 SSOT는 스냅샷이다.
-> 사용자는 이 종목을 보유 중이라고 말했지만 평단·수량을 받지 않아 `held` 는 적지 않았다.
 
 <div class="m-sum m-sum--sell"><div class="m-sum__top"><span class="m-sum__px">$16.60</span><span class="verdict verdict-sell">매도관찰</span></div><div class="m-sum__sub">기준일 2026-11-03</div><p class="m-why">하락 구간입니다. 새로 사지 않는 자리입니다.</p></div>
 
