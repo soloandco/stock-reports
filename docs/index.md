@@ -2,7 +2,7 @@
 
 <p class="m-basis">11월 3일(화) 기준</p>
 
-<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">극공포 18</b><span class="m-dot">·</span><span>VIX 21.9 주의</span><span class="m-go">›</span></a>
+<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">극공포 19</b><span class="m-dot">·</span><span>VIX 21.3 주의</span><span class="m-go">›</span></a>
 
 <div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">0<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 43종목 중</div></div>
 <p class="m-empty">오늘 새 신호는 없습니다.</p>
