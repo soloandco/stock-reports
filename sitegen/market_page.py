@@ -20,11 +20,11 @@ _REGIME_KO = {
 }
 
 _REGIME_ENTRY = {
-    "STRONG_UPTREND":   "✅ 신규 진입 허용",
-    "UPTREND":          "✅ 신규 진입 허용",
-    "RANGING":          "⚠️ 신규 진입 자제",
-    "DOWNTREND":        "🚫 신규 진입 금지",
-    "STRONG_DOWNTREND": "🚫 신규 진입 금지",
+    "STRONG_UPTREND":   "✅ 우호적",
+    "UPTREND":          "✅ 우호적",
+    "RANGING":          "⚠️ 신중",
+    "DOWNTREND":        "⚠️ 하락 위험",
+    "STRONG_DOWNTREND": "⚠️ 하락 위험",
     "UNKNOWN":          "—",
 }
 
@@ -358,7 +358,7 @@ def _fear_index_page(latest=None, names=None, show_kr: bool = True) -> str:
         "",
         f"> 수집: {updated} · `python monitor.py --scan` 실행 시 갱신",
         "",
-        "| 지수 | 현재값 | 전일比 | 등급 | 시장 국면 | 신규 진입 |",
+        "| 지수 | 현재값 | 전일比 | 등급 | 시장 국면 | 진입 참고 |",
         "|------|--------|--------|------|---------|---------|",
         _row("VIX (미국 S&P500)", vix, us_r),
         *([_row("KOSPI (한국 코스피)", vkospi, kr_r)] if vkospi is not None else []),
@@ -373,14 +373,14 @@ def _fear_index_page(latest=None, names=None, show_kr: bool = True) -> str:
         "    | 🟢 탐욕   | < 15  | 과열 주의, 변동성 낮음 |",
         "",
         '??? info "📘 시장 국면 해석"',
-        "    S&P500 / KOSPI의 50·150·200일 MA 정렬 기반으로 판정합니다.",
+        "    S&P500 / KOSPI의 50·150·200일 MA 정렬 기반으로 판정합니다. 참고용이며 매수 알림을 막지 않습니다.",
         "",
-        "    | 국면 | 한국어 | 신규 진입 |",
+        "    | 국면 | 한국어 | 진입 참고 |",
         "    |------|--------|---------|",
-        "    | STRONG_UPTREND | 강한 상승 | ✅ 허용 |",
-        "    | UPTREND | 상승 | ✅ 허용 |",
-        "    | RANGING | 횡보 | ⚠️ 자제 |",
-        "    | DOWNTREND | 하락 | 🚫 금지 |",
-        "    | STRONG_DOWNTREND | 강한 하락 | 🚫 금지 |",
+        "    | STRONG_UPTREND | 강한 상승 | ✅ 우호적 |",
+        "    | UPTREND | 상승 | ✅ 우호적 |",
+        "    | RANGING | 횡보 | ⚠️ 신중 |",
+        "    | DOWNTREND | 하락 | ⚠️ 하락 위험 |",
+        "    | STRONG_DOWNTREND | 강한 하락 | ⚠️ 하락 위험 |",
     ]
     return "\n".join(lines) + "\n"
