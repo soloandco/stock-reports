@@ -214,7 +214,7 @@ def _valuation_block(ticker: str, snap: "dict | None", data: dict) -> str:
                     f" ({(t.get('growth_q') or '')[:7]} 분기) |")
     gap = common._num((snap or {}).get("gap"))
     if gap is not None:
-        rows.append(f"| 20일 EMA 대비 | **{gap:+.1f}%** (15% 넘으면 매수 보류) |")
+        rows.append(f"| 50일선 대비 | **{gap:+.1f}%** (15% 넘으면 매수 보류) |")
     return "\n".join([
         "", "## 가격 수준 (참고)", "", "| 항목 | 지금 |", "|------|------|", *rows, "",
         '<details class="stock-chart-note"><summary>참고 정보이며 매수 신호가 아닙니다 · 자세히</summary>',
@@ -392,8 +392,8 @@ def _collect_watchlist(latest_by_ticker: "dict | None" = None) -> list[tuple[str
 _STAGE_KO = {"1": "바닥 다지기", "2": "상승", "3": "천장 분배", "4": "하락"}
 # 매수불가 사유를 한 문장으로 (core/verdict.py 의 REASON_* 와 짝)
 _REASON_KO = {
-    "과열": "20일 EMA보다 25% 넘게 위에 있거나 RSI가 90을 넘었습니다. 지금은 추격 자리입니다.",
-    "이격과대": "20일 EMA보다 15% 넘게 위에 있습니다. 지금은 추격 자리입니다.",
+    "과열": "50일선보다 25% 넘게 위에 있거나 RSI가 90을 넘었습니다. 지금은 추격 자리입니다.",
+    "이격과대": "50일선보다 15% 넘게 위에 있습니다. 지금은 추격 자리입니다.",
     "기준미달": "상승 구조 조건이 매수 기준에 못 미칩니다.",
     "시장국면": "지수 흐름이 매수에 불리했습니다(옛 규칙).",
     "변동성과대": "손절폭이 넓었습니다(옛 규칙).",
