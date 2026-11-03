@@ -21,13 +21,13 @@
 
 | 종목 | 기업명 | 판정 | Stage | TT | 분석일 |
 |------|--------|------|-------|----|--------|
-| [AAPL](AAPL-2026-11-03.md) | [Apple](AAPL-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-03 |
+| [AAPL](AAPL-2026-11-03.md) | [Apple](AAPL-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-11-03 |
 | [ADI](ADI-2026-11-03.md) | [ADI ANALOG DEVICES INC](ADI-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-03 |
 | [ADP](ADP-2026-11-03.md) | [ADP AUTOMATIC DATA PROCESSING INC](ADP-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-03 |
 | [AEE](AEE-2026-11-03.md) | [AEE AMEREN CORP](AEE-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 5/7 | 2026-11-03 |
 | [AEP](AEP-2026-11-03.md) | [AEP AMERICAN ELECTRIC POWER CO INC](AEP-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 5/7 | 2026-11-03 |
 | [ALLE](ALLE-2026-11-03.md) | [ALLE Allegion plc](ALLE-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | 2 | 6/7 | 2026-11-03 |
-| [AMD](AMD-2026-11-03.md) | [Advanced Micro Devices](AMD-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/7 | 2026-11-03 |
+| [AMD](AMD-2026-11-03.md) | [Advanced Micro Devices](AMD-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 5/7 | 2026-11-03 |
 | [AON](AON-2026-11-03.md) | [AON Aon plc](AON-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/7 | 2026-11-03 |
 | [AOS](AOS-2026-11-03.md) | [AOS SMITH A O CORP](AOS-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 3/7 | 2026-11-03 |
 | [APLD](APLD-2026-11-03.md) | [Applied Digital](APLD-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/7 | 2026-11-03 |
@@ -50,15 +50,15 @@
 | [CORZ](CORZ-2026-11-03.md) | [Core Scientific](CORZ-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/7 | 2026-11-03 |
 | [CSCO](CSCO-2026-11-03.md) | [CSCO CISCO SYSTEMS, INC.](CSCO-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/7 | 2026-11-03 |
 | [CTSH](CTSH-2026-11-03.md) | [CTSH COGNIZANT TECHNOLOGY SOLUTIONS CORP](CTSH-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 4/7 | 2026-11-03 |
-| [DE](DE-2026-11-03.md) | [DE DEERE & CO](DE-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-03 |
+| [DE](DE-2026-11-03.md) | [DE DEERE & CO](DE-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-11-03 |
 | [DHI](DHI-2026-11-03.md) | [D.R. Horton](DHI-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 3/7 | 2026-11-03 |
 | [DLR](DLR-2026-11-03.md) | [Digital Realty](DLR-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/7 | 2026-11-03 |
 | [DLTR](DLTR-2026-11-03.md) | [DLTR DOLLAR TREE, INC.](DLTR-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 5/7 | 2026-11-03 |
 | [DOCU](DOCU-2026-11-03.md) | [DOCU DOCUSIGN, INC.](DOCU-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-03 |
 | [ED](ED-2026-11-03.md) | [ED CONSOLIDATED EDISON INC](ED-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 7/7 | 2026-11-03 |
-| [EVRG](EVRG-2026-11-03.md) | [EVRG Evergy, Inc.](EVRG-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 5/7 | 2026-11-03 |
+| [EVRG](EVRG-2026-11-03.md) | [EVRG Evergy, Inc.](EVRG-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 5/7 | 2026-11-03 |
 | [F](F-2026-11-03.md) | [F FORD MOTOR CO](F-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 1/7 | 2026-11-03 |
-| [FDX](FDX-2026-11-03.md) | [FDX FEDEX CORP](FDX-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 7/7 | 2026-11-03 |
+| [FDX](FDX-2026-11-03.md) | [FDX FEDEX CORP](FDX-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-03 |
 | [FE](FE-2026-11-03.md) | [FE FIRSTENERGY CORP](FE-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/7 | 2026-11-03 |
 | [FITB](FITB-2026-11-03.md) | [FITB FIFTH THIRD BANCORP](FITB-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-11-03 |
 | [FSLR](FSLR-2026-11-03.md) | [FSLR FIRST SOLAR, INC.](FSLR-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/7 | 2026-11-03 |
@@ -122,16 +122,16 @@
 | [RTX](RTX-2026-11-03.md) | [RTX RTX Corp](RTX-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/7 | 2026-11-03 |
 | [SJM](SJM-2026-11-03.md) | [SJM J M SMUCKER Co](SJM-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-03 |
 | [SKWD](SKWD-2026-11-03.md) | [Skyward Specialty Insurance](SKWD-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-03 |
-| [SNPS](SNPS-2026-11-03.md) | [Synopsys](SNPS-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 5/7 | 2026-11-03 |
+| [SNPS](SNPS-2026-11-03.md) | [Synopsys](SNPS-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 4/7 | 2026-11-03 |
 | [SOFI](SOFI-2026-11-03.md) | [SoFi Technologies](SOFI-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 1/7 | 2026-11-03 |
 | [SOUN](SOUN-2026-11-03.md) | [SOUN](SOUN-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/7 | 2026-11-03 |
 | [SOXS](SOXS-2026-11-03.md) | [SOXS 반도체 베어 3X](SOXS-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/7 | 2026-11-03 |
 | [SOXX](SOXX-2026-11-03.md) | [SOXX 반도체 ETF](SOXX-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/7 | 2026-11-03 |
 | [STZ](STZ-2026-11-03.md) | [STZ CONSTELLATION BRANDS, INC.](STZ-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/7 | 2026-11-03 |
-| [SW](SW-2026-11-03.md) | [SW Smurfit Westrock plc](SW-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 5/7 | 2026-11-03 |
+| [SW](SW-2026-11-03.md) | [SW Smurfit Westrock plc](SW-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/7 | 2026-11-03 |
 | [SWKS](SWKS-2026-11-03.md) | [SWKS SKYWORKS SOLUTIONS, INC.](SWKS-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> <span class="verdict-reason">(변동성과대)</span> | 2 | 7/7 | 2026-11-03 |
 | [SYK](SYK-2026-11-03.md) | [SYK STRYKER CORP](SYK-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/7 | 2026-11-03 |
-| [SYY](SYY-2026-11-03.md) | [SYY SYSCO CORP](SYY-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/7 | 2026-11-03 |
+| [SYY](SYY-2026-11-03.md) | [SYY SYSCO CORP](SYY-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 2/7 | 2026-11-03 |
 | [TRMB](TRMB-2026-11-03.md) | [TRMB TRIMBLE INC.](TRMB-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 4/7 | 2026-11-03 |
 | [UAL](UAL-2026-11-03.md) | [UAL United Airlines Holdings, Inc.](UAL-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/7 | 2026-11-03 |
 | [VRTX](VRTX-2026-11-03.md) | [VRTX VERTEX PHARMACEUTICALS INC / MA](VRTX-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-03 |
@@ -146,7 +146,7 @@
 | [XLK](XLK-2026-11-03.md) | [XLK 테크놀로지 섹터 ETF](XLK-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/7 | 2026-11-03 |
 | [XLP](XLP-2026-11-03.md) | [XLP 필수소비재 섹터 ETF](XLP-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 4/7 | 2026-11-03 |
 | [XLRE](XLRE-2026-11-03.md) | [XLRE 리츠 섹터 ETF](XLRE-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 5/7 | 2026-11-03 |
-| [XLU](XLU-2026-11-03.md) | [XLU 유틸리티 섹터 ETF](XLU-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 3/7 | 2026-11-03 |
+| [XLU](XLU-2026-11-03.md) | [XLU 유틸리티 섹터 ETF](XLU-2026-11-03.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/7 | 2026-11-03 |
 | [XLV](XLV-2026-11-03.md) | [XLV 헬스케어 섹터 ETF](XLV-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-03 |
 | [XLY](XLY-2026-11-03.md) | [XLY 임의소비재 섹터 ETF](XLY-2026-11-03.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 3/7 | 2026-11-03 |
 | [ZBRA](ZBRA-2026-11-03.md) | [ZBRA ZEBRA TECHNOLOGIES CORP](ZBRA-2026-11-03.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-11-03 |

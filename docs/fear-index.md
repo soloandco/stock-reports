@@ -4,7 +4,7 @@
 
 | 종목 | 기업명 | 분석일 | 판정 | Stage | TT |
 |------|--------|--------|------|-------|----|
-| [**AAPL**](snapshots/AAPL-2026-11-03.md) | [Apple](snapshots/AAPL-2026-11-03.md) | 2026-11-03 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
+| [**AAPL**](snapshots/AAPL-2026-11-03.md) | [Apple](snapshots/AAPL-2026-11-03.md) | 2026-11-03 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 |
 | [**ADI**](snapshots/ADI-2026-11-03.md) | [ADI ANALOG DEVICES INC](snapshots/ADI-2026-11-03.md) | 2026-11-03 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
 | [**ADP**](snapshots/ADP-2026-11-03.md) | [ADP AUTOMATIC DATA PROCESSING INC](snapshots/ADP-2026-11-03.md) | 2026-11-03 | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 |
 | [**AEE**](snapshots/AEE-2026-11-03.md) | [AEE AMEREN CORP](snapshots/AEE-2026-11-03.md) | 2026-11-03 | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 5/7 |
@@ -41,27 +41,27 @@
 
 ## 섹터 자금 흐름
 
-> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-11-03 11:01 UTC · `--scan` 시 갱신
+> **RS**: 상대강도 순위 · **신호**: 최근 20일 매집/분산(가격방향×거래량) · **거래대금 비중**: 섹터 쏠림 게이지. 수집: 2026-11-03 14:56 UTC · `--scan` 시 갱신
 
 ### 미국 (S&P 500 섹터 ETF)
 
 | 순위 | 섹터 | RS | 신호 | 매집일 | 분산일 | 거래대금 비중 |
 |---|---|---|---|---|---|---|
-| 1 | Energy | +1.40 | 🟢 매집 | 6 | 3 | 14.7% |
-| 2 | Health Care | +1.05 | 🟢 매집 | 5 | 2 | 15.1% |
-| 3 | Consumer Staples | +0.54 | 🟢 매집 | 7 | 1 | 10.7% |
-| 4 | Materials | +0.45 | 🟢 매집 | 9 | 0 | 4.4% |
-| 5 | Technology | +0.33 | 🔴 분산 | 1 | 7 | 13.4% |
-| 6 | Financials | +0.32 | 🟢 매집 | 6 | 4 | 11.9% |
-| 7 | Real Estate | +0.15 | 🟢 매집 | 7 | 2 | 2.2% |
-| 8 | Utilities | +0.01 | 🟢 매집 | 6 | 4 | 6.7% |
-| 9 | Consumer Discretionary | -0.02 | 🔴 분산 | 2 | 4 | 6.0% |
-| 10 | Industrials | -0.06 | ⚪ 중립 | 5 | 5 | 9.2% |
-| 11 | Communication | -0.57 | 🔴 분산 | 3 | 6 | 5.6% |
+| 1 | Energy | +1.36 | 🟢 매집 | 4 | 2 | 14.3% |
+| 2 | Health Care | +1.05 | 🟢 매집 | 5 | 2 | 15.7% |
+| 3 | Consumer Staples | +0.45 | 🟢 매집 | 5 | 1 | 10.9% |
+| 4 | Technology | +0.39 | 🔴 분산 | 0 | 6 | 13.6% |
+| 5 | Materials | +0.37 | 🟢 매집 | 8 | 0 | 4.3% |
+| 6 | Financials | +0.29 | 🟢 매집 | 5 | 4 | 11.6% |
+| 7 | Real Estate | +0.12 | 🟢 매집 | 7 | 2 | 2.2% |
+| 8 | Utilities | +0.01 | 🟢 매집 | 5 | 4 | 6.7% |
+| 9 | Industrials | -0.03 | 🔴 분산 | 4 | 5 | 9.2% |
+| 10 | Consumer Discretionary | -0.07 | 🔴 분산 | 2 | 4 | 6.1% |
+| 11 | Communication | -0.56 | 🔴 분산 | 3 | 6 | 5.5% |
 
 ## 테마별 자금 흐름 (로테이션)
 
-> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-11-03 11:01 UTC
+> GPU→전력→반도체→피지컬AI→기판 로테이션 추적. RS+신호로 현재 자금이 어느 테마에 집중되는지 판독. 수집: 2026-11-03 14:56 UTC
 >
 > **US**: SMH(GPU/반도체)·IRBO(AI인프라)·BOTZ(피지컬AI) ETF + 전력/DataCenter 바스켓
 
@@ -69,10 +69,10 @@
 
 | 순위 | 테마 | ETF/바스켓 | RS | 신호 | 매집일 | 분산일 |
 |---|---|---|---|---|---|---|
-| 1 | GPU/반도체 | SOXX | +0.45 | 🔴 분산 | 0 | 8 |
-| 2 | AI인프라 | ARTY | +0.42 | 🔴 분산 | 2 | 7 |
-| 3 | 전력/DataCenter | VST·CEG·GEV·VRT·ETN | -0.44 | 🔴 분산 | 3 | 6 |
-| 4 | 피지컬AI(로보틱스) | BOTZ | -0.70 | ⚪ 중립 | 5 | 5 |
+| 1 | GPU/반도체 | SOXX | +0.59 | 🔴 분산 | 0 | 8 |
+| 2 | AI인프라 | ARTY | +0.54 | 🔴 분산 | 2 | 7 |
+| 3 | 전력/DataCenter | VST·CEG·GEV·VRT·ETN | -0.18 | 🔴 분산 | 1 | 6 |
+| 4 | 피지컬AI(로보틱스) | BOTZ | -0.69 | ⚪ 중립 | 5 | 5 |
 
 !!! warning "투자 유의 / Disclaimer"
     이 사이트는 기술적 분석 프레임워크(Weinstein·Minervini·Turtle)의 **판정 결과를 기록**한 것으로,
@@ -82,11 +82,11 @@
 
 ## CNN Fear & Greed Index
 
-> 수집: 2026-11-03 11:00 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
+> 수집: 2026-11-03 14:56 UTC · 출처: [CNN Markets](https://edition.cnn.com/markets/fear-and-greed)
 
 | 점수 | 전일比 | 등급 |
 |------|--------|------|
-| **18.8** / 100 | -4.0 | 🔴 **극공포** |
+| **18.9** / 100 | -3.8 | 🔴 **극공포** |
 
 ### 구성 지표 (7개)
 
@@ -95,18 +95,18 @@
 | S&P500 모멘텀 | 13.2 | 🔴 극공포 |
 | 신고가/신저가 | 35.0 | 🟠 공포 |
 | 시장 폭 | 44.4 | 🟠 공포 |
-| 풋/콜 비율 | 20.4 | 🔴 극공포 |
+| 풋/콜 비율 | 21.2 | 🔴 극공포 |
 | VIX | 15.2 | 🔴 극공포 |
 | 정크본드 수요 | 36.4 | 🟠 공포 |
 | 안전자산 수요 | 1.8 | 🔴 극공포 |
 
 ## VIX
 
-> 수집: 2026-11-03 11:00 UTC · `python monitor.py --scan` 실행 시 갱신
+> 수집: 2026-11-03 14:56 UTC · `python monitor.py --scan` 실행 시 갱신
 
-| 지수 | 현재값 | 전일比 | 등급 | 시장 국면 | 신규 진입 |
+| 지수 | 현재값 | 전일比 | 등급 | 시장 국면 | 진입 참고 |
 |------|--------|--------|------|---------|---------|
-| VIX (미국 S&P500) | 21.29 | +0.14 | 🟡 주의 | 횡보 | ⚠️ 신규 진입 자제 |
+| VIX (미국 S&P500) | 20.92 | -0.23 | 🟡 주의 | 횡보 | ⚠️ 신중 |
 
 ??? info "📘 VIX 등급 기준"
     | 등급 | VIX | 의미 |
@@ -118,12 +118,12 @@
     | 🟢 탐욕   | < 15  | 과열 주의, 변동성 낮음 |
 
 ??? info "📘 시장 국면 해석"
-    S&P500 / KOSPI의 50·150·200일 MA 정렬 기반으로 판정합니다.
+    S&P500 / KOSPI의 50·150·200일 MA 정렬 기반으로 판정합니다. 참고용이며 매수 알림을 막지 않습니다.
 
-    | 국면 | 한국어 | 신규 진입 |
+    | 국면 | 한국어 | 진입 참고 |
     |------|--------|---------|
-    | STRONG_UPTREND | 강한 상승 | ✅ 허용 |
-    | UPTREND | 상승 | ✅ 허용 |
-    | RANGING | 횡보 | ⚠️ 자제 |
-    | DOWNTREND | 하락 | 🚫 금지 |
-    | STRONG_DOWNTREND | 강한 하락 | 🚫 금지 |
+    | STRONG_UPTREND | 강한 상승 | ✅ 우호적 |
+    | UPTREND | 상승 | ✅ 우호적 |
+    | RANGING | 횡보 | ⚠️ 신중 |
+    | DOWNTREND | 하락 | ⚠️ 하락 위험 |
+    | STRONG_DOWNTREND | 강한 하락 | ⚠️ 하락 위험 |

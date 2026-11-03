@@ -22,9 +22,9 @@ comments: true
 > (2026-09-12 사용자 결정). 판정·Stage·손절가의 SSOT는
 > 스냅샷(`snapshots/XLU-YYYY-MM-DD.md`)이다.
 
-<div class="m-sum m-sum--nobuy"><div class="m-sum__top"><span class="m-sum__px">$43.67</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span></div><div class="m-sum__sub">기준일 2026-11-03</div><p class="m-why">상승 구조 조건이 매수 기준에 못 미칩니다.</p></div>
+<div class="m-sum m-sum--sell"><div class="m-sum__top"><span class="m-sum__px">$43.42</span><span class="verdict verdict-sell">매도관찰</span></div><div class="m-sum__sub">기준일 2026-11-03</div><p class="m-why">하락 구간입니다. 새로 사지 않는 자리입니다.</p></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>바닥 다지기 구간 <small>(Stage 1)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 3개 충족 <small>(기준 5개)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>기준미달</span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>하락 구간 <small>(Stage 4)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 구조 7개 중 3개 충족 <small>(기준 5개)</small></span></div></div>
 
 <p class="m-more"><a href="../../snapshots/XLU-2026-11-03/">분석 스냅샷 전체 보기 ›</a></p>
 
