@@ -1,15 +1,15 @@
 # 주식 리포트
 
-<p class="m-basis">11월 3일(화) 기준</p>
+<p class="m-basis">11월 4일(수) 기준</p>
 
-<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">극공포 19</b><span class="m-dot">·</span><span>VIX 20.9 주의</span><span class="m-go">›</span></a>
+<a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">극공포 19</b><span class="m-dot">·</span><span>VIX 20.7 주의</span><span class="m-go">›</span></a>
 
-<div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">0<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 44종목 중</div></div>
-<p class="m-empty">오늘 새 신호는 없습니다.</p>
-<a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>44</b>종목</span><span class="m-muted">추격 비추천 · CB·KO·PM 외</span><span class="m-go">›</span></a>
+<div class="m-hero"><div class="m-hero__k">오늘 새로 살 만한 종목</div><div class="m-hero__n">2<small>종목</small></div><div class="m-hero__s">신호 5일 이내 · 매수 상태 44종목 중</div></div>
+<div class="m-cards"><a class="m-card" href="watchlist/SW/"><div class="m-card__head"><b class="m-card__ticker">SW</b><span class="m-card__name">SW Smurfit Westrock plc</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-6.6%</b></div><div><span>신호</span><b>오늘</b></div></div></a><a class="m-card" href="watchlist/SNPS/"><div class="m-card__head"><b class="m-card__ticker">SNPS</b><span class="m-card__name">Synopsys</span><span class="verdict verdict-buy">매수</span></div><div class="m-card__nums"><div><span>손절까지</span><b class="m-neg">-8.1%</b></div><div><span>신호</span><b>오늘</b></div></div></a></div>
+<a class="m-row" href="watchlist/#buy"><span>이미 지난 신호 <b>42</b>종목</span><span class="m-muted">추격 비추천 · CB·KO·PM 외</span><span class="m-go">›</span></a>
 
 <div class="m-sec"><span>추천 기록</span><a href="strategies/">전체 ›</a></div>
-<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>45</b><span>완료</span></div><div><b class="m-neg">-0.18R</b><span>평균</span></div><div><b>35</b><span>진행 중</span></div></div></a>
+<a class="m-box m-strat" href="strategies/"><div class="m-kv"><span>지금 켜진 방식</span><b>스윙·단타</b><span class="m-muted">09-28부터</span></div><div class="m-stat3"><div><b>46</b><span>완료</span></div><div><b class="m-neg">-0.21R</b><span>평균</span></div><div><b>34</b><span>진행 중</span></div></div></a>
 
 <div class="m-sec"><span>최근 알림</span><a href="alerts/">전체 ›</a></div>
 <div class="m-box m-list"><a class="m-li" href="alerts/20261103-alle-target_hit/"><span class="m-li__d">11-03</span><b>ALLE</b><span>수익 실현</span></a><a class="m-li" href="alerts/20261103-evrg-buy_watch/"><span class="m-li__d">11-03</span><b>EVRG</b><span>매수 신호</span></a><a class="m-li" href="alerts/20261103-mnst-buy/"><span class="m-li__d">11-03</span><b>MNST</b><span>매수 신호</span></a></div>
