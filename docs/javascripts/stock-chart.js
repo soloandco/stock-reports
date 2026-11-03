@@ -215,9 +215,9 @@
     }));
 
     /* 폰에서 선이 7~8개 겹쳐 읽기 어려웠다(2026-09-23 모바일 개편). 처음에는 현재가 ·
-       손절 · 주봉 저항만 보이고, 나머지(이평선·매물대·추세선)는 「선 더 보기」로 켠다. */
+       손절만 보이고, 나머지(이평선·매물대·추세선)는 「선 더 보기」로 켠다. */
     var extras = [];
-    var isExtraLine = function (line) { return line.id !== "auto:weekly-resistance"; };
+    var isExtraLine = function () { return true; };
 
     // 이동평균 — 캔들 뒤에 깔리도록 먼저 그린다
     var maSeries = {};

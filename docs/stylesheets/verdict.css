@@ -691,14 +691,10 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   flex: 1; min-width: 0; font-size: 0.8em; color: var(--m-ink3);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.m-card__nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.3em; margin-top: 0.55em; }
+.m-card__nums { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.3em; margin-top: 0.55em; }
 .m-card__nums div { display: flex; flex-direction: column; }
 .m-card__nums span { font-size: 0.72em; color: var(--m-ink3); }
 .m-card__nums b { font-size: 1.05em; font-variant-numeric: tabular-nums; }
-.m-card__warn {
-  margin-top: 0.5em; font-size: 0.75em; color: var(--m-wrn);
-  background: rgba(230, 81, 0, 0.08); border-radius: 0.4rem; padding: 0.25em 0.55em;
-}
 .md-typeset .m-empty { color: var(--m-ink2); font-size: 0.9em; margin: 0 0 0.6rem; }
 .md-typeset a.m-row {
   display: flex; align-items: center; gap: 0.5em;
@@ -770,7 +766,7 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
 .m-sum__px { font-size: 1.85em; font-weight: 800; letter-spacing: -0.02em; margin-right: auto; font-variant-numeric: tabular-nums; }
 .m-sum__sub { font-size: 0.78em; color: var(--m-ink3); margin-top: 0.15em; }
 .m-lv3 {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.3em;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.3em;
   margin-top: 0.7em; background: var(--m-bg); border-radius: 0.6rem; padding: 0.55em 0.6em;
 }
 .m-lv3 div { display: flex; flex-direction: column; min-width: 0; }
