@@ -61,11 +61,9 @@ def _collect_snapshots() -> list[dict]:
             # 홈 「오늘의 결론」 카드용 (2026-09-03) — 값이 없는 구형 스냅샷은 ""
             "stop":       fm.get("stop-price", ""),
             "weekly_pos": fm.get("weekly-position", ""),
-            "weekly_pct": fm.get("weekly-overhead-pct", ""),
             "rr":         fm.get("real-rr", ""),
             # 관찰 페이지 결론 카드용 (2026-09-23)
             "since":      fm.get("candidate-since", ""),
-            "wprice":     fm.get("weekly-overhead-price", ""),
             "fname":   md.name,
         })
     # 분석일 내림차순(동일 날짜는 종목 오름차순 — 안정 정렬)

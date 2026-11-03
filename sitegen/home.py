@@ -62,13 +62,12 @@ def _superinvestor_home(data: dict, names: dict) -> str:
 # ── 모바일 화면 부품 (2026-09-23 개편) ─────────────────────────────────
 # 시안: stock-agent/docs/mockups/site-mobile-wireframe/index.html
 # 홈은 「오늘 새로 살 만한 종목」(신호 5일 이내)만 크게, 지난 신호는 한 줄로 접는다.
-# 카드에는 판단에 쓰는 숫자 셋(손절까지 · 첫 저항까지 · 신호 경과일)만 둔다.
+# 카드에는 판단에 쓰는 숫자 셋(손절까지 · 신호 경과일)만 둔다.
 # 새 계산·새 점수 없이 최신 스냅샷 frontmatter 값만 쓴다.
 # 카드 순서는 알림 슬롯 배분(monitor._entry_priority)과 같다: 주봉 신고가영역
 # 우선, 동률이면 저항 손익비 높은 순. 만료 후보(D+5 초과)는 맨 뒤로.
 _PICK_WEEKLY_RANK = {"신고가영역": 0, "저항대아래": 1}          # monitor._WEEKLY_RANK 와 동일
 PICK_MAX_CARDS = 8
-NEAR_RESIST_PCT = 3.0     # 첫 저항이 이보다 가까우면 카드에 주황 경고 줄
 _WEEKDAY_KO = "월화수목금토일"
 
 
@@ -85,16 +84,6 @@ def _pick_priority(snap: dict) -> tuple:
             _PICK_WEEKLY_RANK.get(snap.get("weekly_pos") or "", 2), -rr, snap["ticker"])
 
 
-def _first_resist(snap: dict) -> "tuple[str, str]":
-    """(첫 저항까지 표기, 색 클래스). 신고가 영역이면 머리 위 저항이 없다."""
-    if (snap.get("weekly_pos") or "") == "신고가영역":
-        return "없음", "m-pos"
-    w = common._num(snap.get("weekly_pct"))
-    if w is None:
-        return "—", ""
-    return common._pct_text(w), ("m-wrn" if w < NEAR_RESIST_PCT else "m-pos")
-
-
 def _stop_pct(snap: dict) -> "float | None":
     price, stop = common._num(snap.get("price")), common._num(snap.get("stop"))
     if not price or stop is None:
@@ -103,13 +92,9 @@ def _stop_pct(snap: dict) -> "float | None":
 
 
 def _fresh_card(snap: dict, name: str) -> str:
-    """홈 카드. 숫자 셋만. 누르면 그 종목의 관찰 페이지로 간다."""
+    """홈 카드. 숫자 둘만. 누르면 그 종목의 관찰 페이지로 간다."""
     t = snap["ticker"]
     sp = _stop_pct(snap)
-    rtxt, rcls = _first_resist(snap)
-    w = common._num(snap.get("weekly_pct"))
-    warn = ('<div class="m-card__warn">머리 위 저항이 바로 앞</div>'
-            if rcls == "m-wrn" and w is not None else "")
     name_html = f'<span class="m-card__name">{name}</span>' if name else ""
     return (
         f'<a class="m-card" href="watchlist/{t}/">'
@@ -117,9 +102,8 @@ def _fresh_card(snap: dict, name: str) -> str:
         f'<span class="verdict verdict-buy">{common._display_verdict(snap["verdict"])}</span></div>'
         f'<div class="m-card__nums">'
         f'<div><span>손절까지</span><b class="m-neg">{common._pct_text(sp) if sp is not None else "—"}</b></div>'
-        f'<div><span>첫 저항까지</span><b class="{rcls}">{rtxt}</b></div>'
         f'<div><span>신호</span><b>{common._signal_label(snap) or "—"}</b></div>'
-        f'</div>{warn}</a>'
+        f'</div></a>'
     )
 
 

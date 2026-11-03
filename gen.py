@@ -48,8 +48,8 @@ _HOMES_BY_MODULE = {
         "STRATEGY_PERF_JSON", "SUPERINV_JSON", "TRADE_REPORT_JSON", "VALUATION_JSON",
     ),
     "sitegen.home": (
-        "HOME_NEW_ROWS", "NEAR_RESIST_PCT", "PICK_MAX_CARDS", "_PICK_WEEKLY_RANK", "_WEEKDAY_KO",
-        "_alert_name", "_basis_label", "_conclusion_section", "_dashboard", "_first_resist",
+        "HOME_NEW_ROWS", "PICK_MAX_CARDS", "_PICK_WEEKLY_RANK", "_WEEKDAY_KO",
+        "_alert_name", "_basis_label", "_conclusion_section", "_dashboard",
         "_fresh_card", "_load_fear_index", "_market_line", "_pick_priority", "_recent_alerts",
         "_sec_title", "_stop_pct", "_strategy_box", "_superinvestor_home",
     ),

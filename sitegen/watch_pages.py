@@ -48,7 +48,7 @@ _CHART_BLOCK = """
 <div class="stock-chart" data-src="../charts/{ticker}.json"{attrs}></div>
 
 <details class="stock-chart-note"><summary>매물벽·지지대는 검증에서 무작위 선과 같았습니다. 아래 두 칸도 매수 신호 아님 · 자세히</summary>
-<p>추세선·매물벽(저항)·지지대·주봉 저항을 함께 표시합니다. 매물벽·지지대는 위치 참고용이며, 검증(2026-09-07)에서 받치고 막는 비율이 무작위 선과 같았습니다. 아래 칸은 일봉 종가 위치로 추정한 수급 누적선입니다(매수 신호 아님). 맨 아래 칸은 물린 비율(최근 1년 거래량 중 현재가보다 비싸게 거래된 비중)입니다. 측정(2026-09-14, 11년 620종목)에서 이 비율은 「1년 가격 범위의 어디에 있나」와 구분되지 않았고, 앞으로의 수익을 가르지 못했습니다(층화 차이 −0.02R·CI 0 포함). 심리 지도라기보다 위치 표시로 읽으세요. 손가락으로 확대·이동할 수 있습니다.</p>
+<p>추세선·매물벽(저항)·지지대를 함께 표시합니다. 매물벽·지지대는 위치 참고용이며, 검증(2026-09-07)에서 받치고 막는 비율이 무작위 선과 같았습니다. 아래 칸은 일봉 종가 위치로 추정한 수급 누적선입니다(매수 신호 아님). 맨 아래 칸은 물린 비율(최근 1년 거래량 중 현재가보다 비싸게 거래된 비중)입니다. 측정(2026-09-14, 11년 620종목)에서 이 비율은 「1년 가격 범위의 어디에 있나」와 구분되지 않았고, 앞으로의 수익을 가르지 못했습니다(층화 차이 −0.02R·CI 0 포함). 심리 지도라기보다 위치 표시로 읽으세요. 손가락으로 확대·이동할 수 있습니다.</p>
 </details>
 """
 
@@ -275,14 +275,6 @@ def _checks(snap: dict) -> str:
             items.append(("warn", f"신호 {common._signal_label(snap)}", "추격 비추천"))
         elif common._signal_label(snap):
             items.append(("ok", f"신호 {common.CANDIDATE_FRESH_MAX_DAYS}일 이내", common._signal_label(snap)))
-    pos = snap.get("weekly_pos") or ""
-    if pos == "신고가영역":
-        items.append(("ok", "머리 위 저항 없음", "신고가 영역"))
-    elif pos == "돌파후되돌림":
-        items.append(("ok", "저항 돌파 후 되돌림 자리", ""))
-    elif pos:
-        w = common._num(snap.get("weekly_pct"))
-        items.append(("warn", "주봉 저항 아래 자리", f"첫 저항 {common._pct_text(w)}" if w is not None else ""))
     if snap["verdict"] == "매수불가" and snap.get("reason"):
         items.append(("no", snap["reason"], ""))
     icon = {"ok": "✓", "warn": "!", "no": "✕"}
@@ -295,7 +287,7 @@ def _checks(snap: dict) -> str:
 def _status_section(snap: "dict | None", name: str) -> str:
     """관찰 페이지 맨 위 결론 카드 + 체크 목록. 최신 스냅샷이 없으면 "".
 
-    매수 상태면 손절 · 목표(5R, 알림과 같은 기준) · 첫 저항 숫자 셋을 스크롤 없이 보인다.
+    매수 상태면 손절 · 목표(5R, 알림과 같은 기준) 숫자 둘을 스크롤 없이 보인다.
     매수가 아니면 숫자 대신 이유 한 문장.
     """
     if not snap:
@@ -317,21 +309,12 @@ def _status_section(snap: "dict | None", name: str) -> str:
     extra = ""
     if buy and price and stop is not None:
         target = price + (price - stop) * common.REWARD_RATIO
-        wprice = common._num(snap.get("wprice"))
-        if (snap.get("weekly_pos") or "") == "신고가영역":
-            resist = '<b>없음</b><em class="m-pos">신고가 영역</em>'
-        elif wprice:
-            resist = (f'<b>{common._fmt_price(market, wprice)}</b>'
-                      f'<em class="m-pos">{common._pct_text((wprice / price - 1) * 100)}</em>')
-        else:
-            resist = "<b>—</b>"
         extra = (
             '<div class="m-lv3">'
             f'<div><span>손절</span><b>{common._fmt_price(market, stop)}</b>'
             f'<em class="m-neg">{common._pct_text((stop / price - 1) * 100)}</em></div>'
             f'<div><span>목표 ({common.REWARD_RATIO:g}R)</span><b>{common._fmt_price(market, target)}</b>'
-            f'<em class="m-pos">{common._pct_text((target / price - 1) * 100)}</em></div>'
-            f'<div><span>첫 저항</span>{resist}</div></div>')
+            f'<em class="m-pos">{common._pct_text((target / price - 1) * 100)}</em></div></div>')
     else:
         why = (_REASON_KO.get(snap.get("reason", ""), "") if kind == "nobuy"
                else _SELL_KO.get(snap["verdict"], ""))
