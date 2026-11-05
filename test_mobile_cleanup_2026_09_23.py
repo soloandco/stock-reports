@@ -76,17 +76,17 @@ def test_kakao_section_is_dropped(tmp_path, monkeypatch):
 def test_current_status_comes_before_chart_and_memo(tmp_path, monkeypatch):
     page = _page(tmp_path, monkeypatch, {"GOOGL": SNAP})
     assert page.index('class="m-sum') < page.index("## 차트") < page.index("지난 분석 메모")
-    assert "> 역할: 대형 기술주 관찰" in page      # H1 아래 머리말은 그대로
-    assert page.index("역할: 대형 기술주") < page.index('class="m-sum')
+    assert "역할: 대형 기술주" not in page        # 제목 아래 내부 메모는 공개하지 않는다 (2026-11-05)
 
 
 def test_status_card_uses_latest_snapshot_and_links_it(tmp_path, monkeypatch):
     page = _page(tmp_path, monkeypatch, {"GOOGL": SNAP})
     status = page.split("## 차트", 1)[0]
-    assert "7개 중 6개 충족" in status and ">매수<" in status
-    assert "기준일 2026-09-23" in status and "신호 3일째" in status
+    assert "상승 조건 7개 중 6개" in status and ">매수<" in status
+    assert "09-23 기준" in status and "신호 3일째" in status
+    assert "Stage" not in status and "5R" not in status
     # 손절 · 목표(5R) · 첫 저항. 목표 = 350 + (350-332)×5 = 440
-    assert "$332.00" in status and "$440.00" in status and "목표 (5R)" in status
+    assert "$332.00" in status and "$440.00" in status and ">목표<" in status
     # 관찰 페이지는 /watchlist/GOOGL/ 에 열린다
     assert 'href="../../snapshots/GOOGL-2026-09-23/"' in status
     # 차트에 손절선을 넘긴다 (매수 상태일 때만)
@@ -116,7 +116,7 @@ def test_file_without_h2_is_left_alone(tmp_path, monkeypatch):
     (src / "X.md").write_text("---\ntype: watchlist\nticker: X\n---\n# X\n본문만\n", encoding="utf-8")
     gen._collect_watchlist()
     page = (out / "X.md").read_text(encoding="utf-8")
-    assert "지난 분석 메모" not in page and "본문만" in page and "## 차트" in page
+    assert "지난 분석 메모" not in page and "본문만" not in page and "## 차트" in page
 
 
 def test_chart_note_shows_one_line_and_folds_the_rest():
@@ -149,7 +149,7 @@ def test_watchlist_is_card_rows_with_chips_not_table():
     # 매수가 매수불가보다 먼저, 새 신호 묶음 제목이 붙는다
     assert md.index('href="GS/"') < md.index('href="AMD/"') < md.index('href="X/"')
     assert "새 신호 <b>1</b>" in md
-    assert '??? info' in md and "5일째까지만 유효" in md
+    assert '??? info "매수 기준"' in md and "5일이 지나면" in md
 
 
 def test_site_url_is_set_so_404_page_keeps_styles():

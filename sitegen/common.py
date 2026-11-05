@@ -5,9 +5,12 @@
 """
 from __future__ import annotations
 
+import json
 import re
 import shutil
 from pathlib import Path
+
+from sitegen import config as cfg
 
 
 # 매수 추천 유효기간(거래일). 이 값을 넘긴 신호는 '만료'로 표시된다.
@@ -112,6 +115,43 @@ def _candidate_days_cell(days: str, start_unknown: str = "") -> str:
 def _company_name(title: str) -> str:
     """워치리스트 title('NVIDIA 관찰 종목')에서 기업명만 추출."""
     return re.sub(r"\s*관찰\s*종목\s*$", "", title).strip()
+
+
+# 관찰 목록 밖 종목의 이름. core.company_name.clean 과 같은 규칙이다 (사이트는 core 를 안 불러온다).
+# 둘이 어긋나면 tests/test_alert_bundle_2026_11_05.py 가 실패한다.
+_STATE_TAG = re.compile(r"\s*/\s*[A-Za-z]{2,3}/?\s*$")
+_NAME_SUFFIX = re.compile(r"[,\s]+(INC|INCORPORATED|CORP|CORPORATION|CO|COMPANY|LTD|LIMITED|PLC|LLC|LP|NV|SA|AG|HOLDINGS?)\.?$",
+                          re.IGNORECASE)
+_KEEP_UPPER = {"II", "III", "IV", "ETF", "REIT", "USA", "US", "NV", "AI"}
+
+
+def _name_word(word: str, ticker: str) -> str:
+    bare = word.strip(",.")
+    if bare == ticker or bare in _KEEP_UPPER or len(bare) <= 1 or not bare.isupper():
+        return word
+    return "-".join(p.capitalize() for p in word.split("-"))
+
+
+def _clean_name(ticker: str, raw: str) -> str:
+    name = _STATE_TAG.sub("", (raw or "").strip())
+    while True:
+        cut = _NAME_SUFFIX.sub("", name).strip(" ,&")
+        if cut == name or not cut:
+            break
+        name = cut
+    if name.isupper() or any(w.isupper() and len(w) > 3 for w in name.split()):
+        name = " ".join(_name_word(w, ticker) for w in name.split())
+    return name
+
+
+def _name_of(ticker: str, names: dict) -> str:
+    """관찰 종목은 목록 이름, 그 밖은 SEC 공개 목록 이름. 없으면 빈 문자열."""
+    if names.get(ticker):
+        return names[ticker]
+    try:
+        return _clean_name(ticker, json.loads(cfg.TICKER_NAMES_JSON.read_text(encoding="utf-8")).get(ticker, ""))
+    except (OSError, ValueError):
+        return ""
 
 
 def _fmt_price_str(price: str, market: str) -> str:

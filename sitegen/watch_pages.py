@@ -239,6 +239,23 @@ def _split_at_first_h2(text: str) -> tuple[str, str]:
 _KAKAO_SECTION_RE = re.compile(r"\n## [^\n]*카톡[^\n]*\n.*?(?=\n## |\Z)", re.DOTALL)
 
 
+def _public_head(head: str, ticker: str, name: str) -> str:
+    """머리말(frontmatter)과 제목만 남긴다. 제목 아래 손 메모는 내부용이다 (2026-11-05 사용자 승인)."""
+    m = re.match(r"---\n.*?\n---\n", head, re.DOTALL)
+    front = m.group(0) if m else ""
+    return f"{front}\n# {ticker} {'' if name == ticker else name}".rstrip() + "\n"
+
+
+def _fold_section(block: str) -> str:
+    """「## 제목」으로 시작하는 참고 절을 접힘 상자로 바꾼다. 빈 절은 그대로."""
+    m = re.match(r"\s*## ([^\n]+)\n", block)
+    if not m:
+        return block
+    body = block[m.end():].strip("\n")
+    indented = "\n".join(("    " + ln) if ln.strip() else "" for ln in body.splitlines())
+    return f'\n??? note "{m.group(1)}"\n\n{indented}\n\n'
+
+
 def _fold_old_memo(rest: str, written: str) -> str:
     """첫 H2부터의 손 메모를 「지난 분석 메모」 접힘 상자로 감싼다. 빈 메모면 ""."""
     body = _KAKAO_SECTION_RE.sub("", rest).strip("\n")
@@ -261,20 +278,18 @@ def _checks(snap: dict) -> str:
     items = []
     st = str(snap.get("stage", ""))
     if st:
-        items.append(("ok", "상승 추세", f"Stage {st}") if st == "2"
-                     else ("no", f"{_STAGE_KO.get(st, '')} 구간".strip(), f"Stage {st}"))
+        items.append(("ok", "상승 추세", "") if st == "2"
+                     else ("no", f"{_STAGE_KO.get(st, '')} 구간".strip(), ""))
     n, mx = common._num(snap.get("tt")), common._num(snap.get("ttmax", 8))
     if n is not None and mx:
         need = int(mx) - 2          # 7조건이면 5, 옛 8조건이면 6
         items.append(("ok" if n >= need else "no",
-                      f"상승 구조 {int(mx)}개 중 {int(n)}개 충족", f"기준 {need}개"))
+                      f"상승 조건 {int(mx)}개 중 {int(n)}개", f"{need}개 이상이면 매수"))
     if snap["verdict"] in common._BUY_STATES:
         if common._truthy(snap.get("start_unknown", "")):
-            items.append(("warn", "시작일 미상", "관찰 등록 전부터 매수 상태"))
+            items.append(("warn", "오래된 신호", "추격 비추천"))
         elif common._is_expired(snap):
             items.append(("warn", f"신호 {common._signal_label(snap)}", "추격 비추천"))
-        elif common._signal_label(snap):
-            items.append(("ok", f"신호 {common.CANDIDATE_FRESH_MAX_DAYS}일 이내", common._signal_label(snap)))
     if snap["verdict"] == "매수불가" and snap.get("reason"):
         items.append(("no", snap["reason"], ""))
     icon = {"ok": "✓", "warn": "!", "no": "✕"}
@@ -299,12 +314,10 @@ def _status_section(snap: "dict | None", name: str) -> str:
     price, stop = common._num(snap.get("price")), common._num(snap.get("stop"))
 
     sub = []
-    if buy and common._signal_label(snap):
+    if buy and common._signal_label(snap) and not common._truthy(snap.get("start_unknown", "")):
         sub.append(f"신호 {common._signal_label(snap)}")
-        if snap.get("since") and not common._truthy(snap.get("start_unknown", "")):
-            sub.append(f"{common._md(snap['since'])} 매수 전환")
     if snap.get("created"):
-        sub.append(f"기준일 {snap['created']}")
+        sub.append(f"{common._md(snap['created'])} 기준")
 
     extra = ""
     if buy and price and stop is not None:
@@ -313,7 +326,7 @@ def _status_section(snap: "dict | None", name: str) -> str:
             '<div class="m-lv3">'
             f'<div><span>손절</span><b>{common._fmt_price(market, stop)}</b>'
             f'<em class="m-neg">{common._pct_text((stop / price - 1) * 100)}</em></div>'
-            f'<div><span>목표 ({common.REWARD_RATIO:g}R)</span><b>{common._fmt_price(market, target)}</b>'
+            f'<div><span>목표</span><b>{common._fmt_price(market, target)}</b>'
             f'<em class="m-pos">{common._pct_text((target / price - 1) * 100)}</em></div></div>')
     else:
         why = (_REASON_KO.get(snap.get("reason", ""), "") if kind == "nobuy"
@@ -329,7 +342,7 @@ def _status_section(snap: "dict | None", name: str) -> str:
         f'<span class="verdict verdict-{kind}">{common._display_verdict(snap["verdict"])}</span>{reason}</div>'
         f'<div class="m-sum__sub">{" · ".join(sub)}</div>{extra}</div>')
     return (f"\n{card}\n\n{_checks(snap)}\n\n"
-            f'<p class="m-more"><a href="../../snapshots/{stem}/">분석 스냅샷 전체 보기 ›</a></p>\n')
+            f'<p class="m-more"><a href="../../snapshots/{stem}/">자세한 분석 ›</a></p>\n')
 
 
 def _collect_watchlist(latest_by_ticker: "dict | None" = None) -> list[tuple[str, str, str, str]]:
@@ -357,11 +370,12 @@ def _collect_watchlist(latest_by_ticker: "dict | None" = None) -> list[tuple[str
         # 실계좌 필드·private 블록 제거 후 복사 — 원본(비공개)은 그대로 유지
         # 순서: 머리말 → 지금 상태 → 차트 → 가격 수준 → 13F → 지난 분석 메모(접힘) (2026-09-27)
         head, rest = _split_at_first_h2(_sanitize_public_md(text))
+        head = _public_head(head, ticker, name)
         snap = (latest_by_ticker or {}).get(ticker)
         page = (head + _status_section(snap, name)
                 + "\n" + _CHART_BLOCK.format(ticker=ticker, attrs=_chart_attrs(snap))
-                + _valuation_block(ticker, snap, valuation)
-                + _superinvestor_block(ticker, superinv)
+                + _fold_section(_valuation_block(ticker, snap, valuation))
+                + _fold_section(_superinvestor_block(ticker, superinv))
                 + _fold_old_memo(rest, str(fm.get("updated") or fm.get("created") or "")))
         (tmp / out_name).write_text(page, encoding="utf-8")
         entries.append((ticker, fm.get("market", ""), name, out_name))
@@ -455,15 +469,9 @@ def _watchlist_index(entries, latest_by_ticker=None) -> str:
         "",
         f'<div class="wl-list" id="wl-list" data-active="all">{"".join(body)}</div>',
         "",
-        '??? info "판정·경과 표시 설명"',
-        "    판정·현재가는 각 종목의 **최신 분석 스냅샷** 기준입니다. "
-        "30분마다 상태를 보고, 바뀌면 [알림](../alerts/index.md)이 나갑니다.",
-        "",
-        "    **경과**는 매수 상태가 이어진 거래일 수입니다(전환일이 오늘). "
-        f"매수 추천은 **{common.CANDIDATE_FRESH_MAX_DAYS}일째까지만 유효**합니다. "
-        "넘기면 「만료」로 표시하고 푸시 알림도 보내지 않습니다(백테스트상 늦은 진입은 "
-        "기대값이 줄어듭니다. 매수 상태를 벗어났다 다시 들어오면 새 추천이 됩니다). "
-        "관찰 등록 때 이미 매수 상태였던 종목은 전환일을 알 수 없어 「시작일 미상」으로 "
-        "표시하고 새 추천으로 보지 않습니다.",
+        '??? info "매수 기준"',
+        "    상승 추세이고 상승 조건 7개 중 5개 이상이면 매수입니다. "
+        f"신호 뒤 {common.CANDIDATE_FRESH_MAX_DAYS}일이 지나면 추격하지 않습니다. "
+        "50일선보다 15% 넘게 위에 있으면 매수불가입니다.",
         "",
     ]) + "\n"

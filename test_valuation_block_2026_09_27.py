@@ -62,7 +62,7 @@ def test_block_sits_between_chart_and_13f(tmp_path, monkeypatch):
             "market": "NASDAQ"}
     gen._collect_watchlist({"PLTR": snap})
     page = (out / "PLTR.md").read_text(encoding="utf-8")
-    assert page.index("stock-chart") < page.index("## 가격 수준") < page.index("## 거물 투자자")
+    assert page.index("stock-chart") < page.index('??? note "가격 수준') < page.index('??? note "거물 투자자')
 
 
 def test_block_carries_measured_result():

@@ -56,13 +56,10 @@ extra_javascript:
 
 nav:
   - 홈: index.md
-  - 방식별 기록: strategies/index.md
-  - 매도 규칙·비교: strategies/manual-exits-2026-10-18.md
-  - 시장 현황: fear-index.md
   - 관찰 종목: watchlist/index.md
-  - 가상 포지션: positions/index.md
-  - 분석 스냅샷: snapshots/index.md
+  - 추천 기록: strategies/index.md
   - 알림: alerts/index.md
+  - 시장 현황: fear-index.md
 
 # 상세 페이지(watchlist/*, snapshots/*, alerts/{uid})는 nav에 직접 넣지 않고
 # 각 인덱스에서 링크한다 — '누락' 경고를 끈다.

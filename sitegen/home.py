@@ -8,7 +8,7 @@ from __future__ import annotations
 import json
 import re
 
-from sitegen import common, config as cfg, strategies, watch_pages
+from sitegen import common, config as cfg, strategies
 
 
 HOME_NEW_ROWS = 10
@@ -20,10 +20,12 @@ def _sec_title(name: str) -> str:
     return name.title() if name.isupper() else name
 
 
-def _superinvestor_home(data: dict, names: dict) -> str:
-    """홈 「거물 신규 매수」 표. 유명 투자자 2명 이상이 이번 분기에 새로 산 종목 (2026-09-23).
+def _superinvestor_home(data: dict, names: dict, link_prefix: str = "") -> str:
+    """「거물 신규 매수」 표. 유명 투자자 2명 이상이 이번 분기에 새로 산 종목 (2026-09-23).
 
+    2026-11-05 에 홈에서 시장 현황 맨 아래로 옮겼다(사용자 승인: 홈은 오늘 살 종목만).
     names: 관찰 종목 {티커: 기업명}. 관찰 중이면 종목 페이지로 잇는다. 자료가 없으면 빈 문자열.
+    link_prefix: 사이트 맨 위까지의 상대 경로.
     """
     rows = data.get("top_new")
     if rows is None:
@@ -35,7 +37,7 @@ def _superinvestor_home(data: dict, names: dict) -> str:
         return "\n".join(lines + ["이번 분기에는 없습니다.", ""])
     # 폰 첫 화면에서는 칩 한 줄, 누가 샀는지는 접힌 표에서 (2026-09-23 모바일 개편)
     chips = "".join(
-        (f'<a class="m-chip13" href="watchlist/{r["ticker"]}/">' if r["ticker"] in names
+        (f'<a class="m-chip13" href="{link_prefix}watchlist/{r["ticker"]}/">' if r["ticker"] in names
          else '<span class="m-chip13">')
         + f'{r["ticker"]}<small>{len(r["buyers"])}명</small>'
         + ("</a>" if r["ticker"] in names else "</span>")
@@ -59,79 +61,66 @@ def _superinvestor_home(data: dict, names: dict) -> str:
 
 # --- 페이지 빌더 ---
 
-# ── 모바일 화면 부품 (2026-09-23 개편) ─────────────────────────────────
-# 시안: stock-agent/docs/mockups/site-mobile-wireframe/index.html
-# 홈은 「오늘 새로 살 만한 종목」(신호 5일 이내)만 크게, 지난 신호는 한 줄로 접는다.
-# 카드에는 판단에 쓰는 숫자 셋(손절까지 · 신호 경과일)만 둔다.
-# 새 계산·새 점수 없이 최신 스냅샷 frontmatter 값만 쓴다.
-# 카드 순서는 알림 슬롯 배분(monitor._entry_priority)과 같다: 주봉 신고가영역
-# 우선, 동률이면 저항 손익비 높은 순. 만료 후보(D+5 초과)는 맨 뒤로.
-_PICK_WEEKLY_RANK = {"신고가영역": 0, "저항대아래": 1}          # monitor._WEEKLY_RANK 와 동일
+# ── 첫 화면 (2026-09-23 개편, 2026-11-05 사용자 승인으로 다시 줄임) ─────────────
+# 홈은 「알림이 나간 매수」만 보여 준다. 스냅샷 판정이 아니라 추천 기록(data/strategy_perf.json)이
+# 정본이라 알림과 홈이 어긋나지 않는다. 그 전에는 관찰 목록 판정으로 그려서 알림이 나간 관찰 목록
+# 밖 종목(DIS 11-05)은 빠지고, 알림이 안 나간 종목(SW·SNPS)은 올라왔다.
 PICK_MAX_CARDS = 8
+RECENT_DAYS = 7          # 달력 기준. 신호가 유효한 5거래일과 같다
 _WEEKDAY_KO = "월화수목금토일"
 
 
-def _pick_priority(snap: dict) -> tuple:
-    """카드 순서. 만료는 뒤로, 주봉 신고가영역 우선, 그다음 저항 손익비.
-
-    ⚠ 2026-09-04 에 **등급(매수후보 우선) 항을 뺐다.** 8/8 이 더 낫다는 근거가
-    없다 (충족 조건 8개 +0.148R < 7개 +0.189R < 6개 +0.208R, n=13,187).
-    알림 슬롯 배분(monitor._entry_priority)도 등급을 쓰지 않는다. 두 순서를
-    같게 유지할 것.
-    """
-    rr = common._num(snap.get("rr")) or 0.0
-    return (common._is_expired(snap),
-            _PICK_WEEKLY_RANK.get(snap.get("weekly_pos") or "", 2), -rr, snap["ticker"])
-
-
-def _stop_pct(snap: dict) -> "float | None":
-    price, stop = common._num(snap.get("price")), common._num(snap.get("stop"))
-    if not price or stop is None:
-        return None
-    return (stop - price) / price * 100
+def _open_buys(perf: dict) -> list[dict]:
+    """알림이 나갔고 아직 안 끝난 매수, 최근 것부터."""
+    from datetime import date, timedelta
+    try:
+        today = date.fromisoformat(str(perf.get("generated", ""))[:10])
+    except ValueError:
+        return []
+    start = (today - timedelta(days=RECENT_DAYS)).isoformat()
+    rows = [t for t in perf.get("trades") or []
+            if t.get("pushed") and not t.get("closed") and str(t.get("ts", ""))[:10] >= start
+            and t.get("entry") is not None]
+    return sorted(rows, key=lambda t: str(t.get("ts", "")), reverse=True)
 
 
-def _fresh_card(snap: dict, name: str) -> str:
-    """홈 카드. 숫자 둘만. 누르면 그 종목의 관찰 페이지로 간다."""
-    t = snap["ticker"]
-    sp = _stop_pct(snap)
+def _buy_card(t: dict, names: dict, alert_pages: dict, today: str) -> str:
+    """매수 카드 한 장: 티커·이름·방식 / 가격·손절·날짜."""
+    tk = t["ticker"]
+    name = common._name_of(tk, names)
+    name = "" if name == tk else name
     name_html = f'<span class="m-card__name">{name}</span>' if name else ""
-    return (
-        f'<a class="m-card" href="watchlist/{t}/">'
-        f'<div class="m-card__head"><b class="m-card__ticker">{t}</b>{name_html}'
-        f'<span class="verdict verdict-buy">{common._display_verdict(snap["verdict"])}</span></div>'
-        f'<div class="m-card__nums">'
-        f'<div><span>손절까지</span><b class="m-neg">{common._pct_text(sp) if sp is not None else "—"}</b></div>'
-        f'<div><span>신호</span><b>{common._signal_label(snap) or "—"}</b></div>'
-        f'</div></a>'
-    )
+    day = str(t.get("ts", ""))[:10]
+    when = "오늘" if day == today else common._md(day)
+    body = (f'<div class="m-card__head"><b class="m-card__ticker">{tk}</b>{name_html}'
+            f'<span class="m-card__how">{common._STRAT_LABEL.get(t.get("strategy"), "")}</span></div>'
+            f'<div class="m-card__line"><b>${t["entry"]:,.2f}</b>'
+            f'<span>손절 <b class="m-neg">${t["stop"]:,.2f}</b></span><span class="m-muted">{when}</span></div>')
+    href = f"watchlist/{tk}/" if tk in names else alert_pages.get(tk)
+    if href:
+        return f'<a class="m-card" href="{href}">{body}</a>'
+    return f'<div class="m-card">{body}</div>'
 
 
-def _conclusion_section(snaps: list[dict], names: dict, positions: "list[dict] | None" = None,
+def _conclusion_section(perf: dict, snaps: list[dict], names: dict, alerts: list[dict],
                         max_cards: int = PICK_MAX_CARDS) -> str:
-    """홈 첫 화면: 새 신호 수(큰 숫자) → 새 신호 카드 → 지난 신호 한 줄."""
-    buys = sorted((s for s in snaps if s["verdict"] in common._BUY_STATES), key=_pick_priority)
-    fresh = [s for s in buys if not common._is_expired(s)]
-    stale = [s for s in buys if common._is_expired(s)]
-    out = [
-        '<div class="m-hero">'
-        '<div class="m-hero__k">오늘 새로 살 만한 종목</div>'
-        f'<div class="m-hero__n">{len(fresh)}<small>종목</small></div>'
-        f'<div class="m-hero__s">신호 {common.CANDIDATE_FRESH_MAX_DAYS}일 이내 · 매수 상태 {len(buys)}종목 중</div>'
-        '</div>'
-    ]
-    if fresh:
+    """홈 첫 화면: 오늘 살 종목 수 → 매수 카드 → 매수 상태 전체로 가는 한 줄."""
+    buys = _open_buys(perf)
+    today = str(perf.get("generated", ""))[:10]
+    n_today = sum(1 for t in buys if str(t.get("ts", ""))[:10] == today)
+    pages: dict = {}
+    for a in alerts:
+        pages.setdefault(a["ticker"], f'alerts/{a["fname"][:-3]}/')
+    hero = (f'<div class="m-hero__n">{n_today}<small>종목</small></div>' if n_today
+            else '<div class="m-hero__n m-hero__n--none">없음</div>')
+    out = [f'<div class="m-hero"><div class="m-hero__k">오늘 살 종목</div>{hero}</div>']
+    if buys:
         out.append('<div class="m-cards">'
-                   + "".join(_fresh_card(s, names.get(s["ticker"], "")) for s in fresh[:max_cards])
-                   + '</div>')
-    else:
-        out.append('<p class="m-empty">오늘 새 신호는 없습니다.</p>')
-    if stale:
-        head = "·".join(s["ticker"] for s in stale[:3]) + (" 외" if len(stale) > 3 else "")
-        out.append(
-            '<a class="m-row" href="watchlist/#buy">'
-            f'<span>이미 지난 신호 <b>{len(stale)}</b>종목</span>'
-            f'<span class="m-muted">추격 비추천 · {head}</span><span class="m-go">›</span></a>')
+                   + "".join(_buy_card(t, names, pages, today) for t in buys[:max_cards]) + '</div>')
+    n_buy = sum(1 for s in snaps if s["verdict"] in common._BUY_STATES)
+    if n_buy:
+        out.append(f'<a class="m-row" href="watchlist/#buy"><span>매수 상태 전체 <b>{n_buy}</b>종목</span>'
+                   '<span class="m-go">›</span></a>')
     return "\n".join(out) + "\n"
 
 
@@ -154,132 +143,39 @@ def _load_fear_index() -> dict:
 
 
 def _market_line(fear: dict) -> str:
-    """홈 맨 위 한 줄: 공포·탐욕 지수와 VIX. 자료가 없으면 ""."""
-    fg, vix = fear.get("cnn_fear_greed") or {}, fear.get("vix") or {}
-    bits = []
-    if fg.get("score") is not None:
-        cls = {"extreme fear": "m-wrn", "fear": "m-wrn", "greed": "m-pos",
-               "extreme greed": "m-pos"}.get(str(fg.get("rating", "")).lower(), "")
-        bits.append(f'<b class="{cls}">{fg.get("rating_ko", "")} {fg["score"]:.0f}</b>')
-    if vix.get("value") is not None:
-        bits.append(f'<span>VIX {vix["value"]:.1f} {vix.get("grade", "")}</span>')
-    if not bits:
+    """홈 맨 위 한 줄: 공포·탐욕 지수. 자료가 없으면 ""."""
+    fg = fear.get("cnn_fear_greed") or {}
+    if fg.get("score") is None:
         return ""
+    cls = {"extreme fear": "m-wrn", "fear": "m-wrn", "greed": "m-pos",
+           "extreme greed": "m-pos"}.get(str(fg.get("rating", "")).lower(), "")
     return ('<a class="m-mkt" href="fear-index/"><span>시장 분위기</span>'
-            + '<span class="m-dot">·</span>'.join(bits) + '<span class="m-go">›</span></a>\n')
+            f'<b class="{cls}">{fg.get("rating_ko", "")} {fg["score"]:.0f}</b><span class="m-go">›</span></a>\n')
 
 
 def _strategy_box(perf: dict) -> str:
-    """홈 「추천 기록」: 지금 켜진 방식의 완료·평균·진행만 (방식별 기록 페이지 요약)."""
-    active = perf.get("active")
-    periods = [p for p in (perf.get("periods") or []) if p.get("strategy") == active]
-    if not active or not periods:
+    """홈 「추천대로 샀다면」: 금액 합계와 건수만 (자세한 것은 추천 기록)."""
+    money = perf.get("money") or {}
+    if not money:
         return ""
-    s = periods[-1].get("active") or {}
-    if active == "both":
-        # 둘 다 켜진 기간 (2026-09-24): other 가 단타 알림 거래다. 두 방식을 합쳐 보여 준다
-        o = periods[-1].get("other") or {}
-        n = s.get("closed", 0) + o.get("closed", 0)
-        tot = ((s.get("mean_r") or 0) * s.get("closed", 0)
-               + (o.get("mean_r") or 0) * o.get("closed", 0))
-        s = {"closed": n, "open": s.get("open", 0) + o.get("open", 0),
-             "mean_r": tot / n if n else None}
-    r = s.get("mean_r")
-    rtxt = f"{r:+.2f}R" if r is not None else "—"
-    rcls = "" if r is None else ("m-pos" if r >= 0 else "m-neg")
-    return (
-        '<div class="m-sec"><span>추천 기록</span><a href="strategies/">전체 ›</a></div>\n'
-        '<a class="m-box m-strat" href="strategies/">'
-        f'<div class="m-kv"><span>지금 켜진 방식</span><b>{common._STRAT_LABEL.get(active, active)}</b>'
-        f'<span class="m-muted">{common._md(perf.get("active_since", ""))}부터</span></div>'
-        '<div class="m-stat3">'
-        f'<div><b>{s.get("closed", 0)}</b><span>완료</span></div>'
-        f'<div><b class="{rcls}">{rtxt}</b><span>평균</span></div>'
-        f'<div><b>{s.get("open", 0)}</b><span>진행 중</span></div>'
-        '</div></a>\n')
-
-
-def _alert_name(alert: str) -> str:
-    """'🔒 본전 스톱' → '본전 스톱' (앞 기호 떼기)."""
-    head, _, rest = str(alert).partition(" ")
-    return rest if rest and not any(ch.isalnum() for ch in head) else str(alert)
-
-
-def _recent_alerts(alerts: list[dict], n: int = 3) -> str:
-    if not alerts:
-        return ""
-    rows = "".join(
-        f'<a class="m-li" href="alerts/{a["fname"][:-3]}/">'
-        f'<span class="m-li__d">{common._md(a["created"])}</span><b>{a["ticker"]}</b>'
-        f'<span>{_alert_name(a["alert"])}</span></a>'
-        for a in alerts[:n])
-    return ('<div class="m-sec"><span>최근 알림</span><a href="alerts/">전체 ›</a></div>\n'
-            f'<div class="m-box m-list">{rows}</div>\n')
+    total = sum(m.get("total_won", 0) for m in money.values())
+    closed = sum(m.get("closed", 0) for m in money.values())
+    open_n = sum(m.get("open", 0) + m.get("pending", 0) for m in money.values())
+    cls = "m-pos" if total >= 0 else "m-neg"
+    return (f'<a class="m-row" href="strategies/"><span>추천대로 샀다면 <b class="{cls}">{total:+,.0f}원</b></span>'
+            f'<span class="m-muted">끝남 {closed} · 진행 {open_n}</span><span class="m-go">›</span></a>\n')
 
 
 def _dashboard(entries, snaps, alerts, names, positions=None) -> str:
     basis = _basis_label(snaps)
-    lines = [
-        "# 주식 리포트",
+    perf = strategies._collect_strategy_perf()
+    return "\n".join([
+        "# 오늘",
         "",
         f'<p class="m-basis">{basis}</p>' if basis else "",
         "",
         _market_line(_load_fear_index()),
-        _conclusion_section(snaps, names, positions),
-        _strategy_box(strategies._collect_strategy_perf()),
-        _recent_alerts(alerts),
-        _superinvestor_home(watch_pages._load_superinvestors(), names),
+        _conclusion_section(perf, snaps, names, alerts),
+        _strategy_box(perf),
         "",
-    ]
-    lines += [
-        "## 용어 설명",
-        "",
-        '??? info "📘 Stage (Weinstein 스테이지)란?"',
-        "    주가 생명주기를 4단계로 분류하는 Stan Weinstein의 프레임워크. **150일 단순이동평균(SMA)** 방향과 가격 위치로 판단합니다 "
-        "(원전의 30주선과 같습니다).",
-        "",
-        "    | Stage | 명칭 | MA 방향 | 가격 위치 | 대응 |",
-        "    |-------|------|---------|---------|------|",
-        "    | **1** | 바닥 다지기 | 수평 | MA 위아래 | 대기 |",
-        "    | **2** | 상승 국면 | 우상향 | MA 위 | **매수 구간** |",
-        "    | **3** | 천장 분배 | 수평화 | MA 근처 | 매도 준비 |",
-        "    | **4** | 하락 국면 | 우하향 | MA 아래 | 절대 금지 |",
-        "",
-        "    이 시스템은 **Stage 2** 종목만 매수 후보로 분류합니다.",
-        "",
-        '??? info "📘 TT (Trend Template — 상승 구조 7조건)란?"',
-        "    Mark Minervini가 정의한 상승 구조 체크리스트. **충족 조건 수 / 7** 로 점수화.",
-        "",
-        "    | # | 조건 |",
-        "    |---|------|",
-        "    | 1 | 현재가 > 150일선, 200일선 |",
-        "    | 2 | 150일선 > 200일선 |",
-        "    | 3 | 200일선 최소 1개월째 상승 중 |",
-        "    | 4 | 현재가 > 50일선 |",
-        "    | 5 | 현재가 ≥ 52주 저점 × 1.25 (+25% 이상) |",
-        "    | 6 | 현재가 ≥ 52주 고점 × 0.75 (-25% 이내) |",
-        "    | 7 | RS Rating(상대강도 등급) ≥ 70 |",
-        "",
-        "    **5/7 이상**: 매수 · **4/7 이하**: 기준미달. "
-        "조건 개수는 등급이 아닙니다 — 11년 13,187건에서 만점(+0.148R)이 "
-        "하한(+0.208R)보다 나았다는 근거가 없습니다. "
-        "2026-09-10 에 `SMA50 > SMA150·SMA200` 조건을 뺐습니다 "
-        "(성적 변화 없음, 예외 규칙 하나가 함께 사라짐). "
-        "2026-09-28~11-03 에는 지수이동평균(EMA) 20·100·200일을 썼고, "
-        "11-03 에 단순이동평균 50·150·200일로 되돌렸습니다 "
-        "(과거 11년 측정에서 건당 EMA +0.26R, SMA +0.30R).",
-        "",
-        '??? info "📘 진입 제외 — 점수가 충분해도 매수불가가 되는 2가지"',
-        "    Stage·TT 점수와 별개로, 아래 조건에 걸리면 매수에서 제외됩니다.",
-        "",
-        "    | 제외 | 조건 | 사유 표기 |",
-        "    |------|------|----------|",
-        "    | 과열 | 50일선 대비 +25% 초과 또는 RSI > 90 | 매수불가 (과열) |",
-        "    | 이격 | 50일선 대비 +15% 초과 | 매수불가 (이격과대) |",
-        "",
-        "    손절폭이 넓은 종목은 제외하지 않고 권장 주수를 줄여 대응합니다. "
-        "시장 국면·기관 매도일·지수 과열로 막던 규칙은 효과가 확인되지 않아 뺐습니다(2026-07-13). "
-        "매수 뒤에는 **손절선 도달 · 목표 5R · 90일 만기** 세 가지 청산 알림만 나갑니다.",
-        "",
-    ]
-    return "\n".join(lines) + "\n"
+    ]) + "\n"

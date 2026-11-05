@@ -66,20 +66,13 @@ def test_watchlist_chips_have_one_buy_chip():
 
 def test_conclusion_hero_counts_buys_as_one_group():
     snaps = [_snap("AAA", "매수후보"), _snap("BBB", "매수관찰"), _snap("CCC", "매수불가")]
-    out = gen._conclusion_section(snaps, {}, [])
-    assert "매수 상태 2종목" in out
+    out = gen._conclusion_section({}, snaps, {}, [])
+    assert "매수 상태 전체 <b>2</b>종목" in out
     assert "매수후보" not in out and "매수관찰" not in out
 
 def test_conclusion_empty_message_has_no_grade_names():
-    out = gen._conclusion_section([_snap("CCC", "매수불가")], {}, [])
+    out = gen._conclusion_section({}, [_snap("CCC", "매수불가")], {}, [])
     assert "매수후보" not in out and "매수관찰" not in out
-
-
-def test_pick_priority_does_not_favor_the_old_top_grade():
-    """등급으로 앞세우지 않는다 — 8/8이 더 낫다는 근거가 없다."""
-    watch_fresh = _snap("AAA", "매수관찰", weekly_pos="신고가영역")
-    cand_worse  = _snap("BBB", "매수후보", weekly_pos="저항대아래")
-    assert gen._pick_priority(watch_fresh) < gen._pick_priority(cand_worse)
 
 
 def test_css_defines_the_merged_badge():

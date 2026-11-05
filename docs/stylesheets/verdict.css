@@ -691,6 +691,16 @@ table th[role="columnheader"]:not([data-sort-method="none"]) {
   flex: 1; min-width: 0; font-size: 0.8em; color: var(--m-ink3);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
+.m-card, .md-typeset a.m-card {
+  display: block; background: var(--m-card); border: 1px solid var(--m-line);
+  border-radius: 0.6rem; padding: 0.7rem 0.85rem; color: var(--m-ink); text-decoration: none;
+}
+.m-card__how { margin-left: auto; flex-shrink: 0; font-size: 0.72em; color: var(--m-ink3); }
+.m-card__line { display: flex; align-items: baseline; gap: 0.9em; margin-top: 0.35em; font-variant-numeric: tabular-nums; }
+.m-card__line .m-muted { margin-left: auto; font-size: 0.8em; }
+.m-hero__n--none { font-size: 1.6em; }
+.m-li__n { flex: 1; min-width: 0; color: var(--m-ink3); font-size: 0.88em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.m-li__k { flex-shrink: 0; margin-left: auto; font-size: 0.9em; white-space: nowrap; }
 .m-card__nums { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.3em; margin-top: 0.55em; }
 .m-card__nums div { display: flex; flex-direction: column; }
 .m-card__nums span { font-size: 0.72em; color: var(--m-ink3); }

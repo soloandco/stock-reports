@@ -48,10 +48,10 @@ _HOMES_BY_MODULE = {
         "STRATEGY_PERF_JSON", "SUPERINV_JSON", "TRADE_REPORT_JSON", "VALUATION_JSON",
     ),
     "sitegen.home": (
-        "HOME_NEW_ROWS", "PICK_MAX_CARDS", "_PICK_WEEKLY_RANK", "_WEEKDAY_KO",
-        "_alert_name", "_basis_label", "_conclusion_section", "_dashboard",
-        "_fresh_card", "_load_fear_index", "_market_line", "_pick_priority", "_recent_alerts",
-        "_sec_title", "_stop_pct", "_strategy_box", "_superinvestor_home",
+        "HOME_NEW_ROWS", "PICK_MAX_CARDS", "_WEEKDAY_KO",
+        "_basis_label", "_buy_card", "_conclusion_section", "_dashboard",
+        "_load_fear_index", "_market_line", "_open_buys",
+        "_sec_title", "_strategy_box", "_superinvestor_home",
     ),
     "sitegen.lists": (
         "SNAP_FILTERS", "_SEED_PANEL", "_alerts_index", "_collect_notes", "_collect_positions",
@@ -59,12 +59,12 @@ _HOMES_BY_MODULE = {
         "_scan_alerts", "_snapshots_index",
     ),
     "sitegen.market_page": (
-        "_REGIME_ENTRY", "_REGIME_KO", "_SIGNAL_EMOJI", "_TV_HEATMAP", "_fear_index_page",
+        "_SIGNAL_EMOJI", "_TV_HEATMAP", "_fear_index_page",
         "_load_sector_flow", "_load_trade_report", "_rank_table", "_sector_flow_section",
         "_theme_flow_section", "_trade_report_section",
     ),
     "sitegen.strategies": (
-        "_collect_strategy_perf", "_strat_cell", "_strategies_index",
+        "_collect_strategy_perf", "_research_index", "_strat_cell", "_strategies_index",
     ),
     "sitegen.watch_pages": (
         "SUPERINV_FIRST", "SUPERINV_ROWS", "VAL_EVIDENCE", "_CHART_BLOCK", "_KAKAO_SECTION_RE",
@@ -122,7 +122,7 @@ def main():
     cfg.OUT_POS.mkdir(parents=True, exist_ok=True)
     (cfg.OUT / "index.md").write_text(home._dashboard(entries, latest, alerts, names, positions), encoding="utf-8")
     kr_watched = any(m in ("KRX", "KOSDAQ") for _t, m, _n, _f in entries)
-    (cfg.OUT / "fear-index.md").write_text(market_page._fear_index_page(latest, names, show_kr=kr_watched),
+    (cfg.OUT / "fear-index.md").write_text(market_page._fear_index_page(names, show_kr=kr_watched),
                                        encoding="utf-8")
     latest_map = {s["ticker"]: s for s in latest}
     (cfg.OUT_WL / "index.md").write_text(watch_pages._watchlist_index(entries, latest_map), encoding="utf-8")
@@ -130,10 +130,14 @@ def main():
     charted = watch_pages._write_chart_data(entries)
     (cfg.OUT_SNAP / "index.md").write_text(lists._snapshots_index(latest, names), encoding="utf-8")
     (cfg.OUT_ALERT / "index.md").write_text(lists._alerts_index(alerts, names), encoding="utf-8")
-    (cfg.OUT_POS / "index.md").write_text(lists._positions_index(positions, names), encoding="utf-8")
+    # 관찰에서 뺀 종목(066570 등)의 옛 포지션은 보여 주지 않는다 (2026-11-05)
+    (cfg.OUT_POS / "index.md").write_text(
+        lists._positions_index([p for p in positions if p["ticker"] in names], names), encoding="utf-8")
     cfg.OUT_STRAT.mkdir(parents=True, exist_ok=True)
     (cfg.OUT_STRAT / "index.md").write_text(
         strategies._strategies_index(strategies._collect_strategy_perf(), names), encoding="utf-8")
+    (cfg.OUT_STRAT / "research.md").write_text(
+        strategies._research_index(strategies._collect_strategy_perf()), encoding="utf-8")
 
     print(f"생성 완료: 관찰 {len(entries)}개 · 스냅샷 {len(latest)}종목({len(snaps)}건, "
           f"목록 제외 {len(retired)}종목) "

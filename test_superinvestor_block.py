@@ -39,7 +39,7 @@ def test_block_goes_right_after_chart(tmp_path, monkeypatch):
     gen._collect_watchlist()
     page = (out / "MSFT.md").read_text(encoding="utf-8")
     # 손 메모(## 분석)는 접힌 상자 안으로 들어가도 차트·13F 뒤에 온다
-    assert page.index("## 차트") < page.index("## 거물 투자자") < page.index("## 분석")
+    assert page.index("## 차트") < page.index('??? note "거물 투자자') < page.index("## 분석")
 
 
 def test_long_list_is_cut():
@@ -71,10 +71,11 @@ def test_home_table_absent_without_data_and_empty_quarter():
     assert "이번 분기에는 없습니다" in gen._superinvestor_home({"top_new": []}, {})
 
 
-def test_home_table_is_on_dashboard(monkeypatch):
+def test_new_buy_table_moved_from_home_to_market_page(monkeypatch, tmp_path):
     monkeypatch.setattr("sitegen.watch_pages._load_superinvestors", lambda: HOME)
-    md = gen._dashboard([], [], [], {}, [])
-    assert "## 거물 신규 매수 (13F)" in md
+    monkeypatch.setattr("sitegen.config.FEAR_INDEX_JSON", tmp_path / "none.json")
+    assert "거물 신규 매수" not in gen._dashboard([], [], [], {}, [])
+    assert "## 거물 신규 매수 (13F)" in gen._fear_index_page({})
 
 
 def test_sec_title_cleanup():

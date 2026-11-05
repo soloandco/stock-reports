@@ -17,14 +17,7 @@ related:
   - "[[analysis-template]]"
 ---
 
-# SpaceX (SPCX) — 추적 전용 종목
-
-> [!important] 추적 전용 (status: tracking) — 자동 스캔 제외
-> 상장 2주차라 거래 이력이 8봉뿐이다. SMA50/150/200 계산 불가 → **Trend Template·Weinstein Stage 판정 불가(N/A)**.
-> `fetch_snapshot`이 210거래일 미만은 None을 반환하므로 monitor.py `--scan` 파이프라인에서 자동 제외된다.
-> SMA200이 채워지는 ~9~10개월(2027년 봄경) 후 `status: watching`으로 승격 재검토.
-
----
+# SPCX SpaceX 추적 종목
 
 
 ## 차트

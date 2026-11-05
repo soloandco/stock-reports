@@ -221,23 +221,29 @@ def _snapshots_index(snaps, names) -> str:
     return "\n".join(lines) + "\n"
 
 
+# 옛 알림 페이지에 적힌 이름을 지금 이름으로 (2026-11-05)
+_ALERT_NEW_NAME = {"손절 경고": "손절", "수익 실현": "목표 도달", "만기 청산": "만기"}
+
+
+def _alert_kind(alert: str) -> str:
+    """'🚨 손절 경고' → '🚨 손절'."""
+    head, _, rest = str(alert).partition(" ")
+    if rest in _ALERT_NEW_NAME:
+        return f"{head} {_ALERT_NEW_NAME[rest]}"
+    return str(alert)
+
+
 def _alerts_index(alerts, names) -> str:
-    lines = [
-        "# 알림",
-        "",
-        "관찰 종목이 임계선을 넘은 **순간**에 자동 기록되는 이벤트(최신순). "
-        "유형 — 📈 매수신호 · 👀 매수근접 · 📉 매도신호 · 🚨 손절경고.",
-        "",
-    ]
+    lines = ["# 알림", ""]
     if not alerts:
-        lines += [
-            '!!! info "아직 발생한 알림이 없습니다"',
-            "    관찰 종목이 매수·매도·손절 조건을 충족하면 이곳에 자동으로 기록됩니다.",
-        ]
-        return "\n".join(lines) + "\n"
-    lines += ["| 발생일 | 종목 | 기업명 | 유형 |", "|--------|------|--------|------|"]
-    for a in alerts:
-        lines.append(f"| {a['created']} | [{a['ticker']}]({a['fname']}) | [{names.get(a['ticker'], '')}]({a['fname']}) | {a['alert']} |")
+        return "\n".join(lines + ["아직 보낸 알림이 없습니다."]) + "\n"
+    rows = "".join(
+        f'<a class="m-li" href="{a["fname"][:-3]}/"><span class="m-li__d">{common._md(a["created"])}</span>'
+        f'<b>{a["ticker"]}</b><span class="m-li__n">{common._name_of(a["ticker"], names)}</span>'
+        f'<span class="m-li__k">{_alert_kind(a["alert"])}</span></a>'
+        for a in alerts)
+    lines += ['<p class="m-fine">스윙 알림입니다. 단타·RSI는 <a href="../strategies/">추천 기록</a>에 있습니다.</p>', "",
+              f'<div class="m-box m-list">{rows}</div>', ""]
     return "\n".join(lines) + "\n"
 
 

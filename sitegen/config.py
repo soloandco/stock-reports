@@ -29,6 +29,8 @@ OUT_STRAT = OUT / "strategies"
 SUPERINV_JSON = ROOT.parent / "data" / "superinvestors.json"
 # 관찰 페이지 「가격 수준」 재료 (2026-09-27). 주간 알림 점검이 만든다 (core/valuation_band.py)
 VALUATION_JSON = ROOT.parent / "data" / "valuation_band.json"
+# 관찰 목록 밖 종목 이름 (SEC 공개 목록, 13F 갱신이 받아 둔다)
+TICKER_NAMES_JSON = ROOT.parent / "data" / "cache" / "13f" / "ticker_names.json"
 
 
 # ── 관찰 페이지 캔들차트 ──────────────────────────────────────────────────

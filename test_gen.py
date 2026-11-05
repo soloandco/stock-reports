@@ -52,7 +52,7 @@ def test_collect_watchlist_strips_private_fields_and_blocks(tmp_path, monkeypatc
     assert "buy_price" not in pub
     assert "alert_above" not in pub
     assert "371.86" not in pub
-    assert "공개 분석 문단." in pub
+    assert "공개 분석 문단." not in pub      # 제목 아래 손 메모는 공개하지 않는다 (2026-11-05)
     assert "ticker: MSFT" in pub
 
 
@@ -131,9 +131,10 @@ def test_monthly_stats_groups_by_month_desc():
 def test_home_and_tab_links_use_directory_urls_not_md():
     # MkDocs는 원시 HTML의 href를 재작성하지 않는다 → .md 링크는 배포 시 404.
     # 홈 카드·아래쪽 탭은 디렉터리 URL(use_directory_urls)로 링크해야 한다.
-    snap = {"ticker": "GS", "verdict": "매수관찰", "fname": "GS-2026-09-23.md", "days": "1",
-            "price": "100", "stop": "95", "weekly_pos": "저항대아래", "weekly_pct": "5", "rr": "1"}
-    html = gen._conclusion_section([snap], {}, [])
+    perf = {"generated": "2026-09-23T08:00:00", "trades": [
+        {"ticker": "GS", "strategy": "base", "ts": "2026-09-23T05:40:00", "pushed": True, "closed": False,
+         "entry": 100.0, "stop": 95.0}]}
+    html = gen._conclusion_section(perf, [], {"GS": "골드만삭스"}, [])
     assert 'href="watchlist/GS/"' in html and ".md" not in html
     tpl = (Path(__file__).parent / "overrides" / "main.html").read_text(encoding="utf-8")
     for path in ("/watchlist/", "/strategies/", "/alerts/", "/fear-index/"):
@@ -297,7 +298,7 @@ def test_nav_drops_performance_and_puts_strategies_second():
     nav = yaml.safe_load((Path(__file__).parent / "mkdocs.yml").read_text(encoding="utf-8"))["nav"]
     titles = [list(x)[0] for x in nav]
     assert "전략 성과" not in titles and "오픈 포지션" not in titles
-    assert titles[:2] == ["홈", "방식별 기록"] and "가상 포지션" in titles
+    assert titles == ["홈", "관찰 종목", "추천 기록", "알림", "시장 현황"]    # 아래쪽 탭과 같다 (2026-11-05)
 
 
 def test_positions_page_explains_difference_from_strategies():
@@ -311,12 +312,3 @@ def test_market_sections_hide_korea_when_not_watched():
     on = "\n".join(gen._sector_flow_section(data) + gen._theme_flow_section(data))
     off = "\n".join(gen._sector_flow_section(data, False) + gen._theme_flow_section(data, False))
     assert "한국" in on and "한국" not in off and "미국" in off
-
-
-def test_market_recent_analysis_uses_snapshot_denominator():
-    # 2026-09-22: 이 표만 분모를 8 로 박아 두어 4/7 을 4/8 로 보여 줬다
-    snap = {"ticker": "INOD", "fname": "INOD-2026-09-23.md", "created": "2026-09-23",
-            "verdict": "매수불가", "reason": "기준미달", "stage": 2, "tt": 4, "ttmax": 7}
-    old = dict(snap, ticker="OLD", fname="OLD-2026-09-01.md", ttmax=8)   # tt-max 없는 옛 스냅샷
-    md = gen._fear_index_page([snap, old], {"INOD": "Innodata", "OLD": "Old"})
-    assert "| 2 | 4/7 |" in md and "| 2 | 4/8 |" in md

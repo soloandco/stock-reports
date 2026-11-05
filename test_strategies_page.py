@@ -25,15 +25,22 @@ DATA = {
 }
 
 
-def test_page_shows_active_strategy_periods_and_trades():
+def test_page_shows_only_pushed_recommendations_and_links_research():
     md = gen._strategies_index(DATA, {"PLTR": "팔란티어"})
-    assert md.startswith("# 방식별 기록")
+    assert md.startswith("# 추천 기록")
+    assert "| 09-09 | GEV | 스윙 | 손절 |" in md
+    assert "PLTR" not in md                 # 기록만 한 추천은 연구 페이지 몫이다
+    assert "R" not in md.split("## 더 보기")[0].replace("RSI", "")
+    assert "(research.md)" in md and "../positions/index.md" in md
+
+
+def test_research_page_keeps_period_table_and_switch_guide():
+    md = gen._research_index(DATA)
+    assert md.startswith("# 과거 비교 연구")
     assert "지금 켜진 방식: 단타" in md and "09-18 17:49" in md
     assert "| 09-04~09-18 | 스윙(알림) | 3 · 진행 4 | -1.00R |" in md
     assert "| | 단타(기록만) | 0 | — |" in md
-    assert "| 09-19 | PLTR | 스윙 · 기록만 | 진행 중 |" in md
-    assert "| 09-09 | GEV | 스윙 | 손절 -1.00R |" in md
-    assert "표본" in md
+    assert "/200건" in md and "「RSI 켜」" in md
 
 
 def test_tables_have_no_class_and_at_most_four_columns():
@@ -46,7 +53,7 @@ def test_tables_have_no_class_and_at_most_four_columns():
 
 def test_missing_data_renders_placeholder():
     md = gen._strategies_index({}, {})
-    assert "# 방식별 기록" in md and "아직" in md
+    assert "# 추천 기록" in md and "아직" in md
 
 
 # ── RSI 반등 방식 (2026-10-10): 스윙·단타와 따로 켜고 끄는 세 번째 방식 ─────────
@@ -63,9 +70,8 @@ def test_rsi_row_and_note_appear_when_on():
                         "pushed": True, "closed": False, "r": 0.25, "pct": 0.02, "result": "진행 중",
                         "entry": 100.0, "stop": 92.0, "targets": [140.0]}]}
     md = gen._strategies_index(data, {})
-    assert "**RSI 방식**" in md and "지금 켜져 있습니다" in md
     assert "| RSI | 1건 -10,000원 | 2건 +5,000원 | **-5,000원** |" in md
-    assert "| 10-10 | AAA<br>100.00 · 목표 140.00 · 손절 92.00 | RSI | 진행 중 +0.25R (+2.0%) |" in md
+    assert "| 10-10 | AAA<br>100.00 · 목표 140.00 · 손절 92.00 | RSI | 진행 중 +2.0% |" in md
 
 
 def test_rsi_is_absent_when_off_and_unrecorded():
@@ -81,7 +87,6 @@ def test_money_table_uses_capped_won_from_data():
                       "open": 0, "open_r": 0.0, "open_won": 0.0, "total_won": -35237.0}}
     md = gen._strategies_index({**DATA, "money": money, "seed_won": 1_000_000, "r_won": 10_000}, {})
     assert "1건 -35,237원" in md and "-65,300원" not in md
-    assert "시드만큼만 산 것으로" in md
 
 
 def test_money_table_old_data_falls_back_to_r():
