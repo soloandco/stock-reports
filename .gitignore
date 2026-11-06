@@ -4,3 +4,16 @@ site/
 
 # gen.py 실행 부산물
 __pycache__/
+
+# 비밀·내부 자료 모양 파일은 공개하지 않는다 (2026-11-06 보안 점검).
+# 배포가 docs/ 를 통째로 올리므로 잘못 들어온 파일을 여기서 거른다.
+.env
+*.env
+*.key
+*.secret
+*.pem
+*.jsonl
+*.pkl
+*.bak*
+*state*.json
+*token*
