@@ -31,6 +31,9 @@ SUPERINV_JSON = ROOT.parent / "data" / "superinvestors.json"
 VALUATION_JSON = ROOT.parent / "data" / "valuation_band.json"
 # 관찰 목록 밖 종목 이름 (SEC 공개 목록, 13F 갱신이 받아 둔다)
 TICKER_NAMES_JSON = ROOT.parent / "data" / "cache" / "13f" / "ticker_names.json"
+# AI 스윙 대결 (2026-11-06 홈 표시). monitoring/duel_step.py 가 쓴다. 지난 시즌은 season 사본 파일
+DUEL_STATE_JSON = ROOT.parent / "data" / "ai_duel_state.json"
+DUEL_DIR = ROOT.parent / "data"
 
 
 # ── 관찰 페이지 캔들차트 ──────────────────────────────────────────────────

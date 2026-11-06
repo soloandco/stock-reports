@@ -166,6 +166,56 @@ def _strategy_box(perf: dict) -> str:
             f'<span class="m-muted">끝남 {closed} · 진행 {open_n}</span><span class="m-go">›</span></a>\n')
 
 
+# AI 스윙 대결 (2026-11-06 사용자 요청: 홈에 에이전트 수익률 비교). 사이트는 core 를 못 불러
+# 시작 금액을 여기 따로 둔다(core.ai_duel.START_CASH 와 같은 값, 테스트가 맞춘다).
+DUEL_START_CASH = 10_000_000
+DUEL_LABELS = {"opus": "Claude Opus", "fable": "Claude Fable", "claude": "Claude",
+               "gpt": "GPT", "rules": "규칙(스윙)", "spy": "SPY 보유"}
+
+
+def _load_json(path) -> dict:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def _duel_rows(last: dict) -> str:
+    vals = [(k, v) for k, v in last.items() if k != "date" and isinstance(v, (int, float))]
+    vals.sort(key=lambda kv: -kv[1])
+    out = []
+    for i, (k, v) in enumerate(vals, 1):
+        pct = (v / DUEL_START_CASH - 1) * 100
+        cls = "m-pos" if pct > 0 else "m-neg" if pct < 0 else ""
+        out.append(f'<div class="m-card__line"><span>{i}. {DUEL_LABELS.get(k, k)}</span>'
+                   f'<b class="m-muted {cls}">{pct:+.2f}%</b></div>')
+    return "".join(out)
+
+
+def _duel_box() -> str:
+    """홈 「AI 대결」: 시즌 수익률 순위. 이번 시즌 기록이 없으면 지난 시즌 결과."""
+    state = _load_json(cfg.DUEL_STATE_JSON)
+    if not state:
+        return ""
+    hist = state.get("history") or []
+    if hist:
+        last = hist[-1]
+        head = f'AI 대결 <span class="m-muted">{str(last.get("date", ""))[5:]} 마감</span>'
+    else:
+        olds = sorted(cfg.DUEL_DIR.glob("ai_duel_state.season*-*.json"))
+        old_hist = (_load_json(olds[-1]).get("history") or []) if olds else []
+        if not old_hist:
+            return ""
+        last = old_hist[-1]
+        first = str(old_hist[0].get("date", ""))[5:]
+        head = (f'AI 대결 <span class="m-muted">지난 시즌 {first}~{str(last.get("date", ""))[5:]}'
+                f' · 새 시즌 준비 중</span>')
+    rows = _duel_rows(last)
+    if not rows:
+        return ""
+    return f'<div class="m-card m-list"><div class="m-card__head"><b>{head}</b></div>{rows}</div>\n'
+
+
 def _dashboard(entries, snaps, alerts, names, positions=None) -> str:
     basis = _basis_label(snaps)
     perf = strategies._collect_strategy_perf()
@@ -177,5 +227,6 @@ def _dashboard(entries, snaps, alerts, names, positions=None) -> str:
         _market_line(_load_fear_index()),
         _conclusion_section(perf, snaps, names, alerts),
         _strategy_box(perf),
+        _duel_box(),
         "",
     ]) + "\n"
