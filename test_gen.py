@@ -141,6 +141,22 @@ def test_home_and_tab_links_use_directory_urls_not_md():
         assert f'href="{{{{ base_url }}}}{path}"' in tpl
     assert ".md" not in tpl
 
+
+def test_home_splits_today_from_older_signals_and_labels_price():
+    """오늘 카드와 지난 카드를 나누고 가격에 「추천」을 붙인다 (2026-11-07 unslop 003)."""
+    perf = {"generated": "2026-09-23T08:00:00", "trades": [
+        {"ticker": "AAA", "strategy": "base", "ts": "2026-09-23T05:40:00", "pushed": True, "closed": False,
+         "entry": 100.0, "stop": 95.0},
+        {"ticker": "BBB", "strategy": "rsi", "ts": "2026-09-22T05:40:00", "pushed": True, "closed": False,
+         "entry": 50.0, "stop": 45.0}]}
+    html = gen._conclusion_section(perf, [], {}, [])
+    assert html.index("AAA") < html.index("지난 7일 신호") < html.index("BBB")
+    assert '<span class="m-muted">추천</span> <b>$100.00</b>' in html
+    only_old = {**perf, "trades": perf["trades"][1:]}
+    assert "지난 7일 신호" in gen._conclusion_section(only_old, [], {}, [])
+    only_today = {**perf, "trades": perf["trades"][:1]}
+    assert "지난 7일 신호" not in gen._conclusion_section(only_today, [], {}, [])
+
 def _pos(ticker: str, r: float, **over) -> dict:
     base = {
         "ticker": ticker, "market": "NASDAQ", "verdict": "매수후보",

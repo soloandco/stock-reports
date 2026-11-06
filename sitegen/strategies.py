@@ -55,7 +55,7 @@ def _money_lines(data: dict) -> list[str]:
     r_won = float(data.get("r_won", 10000))
     lines = ["## 추천대로 샀다면", "",
              f"시드 {seed}만 원, 추천마다 {r_won:,.0f}원 손실까지 걸었을 때입니다. 수수료는 뺐습니다.", "",
-             "| 방식 | 끝남 | 진행 중 | 합계 |", "|---|---:|---:|---:|"]
+             "| 방식 | 끝남 (원) | 진행 중 (원) | 합계 (원) |", "|---|---:|---:|---:|"]
     for key in ("base", "book", "rsi"):
         m = money.get(key)
         if not m:
@@ -63,8 +63,10 @@ def _money_lines(data: dict) -> list[str]:
         # 금액은 분석 코드가 시드 상한까지 반영해 넘긴다(2026-10-16). 옛 자료에는 없어 R × 1R 로 물러선다
         closed_won = m.get("closed_won", m["closed_r"] * r_won)
         open_won = m.get("open_won", m["open_r"] * r_won)
-        lines.append(f"| {common._STRAT_LABEL[key]} | {m['closed']}건 {closed_won:+,.0f}원 | "
-                     f"{m['open']}건 {open_won:+,.0f}원 | **{m['total_won']:+,.0f}원** |")
+        # 단위는 머리글로. 칸 안에 두면 폰 폭에서 「원」만 다음 줄로 떨어졌다 (2026-11-07)
+        wait = f"<br>대기 {m['pending']}건" if m.get("pending") else ""
+        lines.append(f"| {common._STRAT_LABEL[key]} | {m['closed']}건<br>{closed_won:+,.0f} | "
+                     f"{m['open']}건<br>{open_won:+,.0f}{wait} | **{m['total_won']:+,.0f}** |")
     lines.append("")
     for key, m in money.items():
         if m.get("unvalued"):

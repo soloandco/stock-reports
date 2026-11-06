@@ -70,7 +70,7 @@ def test_rsi_row_and_note_appear_when_on():
                         "pushed": True, "closed": False, "r": 0.25, "pct": 0.02, "result": "진행 중",
                         "entry": 100.0, "stop": 92.0, "targets": [140.0]}]}
     md = gen._strategies_index(data, {})
-    assert "| RSI | 1건 -10,000원 | 2건 +5,000원 | **-5,000원** |" in md
+    assert "| RSI | 1건<br>-10,000 | 2건<br>+5,000 | **-5,000** |" in md
     assert "| 10-10 | AAA<br>100.00 · 목표 140.00 · 손절 92.00 | RSI | 진행 중 +2.0% |" in md
 
 
@@ -86,10 +86,21 @@ def test_money_table_uses_capped_won_from_data():
     money = {"book": {"closed": 1, "closed_r": -6.53, "closed_won": -35237.0,
                       "open": 0, "open_r": 0.0, "open_won": 0.0, "total_won": -35237.0}}
     md = gen._strategies_index({**DATA, "money": money, "seed_won": 1_000_000, "r_won": 10_000}, {})
-    assert "1건 -35,237원" in md and "-65,300원" not in md
+    assert "1건<br>-35,237" in md and "-65,300" not in md
 
 
 def test_money_table_old_data_falls_back_to_r():
     money = {"base": {"closed": 1, "closed_r": -1.0, "open": 0, "open_r": 0.0, "total_won": -10000.0}}
     md = gen._strategies_index({**DATA, "money": money, "seed_won": 1_000_000, "r_won": 10_000}, {})
-    assert "1건 -10,000원" in md
+    assert "1건<br>-10,000" in md
+
+
+def test_money_table_shows_pending_and_home_matches():
+    """체결 대기를 표와 홈이 같은 숫자로 말한다 (2026-11-07 unslop 002)."""
+    from sitegen import home
+    money = {"base": {"closed": 1, "closed_r": 0.0, "open": 2, "open_r": 0.0, "pending": 3, "total_won": 0.0}}
+    md = gen._strategies_index({**DATA, "money": money, "seed_won": 1_000_000, "r_won": 10_000}, {})
+    assert "2건<br>+0<br>대기 3건" in md
+    assert "| 방식 | 끝남 (원) | 진행 중 (원) | 합계 (원) |" in md
+    box = home._strategy_box({"money": money})
+    assert "진행 2 · 대기 3" in box

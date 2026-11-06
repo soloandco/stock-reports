@@ -94,7 +94,7 @@ def _buy_card(t: dict, names: dict, alert_pages: dict, today: str) -> str:
     when = "오늘" if day == today else common._md(day)
     body = (f'<div class="m-card__head"><b class="m-card__ticker">{tk}</b>{name_html}'
             f'<span class="m-card__how">{common._STRAT_LABEL.get(t.get("strategy"), "")}</span></div>'
-            f'<div class="m-card__line"><b>${t["entry"]:,.2f}</b>'
+            f'<div class="m-card__line"><span><span class="m-muted">추천</span> <b>${t["entry"]:,.2f}</b></span>'
             f'<span>손절 <b class="m-neg">${t["stop"]:,.2f}</b></span><span class="m-muted">{when}</span></div>')
     href = f"watchlist/{tk}/" if tk in names else alert_pages.get(tk)
     if href:
@@ -114,9 +114,17 @@ def _conclusion_section(perf: dict, snaps: list[dict], names: dict, alerts: list
     hero = (f'<div class="m-hero__n">{n_today}<small>종목</small></div>' if n_today
             else '<div class="m-hero__n m-hero__n--none">없음</div>')
     out = [f'<div class="m-hero"><div class="m-hero__k">오늘 살 종목</div>{hero}</div>']
-    if buys:
+    # 오늘 신호와 지난 신호를 나눈다. 큰 숫자(오늘)와 아래 카드 수가 어긋나 보였다 (2026-11-07)
+    shown = buys[:max_cards]
+    fresh = [t for t in shown if str(t.get("ts", ""))[:10] == today]
+    older = [t for t in shown if str(t.get("ts", ""))[:10] != today]
+    if fresh:
         out.append('<div class="m-cards">'
-                   + "".join(_buy_card(t, names, pages, today) for t in buys[:max_cards]) + '</div>')
+                   + "".join(_buy_card(t, names, pages, today) for t in fresh) + '</div>')
+    if older:
+        out.append(f'<div class="m-sec">지난 {RECENT_DAYS}일 신호</div>')
+        out.append('<div class="m-cards">'
+                   + "".join(_buy_card(t, names, pages, today) for t in older) + '</div>')
     n_buy = sum(1 for s in snaps if s["verdict"] in common._BUY_STATES)
     if n_buy:
         out.append(f'<a class="m-row" href="watchlist/#buy"><span>매수 상태 전체 <b>{n_buy}</b>종목</span>'
@@ -160,10 +168,13 @@ def _strategy_box(perf: dict) -> str:
         return ""
     total = sum(m.get("total_won", 0) for m in money.values())
     closed = sum(m.get("closed", 0) for m in money.values())
-    open_n = sum(m.get("open", 0) + m.get("pending", 0) for m in money.values())
+    # 체결 대기는 따로 센다. 추천 기록 표와 같은 숫자를 말하게 (2026-11-07)
+    open_n = sum(m.get("open", 0) for m in money.values())
+    pending = sum(m.get("pending", 0) for m in money.values())
+    wait = f" · 대기 {pending}" if pending else ""
     cls = "m-pos" if total >= 0 else "m-neg"
     return (f'<a class="m-row" href="strategies/"><span>추천대로 샀다면 <b class="{cls}">{total:+,.0f}원</b></span>'
-            f'<span class="m-muted">끝남 {closed} · 진행 {open_n}</span><span class="m-go">›</span></a>\n')
+            f'<span class="m-muted">끝남 {closed} · 진행 {open_n}{wait}</span><span class="m-go">›</span></a>\n')
 
 
 # AI 스윙 대결 (2026-11-06 사용자 요청: 홈에 에이전트 수익률 비교). 사이트는 core 를 못 불러
