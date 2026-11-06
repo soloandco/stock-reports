@@ -188,7 +188,7 @@ def _duel_rows(last: dict) -> str:
         pct = (v / DUEL_START_CASH - 1) * 100
         cls = "m-pos" if pct > 0 else "m-neg" if pct < 0 else ""
         out.append(f'<div class="m-card__line"><span>{i}. {DUEL_LABELS.get(k, k)}</span>'
-                   f'<b class="m-muted {cls}">{pct:+.2f}%</b></div>')
+                   f'<b class="{cls}" style="margin-left:auto">{pct:+.2f}%</b></div>')
     return "".join(out)
 
 

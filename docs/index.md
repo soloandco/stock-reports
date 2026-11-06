@@ -10,6 +10,6 @@
 
 <a class="m-row" href="strategies/"><span>추천대로 샀다면 <b class="m-pos">+135,635원</b></span><span class="m-muted">끝남 78 · 진행 46</span><span class="m-go">›</span></a>
 
-<div class="m-card m-list"><div class="m-card__head"><b>AI 대결 <span class="m-muted">지난 시즌 10-26~11-05 · 새 시즌 준비 중</span></b></div><div class="m-card__line"><span>1. Claude</span><b class="m-muted m-pos">+0.67%</b></div><div class="m-card__line"><span>2. GPT</span><b class="m-muted m-neg">-0.30%</b></div><div class="m-card__line"><span>3. 규칙(스윙)</span><b class="m-muted m-neg">-1.92%</b></div><div class="m-card__line"><span>4. SPY 보유</span><b class="m-muted m-neg">-4.57%</b></div></div>
+<div class="m-card m-list"><div class="m-card__head"><b>AI 대결 <span class="m-muted">지난 시즌 10-26~11-05 · 새 시즌 준비 중</span></b></div><div class="m-card__line"><span>1. Claude</span><b class="m-pos" style="margin-left:auto">+0.67%</b></div><div class="m-card__line"><span>2. GPT</span><b class="m-neg" style="margin-left:auto">-0.30%</b></div><div class="m-card__line"><span>3. 규칙(스윙)</span><b class="m-neg" style="margin-left:auto">-1.92%</b></div><div class="m-card__line"><span>4. SPY 보유</span><b class="m-neg" style="margin-left:auto">-4.57%</b></div></div>
 
 
