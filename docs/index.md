@@ -1,6 +1,6 @@
 # 오늘
 
-<p class="m-basis">11월 8일(일) 기준</p>
+<p class="m-basis">11월 9일(월) 기준</p>
 
 <a class="m-mkt" href="fear-index/"><span>시장 분위기</span><b class="m-wrn">극공포 22</b><span class="m-go">›</span></a>
 

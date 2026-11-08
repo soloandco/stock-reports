@@ -16,11 +16,11 @@ status: watching
 
 # KO Coca-Cola
 
-<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$95.67</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">11-08 기준</div><div class="m-lv3"><div><span>손절</span><b>$92.22</b><em class="m-neg">-3.6%</em></div><div><span>목표</span><b>$112.93</b><em class="m-pos">+18.0%</em></div></div></div>
+<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$95.67</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">11-09 기준</div><div class="m-lv3"><div><span>손절</span><b>$92.22</b><em class="m-neg">-3.6%</em></div><div><span>목표</span><b>$112.93</b><em class="m-pos">+18.0%</em></div></div></div>
 
 <div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세</span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 조건 7개 중 7개 <small>(5개 이상이면 매수)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>오래된 신호 <small>(추격 비추천)</small></span></div></div>
 
-<p class="m-more"><a href="../../snapshots/KO-2026-11-08/">자세한 분석 ›</a></p>
+<p class="m-more"><a href="../../snapshots/KO-2026-11-09/">자세한 분석 ›</a></p>
 
 
 ## 차트
@@ -54,7 +54,7 @@ status: watching
     | Yacktman Asset Management | 1.2% | 보유 | 모름<br>첫 신고(2013-06) 전부터 보유 |
 
     <details class="stock-chart-note"><summary>2026-09-30 기준 공시(최대 45일 늦음). 참고 정보이며 매수 신호가 아닙니다 · 자세히</summary>
-    <p>2026-09-30 기준 보유를 SEC 13F 공시로 셉니다(공시 반영 2026-11-08). 분기 말 뒤 최대 45일 늦게 공개되고 매입 단가는 없습니다. 비중 1% 미만 보유는 세지 않습니다. 추정 평단은 주식이 늘어난 분기마다 그 분기 거래량 가중 평균가에 샀다고 보고 쌓은 값이고, 둘째 줄은 그 분기 최저가~최고가로 잡은 범위입니다. 괄호는 현재가 대비입니다. 그 투자자의 첫 13F 신고(가장 이르면 2013년) 전부터 들고 있던 종목은 매입가를 알 수 없어 「모름」입니다. 버크셔 실제 원가와 대조(2019~2021년)하면 장내에서 산 종목은 대부분 ±6% 안이었고, 판 뒤에는 10~16%까지 벌어졌습니다. 종목 코드가 바뀐 경우(구글→알파벳 등)는 이어서 계산합니다. 신주인수권 행사로 받은 주식은 크게 틀릴 수 있습니다. 유명 투자자 명단은 Dataroma, 집중 투자 기관은 보유 5~50종목·총액 5억 달러 이상인 기관입니다. 검증(2026-09-23, 11년 1만 건)에서 보유 기관 수는 매수 신호 성적과 무관했고, 여러 기관이 새로 산 종목은 좋은 쪽이었지만 기준에 못 미쳤습니다. 참고 정보이며 매수 신호가 아닙니다.</p></details>
+    <p>2026-09-30 기준 보유를 SEC 13F 공시로 셉니다(공시 반영 2026-11-09). 분기 말 뒤 최대 45일 늦게 공개되고 매입 단가는 없습니다. 비중 1% 미만 보유는 세지 않습니다. 추정 평단은 주식이 늘어난 분기마다 그 분기 거래량 가중 평균가에 샀다고 보고 쌓은 값이고, 둘째 줄은 그 분기 최저가~최고가로 잡은 범위입니다. 괄호는 현재가 대비입니다. 그 투자자의 첫 13F 신고(가장 이르면 2013년) 전부터 들고 있던 종목은 매입가를 알 수 없어 「모름」입니다. 버크셔 실제 원가와 대조(2019~2021년)하면 장내에서 산 종목은 대부분 ±6% 안이었고, 판 뒤에는 10~16%까지 벌어졌습니다. 종목 코드가 바뀐 경우(구글→알파벳 등)는 이어서 계산합니다. 신주인수권 행사로 받은 주식은 크게 틀릴 수 있습니다. 유명 투자자 명단은 Dataroma, 집중 투자 기관은 보유 5~50종목·총액 5억 달러 이상인 기관입니다. 검증(2026-09-23, 11년 1만 건)에서 보유 기관 수는 매수 신호 성적과 무관했고, 여러 기관이 새로 산 종목은 좋은 쪽이었지만 기준에 못 미쳤습니다. 참고 정보이며 매수 신호가 아닙니다.</p></details>
 
 
 
