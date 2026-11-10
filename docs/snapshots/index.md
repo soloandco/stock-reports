@@ -38,7 +38,7 @@
 | [BBY](BBY-2026-11-11.md) | [Best Buy](BBY-2026-11-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-11 |
 | [BE](BE-2026-11-11.md) | [Bloom Energy](BE-2026-11-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/7 | 2026-11-11 |
 | [BMY](BMY-2026-11-11.md) | [Bristol Myers Squibb](BMY-2026-11-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-11-11 |
-| [BR](BR-2026-11-11.md) | [Broadridge Financial Solutions](BR-2026-11-11.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 4/7 | 2026-11-11 |
+| [BR](BR-2026-11-11.md) | [Broadridge Financial Solutions](BR-2026-11-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 5/7 | 2026-11-11 |
 | [CAT](CAT-2026-11-11.md) | [Caterpillar](CAT-2026-11-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/7 | 2026-11-11 |
 | [CB](CB-2026-11-11.md) | [Chubb](CB-2026-11-11.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-11 |
 | [CDNS](CDNS-2026-11-11.md) | [Cadence Design Systems](CDNS-2026-11-11.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 5/7 | 2026-11-11 |
