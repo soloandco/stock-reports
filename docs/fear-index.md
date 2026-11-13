@@ -16,7 +16,7 @@
     | 정크본드 수요 | 62.4 | 🟢 탐욕 |
     | 안전자산 수요 | 21.2 | 🔴 극공포 |
 
-<p class="m-fine">2026-11-13 22:43 UTC 기준 · 출처 <a href="https://edition.cnn.com/markets/fear-and-greed">CNN</a></p>
+<p class="m-fine">2026-11-13 23:00 UTC 기준 · 출처 <a href="https://edition.cnn.com/markets/fear-and-greed">CNN</a></p>
 
 ## 변동성
 
@@ -53,7 +53,7 @@
 
 ## 섹터 자금 흐름
 
-<p class="m-fine">최근 20일 거래량으로 본 돈의 방향입니다. 2026-11-13 22:43 UTC 기준</p>
+<p class="m-fine">최근 20일 거래량으로 본 돈의 방향입니다. 2026-11-13 23:01 UTC 기준</p>
 
 ### 미국 (S&P 500 섹터 ETF)
 
@@ -73,7 +73,7 @@
 
 ## 테마별 자금 흐름
 
-<p class="m-fine">돈이 어느 테마로 몰리는지 봅니다. 2026-11-13 22:43 UTC 기준</p>
+<p class="m-fine">돈이 어느 테마로 몰리는지 봅니다. 2026-11-13 23:01 UTC 기준</p>
 
 ### 미국 테마
 
