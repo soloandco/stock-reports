@@ -16,7 +16,7 @@
     | 정크본드 수요 | 62.4 | 🟢 탐욕 |
     | 안전자산 수요 | 21.2 | 🔴 극공포 |
 
-<p class="m-fine">2026-11-13 23:00 UTC 기준 · 출처 <a href="https://edition.cnn.com/markets/fear-and-greed">CNN</a></p>
+<p class="m-fine">2026-11-14 23:07 UTC 기준 · 출처 <a href="https://edition.cnn.com/markets/fear-and-greed">CNN</a></p>
 
 ## 변동성
 
@@ -53,7 +53,7 @@
 
 ## 섹터 자금 흐름
 
-<p class="m-fine">최근 20일 거래량으로 본 돈의 방향입니다. 2026-11-13 23:01 UTC 기준</p>
+<p class="m-fine">최근 20일 거래량으로 본 돈의 방향입니다. 2026-11-14 23:07 UTC 기준</p>
 
 ### 미국 (S&P 500 섹터 ETF)
 
@@ -73,7 +73,7 @@
 
 ## 테마별 자금 흐름
 
-<p class="m-fine">돈이 어느 테마로 몰리는지 봅니다. 2026-11-13 23:01 UTC 기준</p>
+<p class="m-fine">돈이 어느 테마로 몰리는지 봅니다. 2026-11-14 23:07 UTC 기준</p>
 
 ### 미국 테마
 
@@ -86,25 +86,25 @@
 
 ## 거물 신규 매수 (13F)
 
-유명 투자자 83곳 중 **2명 이상이 이번 분기에 새로 산 종목** 16개 · 2026-09-30 기준 (분기 말 뒤 최대 45일 늦게 공개)
+유명 투자자 83곳 중 **2명 이상이 이번 분기에 새로 산 종목** 17개 · 2026-09-30 기준 (분기 말 뒤 최대 45일 늦게 공개)
 
-<div class="m-chips13"><span class="m-chip13">SPGI<small>3명</small></span><span class="m-chip13">META<small>3명</small></span><span class="m-chip13">WBD<small>2명</small></span><span class="m-chip13">MA<small>2명</small></span><span class="m-chip13">NFLX<small>2명</small></span><span class="m-chip13">UBER<small>2명</small></span><span class="m-chip13">V<small>2명</small></span><span class="m-chip13">HD<small>2명</small></span><a class="m-chip13" href="../watchlist/GEV/">GEV<small>2명</small></a><span class="m-chip13">TTMI<small>2명</small></span></div>
+<div class="m-chips13"><span class="m-chip13">SUNB<small>3명</small></span><span class="m-chip13">SPGI<small>3명</small></span><span class="m-chip13">META<small>3명</small></span><span class="m-chip13">WBD<small>2명</small></span><span class="m-chip13">SE<small>2명</small></span><span class="m-chip13">MA<small>2명</small></span><span class="m-chip13">NFLX<small>2명</small></span><span class="m-chip13">UBER<small>2명</small></span><span class="m-chip13">V<small>2명</small></span><span class="m-chip13">HD<small>2명</small></span></div>
 
 ??? note "누가 샀는지 보기"
 
     | 종목 | 새로 산 투자자 | 인원 |
     |------|----------------|-----:|
+    | **SUNB**<br>Sunbelt Rentals Holdings, Inc. | AKO Capital 15.8% · Thomas Russo 4.9% · Dodge & Cox 2.1% | 3 |
     | **SPGI**<br>S&P Global Inc. | Bill Ackman 5.4% · Triple Frond Partners 4.2% · Christopher Bloomstran 2.1% | 3 |
     | **META**<br>Meta Platforms, Inc. | Clifford Sosin 4.1% · Lee Ainslie 3.9% · John Armitage 1.4% | 3 |
     | **WBD**<br> | Daniel Loeb 11.5% · David Einhorn 1.5% | 2 |
+    | **SE**<br>Sea Ltd | Sarah Ketterer 10.1% · Howard Marks 1.6% | 2 |
     | **MA**<br>Mastercard Inc | Bill Ackman 5.6% · Terry Smith 4.7% | 2 |
     | **NFLX**<br>Netflix Inc | Bill Ackman 4.8% · Terry Smith 3.7% | 2 |
     | **UBER**<br>Uber Technologies, Inc | Terry Smith 4.7% · Harry Burn 2.2% | 2 |
     | **V**<br>Visa Inc. | Bill Ackman 5.8% · Chase Coleman 1.1% | 2 |
     | **HD**<br>Home Depot, Inc. | Stephen Mandel 5.6% · Bill & Melinda Gates Foundation Trust 1.0% | 2 |
-    | [**GEV**](watchlist/GEV.md)<br>GE Vernova | Terry Smith 3.5% · Polen Capital 2.0% | 2 |
-    | **TTMI**<br>Ttm Technologies Inc | Stephen Mandel 3.1% · Daniel Loeb 2.0% | 2 |
-    | 외 6종목 | | |
+    | 외 7종목 | | |
 
 <p class="m-fine">참고 정보이며 매수 신호가 아닙니다. 검증(2026-09-23, 11년 1만 건)에서 여러 기관이 새로 산 종목의 매수 신호는 성적이 좋은 쪽이었지만 기준에 못 미쳤습니다.</p>
 
