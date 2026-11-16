@@ -86,7 +86,7 @@
 | [KO](KO-2026-11-17.md) | [Coca-Cola](KO-2026-11-17.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-17 |
 | [LH](LH-2026-11-17.md) | [Labcorp](LH-2026-11-17.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-17 |
 | [LII](LII-2026-11-17.md) | [Lennox International](LII-2026-11-17.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 0/7 | 2026-11-17 |
-| [LLY](LLY-2026-11-17.md) | [Eli Lilly](LLY-2026-11-17.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(이격과대)</span> | 2 | 7/7 | 2026-11-17 |
+| [LLY](LLY-2026-11-17.md) | [Eli Lilly](LLY-2026-11-17.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-17 |
 | [LUNR](LUNR-2026-11-17.md) | [Intuitive Machines](LUNR-2026-11-17.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 2/7 | 2026-11-17 |
 | [LYB](LYB-2026-11-17.md) | [LyondellBasell](LYB-2026-11-17.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/7 | 2026-11-17 |
 | [MCD](MCD-2026-11-17.md) | [McDonald's](MCD-2026-11-17.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 2/7 | 2026-11-17 |
