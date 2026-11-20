@@ -9,20 +9,20 @@
     | 지표 | 점수 | 등급 |
     |------|------|------|
     | S&P500 모멘텀 | 0.2 | 🔴 극공포 |
-    | 신고가/신저가 | 27.6 | 🟠 공포 |
+    | 신고가/신저가 | 27.2 | 🟠 공포 |
     | 시장 폭 | 20.0 | 🔴 극공포 |
     | 풋/콜 비율 | 2.0 | 🔴 극공포 |
-    | VIX | 0.7 | 🔴 극공포 |
+    | VIX | 1.3 | 🔴 극공포 |
     | 정크본드 수요 | 16.2 | 🔴 극공포 |
     | 안전자산 수요 | 0.8 | 🔴 극공포 |
 
-<p class="m-fine">2026-11-20 21:14 UTC 기준 · 출처 <a href="https://edition.cnn.com/markets/fear-and-greed">CNN</a></p>
+<p class="m-fine">2026-11-20 23:00 UTC 기준 · 출처 <a href="https://edition.cnn.com/markets/fear-and-greed">CNN</a></p>
 
 ## 변동성
 
 | 지수 | 지금 | 어제보다 | 등급 |
 |------|------|------|------|
-| VIX (미국) | 39.8 | +11.36 | 🟠 공포 |
+| VIX (미국) | 35.89 | +7.45 | 🟠 공포 |
 
 ## 섹터 히트맵 (S&P 500)
 
@@ -53,7 +53,7 @@
 
 ## 섹터 자금 흐름
 
-<p class="m-fine">최근 20일 거래량으로 본 돈의 방향입니다. 2026-11-20 21:15 UTC 기준</p>
+<p class="m-fine">최근 20일 거래량으로 본 돈의 방향입니다. 2026-11-20 23:01 UTC 기준</p>
 
 ### 미국 (S&P 500 섹터 ETF)
 
@@ -65,15 +65,15 @@
 | 4 | Financials | 🔴 돈 유출 |
 | 5 | Real Estate | ⚪ 중립 |
 | 6 | Utilities | 🔴 돈 유출 |
-| 7 | Consumer Discretionary | 🔴 돈 유출 |
-| 8 | Materials | 🔴 돈 유출 |
+| 7 | Materials | 🔴 돈 유출 |
+| 8 | Consumer Discretionary | 🔴 돈 유출 |
 | 9 | Industrials | 🔴 돈 유출 |
 | 10 | Technology | 🔴 돈 유출 |
 | 11 | Communication | 🔴 돈 유출 |
 
 ## 테마별 자금 흐름
 
-<p class="m-fine">돈이 어느 테마로 몰리는지 봅니다. 2026-11-20 21:15 UTC 기준</p>
+<p class="m-fine">돈이 어느 테마로 몰리는지 봅니다. 2026-11-20 23:01 UTC 기준</p>
 
 ### 미국 테마
 
