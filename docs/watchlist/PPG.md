@@ -16,16 +16,16 @@ comments: true
 
 # PPG PPG Industries
 
-<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$121.39</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 13일째 · 11-25 기준</div><div class="m-lv3"><div><span>손절</span><b>$114.76</b><em class="m-neg">-5.5%</em></div><div><span>목표</span><b>$154.56</b><em class="m-pos">+27.3%</em></div></div></div>
+<div class="m-sum m-sum--buy"><div class="m-sum__top"><span class="m-sum__px">$121.42</span><span class="verdict verdict-buy">매수</span></div><div class="m-sum__sub">신호 13일째 · 11-25 기준</div><div class="m-lv3"><div><span>손절</span><b>$114.79</b><em class="m-neg">-5.5%</em></div><div><span>목표</span><b>$154.59</b><em class="m-pos">+27.3%</em></div></div></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세</span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 조건 7개 중 6개 <small>(5개 이상이면 매수)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>신호 13일째 <small>(추격 비추천)</small></span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--ok"><i>✓</i><span>상승 추세</span></div><div class="m-ck m-ck--ok"><i>✓</i><span>상승 조건 7개 중 7개 <small>(5개 이상이면 매수)</small></span></div><div class="m-ck m-ck--warn"><i>!</i><span>신호 13일째 <small>(추격 비추천)</small></span></div></div>
 
 <p class="m-more"><a href="../../snapshots/PPG-2026-11-25/">자세한 분석 ›</a></p>
 
 
 ## 차트
 
-<div class="stock-chart" data-src="../charts/PPG.json" data-stop="114.7609"></div>
+<div class="stock-chart" data-src="../charts/PPG.json" data-stop="114.7860"></div>
 
 <details class="stock-chart-note"><summary>매물벽·지지대는 검증에서 무작위 선과 같았습니다. 아래 두 칸도 매수 신호 아님 · 자세히</summary>
 <p>추세선·매물벽(저항)·지지대를 함께 표시합니다. 매물벽·지지대는 위치 참고용이며, 검증(2026-09-07)에서 받치고 막는 비율이 무작위 선과 같았습니다. 아래 칸은 일봉 종가 위치로 추정한 수급 누적선입니다(매수 신호 아님). 맨 아래 칸은 물린 비율(최근 1년 거래량 중 현재가보다 비싸게 거래된 비중)입니다. 측정(2026-09-14, 11년 620종목)에서 이 비율은 「1년 가격 범위의 어디에 있나」와 구분되지 않았고, 앞으로의 수익을 가르지 못했습니다(층화 차이 −0.02R·CI 0 포함). 심리 지도라기보다 위치 표시로 읽으세요. 손가락으로 확대·이동할 수 있습니다.</p>

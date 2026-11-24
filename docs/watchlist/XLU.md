@@ -17,9 +17,9 @@ comments: true
 
 # XLU 유틸리티 섹터 ETF
 
-<div class="m-sum m-sum--nobuy"><div class="m-sum__top"><span class="m-sum__px">$43.41</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span></div><div class="m-sum__sub">11-25 기준</div><p class="m-why">상승 구조 조건이 매수 기준에 못 미칩니다.</p></div>
+<div class="m-sum m-sum--sell"><div class="m-sum__top"><span class="m-sum__px">$43.40</span><span class="verdict verdict-sell">매도관찰</span></div><div class="m-sum__sub">11-25 기준</div><p class="m-why">하락 구간입니다. 새로 사지 않는 자리입니다.</p></div>
 
-<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>바닥 다지기 구간</span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 조건 7개 중 3개 <small>(5개 이상이면 매수)</small></span></div><div class="m-ck m-ck--no"><i>✕</i><span>기준미달</span></div></div>
+<div class="m-box m-checks"><div class="m-ck m-ck--no"><i>✕</i><span>하락 구간</span></div><div class="m-ck m-ck--no"><i>✕</i><span>상승 조건 7개 중 3개 <small>(5개 이상이면 매수)</small></span></div></div>
 
 <p class="m-more"><a href="../../snapshots/XLU-2026-11-25/">자세한 분석 ›</a></p>
 

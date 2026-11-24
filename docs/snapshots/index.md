@@ -108,7 +108,7 @@
 | [PM](PM-2026-11-25.md) | [Philip Morris](PM-2026-11-25.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/7 | 2026-11-25 |
 | [PNC](PNC-2026-11-25.md) | [PNC Financial Services Group](PNC-2026-11-25.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/7 | 2026-11-25 |
 | [PNW](PNW-2026-11-25.md) | [Pinnacle West Capital](PNW-2026-11-25.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 5/7 | 2026-11-25 |
-| [PPG](PPG-2026-11-25.md) | [PPG Industries](PPG-2026-11-25.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-11-25 |
+| [PPG](PPG-2026-11-25.md) | [PPG Industries](PPG-2026-11-25.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-25 |
 | [PPL](PPL-2026-11-25.md) | [PPL](PPL-2026-11-25.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 3/7 | 2026-11-25 |
 | [PSA](PSA-2026-11-25.md) | [Public Storage](PSA-2026-11-25.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-25 |
 | [PSX](PSX-2026-11-25.md) | [Phillips 66](PSX-2026-11-25.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-11-25 |
@@ -146,7 +146,7 @@
 | [XLK](XLK-2026-11-25.md) | [테크놀로지 섹터 ETF](XLK-2026-11-25.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 3/7 | 2026-11-25 |
 | [XLP](XLP-2026-11-25.md) | [필수소비재 섹터 ETF](XLP-2026-11-25.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-11-25 |
 | [XLRE](XLRE-2026-11-25.md) | [리츠 섹터 ETF](XLRE-2026-11-25.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도후보</span> | 3 | 4/7 | 2026-11-25 |
-| [XLU](XLU-2026-11-25.md) | [유틸리티 섹터 ETF](XLU-2026-11-25.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 1 | 3/7 | 2026-11-25 |
+| [XLU](XLU-2026-11-25.md) | [유틸리티 섹터 ETF](XLU-2026-11-25.md) | <span class="verdict-sort">9</span><span class="verdict verdict-nobuy">매도관찰</span> | 4 | 3/7 | 2026-11-25 |
 | [XLV](XLV-2026-11-25.md) | [헬스케어 섹터 ETF](XLV-2026-11-25.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 7/7 | 2026-11-25 |
 | [XLY](XLY-2026-11-25.md) | [임의소비재 섹터 ETF](XLY-2026-11-25.md) | <span class="verdict-sort">2</span><span class="verdict verdict-nobuy">매수불가</span> <span class="verdict-reason">(기준미달)</span> | 2 | 4/7 | 2026-11-25 |
 | [ZBRA](ZBRA-2026-11-25.md) | [Zebra Technologies](ZBRA-2026-11-25.md) | <span class="verdict-sort">0</span><span class="verdict verdict-buy">매수</span> | 2 | 6/7 | 2026-11-25 |
